@@ -1,4 +1,4 @@
-export enum PAGE_MODE {
+export enum GENERIC_PAGE_MODE {
   CREATE = 'create',
   EDIT = 'edit',
   VIEW = 'view',

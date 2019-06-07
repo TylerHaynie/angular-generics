@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter, Input, TemplateRef } from '@angular/core';
 
 @Component({
-  selector: 'list-wrapper',
-  templateUrl: './list.component.html'
+  selector: 'generic-list',
+  templateUrl: './generic-list.component.html'
 })
-export class ListComponent implements OnInit {
+export class GenericListComponent implements OnInit {
   @Input() title: string = 'List';
   @Input() listTemplate: TemplateRef<any>;
   @Input() filterTemplate: TemplateRef<any>;

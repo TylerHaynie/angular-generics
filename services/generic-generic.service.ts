@@ -1,6 +1,6 @@
-import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { GenericSearchResponse, GenericSearchRequest } from './generic-search';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +8,10 @@ import { Injectable } from '@angular/core';
 export class GenericService {
   constructor(private http: HttpClient) { }
 
-  get<T>(endpoint: string): Promise<T[]>;
-  get<T>(endpoint: string, id: number | string): Promise<T>;
-  get<T>(endpoint: string, id?: number | string): Promise<T | T[]> {
-    let url = `${environment.apiRoot}/${endpoint}`;
+  get<T>(path: string): Promise<T[]>;
+  get<T>(path: string, id: number | string): Promise<T>;
+  get<T>(path: string, id?: number | string): Promise<T | T[]> {
+    let url = `${path}`;
     if (id) { url = `${url}/${id}`; }
 
     return new Promise((resolve, reject) => {
@@ -26,8 +26,8 @@ export class GenericService {
     });
   }
 
-  post<T>(endpoint: string, body: any): Promise<T> {
-    let url = `${environment.apiRoot}/${endpoint}`;
+  post<T>(path: string, body: any): Promise<T> {
+    let url = `${path}`;
 
     return new Promise((resolve, reject) => {
       this.http.post(url, body)
@@ -46,8 +46,8 @@ export class GenericService {
     });
   }
 
-  put<T>(endpoint: string, body: any): Promise<T> {
-    let url = `${environment.apiRoot}/${endpoint}`;
+  put<T>(path: string, body: any): Promise<T> {
+    let url = `${path}`;
 
     return new Promise((resolve, reject) => {
       this.http.put(url, body)
@@ -66,14 +66,14 @@ export class GenericService {
     });
   }
 
-  search<T>(endpoint: string, body: any): Promise<T> {
-    let url = `${environment.apiRoot}/${endpoint}`;
+  search<T>(body: GenericSearchRequest): Promise<GenericSearchResponse<T>> {
+    let url = `${body.endpoint}`;
 
     return new Promise((resolve, reject) => {
       this.http.post(url, body)
         .toPromise()
         .then(
-          (res: T) => { resolve(res); },
+          (res: GenericSearchResponse<T>) => { resolve(res); },
           (err) => {
             // let modelErrors = this.parseErrors(err);
             // if (modelErrors) {

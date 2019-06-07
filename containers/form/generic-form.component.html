@@ -20,15 +20,14 @@
     <div class="h-seperator"></div>
 
     <div class="col-2 full-width-content">
-      <styled-button *ngIf="(!(pageMode == 'view')) && showCancel" [buttonText]="'Cancel'" (clicked)="doCancel()"
+      <generic-button *ngIf="(!(pageMode == 'view')) && showCancel" [buttonText]="'Cancel'" (clicked)="doCancel()"
         [color]="'red'">
-      </styled-button>
-      <styled-button *ngIf="(!(pageMode == 'view')) && showSave" [buttonText]="'Save'" (clicked)="doSave()"
+      </generic-button>
+      <generic-button *ngIf="(!(pageMode == 'view')) && showSave" [buttonText]="'Save'" (clicked)="doSave()"
         [color]="'green'">
-      </styled-button>
-      <styled-button *ngIf="(pageMode == 'view') && showEdit" [buttonText]="'Edit'" (clicked)="doEdit()"
-        [color]="'blue'">
-      </styled-button>
+      </generic-button>
+      <generic-button *ngIf="(pageMode == 'view') && showEdit" [buttonText]="'Edit'" (clicked)="doEdit()" [color]="'blue'">
+      </generic-button>
       <ng-content #extraButtons></ng-content>
     </div>
 

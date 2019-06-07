@@ -1,4 +1,4 @@
-.styled-button {
+.generic-button {
   color: var(--buttonFontColor);
   text-transform: uppercase;
   font-weight: 600;
@@ -9,7 +9,7 @@
   border-radius: 5px;
 }
 
-.styled-button:active {
+.generic-button:active {
   box-shadow: inset 0 0 5px 1px var(--shadowDark);
 }
 

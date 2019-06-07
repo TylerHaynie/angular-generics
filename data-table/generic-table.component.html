@@ -13,12 +13,12 @@
     <div class="col-2">
       <ng-container *ngIf="filterVisible">
         <div class="col-1">
-          <styled-button [buttonText]="'Search'" (clicked)="search()" [color]="'blue'">
-          </styled-button>
+          <generic-button [buttonText]="'Search'" (clicked)="search()" [color]="'blue'">
+          </generic-button>
         </div>
         <div class="col-1">
-          <styled-button [buttonText]="'Reset'" (clicked)="resetSearch()" [color]="'gray'">
-          </styled-button>
+          <generic-button [buttonText]="'Reset'" (clicked)="resetSearch()" [color]="'gray'">
+          </generic-button>
         </div>
       </ng-container>
     </div>

@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { PAGE_MODE } from 'src/app/generic-angular/enums/page-mode';
+import { GENERIC_PAGE_MODE } from '../../enums/generic-page-mode';
 
 @Component({
-  selector: 'form-wrapper',
-  templateUrl: './form.component.html'
+  selector: 'generic-form',
+  templateUrl: './generic-form.component.html'
 })
-export class FormComponent implements OnInit {
+export class GenericFormComponent implements OnInit {
 
   @Input() title: string = 'Title';
   @Input() detailTop: string = 'Detail Top';
@@ -19,7 +19,7 @@ export class FormComponent implements OnInit {
   @Input() showEdit: boolean = true;
   @Output() editClicked: EventEmitter<null>;
 
-  @Input() pageMode: PAGE_MODE = PAGE_MODE.LOADING;
+  @Input() pageMode: GENERIC_PAGE_MODE = GENERIC_PAGE_MODE.LOADING;
 
   constructor() {
     this.cancelClicked = new EventEmitter<null>();

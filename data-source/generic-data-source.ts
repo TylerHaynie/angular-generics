@@ -1,13 +1,13 @@
 import { Subject, Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
-import { GenericService } from '../services/generic.service';
-import { SearchRequest, SearchResponse } from '../services/search';
 import { Injectable } from '@angular/core';
+import { GenericService } from '../services/generic-generic.service';
+import { GenericSearchRequest, GenericSearchResponse } from '../services/generic-search';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataTableSource<T> extends DataSource<T> {
+export class GenericDataSource<T> extends DataSource<T> {
   data: Observable<T[]>;
 
   private _dataLength: number = 0;
@@ -32,13 +32,13 @@ export class DataTableSource<T> extends DataSource<T> {
     this.data = null;
   }
 
-  search(request: SearchRequest): void {
+  search(request: GenericSearchRequest): void {
     console.log('Query', request);
 
-    this.service.search<SearchResponse<T>>(request.endpoint, request)
-      .then((report: SearchResponse<T>) => {
-        this.dataSource.next(report.data);
+    this.service.search<T>(request)
+      .then((report: GenericSearchResponse<T>) => {
         this._dataLength = report.recordCount;
+        this.dataSource.next(report.data);
       });
   }
 

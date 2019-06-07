@@ -1,4 +1,4 @@
-export class SearchRequest {
+export class GenericSearchRequest {
   endpoint: string = '';
   filter: { [field: string]: string; } = {};
   take: number = 100;
@@ -9,18 +9,18 @@ export class SearchRequest {
     direction: 'asc' | 'dsc'
   };
 
-  constructor(init?: Partial<SearchRequest>) {
+  constructor(init?: Partial<GenericSearchRequest>) {
     Object.assign(this, init);
   }
 }
 
-export class SearchResponse<T>{
+export class GenericSearchResponse<T>{
   data: T[] = [];
   page: number = 0;
   take: number = 0;
   recordCount: number = 0;
 
-  constructor(init?: Partial<SearchResponse<T>>) {
+  constructor(init?: Partial<GenericSearchResponse<T>>) {
     Object.assign(this, init);
   }
 }

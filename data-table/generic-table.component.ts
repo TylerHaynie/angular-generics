@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, ViewChild, EventEmitter, Output, AfterViewInit } from '@angular/core';
-import { DataTableColumn } from './data-table-column';
-import { DataTableSource } from './data-table-source';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { SearchRequest } from '../services/search';
+import { GenericSearchRequest } from '../services/generic-search';
+import { GenericDataSource } from '../data-source/generic-data-source';
+import { GenericTableColumn } from './generic-table-column';
 
 export class CustomAction {
   header: string = 'Custom Action';
@@ -10,13 +10,13 @@ export class CustomAction {
 }
 
 @Component({
-  selector: 'data-table',
-  templateUrl: './data-table.component.html',
+  selector: 'generic-table',
+  templateUrl: './generic-table.component.html',
 })
-export class DataTableComponent<T> implements OnInit, AfterViewInit {
+export class GenericTableComponent<T> implements OnInit, AfterViewInit {
   // data
-  @Input() columns: DataTableColumn[] = [];
-  @Input() query: SearchRequest = new SearchRequest();
+  @Input() columns: GenericTableColumn[] = [];
+  @Input() query: GenericSearchRequest = new GenericSearchRequest();
 
   // table settings
   @Input() showFooter: boolean = true;
@@ -51,7 +51,7 @@ export class DataTableComponent<T> implements OnInit, AfterViewInit {
   private activeColumns: string[] = [];
   private filterVisible: boolean = true;
 
-  constructor(private dataSource: DataTableSource<T>) {
+  constructor(private dataSource: GenericDataSource<T>) {
     this.editAction = new EventEmitter<T>();
     this.deleteAction = new EventEmitter<T>();
     this.viewAction = new EventEmitter<T>();
@@ -104,7 +104,7 @@ export class DataTableComponent<T> implements OnInit, AfterViewInit {
     this.customAction.emit({ actionName: actionName, item: item });
   }
 
-  filterChange(column: DataTableColumn, value: string) {
+  filterChange(column: GenericTableColumn, value: string) {
     this.query.filter[column.id] = value;
   }
 

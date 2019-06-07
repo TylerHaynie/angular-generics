@@ -1,14 +1,14 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { GenericService } from '../../services/generic.service';
-import { NavigationService } from '../../../services/navigation.service';
-import { RouteDefinition } from '../../../components/button-nav/navigation-definition';
+import { GenericService } from '../../services/generic-generic.service';
+import { GenericNavigationService } from 'angular-generic/services/navigation/generic-navigation.service';
+import { GenericRouteDefinition } from 'angular-generic/services/navigation/generic-route-definition';
 
 @Component({
   selector: 'generic-dropdown',
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.css']
+  templateUrl: './generic-dropdown.component.html',
+  styleUrls: ['./generic-dropdown.component.css']
 })
-export class DropdownComponent implements OnInit {
+export class GenericDropdownComponent implements OnInit {
   @Input() displayProperty: string;
   @Input() indexProperty: string = 'id';
   @Input() disabled: boolean = false;
@@ -21,7 +21,7 @@ export class DropdownComponent implements OnInit {
 
   currentSelection: any;
 
-  constructor(private api: GenericService, private navService: NavigationService) {
+  constructor(private api: GenericService, private navService: GenericNavigationService) {
     this.selectionChanged = new EventEmitter<any>();
   }
 
@@ -43,7 +43,7 @@ export class DropdownComponent implements OnInit {
   }
 
   addItem() {
-    this.navService.navigateTo(new RouteDefinition({ path: this.addItemRoute }));
+    this.navService.navigateTo(new GenericRouteDefinition({ path: this.addItemRoute }));
   }
 
 }

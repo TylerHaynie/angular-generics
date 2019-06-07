@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
-  selector: 'styled-button',
-  templateUrl: './styled-button.component.html',
-  styleUrls: ['./styled-button.component.css']
+  selector: 'generic-button',
+  templateUrl: './generic-button.component.html',
+  styleUrls: ['./generic-button.component.css']
 })
-export class StyledButtonComponent implements OnInit {
+export class GenericButtonComponent implements OnInit {
   @Input() buttonText: string = '';
   @Input() isEnabled: boolean = true;
   @Input() showIcon: boolean = false;

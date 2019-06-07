@@ -1,0 +1,28 @@
+{
+  "name": "angular-generic",
+  "version": "0.0.1",
+  "description": "Collection of generic Angular controls\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[CA \u001b[2~c\u001b[2Collection of Generic Angular controls",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerHaynie/angular-generic.git"
+  },
+  "keywords": [
+    "Angular",
+    "generic",
+    "form",
+    "control",
+    "data",
+    "table",
+    "material"
+  ],
+  "author": "Tyler Haynie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TylerHaynie/angular-generic/issues"
+  },
+  "homepage": "https://github.com/TylerHaynie/angular-generic#readme"
+}

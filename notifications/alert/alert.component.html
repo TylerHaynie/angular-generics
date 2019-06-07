@@ -1,0 +1,11 @@
+<div class="alerts col-1">
+  <div *ngFor="let item of alerts" class="alert v-center-content col-2-auto-right"
+    [ngClass]="{'red-box': item.color == 'red', 'green-box': item.color == 'green', 'blue-box': item.color == 'blue', 'purple-box': item.color == 'purple', 'orange-box': item.color == 'orange'}">
+    <div class="alert-message">
+      {{item.message}}
+    </div>
+    <div class="col-1">
+      <mat-icon class="close-button pointer" (click)="alertClosed(item)">cancel</mat-icon>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="col-1 full-width-content">
+  <div *ngIf="!disabled && source"
+       [ngClass]="{'col-2-auto-right': addItemRoute, 'col-1': !addItemRoute}">
+    <mat-select class="full-width-content" name="itemSelector"
+                placeholder="placeholder" [value]="selectedId"
+                (selectionChange)="changedSelection($event)">
+      <mat-option *ngFor="let item of source" [value]="item[indexProperty]">
+        {{item[displayProperty]}}
+      </mat-option>
+    </mat-select>
+    <div *ngIf="addItemRoute" class="add-button pointer col-1" (click)="addItem()">
+      <mat-icon>add_circle</mat-icon>
+    </div>
+  </div>
+  <div *ngIf="disabled && currentSelection">
+    <input disabled type="text" [value]="currentSelection[displayProperty]">
+  </div>
+</div>

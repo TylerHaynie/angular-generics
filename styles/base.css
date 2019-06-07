@@ -1,0 +1,22 @@
+div,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+.h-seperator {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 15px 0;
+  border: 1px solid var(--seperatorColor);
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+
+.h-seperator * {
+  width: 100%;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}

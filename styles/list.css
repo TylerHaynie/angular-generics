@@ -1,0 +1,64 @@
+.list {
+  border: 1px solid var(--listBorderColor);
+  background-color: var(--listBackgroundColor);
+  border-radius: 4px;
+}
+
+.list-footer {
+  padding: 5px 3px;
+  min-height: 25px;
+}
+
+.small-header {
+  font-size: .95em;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #080808;
+  text-shadow: 0 0 0 rgb(0, 0, 0);
+  border-bottom: 1px solid;
+}
+
+.list-header {
+  border-bottom: var(--formHeaderBorder);
+  min-height: 30px;
+}
+
+.list-header-button {
+  margin: 5px;
+}
+
+.list-title {
+  padding: 5px 5px 0px 3px;
+  font-size: 1.5em;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.item {
+  border-bottom: 2px solid var(--listItemColor);
+}
+
+.item:hover {
+  background-color: var(--listItemHoverColor);
+  cursor: pointer;
+}
+
+.header-title {
+  font-size: 1.20em;
+  text-transform: capitalize;
+}
+
+.title {
+  font-size: 1.0em;
+  font-weight: bold;
+}
+
+.details {
+  font-weight: normal;
+  font-size: 0.85em;
+}
+
+.order-date {
+  font-weight: normal;
+}

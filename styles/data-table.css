@@ -1,0 +1,19 @@
+.filter-container{
+  margin: 5px 0;
+  background-color: #eef3fa;
+}
+
+.filter-header {
+  padding-bottom: 5px;
+  background-color: var(--primaryBackgroundColor);
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+.filter-header>.header {
+  font-size: 1.25em;
+  color: #4a5668;
+}
+
+.filters{
+  border-bottom: 1px solid rgb(204, 204, 204);
+}

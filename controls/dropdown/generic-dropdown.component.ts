@@ -37,7 +37,7 @@ export class GenericDropdownComponent implements OnInit {
   }
 
   setSelection() {
-    if (this.selectedId && this.selectedId > 0) {
+    if (this.source) {
       this.currentSelection = this.source.find(x => x[this.indexProperty] === this.selectedId);
     }
   }

@@ -14,7 +14,7 @@
     </div>
 
     <div class="col-1">
-      <ng-content select="[formContent]"></ng-content>
+      <ng-content *ngIf="!(pageMode == 'loading')" select="[formContent]"></ng-content>
     </div>
 
     <div class="h-seperator"></div>

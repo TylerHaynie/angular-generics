@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { GenericApiService } from 'angular-generic/services/generic-api.service';
-import { GenericNavigationService } from 'angular-generic/services/navigation/generic-navigation.service';
-import { GenericRouteDefinition } from 'angular-generic/services/navigation/generic-route-definition';
+import { GenericApiService } from '../../services/generic-api.service';
+import { GenericNavigationService } from '../../services/navigation/generic-navigation.service';
+import { GenericRouteDefinition } from '../../services/navigation/generic-route-definition';
 
 @Component({
   selector: 'generic-dropdown',
@@ -38,14 +38,14 @@ export class GenericDropdownComponent implements OnInit, OnChanges {
       console.log('selectedId', this.selectedId);
 
       if (changes.source) {
-        let sourceChange = changes.source.currentValue !== changes.source.previousValue;
+        const sourceChange = changes.source.currentValue !== changes.source.previousValue;
         if (sourceChange) {
           this.getItems();
         }
       }
 
       if (this.itemList && changes.selectedId) {
-        let idChanged = changes.selectedId.currentValue !== changes.selectedId.previousValue;
+        const idChanged = changes.selectedId.currentValue !== changes.selectedId.previousValue;
         if (idChanged) {
           this.currentSelection = this.itemList.find(x => x[this.indexProperty] === this.selectedId);
           console.log(this.currentSelection);

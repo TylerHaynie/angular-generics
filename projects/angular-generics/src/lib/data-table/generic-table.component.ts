@@ -12,6 +12,7 @@ export class CustomAction {
 @Component({
   selector: 'generic-table',
   templateUrl: './generic-table.component.html',
+  providers: [GenericDataSource]
 })
 export class GenericTableComponent<T> implements OnInit, AfterViewInit {
   // data
@@ -37,25 +38,25 @@ export class GenericTableComponent<T> implements OnInit, AfterViewInit {
   @Output() editAction: EventEmitter<T>;
   @Output() deleteAction: EventEmitter<T>;
   @Output() viewAction: EventEmitter<T>;
-  @Output() customAction: EventEmitter<{ actionName: string, item: T }>;
+  @Output() customAction: EventEmitter<T>;
 
   // Paging
   @Input() showPager: boolean = true;
-  @ViewChild('paginator') paginator: MatPaginator;
-  private pageSizeOptions: number[] = [5, 25, 50, 100, 250, 500, 1000];
+  @ViewChild('paginator', null) paginator: MatPaginator;
+  pageSizeOptions: number[] = [5, 25, 50, 100, 250, 500, 1000];
   pageEvent: PageEvent;
 
   // Filter
   @Input() showFilter: boolean = true;
 
-  private activeColumns: string[] = [];
-  private filterVisible: boolean = true;
+  activeColumns: string[] = [];
+  filterVisible: boolean = true;
 
-  constructor(private dataSource: GenericDataSource<T>) {
+  constructor(public dataSource: GenericDataSource<T>) {
     this.editAction = new EventEmitter<T>();
     this.deleteAction = new EventEmitter<T>();
     this.viewAction = new EventEmitter<T>();
-    this.customAction = new EventEmitter<{ actionName: string, item: T }>();
+    this.customAction = new EventEmitter<T>();
   }
 
   ngOnInit() {
@@ -99,9 +100,9 @@ export class GenericTableComponent<T> implements OnInit, AfterViewInit {
     this.viewAction.emit(item);
   }
 
-  doCustom(actionName: string, item: T) {
+  doCustom(item: T) {
     console.log('CustomAction', item);
-    this.customAction.emit({ actionName: actionName, item: item });
+    this.customAction.emit(item);
   }
 
   filterChange(column: GenericTableColumn, value: string) {

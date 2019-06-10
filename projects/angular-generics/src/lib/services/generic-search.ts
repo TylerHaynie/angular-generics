@@ -14,7 +14,7 @@ export class GenericSearchRequest {
   }
 }
 
-export class GenericSearchResponse<T>{
+export class GenericSearchResponse<T> {
   data: T[] = [];
   page: number = 0;
   take: number = 0;

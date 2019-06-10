@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { GenericService } from '../../services/generic-generic.service';
+import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { GenericApiService } from 'angular-generic/services/generic-api.service';
 import { GenericNavigationService } from 'angular-generic/services/navigation/generic-navigation.service';
 import { GenericRouteDefinition } from 'angular-generic/services/navigation/generic-route-definition';
 
@@ -8,38 +8,65 @@ import { GenericRouteDefinition } from 'angular-generic/services/navigation/gene
   templateUrl: './generic-dropdown.component.html',
   styleUrls: ['./generic-dropdown.component.css']
 })
-export class GenericDropdownComponent implements OnInit {
+export class GenericDropdownComponent implements OnInit, OnChanges {
   @Input() displayProperty: string;
   @Input() indexProperty: string = 'id';
   @Input() disabled: boolean = false;
-  @Input() source: any[];
-  @Input() placeholder: string = 'Make a Selection';
-  @Input() selectedId: number = 0;
+  @Input() source: string;
+  @Input() selectedId: number;
   @Input() addItemRoute: string;
 
   @Output() selectionChanged: EventEmitter<any>;
 
+  itemList: any[];
   currentSelection: any;
 
-  constructor(private api: GenericService, private navService: GenericNavigationService) {
+  constructor(private api: GenericApiService, private navService: GenericNavigationService) {
     this.selectionChanged = new EventEmitter<any>();
   }
 
-  ngOnInit() {}
-
-  changedSelection(event: any = null) {
-    if (event) {
-      this.selectedId = event.value;
-      this.setSelection();
-      this.selectionChanged.emit(this.currentSelection);
-      console.log('Selected', this.currentSelection);
+  ngOnInit() {
+    if (this.source) {
+      this.getItems();
     }
   }
 
-  setSelection() {
-    if (this.source) {
-      this.currentSelection = this.source.find(x => x[this.indexProperty] === this.selectedId);
+  ngOnChanges(changes: SimpleChanges) {
+    if ((changes.source && !changes.source.isFirstChange()) ||
+      (changes.selectedId && !changes.selectedId.isFirstChange())) {
+      console.log('source', this.source);
+      console.log('selectedId', this.selectedId);
+
+      if (changes.source) {
+        let sourceChange = changes.source.currentValue !== changes.source.previousValue;
+        if (sourceChange) {
+          this.getItems();
+        }
+      }
+
+      if (this.itemList && changes.selectedId) {
+        let idChanged = changes.selectedId.currentValue !== changes.selectedId.previousValue;
+        if (idChanged) {
+          this.currentSelection = this.itemList.find(x => x[this.indexProperty] === this.selectedId);
+          console.log(this.currentSelection);
+          this.selectionChanged.emit(this.currentSelection);
+        }
+      }
+
     }
+  }
+
+  getItems() {
+    this.api.get(this.source)
+      .then((items) => {
+        if (items) {
+          this.itemList = items;
+        }
+      });
+  }
+
+  changedSelection(event: any) {
+    this.selectedId = event.value;
   }
 
   addItem() {

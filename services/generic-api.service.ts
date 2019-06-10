@@ -5,7 +5,7 @@ import { GenericSearchResponse, GenericSearchRequest } from './generic-search';
 @Injectable({
   providedIn: 'root'
 })
-export class GenericService {
+export class GenericApiService {
   constructor(private http: HttpClient) { }
 
   get<T>(path: string): Promise<T[]>;

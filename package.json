@@ -1,16 +1,19 @@
 {
   "name": "angular-generics",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && npm run npm-pack",
+    "publish": "npm publish .\\dist\\angular-generics\\angular-generics-0.0.1.tgz",
+    "package": "npm run-script build && npm run-script copy-files && npm run-script npm-pack",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "npm-pack": "cd dist/angular-generics && npm pack"
+    "npm-pack": "cd dist/angular-generics && npm pack",
+    "copy-files": "cp -R .\\projects\\angular-generics\\src\\lib\\styles\\ .\\dist\\angular-generics\\lib\\styles\\"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~8.0.0",
     "@angular/cdk": "^8.0.0",

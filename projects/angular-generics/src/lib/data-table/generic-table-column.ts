@@ -13,13 +13,3 @@ export class GenericTableColumn {
     Object.assign(this, init);
   }
 }
-
-// export class DataList {
-//   source: string = null;
-//   display: string = null;
-//   value: string = null;
-
-//   public constructor(init: DataList) {
-//     Object.assign(this, init);
-//   }
-// }

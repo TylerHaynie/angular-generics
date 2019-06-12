@@ -30,7 +30,7 @@ export class GenericAlertComponent {
     if (alert) {
       console.log('closing', alert);
 
-      let index = this.alerts.indexOf(alert);
+      const index = this.alerts.indexOf(alert);
 
       if (index > -1) {
         this.alerts.splice(index, 1);

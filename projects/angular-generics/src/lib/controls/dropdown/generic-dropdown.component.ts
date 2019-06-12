@@ -5,16 +5,15 @@ import { GenericRouteDefinition } from '../../services/navigation/generic-route-
 
 @Component({
   selector: 'generic-dropdown',
-  templateUrl: './generic-dropdown.component.html',
-  styleUrls: ['./generic-dropdown.component.css']
+  templateUrl: './generic-dropdown.component.html'
 })
 export class GenericDropdownComponent implements OnInit, OnChanges {
-  @Input() displayProperty: string;
+  @Input() displayProperty: string = '';
   @Input() indexProperty: string = 'id';
   @Input() disabled: boolean = false;
-  @Input() source: string;
+  @Input() source: string = '';
   @Input() selectedId: number;
-  @Input() addItemRoute: string;
+  @Input() addItemRoute: string = '';
 
   @Output() selectionChanged: EventEmitter<any>;
 

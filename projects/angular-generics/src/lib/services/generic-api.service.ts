@@ -27,7 +27,7 @@ export class GenericApiService {
   }
 
   post<T>(path: string, body: any): Promise<T> {
-    let url = `${path}`;
+    const url = `${path}`;
 
     return new Promise((resolve, reject) => {
       this.http.post(url, body)
@@ -47,7 +47,7 @@ export class GenericApiService {
   }
 
   put<T>(path: string, body: any): Promise<T> {
-    let url = `${path}`;
+    const url = `${path}`;
 
     return new Promise((resolve, reject) => {
       this.http.put(url, body)
@@ -67,7 +67,7 @@ export class GenericApiService {
   }
 
   search<T>(body: GenericSearchRequest): Promise<GenericSearchResponse<T>> {
-    let url = `${body.endpoint}`;
+    const url = `${body.endpoint}`;
 
     return new Promise((resolve, reject) => {
       this.http.post(url, body)

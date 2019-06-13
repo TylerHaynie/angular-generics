@@ -1,0 +1,54 @@
+<div class="filter-container col-1">
+  <div class="filter-header col-2-auto-right">
+    <div class="header col-1 v-center-self">
+      <div class="col-2-auto-left">
+        <mat-icon *ngIf="showFilter" class="pointer" (click)="showFilter = !showFilter">keyboard_arrow_up
+        </mat-icon>
+        <mat-icon *ngIf="!showFilter" class="pointer" (click)="showFilter = !showFilter">keyboard_arrow_down
+        </mat-icon>
+        Filter
+      </div>
+    </div>
+
+    <div class="col-2">
+      <ng-container *ngIf="showFilter">
+        <div class="col-1">
+          <generic-button [buttonText]="'Search'" (clicked)="searchClicked()" [color]="'blue'">
+          </generic-button>
+        </div>
+        <div class="col-1">
+          <generic-button [buttonText]="'Reset'" (clicked)="resetSearch()" [color]="'gray'">
+          </generic-button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="showFilter" class="filters col-4 pad-5 gap-10">
+    <ng-container *ngFor="let column of columns">
+      <div class="col-1 full-width-content" *ngIf="column.allowFilter && column.dataType">
+        <ng-container [ngSwitch]="column.dataType">
+          <label>{{column.display}}</label>
+          <!-- <ng-container *ngSwitchCase="'number'">
+                <input type="number" placeholder="Enter number..." (change)="filterChange(column, $event.target.value)">
+              </ng-container> -->
+
+          <!-- <ng-container *ngSwitchCase="'date'">
+                <input type="date" placeholder="Enter date..." (change)="filterChange(column, $event.target.value)">
+              </ng-container> -->
+
+          <!-- <ng-container #listTemplate *ngIf="column.dataType == 'list' : defaultTemplate">
+                <generic-dropdown [displayProperty]="column.list.display" [indexProperty]="column.list.value"
+                  [source]="column.list.source" [label]="column.display">
+                </generic-dropdown>
+              </ng-container> -->
+          <ng-container *ngSwitchCase="'string'">
+            <!-- <input type="text" (change)="filterChange(column, $event.target.value)"> -->
+            <input type="text" [(ngModel)]="filters[column.id]">
+          </ng-container>
+
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>

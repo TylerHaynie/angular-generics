@@ -22,9 +22,6 @@
       "angular-generics": [
         "dist/angular-generics"
       ],
-      "angular-generics/*": [
-        "dist/angular-generics/*"
-      ]
     }
   }
 }

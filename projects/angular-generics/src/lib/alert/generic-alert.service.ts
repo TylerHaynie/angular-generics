@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { GenericAlert } from '../notifications/alert/generic-alert';
+import { GenericAlert } from './generic-alert';
 
 @Injectable({
   providedIn: 'root'

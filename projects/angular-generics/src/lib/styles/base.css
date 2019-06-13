@@ -1,6 +1,8 @@
 div,
 input,
-textarea {
+textarea,
+label,
+span {
   box-sizing: border-box;
 }
 

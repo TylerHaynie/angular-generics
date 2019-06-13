@@ -1,12 +1,8 @@
 import { Subject, Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
-import { Injectable } from '@angular/core';
-import { GenericApiService } from '../services/generic-api.service';
-import { GenericSearchRequest, GenericSearchResponse } from '../services/generic-search';
+import { GenericApiService } from '../../services/generic-api.service';
+import { GenericSearchRequest, GenericSearchResponse } from '../../services/generic-search';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class GenericDataSource<T> extends DataSource<T> {
   data: Observable<T[]>;
 
@@ -28,8 +24,7 @@ export class GenericDataSource<T> extends DataSource<T> {
   }
 
   disconnect() {
-    this.dataSource = null;
-    this.data = null;
+    this.dataSource.complete();
   }
 
   search(request: GenericSearchRequest): void {

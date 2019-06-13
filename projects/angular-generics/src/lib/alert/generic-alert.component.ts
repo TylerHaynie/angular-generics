@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GenericAlert } from './generic-alert';
-import { GenericAlertService } from '../../services/generic-alert.service';
+import { GenericAlertService } from './generic-alert.service';
 
 @Component({
   selector: 'generic-alert',

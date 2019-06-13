@@ -1,7 +1,6 @@
-import { Component, Input, OnInit, ViewChild, EventEmitter, Output, AfterViewInit } from '@angular/core';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { GenericSearchRequest } from '../services/generic-search';
-import { GenericDataSource } from '../data-source/generic-data-source';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { GenericSearchRequest } from '../../services/generic-search';
+import { GenericDataSource } from '../datasource/generic-data-source';
 import { GenericTableColumn } from './generic-table-column';
 
 export class CustomAction {
@@ -12,12 +11,12 @@ export class CustomAction {
 @Component({
   selector: 'generic-table',
   templateUrl: './generic-table.component.html',
-  providers: [GenericDataSource]
 })
-export class GenericTableComponent<T> implements OnInit, AfterViewInit {
+export class GenericTableComponent<T> implements OnInit {
   // data
   @Input() columns: GenericTableColumn[] = [];
   @Input() query: GenericSearchRequest = new GenericSearchRequest();
+  @Input() dataSource: GenericDataSource<T>;
 
   // table settings
   @Input() showFooter: boolean = true;
@@ -40,19 +39,9 @@ export class GenericTableComponent<T> implements OnInit, AfterViewInit {
   @Output() viewAction: EventEmitter<T>;
   @Output() customAction: EventEmitter<T>;
 
-  // Paging
-  @Input() showPager: boolean = true;
-  @ViewChild('paginator', null) paginator: MatPaginator;
-  pageSizeOptions: number[] = [5, 25, 50, 100, 250, 500, 1000];
-  pageEvent: PageEvent;
-
-  // Filter
-  @Input() showFilter: boolean = true;
-
   activeColumns: string[] = [];
-  filterVisible: boolean = true;
 
-  constructor(public dataSource: GenericDataSource<T>) {
+  constructor() {
     this.editAction = new EventEmitter<T>();
     this.deleteAction = new EventEmitter<T>();
     this.viewAction = new EventEmitter<T>();
@@ -65,22 +54,11 @@ export class GenericTableComponent<T> implements OnInit, AfterViewInit {
     this.activeColumns.push('actions');
   }
 
-  ngAfterViewInit() {
-    if (this.showPager && this.paginator) {
-      this.query.page = 1;
-      this.query.take = this.paginator.pageSize;
-    }
-
-    this.search();
-  }
-
   search() {
-    console.log(this.query);
-    this.dataSource.search(this.query);
-  }
-
-  resetSearch() {
-
+    if (this.query) {
+      console.log(this.query);
+      this.dataSource.search(this.query);
+    }
   }
 
   doEdit(item: T) {
@@ -105,23 +83,9 @@ export class GenericTableComponent<T> implements OnInit, AfterViewInit {
     this.customAction.emit(item);
   }
 
-  filterChange(column: GenericTableColumn, value: string) {
-    this.query.filter[column.id] = value;
-  }
-
-  changePage(pEvent: PageEvent) {
-    this.query.page = this.paginator.pageIndex + 1;
-    this.query.take = this.paginator.pageSize;
-
-    this.search();
-  }
-
   doSort(sortEvent: { active: string, direction: 'asc' | 'dsc' }) {
     if (sortEvent.direction) {
-      this.query.sort = {
-        direction: 'asc',
-        field: sortEvent.active
-      };
+      this.query.sort = { direction: sortEvent.direction, field: sortEvent.active };
     }
     else {
       this.query.sort = null;

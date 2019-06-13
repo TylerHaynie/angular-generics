@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { GenericApiService } from '../../services/generic-api.service';
-import { GenericNavigationService } from '../../services/navigation/generic-navigation.service';
-import { GenericRouteDefinition } from '../../services/navigation/generic-route-definition';
+import { GenericNavigationService } from '../../navigation/generic-navigation.service';
+import { GenericRouteDefinition } from '../../navigation/generic-route-definition';
 
 @Component({
   selector: 'generic-dropdown',

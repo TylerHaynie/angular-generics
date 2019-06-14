@@ -1,3 +1,8 @@
 <div class="col-1">
-  <generic-dropdown></generic-dropdown>
+  <div class="form-control col-span-2">
+    <label>Country</label>
+    <generic-dropdown [displayProperty]="'isoCode'" [indexProperty]="'id'" [source]="countrySource"
+      [selectedId]="currentId" (selectionChanged)="dropdownChanged($event)">
+    </generic-dropdown>
+  </div>
 </div>

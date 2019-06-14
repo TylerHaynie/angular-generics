@@ -25,47 +25,51 @@ export class GenericDropdownComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    if (this.source) {
-      this.getItems();
-    }
+    // if (this.source) {
+    //   this.getItems();
+    // }
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if ((changes.source && !changes.source.isFirstChange()) ||
-      (changes.selectedId && !changes.selectedId.isFirstChange())) {
-      console.log('source', this.source);
-      console.log('selectedId', this.selectedId);
-
-      if (changes.source) {
-        const sourceChange = changes.source.currentValue !== changes.source.previousValue;
-        if (sourceChange) {
-          this.getItems();
-        }
+    if (changes.source) {
+      const sourceChange = changes.source.currentValue !== changes.source.previousValue;
+      if (sourceChange) {
+        this.getItems();
       }
+    }
 
-      if (this.itemList && changes.selectedId) {
-        const idChanged = changes.selectedId.currentValue !== changes.selectedId.previousValue;
-        if (idChanged) {
-          this.currentSelection = this.itemList.find(x => x[this.indexProperty] === this.selectedId);
-          console.log(this.currentSelection);
-          this.selectionChanged.emit(this.currentSelection);
-        }
+    if (this.itemList && changes.selectedId) {
+      const idChanged = changes.selectedId.currentValue !== changes.selectedId.previousValue;
+      if (idChanged) {
+        this.changedSelection(changes.selectedId.currentValue);
+        // this.currentSelection = this.itemList.find(x => x[this.indexProperty] === this.selectedId);
+        // console.log(this.currentSelection);
+        // this.selectionChanged.emit(this.currentSelection);
       }
-
     }
   }
 
   getItems() {
-    this.api.get(this.source)
-      .then((items) => {
-        if (items) {
-          this.itemList = items;
-        }
-      });
+    if (this.source) {
+      console.log('source', this.source);
+
+      this.api.get(this.source)
+        .then((items) => {
+          if (items) {
+            this.itemList = items;
+          }
+        });
+    }
+
   }
 
-  changedSelection(event: any) {
-    this.selectedId = event.value;
+  changedSelection(id: number) {
+    console.log('selected id', id);
+    if (this.itemList) {
+      this.selectedId = id;
+      this.currentSelection = this.itemList.find(x => x[this.indexProperty] === this.selectedId);
+      this.selectionChanged.emit(this.currentSelection);
+    }
   }
 
   addItem() {

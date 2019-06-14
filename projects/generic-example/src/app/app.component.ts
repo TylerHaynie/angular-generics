@@ -5,5 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'generic-example';
+  currentId: number = 0;
+  countrySource: string = `http://localhost:62455/api/countries`;
+
+  dropdownChanged(e) {
+    console.log(e);
+  }
+
 }

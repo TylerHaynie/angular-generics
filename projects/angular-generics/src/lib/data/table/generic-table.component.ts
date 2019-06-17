@@ -16,7 +16,6 @@ export class GenericTableComponent<T> implements OnInit {
   // data
   @Input() columns: GenericTableColumn[] = [];
   @Input() query: GenericSearchRequest = new GenericSearchRequest();
-  @Input() dataSource: GenericDataSource<T>;
 
   // table settings
   @Input() showFooter: boolean = true;
@@ -41,7 +40,7 @@ export class GenericTableComponent<T> implements OnInit {
 
   activeColumns: string[] = [];
 
-  constructor() {
+  constructor(public dataSource: GenericDataSource<T>) {
     this.editAction = new EventEmitter<T>();
     this.deleteAction = new EventEmitter<T>();
     this.viewAction = new EventEmitter<T>();
@@ -55,9 +54,13 @@ export class GenericTableComponent<T> implements OnInit {
   }
 
   search() {
-    if (this.query) {
-      console.log(this.query);
-      this.dataSource.search(this.query);
+    if (this.dataSource) {
+      if (this.query && this.query.endpoint !== '') {
+        this.dataSource.search(this.query);
+      }
+      else {
+        console.error('The query is not properly formed.');
+      }
     }
   }
 

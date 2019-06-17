@@ -1,8 +1,14 @@
 <div class="col-1">
-  <div class="form-control col-span-2">
-    <label>Country</label>
-    <generic-dropdown [displayProperty]="'isoCode'" [indexProperty]="'id'" [source]="countrySource"
-      [selectedId]="currentId" (selectionChanged)="dropdownChanged($event)">
-    </generic-dropdown>
+  <div class="col-1">
+    <div class="form-control col-span-2">
+      <label>Generic Dropdown</label>
+      <generic-dropdown [displayProperty]="'title'" [indexProperty]="'id'" [source]="dropdownSource"
+                        [selectedId]="currentId" (selectionChanged)="dropdownChanged($event)">
+      </generic-dropdown>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <generic-table #dataTable [columns]="columns" [query]="testRequest"></generic-table>
   </div>
 </div>

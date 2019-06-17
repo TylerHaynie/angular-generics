@@ -20,7 +20,7 @@
     ],
     "paths": {
       "angular-generics": [
-        "dist/angular-generics"
+        "projects/angular-generics/src/public-api"
       ],
     }
   }

@@ -4,7 +4,12 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { GenericDropdownModule } from 'dist/angular-generics';
+import {
+  GenericFormModule, GenericListModule, GenericAlertModule,
+  GenericTableModule, GenericButtonModule, GenericServiceModule,
+  GenericDropdownModule, GenericDataSourceModule, GenericNavigationModule,
+  GenericTablePagerModule, GenericTableFilterModule
+} from 'angular-generics';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,18 @@ import { GenericDropdownModule } from 'dist/angular-generics';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    GenericDropdownModule
+    GenericDropdownModule,
+    GenericFormModule,
+    GenericListModule,
+    GenericAlertModule,
+    GenericTableModule,
+    GenericButtonModule,
+    GenericServiceModule,
+    GenericDropdownModule,
+    GenericDataSourceModule,
+    GenericNavigationModule,
+    GenericTablePagerModule,
+    GenericTableFilterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,29 @@
 {
   "name": "angular-generics",
+  "description": "A collection of generic controls for Angular 8+",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerHaynie/angular-generic.git"
+  },
+  "keywords": [
+    "Angular",
+    "generic",
+    "form",
+    "control",
+    "data",
+    "table",
+    "material"
+  ],
+  "author": "Tyler Haynie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TylerHaynie/angular-generic/issues"
+  },
+  "homepage": "https://github.com/TylerHaynie/angular-generic#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "publish": "npm publish .\\dist\\angular-generics\\angular-generics-0.0.6.tgz",
+    "publish": "npm publish .\\dist\\angular-generics\\angular-generics-0.0.7.tgz",
     "package": "npm run-script build && npm run-script copy-files && npm run-script pack",
     "build": "ng build angular-generics",
     "test": "ng test",

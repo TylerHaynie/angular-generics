@@ -2,7 +2,11 @@ import { Subject, Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
 import { GenericApiService } from '../../services/generic-api.service';
 import { GenericSearchRequest, GenericSearchResponse } from '../../services/generic-search';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class GenericDataSource<T> extends DataSource<T> {
   data: Observable<T[]>;
 
@@ -30,11 +34,19 @@ export class GenericDataSource<T> extends DataSource<T> {
   search(request: GenericSearchRequest): void {
     console.log('Query', request);
 
-    this.api.search<T>(request)
-      .then((report: GenericSearchResponse<T>) => {
-        this._dataLength = report.recordCount;
-        this.dataSource.next(report.data);
-      });
+    if (request.method === "get") {
+      this.api
+        .get<T>(request.endpoint)
+        .then((data) => { this.dataSource.next(data); });
+    }
+    else {
+      this.api.search<GenericSearchRequest, GenericSearchResponse<T>>(request.endpoint, request)
+        .then((report) => {
+          this._dataLength = report.recordCount;
+          this.dataSource.next(report.data);
+        });
+    }
+
   }
 
 }

@@ -6,7 +6,7 @@ export class GenericTableColumn {
   footer: (element: any) => any;
   allowSort: boolean = true;
   allowFilter: boolean = true;
-  dataType: 'string' | 'number' | 'date' | 'list' = 'string';
+  dataType: 'string' | 'number' | 'boolean' | 'date' | 'list' = 'string';
   // list?: DataList = null;
 
   public constructor(init?: Partial<GenericTableColumn>) {

@@ -28,7 +28,7 @@
       </generic-button>
       <generic-button *ngIf="(pageMode == 'view') && showEdit" [buttonText]="'Edit'" (clicked)="doEdit()" [color]="'blue'">
       </generic-button>
-      <ng-content #extraButtons></ng-content>
+      <ng-content select="[extraButtons]"></ng-content>
     </div>
 
   </div>

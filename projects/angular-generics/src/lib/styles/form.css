@@ -1,6 +1,7 @@
 :root {
   --formHeaderBorder: 2px solid var(--formHeaderBorderColor);
   --inputOutline: 1px solid var(--inputOutlineColor);
+  --inputHeight: 38px;
 }
 
 .form-wrapper {
@@ -43,7 +44,7 @@
   font-size: 1.00em;
 }
 
-.form-control {
+/* .form-control {
   margin-bottom: 5px;
   width: 100%;
 }
@@ -51,16 +52,16 @@
 .form-control label {
   font-weight: bold;
   margin-bottom: 3px;
-}
+} */
 
-.form-control mat-select,
+mat-select,
 .form-control input {
   height: 32px;
 }
 
 .form-control input,
 .form-control textarea,
-.form-control mat-select {
+mat-select {
   font-size: 1.00em;
   padding: 2px 2px 2px 2px;
   border: var(--inputOutline);
@@ -69,7 +70,7 @@
 
 .form-control input:disabled,
 .form-control textarea:disabled,
-.form-control mat-select:disabled {
+mat-select:disabled {
   background-color: var(--disabledBackground);
   border-color: var(--disabledBorder);
 }

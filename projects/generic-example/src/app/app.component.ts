@@ -10,10 +10,14 @@ export class TestTable {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('dataTable', { static: false }) dataTable: GenericTableComponent<TestTable>;
+
+  inputbinding1: string;
+  inputbinding2: string;
+  inputbinding3: string;
 
   dropdownSource: string = `https://jsonplaceholder.typicode.com/todos`;
   selectedDropdownId: number = 0;
@@ -61,7 +65,9 @@ export class AppComponent implements AfterViewInit {
     ];
   }
 
-
+  buttonClicked() {
+    console.log('ButtonClicked');
+  }
   // events
   dropdownChanged(e) {
     console.log(e);

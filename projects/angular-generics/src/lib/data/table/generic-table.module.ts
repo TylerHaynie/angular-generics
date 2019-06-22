@@ -7,23 +7,16 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     GenericTableComponent,
-    // GenericTableColumn,
-    // CustomAction
   ],
   imports: [
     CommonModule,
     FormsModule,
-    // GenericSearchRequest,
-    // GenericDataSource,
-    // GenericTableColumn,
     MatTableModule,
     MatSortModule,
     MatIconModule,
   ],
   exports: [
     GenericTableComponent,
-    // GenericTableColumn,
-    // CustomAction
   ]
 })
 

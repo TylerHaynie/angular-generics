@@ -8,7 +8,8 @@ import {
   GenericFormModule, GenericListModule, GenericAlertModule,
   GenericTableModule, GenericButtonModule, GenericServiceModule,
   GenericDropdownModule, GenericDataSourceModule, GenericNavigationModule,
-  GenericTablePagerModule, GenericTableFilterModule
+  GenericTablePagerModule, GenericTableFilterModule, GenericInputModule,
+  GenericGridModule, GenericPageModule
 } from 'angular-generics';
 
 @NgModule({
@@ -20,6 +21,8 @@ import {
     CommonModule,
     FormsModule,
     HttpClientModule,
+    GenericPageModule,
+    GenericGridModule,
     GenericDropdownModule,
     GenericFormModule,
     GenericListModule,
@@ -28,6 +31,7 @@ import {
     GenericButtonModule,
     GenericServiceModule,
     GenericDropdownModule,
+    GenericInputModule,
     GenericDataSourceModule,
     GenericNavigationModule,
     GenericTablePagerModule,

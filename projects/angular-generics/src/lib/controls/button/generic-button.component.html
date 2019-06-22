@@ -1,10 +1,9 @@
-<div class="col-1 row-1 h-end-content pad-5">
-  <div class="generic-button pointer gap-5"
-    [ngClass]="{'col-2-auto-right': showIcon, 'col-1': !showIcon, 'red': color=='red', 'blue': color=='blue', 'green': color=='green', 'purple': color=='purple'}"
-    (click)="buttonClicked()">
-    <div class="v-center-self text-c">{{buttonText}}</div>
-    <div *ngIf="showIcon" class="col-1 v-center-content">
-      <ng-content #icon></ng-content>
+<div class="col-1 full-width-content row-1 h-end-content pad-5">
+  <div class="generic-button no-selection pointer col-1 gap-5"
+       [ngClass]="{'shadows': !flat}"
+       [ngStyle]="{'background': color}">
+    <div class="v-center-content text-c">
+      <ng-content></ng-content>
     </div>
   </div>
 </div>

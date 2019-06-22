@@ -1,0 +1,19 @@
+<div class="control col-1" [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'top'}">
+  <label><ng-content></ng-content></label>
+  <!-- <div> -->
+    <!-- <ng-content class="content-above" select="[contentAbove]"></ng-content> -->
+    <ng-container *ngIf="isTextArea; else elseTemplate">
+      <textarea [cols]="textColumns"
+                [rows]="textRows"
+                [placeholder]="placeholder"
+                [ngModel]="value"></textarea>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <input [type]="type"
+             [(ngModel)]="value"
+             [placeholder]="placeholder" />
+    </ng-template>
+    <!-- <ng-content class="content-below" select="[contentBelow]"></ng-content> -->
+  <!-- </div> -->
+
+</div>

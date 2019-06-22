@@ -2,7 +2,8 @@ import { Component, OnInit, Output, EventEmitter, Input, TemplateRef } from '@an
 
 @Component({
   selector: 'generic-list',
-  templateUrl: './generic-list.component.html'
+  templateUrl: './generic-list.component.html',
+  styleUrls: ['../../styles/generic.css']
 })
 export class GenericListComponent implements OnInit {
   @Input() title: string = 'List';

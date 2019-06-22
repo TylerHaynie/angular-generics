@@ -8,6 +8,10 @@ export * from './lib/alert/generic-alert.service';
 export * from './lib/alert/generic-alert';
 export * from './lib/alert/generic-alert.module';
 
+// Page
+export * from './lib/page/generic-page.component';
+export * from './lib/page/generic-page.module';
+
 // Form
 export * from './lib/containers/form/generic-form.component';
 export * from './lib/containers/form/generic-form.module';
@@ -23,6 +27,10 @@ export * from './lib/controls/button/generic-button.module';
 // Dropdown
 export * from './lib/controls/dropdown/generic-dropdown.component';
 export * from './lib/controls/dropdown/generic-dropdown.module';
+
+// Input
+export * from './lib/controls/input/generic-input.component';
+export * from './lib/controls/input/generic-input.module';
 
 // Datasource
 export * from './lib/data/datasource/generic-data-source';
@@ -44,12 +52,16 @@ export * from './lib/data/table/generic-table.module';
 // Enums
 export * from './lib/enums/generic-enums';
 
+// Grid
+export * from './lib/grid/generic-grid.component';
+export * from './lib/grid/generic-grid.module';
+
 // Navigation
 export * from './lib/navigation/generic-route-definition';
 export * from './lib/navigation/generic-navigation.service';
 export * from './lib/navigation/generic-navigation.module';
 
-// API
+// HTTP/API
 export * from './lib/services/generic-api.service';
 export * from './lib/services/generic-search';
 export * from './lib/services/generic-services.module';

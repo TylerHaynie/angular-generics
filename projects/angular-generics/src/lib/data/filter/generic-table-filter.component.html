@@ -13,12 +13,10 @@
     <div class="col-2">
       <ng-container *ngIf="showFilter">
         <div class="col-1">
-          <generic-button [buttonText]="'Search'" (clicked)="searchClicked()" [color]="'blue'">
-          </generic-button>
+          <generic-button (clicked)="searchClicked()" [color]="'searchColor'">Search</generic-button>
         </div>
         <div class="col-1">
-          <generic-button [buttonText]="'Reset'" (clicked)="resetSearch()" [color]="'gray'">
-          </generic-button>
+          <generic-button (clicked)="resetSearch()" [color]="'resetColor'">Reset</generic-button>
         </div>
       </ng-container>
     </div>
@@ -29,24 +27,25 @@
       <div class="col-1 full-width-content" *ngIf="column.allowFilter && column.dataType">
         <ng-container [ngSwitch]="column.dataType">
           <label>{{column.display}}</label>
-          <!-- <ng-container *ngSwitchCase="'number'">
-                <input type="number" placeholder="Enter number..." (change)="filterChange(column, $event.target.value)">
-              </ng-container> -->
+          
+          <ng-container *ngSwitchCase="'number'">
+            <input type="number" placeholder="Enter number..." [(ngModel)]="filters[column.id]">
+          </ng-container>
 
-          <!-- <ng-container *ngSwitchCase="'date'">
-                <input type="date" placeholder="Enter date..." (change)="filterChange(column, $event.target.value)">
-              </ng-container> -->
+          <ng-container *ngSwitchCase="'date'">
+            <input type="date" placeholder="Enter date..." [(ngModel)]="filters[column.id]">
+          </ng-container>
 
-          <!-- <ng-container #listTemplate *ngIf="column.dataType == 'list' : defaultTemplate">
-                <generic-dropdown [displayProperty]="column.list.display" [indexProperty]="column.list.value"
-                  [source]="column.list.source" [label]="column.display">
-                </generic-dropdown>
-              </ng-container> -->
-          <ng-container *ngSwitchCase="'string'">
-            <!-- <input type="text" (change)="filterChange(column, $event.target.value)"> -->
+          <ng-container *ngSwitchDefault>
             <input type="text" [(ngModel)]="filters[column.id]">
           </ng-container>
 
+    <!-- <ng-container #listTemplate *ngIf="column.dataType == 'list' : defaultTemplate">
+            <generic-dropdown [displayProperty]="column.list.display" [indexProperty]="column.list.value"
+              [source]="column.list.source" [label]="column.display">
+            </generic-dropdown>
+          </ng-container> 
+    -->
         </ng-container>
       </div>
     </ng-container>

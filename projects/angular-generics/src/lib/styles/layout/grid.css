@@ -6,8 +6,7 @@
   width: 50%;
 }
 
-/* Columns */
-.auto-grid {
+.generic-grid{
   display: grid;
 }
 
@@ -23,7 +22,7 @@
 
 .col-3 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr)
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .col-4 {

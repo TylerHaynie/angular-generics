@@ -1,0 +1,23 @@
+:root {
+  --buttonBorderRadius: 5px;
+  --buttonPadding: 5px 8px;
+  --buttonInactiveShadow: 0px 1px 4px 0px var(--shadowDark);
+  --buttonActiveShadow: inset 0 0 5px 1px var(--shadowDark);
+  --buttonTextShadow: 0px 0px 4px var(--shadowDark);
+}
+
+.generic-button {
+  color: var(--buttonFontColor);
+  padding: var(--buttonPadding);
+  border-radius: var(--buttonBorderRadius);
+  background: var(--gray);
+}
+
+.generic-button.shadows {
+  box-shadow: var(--buttonInactiveShadow);
+  text-shadow: var(--buttonTextShadow);
+}
+
+.generic-button:active {
+  box-shadow: var(--buttonActiveShadow);
+}

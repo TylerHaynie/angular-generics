@@ -1,0 +1,17 @@
+:root{
+  --seperatorMargin: 10px 0;
+  --seperatorBorder: 1px solid var(--seperatorColor);
+}
+
+.h-seperator {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: var(--seperatorMargin);
+  border: var(--seperatorBorder);
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+
+.h-seperator * {
+  width: 100%;
+}

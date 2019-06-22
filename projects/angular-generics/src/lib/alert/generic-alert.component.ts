@@ -4,7 +4,8 @@ import { GenericAlertService } from './generic-alert.service';
 
 @Component({
   selector: 'generic-alert',
-  templateUrl: './generic-alert.component.html'
+  templateUrl: './generic-alert.component.html',
+  styleUrls: ['../styles/generic.css']
 })
 export class GenericAlertComponent {
   alerts: GenericAlert[] = [];

@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { GenericPageComponent } from './generic-page.component';
 
 @NgModule({
   declarations: [
+    GenericPageComponent
   ],
   imports: [
     CommonModule,
-    FormsModule,
   ],
   exports: [
+    GenericPageComponent
   ]
 })
 
-export class GenericNavigationModule { }
+export class GenericPageModule { }

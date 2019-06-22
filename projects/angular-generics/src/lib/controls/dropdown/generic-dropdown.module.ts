@@ -3,9 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { GenericDropdownComponent } from './generic-dropdown.component';
 import { MatSelectModule, MatIconModule, MatOptionModule } from '@angular/material';
-import { GenericApiService } from '../../services/generic-api.service';
-import { GenericNavigationService } from '../../navigation/generic-navigation.service';
-import { GenericRouteDefinition } from '../../navigation/generic-route-definition';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,9 +13,6 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
-    // GenericApiService,
-    // GenericNavigationService,
-    // GenericRouteDefinition,
     MatSelectModule,
     MatIconModule,
     MatOptionModule,

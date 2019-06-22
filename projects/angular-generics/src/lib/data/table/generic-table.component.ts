@@ -11,6 +11,7 @@ export class CustomAction {
 @Component({
   selector: 'generic-table',
   templateUrl: './generic-table.component.html',
+  styleUrls: ['../../styles/generic.css']
 })
 export class GenericTableComponent<T> implements OnInit {
   // data

@@ -1,0 +1,29 @@
+.generic-grid {
+  display: grid;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* test colors */
+.red{
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.green{
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.green{
+  background: rgba(0, 0, 255, 0.5);
+}
+
+.yellow{
+  background: rgba(255, 255, 0, 0.5);
+}

@@ -1,7 +1,10 @@
 <div class="col-1 full-width-content">
   <div *ngIf="!disabled && itemList" [ngClass]="{'col-2-auto-right': addItemRoute, 'col-1': !addItemRoute}">
-    <mat-select class="full-width-content" placeholder="Select..." name="itemSelector" [value]="selectedId"
-      (selectionChange)="changedSelection($event.value)">
+    <mat-select class="full-width-content"
+                placeholder="Select..."
+                name="itemSelector"
+                [value]="selectedId"
+                (selectionChange)="changedSelection($event.value)">
       <mat-option *ngFor="let item of itemList" [value]="item.id">
         {{item[displayProperty]}}
       </mat-option>

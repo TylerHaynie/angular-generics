@@ -5,7 +5,8 @@ import { GenericRouteDefinition } from '../../navigation/generic-route-definitio
 
 @Component({
   selector: 'generic-dropdown',
-  templateUrl: './generic-dropdown.component.html'
+  templateUrl: './generic-dropdown.component.html',
+  styleUrls: ['../../styles/generic.css']
 })
 export class GenericDropdownComponent implements OnInit, OnChanges {
   @Input() displayProperty: string = '';

@@ -33,6 +33,10 @@
   --orangeAlpha: rgba(177, 115, 38, 0.75);
   --orangeBorderColor: rgb(74, 51, 22);
 
+  --gray: rgb(139, 139, 139);
+  --grayAlpha: rgba(175, 175, 175, 0.75);
+  --grayBorderColor: rgb(70, 70, 70);
+
   /* List Colors */
   --listBackgroundColor: white;
   --listBorderColor: rgb(104, 104, 104);
@@ -45,5 +49,4 @@
 
   /* Form Colors */
   --formHeaderBorderColor: var(--seperatorColor);
-  --inputOutlineColor: rgb(174, 211, 253);
 }

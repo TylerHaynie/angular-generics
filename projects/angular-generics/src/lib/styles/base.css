@@ -1,22 +1,24 @@
-div,
-input,
-textarea,
-label,
-span {
+@import './reset.css';
+
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.h-seperator {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 15px 0;
-  border: 1px solid var(--seperatorColor);
-  border-collapse: collapse;
-  box-sizing: border-box;
+body {
+  height: 100vh;
 }
 
-.h-seperator * {
-  width: 100%;
+.no-selection {
+  -webkit-user-select: none;
+  /* webkit (safari, chrome) browsers */
+  -moz-user-select: none;
+  /* mozilla browsers */
+  -khtml-user-select: none;
+  /* webkit (konqueror) browsers */
+  -ms-user-select: none;
+  /* IE10+ */
 }
 
 .pointer:hover {

@@ -1,26 +1,14 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 
 @Component({
   selector: 'generic-button',
-  templateUrl: './generic-button.component.html'
+  templateUrl: './generic-button.component.html',
+  styleUrls: ['../../styles/generic.css']
 })
-export class GenericButtonComponent implements OnInit {
-  @Input() buttonText: string = '';
+export class GenericButtonComponent extends AbstractValueAccessor {
   @Input() isEnabled: boolean = true;
   @Input() showIcon: boolean = false;
-  @Input() color: 'red' | 'green' | 'blue' | 'purple' = 'blue';
-
-  @Output() clicked: EventEmitter<null>;
-
-  constructor() {
-    this.clicked = new EventEmitter<null>();
-  }
-
-  ngOnInit() {
-  }
-
-  buttonClicked() {
-    this.clicked.emit();
-  }
-
+  @Input() flat: boolean = false;
+  @Input() color: string = 'linear-gradient(to bottom, #336699 0%, #003366 100%)';
 }

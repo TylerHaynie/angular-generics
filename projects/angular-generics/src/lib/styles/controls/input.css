@@ -1,0 +1,61 @@
+:root {
+  --inputOutlineColor: rgb(171, 192, 216);
+  --inputOutline: 1px solid var(--inputOutlineColor);
+  --inputShadow: inset 0 0 3px 0px #f2fdff;
+  --inputFontSize: 1.0em;
+  --inputPadding: 5px 5px 1px 5px;
+  --inputLabelColor: rgb(37, 37, 37);
+}
+
+.control input {
+  box-shadow: var(--inputShadow);
+}
+
+.control input,
+.control textarea {
+  font-size: var(--inputFontSize);
+  padding: var(--inputPadding);
+  border: var(--inputOutline);
+  box-sizing: border-box;
+}
+
+.control input:disabled,
+.control textarea:disabled {
+  background-color: var(--disabledBackground);
+  border-color: var(--disabledBorder);
+}
+
+.control {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-rows: auto;
+}
+
+label {
+  color: var(--inputLabelColor);
+  font-size: calc(var(--inputFontSize) * 0.80);
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.label-left {
+  grid-gap: 5px;
+  grid-template-columns: minmax(1px, 1fr) minmax(1px, 4fr);
+}
+
+.label-left label {
+  text-align: right;
+  align-self: end;
+}
+
+.label-top {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr, 1fr;
+}
+
+.label-top label {
+  text-align: left;
+  align-self: end;
+}

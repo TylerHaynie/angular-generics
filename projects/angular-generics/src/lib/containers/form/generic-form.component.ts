@@ -4,6 +4,7 @@ import { GENERIC_PAGE_MODE } from '../../enums/generic-page-mode';
 @Component({
   selector: 'generic-form',
   templateUrl: './generic-form.component.html',
+  styleUrls: ['../../styles/generic.css']
 })
 export class GenericFormComponent implements OnInit {
 

@@ -8,17 +8,14 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     GenericTablePagerComponent,
-    // PageChange
   ],
   imports: [
     CommonModule,
     MatPaginatorModule,
     FormsModule
-    // PageEvent
   ],
   exports: [
     GenericTablePagerComponent,
-    // PageChange
   ]
 })
 

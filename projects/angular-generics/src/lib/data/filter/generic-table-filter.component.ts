@@ -3,17 +3,20 @@ import { GenericTableColumn } from '../table/generic-table-column';
 
 @Component({
   selector: 'generic-table-filter',
-  templateUrl: './generic-table-filter.component.html'
+  templateUrl: './generic-table-filter.component.html',
+  styleUrls: ['../../styles/generic.css']
 })
 export class GenericTableFilterComponent<T> implements OnInit {
   @Input() showFilter: boolean = true;
   @Input() columns: GenericTableColumn[] = [];
-  @Output() search: EventEmitter<{ [field: string]: any; }>;
+  @Output() search: EventEmitter<{ [field: string]: string; }>;
+  @Input() searchColor: string = '';
+  @Input() resetColor: string = '';
 
-  filters: { [field: string]: any; } = {};
+  filters: { [field: string]: string; } = {};
 
   constructor() {
-    this.search = new EventEmitter<{ [field: string]: any; }>();
+    this.search = new EventEmitter<{ [field: string]: string; }>();
   }
 
   ngOnInit() {

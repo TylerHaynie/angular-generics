@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { GenericGridComponent } from './generic-grid.component';
 
 @NgModule({
   declarations: [
+    GenericGridComponent
   ],
   imports: [
     CommonModule,
-    FormsModule,
   ],
   exports: [
+    GenericGridComponent
   ]
 })
 
-export class GenericNavigationModule { }
+export class GenericGridModule { }

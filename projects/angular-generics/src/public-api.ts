@@ -54,6 +54,8 @@ export * from './lib/enums/generic-enums';
 
 // Grid
 export * from './lib/grid/generic-grid.component';
+export * from './lib/grid/column/generic-column.component';
+export * from './lib/grid/cell/generic-cell.component';
 export * from './lib/grid/generic-grid.module';
 
 // Navigation

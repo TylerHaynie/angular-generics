@@ -1,4 +1,4 @@
-table,
+/* table,
 td,
 th {
   border-collapse: collapse;
@@ -36,4 +36,4 @@ table {
 .row:hover {
   background-color: var(--listItemHoverColor);
   cursor: pointer;
-}
+} */

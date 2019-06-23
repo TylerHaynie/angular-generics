@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --formHeaderBorder: 2px solid var(--formHeaderBorderColor);
   --inputOutline: 1px solid var(--inputOutlineColor);
   --inputHeight: 38px;
@@ -44,16 +44,6 @@
   font-size: 1.00em;
 }
 
-/* .form-control {
-  margin-bottom: 5px;
-  width: 100%;
-}
-
-.form-control label {
-  font-weight: bold;
-  margin-bottom: 3px;
-} */
-
 mat-select,
 .form-control input {
   height: 32px;
@@ -83,5 +73,4 @@ mat-select:disabled {
   background-color: var(--blue);
   color: white;
   height: 32px;
-  /* padding-top: 2px; */
-}
+} */

@@ -1,3 +1,6 @@
 <div class="generic-grid red"
-     [ngStyle]="{'grid-template-columns': columns + 'fr', 'gap': '5px'}">
+     [ngStyle]="{'grid-template-columns':'repeat(' + columns + ', 1fr)',
+                 'grid-template-rows':'repeat(' + rows + ', 1fr)',
+                 'gap': gap}">
+  <ng-content></ng-content>
 </div>

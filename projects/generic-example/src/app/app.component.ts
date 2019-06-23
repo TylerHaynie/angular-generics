@@ -12,7 +12,7 @@ export class TestTable {
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('dataTable', { static: false }) dataTable: GenericTableComponent<TestTable>;
 
   inputbinding1: string;
@@ -25,14 +25,22 @@ export class AppComponent implements AfterViewInit {
   testRequest: GenericSearchRequest = new GenericSearchRequest();
   columns: GenericTableColumn[] = [];
 
+
+  // angular needs an array of 'something' to loop over
+  _gridColumns: number[] = [];
+
   constructor() {
     this.testRequest.endpoint = `https://jsonplaceholder.typicode.com/todos`;
     this.testRequest.method = "get";
     this.buildTableColumns();
   }
 
+  ngOnInit(){
+    this._gridColumns = Array.from(Array(4), (x, i) => i);
+  }
+
   ngAfterViewInit() {
-    this.dataTable.search();
+    // this.dataTable.search();
   }
 
   buildTableColumns() {

@@ -3,27 +3,25 @@
   height: 100%;
 }
 
+.generic-column {}
 
-
-
-
-
+.generic-cell {}
 
 
 
 /* test colors */
-.red{
+.red {
   background: rgba(255, 0, 0, 0.5);
 }
 
-.green{
+.green {
   background: rgba(0, 255, 0, 0.5);
 }
 
-.green{
+.green {
   background: rgba(0, 0, 255, 0.5);
 }
 
-.yellow{
+.yellow {
   background: rgba(255, 255, 0, 0.5);
 }

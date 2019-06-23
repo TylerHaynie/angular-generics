@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'generic-grid',
@@ -6,12 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./generic-grid.component.css']
 })
 export class GenericGridComponent {
-  @Input() columns: number | 'auto' = 'auto';
-  @Input() gap: string = '0';
-  @Input() rows: number | 'auto' = 'auto';
-
-  constructor() {
-
-  }
-
+  @Input() columns: number = 4;
+  @Input() gap: string = '5px';
+  @Input() rows: number | 'auto' = 2;
 }

@@ -1,5 +1,9 @@
 <generic-page>
-  <generic-grid [columns]="4" [gap]="'5px'"></generic-grid>
+  <generic-grid>
+    <generic-column *ngFor="let col of _gridColumns; let x=index">
+      Column {{x + 1}}
+    </generic-column>
+  </generic-grid>
 </generic-page>
 
 

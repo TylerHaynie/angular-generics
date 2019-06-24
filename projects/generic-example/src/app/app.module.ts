@@ -9,7 +9,7 @@ import {
   GenericTableModule, GenericButtonModule, GenericServiceModule,
   GenericDropdownModule, GenericDataSourceModule, GenericNavigationModule,
   GenericTablePagerModule, GenericTableFilterModule, GenericInputModule,
-  GenericGridModule, GenericPageModule
+  GenericPageModule
 } from 'angular-generics';
 
 @NgModule({
@@ -22,7 +22,6 @@ import {
     FormsModule,
     HttpClientModule,
     GenericPageModule,
-    GenericGridModule,
     GenericDropdownModule,
     GenericFormModule,
     GenericListModule,

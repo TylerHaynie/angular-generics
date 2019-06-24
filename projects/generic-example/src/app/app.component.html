@@ -1,10 +1,50 @@
 <generic-page>
+
+  <!-- Grid 1 -->
   <generic-grid>
-    <generic-column *ngFor="let col of _gridColumns; let x=index">
-      Column {{x + 1}}
+    <generic-row [gap]="'10px'" [pad]="'10px'">
+      <generic-column *ngFor="let col of _gridColumns; let x=index"
+                      [gap]="'10px'" [pad]="'10px'">
+        <generic-element>Grid 1, Row 1, Column {{x + 1}}</generic-element>
+      </generic-column>
+    </generic-row>
+
+    <generic-row [gap]="'10px'" [pad]="'10px'">
+      <generic-column [gap]="'10px'" [pad]="'10px'"
+                      *ngFor="let col of _gridColumns; let x=index">
+        <generic-element>Grid 1, Row 2, Column {{x + 1}}</generic-element>
+      </generic-column>
+    </generic-row>
+  </generic-grid>
+
+
+  <!-- Grid  -->
+  <generic-grid [flow]="'column'">
+    <generic-column [gap]="'10px'" [pad]="'10px'">
+      <generic-row [gap]="'10px'" [pad]="'10px'" *ngFor="let col of _gridColumns; let x=index">
+        <generic-element>Grid 2, Column 1, Row {{x + 1}}</generic-element>
+      </generic-row>
+    </generic-column>
+
+    <generic-column [gap]="'10px'" [pad]="'10px'">
+      <generic-row [gap]="'10px'" [pad]="'10px'" *ngFor="let col of _gridColumns; let x=index">
+        <generic-element>Grid 2, Column 2, Row {{x + 1}}</generic-element>
+      </generic-row>
     </generic-column>
   </generic-grid>
+
 </generic-page>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

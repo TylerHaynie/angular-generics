@@ -1,4 +1,48 @@
-.generic-page{
-  display: grid;
+.generic-page {
   height: 100%;
+}
+
+.generic-grid,
+.generic-column,
+.generic-row {
+  display: grid;
+}
+
+.generic-grid {
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.generic-column {
+  grid-template-columns: auto;
+  grid-auto-flow: row;
+}
+
+.generic-row {
+  grid-template-rows: auto;
+  grid-auto-flow: column;
+}
+
+
+
+
+/* test colors */
+.red {
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.green {
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.blue {
+  background: rgba(0, 0, 255, 0.5);
+}
+
+.white {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.dark {
+  background: rgb(26, 26, 26);
 }

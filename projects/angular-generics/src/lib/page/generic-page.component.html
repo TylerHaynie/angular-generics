@@ -1,3 +1,5 @@
-<div class="generic-page">
-  <ng-content></ng-content>
+<div generic-page class="generic-page dark"
+     [ngStyle]="{'padding': pad, 'height': height}">
+  <ng-content select="generic-grid"></ng-content>
+  <ng-content select="generic-element"></ng-content>
 </div>

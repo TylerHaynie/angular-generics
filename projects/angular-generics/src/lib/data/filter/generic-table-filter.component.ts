@@ -2,7 +2,7 @@ import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { GenericTableColumn } from '../table/generic-table-column';
 
 @Component({
-  selector: 'generic-table-filter',
+  selector: 'ag-table-filter',
   templateUrl: './generic-table-filter.component.html',
   styleUrls: ['../../styles/generic.css']
 })

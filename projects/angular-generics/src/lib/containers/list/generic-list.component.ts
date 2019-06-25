@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input, TemplateRef } from '@angular/core';
 
 @Component({
-  selector: 'generic-list',
+  selector: 'ag-list',
   templateUrl: './generic-list.component.html',
   styleUrls: ['../../styles/generic.css']
 })

@@ -7,7 +7,7 @@ export class PageChange {
 }
 
 @Component({
-  selector: 'generic-table-pager',
+  selector: 'ag-table-pager',
   templateUrl: './generic-table-pager.component.html',
   styleUrls: ['../../styles/generic.css']
 })

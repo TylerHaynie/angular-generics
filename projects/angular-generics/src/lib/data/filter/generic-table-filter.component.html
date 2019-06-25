@@ -13,10 +13,10 @@
     <div class="col-2">
       <ng-container *ngIf="showFilter">
         <div class="col-1">
-          <generic-button (clicked)="searchClicked()" [color]="'searchColor'">Search</generic-button>
+          <ag-button (clicked)="searchClicked()" [color]="'searchColor'">Search</ag-button>
         </div>
         <div class="col-1">
-          <generic-button (clicked)="resetSearch()" [color]="'resetColor'">Reset</generic-button>
+          <ag-button (clicked)="resetSearch()" [color]="'resetColor'">Reset</ag-button>
         </div>
       </ng-container>
     </div>
@@ -41,9 +41,9 @@
           </ng-container>
 
     <!-- <ng-container #listTemplate *ngIf="column.dataType == 'list' : defaultTemplate">
-            <generic-dropdown [displayProperty]="column.list.display" [indexProperty]="column.list.value"
+            <ag-dropdown [displayProperty]="column.list.display" [indexProperty]="column.list.value"
               [source]="column.list.source" [label]="column.display">
-            </generic-dropdown>
+            </ag-dropdown>
           </ng-container> 
     -->
         </ng-container>

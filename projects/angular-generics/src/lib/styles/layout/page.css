@@ -23,26 +23,45 @@
   grid-auto-flow: column;
 }
 
-
-
-
-/* test colors */
-.red {
-  background: rgba(255, 0, 0, 0.5);
+/* Top */
+.generic-element.top-left{
+  place-content: start start;
 }
 
-.green {
-  background: rgba(0, 255, 0, 0.5);
+.generic-element.top-center{
+  place-content: start center;
 }
 
-.blue {
-  background: rgba(0, 0, 255, 0.5);
+.generic-element.top-right{
+  place-content: start end;
 }
 
-.white {
-  background: rgba(255, 255, 255, 0.5);
+/* Middle */
+.generic-element.center-left{
+  place-content: center start;
 }
 
-.dark {
-  background: rgb(26, 26, 26);
+.generic-element.center{
+  place-content: center center;
+}
+
+.generic-element.center-right{
+  place-content: center end;
+}
+
+/* Bottom */
+.generic-element.bottom-left{
+  place-content: end start;
+}
+
+.generic-element.bottom-center{
+  place-content: end center;
+}
+
+.generic-element.bottom-right{
+  place-content: end end;
+}
+
+.generic-element.space-around{
+  place-content: space-around space-around;
 }

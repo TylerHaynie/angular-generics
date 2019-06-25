@@ -9,7 +9,7 @@ export class CustomAction {
 }
 
 @Component({
-  selector: 'generic-table',
+  selector: 'ag-table',
   templateUrl: './generic-table.component.html',
   styleUrls: ['../../styles/generic.css']
 })

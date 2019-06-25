@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 @Component({
-  selector: 'generic-column',
+  selector: 'ag-column',
   templateUrl: './generic-column.component.html',
   styleUrls: ['../../styles/layout/page.css']
 })

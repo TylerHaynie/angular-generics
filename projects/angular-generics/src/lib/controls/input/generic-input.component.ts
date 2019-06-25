@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MakeProvider, AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 
 @Component({
-  selector: 'generic-input',
+  selector: 'ag-input',
   templateUrl: './generic-input.component.html',
   styleUrls: ['../../styles/generic.css'],
   providers: [MakeProvider(GenericInputComponent)]

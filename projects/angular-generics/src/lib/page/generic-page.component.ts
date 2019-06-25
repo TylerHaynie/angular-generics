@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'generic-page',
+  selector: 'ag-page',
   templateUrl: './generic-page.component.html',
   styleUrls: ['../styles/layout/page.css']
 })

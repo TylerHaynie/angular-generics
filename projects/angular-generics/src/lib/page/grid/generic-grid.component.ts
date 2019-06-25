@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 @Component({
-  selector: 'generic-grid',
+  selector: 'ag-grid',
   templateUrl: './generic-grid.component.html',
   styleUrls: ['../../styles/layout/page.css']
 })

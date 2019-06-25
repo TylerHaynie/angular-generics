@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 @Component({
-  selector: 'generic-row',
+  selector: 'ag-row',
   templateUrl: './generic-row.component.html',
   styleUrls: ['../../styles/layout/page.css']
 })

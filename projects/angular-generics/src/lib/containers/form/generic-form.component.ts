@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GENERIC_PAGE_MODE } from '../../enums/generic-page-mode';
 
 @Component({
-  selector: 'generic-form',
+  selector: 'ag-form',
   templateUrl: './generic-form.component.html',
   styleUrls: ['../../styles/generic.css']
 })

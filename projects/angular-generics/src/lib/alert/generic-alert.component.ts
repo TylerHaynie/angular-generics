@@ -3,7 +3,7 @@ import { GenericAlert } from './generic-alert';
 import { GenericAlertService } from './generic-alert.service';
 
 @Component({
-  selector: 'generic-alert',
+  selector: 'ag-alert',
   templateUrl: './generic-alert.component.html',
   styleUrls: ['../styles/generic.css']
 })

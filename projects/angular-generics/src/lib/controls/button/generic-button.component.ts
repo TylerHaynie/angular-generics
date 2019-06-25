@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 
 @Component({
-  selector: 'generic-button',
+  selector: 'ag-button',
   templateUrl: './generic-button.component.html',
   styleUrls: ['../../styles/generic.css']
 })

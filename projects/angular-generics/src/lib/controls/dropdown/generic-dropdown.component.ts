@@ -4,7 +4,7 @@ import { GenericNavigationService } from '../../navigation/generic-navigation.se
 import { GenericRouteDefinition } from '../../navigation/generic-route-definition';
 
 @Component({
-  selector: 'generic-dropdown',
+  selector: 'ag-dropdown',
   templateUrl: './generic-dropdown.component.html',
   styleUrls: ['../../styles/generic.css']
 })

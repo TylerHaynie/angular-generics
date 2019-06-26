@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 export class GenericRowComponent {
   @Input() gap: string = '0';
   @Input() pad: string = '0';
+  @Input() placement: string = 'start stretch';
 }

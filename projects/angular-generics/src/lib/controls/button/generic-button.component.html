@@ -1,9 +1,5 @@
-<div class="col-1 full-width-content row-1 h-end-content pad-5">
-  <div class="generic-button no-selection pointer col-1 gap-5"
-       [ngClass]="{'shadows': !flat}"
-       [ngStyle]="{'background': color}">
-    <div class="v-center-content text-c">
-      <ng-content></ng-content>
-    </div>
-  </div>
+<div class="generic-button no-selection pointer"
+     [ngClass]="{'shadows': !flat}"
+     [ngStyle]="{'background': color}">
+  <ng-content></ng-content>
 </div>

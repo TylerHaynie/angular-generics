@@ -3,59 +3,57 @@
   --inputOutline: 1px solid var(--inputOutlineColor);
   --inputShadow: inset 0 0 3px 0px #f2fdff;
   --inputFontSize: 1.0em;
-  --inputPadding: 5px 5px 1px 5px;
-  --inputLabelColor: rgb(37, 37, 37);
+  --inputPadding: 5px 5px 2px 5px;
+  --inputLabelColor: rgb(7, 7, 7);
 }
 
-.control input {
+.generic-input {
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.generic-input input {
   box-shadow: var(--inputShadow);
-}
-
-.control input,
-.control textarea {
-  font-size: var(--inputFontSize);
-  padding: var(--inputPadding);
-  border: var(--inputOutline);
   box-sizing: border-box;
 }
 
-.control input:disabled,
-.control textarea:disabled {
+.generic-input input,
+.generic-input textarea {
+  font-size: var(--inputFontSize);
+  padding: var(--inputPadding);
+  border: var(--inputOutline);
+
+}
+
+.generic-input input:disabled,
+.generic-input textarea:disabled {
   background-color: var(--disabledBackground);
   border-color: var(--disabledBorder);
 }
 
-.control {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-rows: auto;
-}
-
-label {
+.generic-input>label {
   color: var(--inputLabelColor);
-  font-size: calc(var(--inputFontSize) * 0.80);
+  font-size: calc((var(--inputFontSize) * 0.65) * 1.8);
   font-weight: bold;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.label-left {
+.generic-input.label-left {
   grid-gap: 5px;
-  grid-template-columns: minmax(1px, 1fr) minmax(1px, 4fr);
+  grid-template-columns: minmax(100px, 1fr) minmax(100px, 20fr);
 }
 
-.label-left label {
-  text-align: right;
-  align-self: end;
-}
+/* .generic-input.label-left>label {
+  place-self: end start;
+} */
 
-.label-top {
+.generic-input.label-top {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr, 1fr;
 }
 
-.label-top label {
-  text-align: left;
-  align-self: end;
-}
+/* .generic-input.label-top>label {
+  place-self: start end;
+} */

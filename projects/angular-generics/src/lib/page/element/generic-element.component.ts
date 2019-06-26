@@ -5,7 +5,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['../../styles/layout/page.css']
 })
 export class GenericElementComponent {
-  @Input() position: 'top-left' | 'top-center' | 'top-right' |
-                     'center-left' | 'center' | 'center-right' |
-                     'bottom-left' | 'bottom-center' | 'bottom-right' = 'center-left';
+  @Input() gap: string = 'none';
+  @Input() pad: string = 'none';
+  @Input() placement: string = 'start stretch';
+  @Input() flow: 'column' | 'row';
 }

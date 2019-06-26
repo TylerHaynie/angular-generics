@@ -1,30 +1,43 @@
 @import '../../angular-generics/src/lib/styles/base.css';
+@import '../../angular-generics/src/lib/styles/controls/button.css';
+@import '../../angular-generics/src/lib/styles/controls/input.css';
+/* @import '../../angular-generics/src/lib/styles/controls/button.css'; */
 
-*{
-  color: rgb(233, 233, 233);
+:root{
+  --inputLabelColor: white;
 }
 
-.generic-page{
+.generic-page {
   background: rgb(15, 15, 15);
 }
 
-.generic-grid{
-  border: 1px solid rgb(255, 255, 255);
-  background:  rgba(255, 255, 255, 1);
+.primary-grid .generic-grid {
+  background: rgba(255, 255, 255, 1);
 }
 
-.generic-row{
-  border: 1px solid red;
+.primary-grid .generic-row {
   background: rgba(255, 0, 0, 0.5);
 }
 
-.generic-column{
-  border: 1px solid green;
+.primary-grid .generic-column {
   background: rgba(0, 255, 0, 0.5);
 }
 
-.generic-element{
-  border: 1px solid blue;
+.primary-grid .generic-element {
   background: rgba(0, 0, 255, 0.5);
 }
 
+.generic-button {
+  color: white;
+  font-weight: bold;
+  width: 125px;
+}
+
+.example-fields>.generic-grid {
+  background: rgb(24, 24, 24);
+  border: 2px solid rgb(161, 161, 161);
+}
+
+.generic-input>label{
+  color: white;
+}

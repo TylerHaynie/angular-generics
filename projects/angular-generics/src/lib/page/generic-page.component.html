@@ -1,5 +1,3 @@
-<div class="generic-page"
-     [ngStyle]="{'padding': pad, 'height': height}">
-  <ng-content select="ag-grid"></ng-content>
-  <ng-content select="ag-element"></ng-content>
+<div class="generic-page" [ngStyle]="{'padding': pad, 'height': height, 'place-content': placement}">
+  <ng-content></ng-content>
 </div>

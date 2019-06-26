@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class GenericPageComponent {
   @Input() pad: string = '0';
   @Input() height: string = '100%';
+  @Input() placement: string = 'start stretch';
 }

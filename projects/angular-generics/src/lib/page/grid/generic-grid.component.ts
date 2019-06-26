@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 export class GenericGridComponent {
   @Input() gap: string = 'none';
   @Input() pad: string = 'none';
-  @Input() flow: 'column' | 'row' = 'row';
+  @Input() flow: 'column' | 'row' | 'row dense' = 'row dense';
 }

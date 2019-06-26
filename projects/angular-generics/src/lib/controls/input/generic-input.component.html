@@ -1,7 +1,5 @@
-<div class="control col-1" [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'top'}">
-  <label><ng-content></ng-content></label>
-  <!-- <div> -->
-    <!-- <ng-content class="content-above" select="[contentAbove]"></ng-content> -->
+<div class="generic-input" [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'top'}">
+  <label [ngStyle]="{'place-self': labelPlacement}" ><ng-content></ng-content></label>
     <ng-container *ngIf="isTextArea; else elseTemplate">
       <textarea [cols]="textColumns"
                 [rows]="textRows"
@@ -13,7 +11,4 @@
              [(ngModel)]="value"
              [placeholder]="placeholder" />
     </ng-template>
-    <!-- <ng-content class="content-below" select="[contentBelow]"></ng-content> -->
-  <!-- </div> -->
-
 </div>

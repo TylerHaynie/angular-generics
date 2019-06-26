@@ -23,7 +23,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "publish": "npm publish .\\dist\\angular-generics\\angular-generics-0.0.9.tgz",
+    "publish": "npm publish .\\dist\\angular-generics\\angular-generics-0.0.10.tgz",
     "package": "npm run-script build && npm run-script copy-files && npm run-script pack",
     "build": "ng build angular-generics",
     "test": "ng test",

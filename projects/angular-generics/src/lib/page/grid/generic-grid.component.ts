@@ -8,4 +8,5 @@ export class GenericGridComponent {
   @Input() gap: string = 'none';
   @Input() pad: string = 'none';
   @Input() flow: 'column' | 'row' | 'row dense' = 'row dense';
+  @Input() placement: string = 'start stretch';
 }

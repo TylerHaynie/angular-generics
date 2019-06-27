@@ -3,8 +3,7 @@ import { GenericTableColumn } from '../table/generic-table-column';
 
 @Component({
   selector: 'ag-table-filter',
-  templateUrl: './generic-table-filter.component.html',
-  styleUrls: ['../../styles/generic.css']
+  templateUrl: './generic-table-filter.component.html'
 })
 export class GenericTableFilterComponent<T> implements OnInit {
   @Input() showFilter: boolean = true;

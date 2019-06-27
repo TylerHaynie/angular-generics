@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 export class GenericElementComponent {
   @Input() gap: string = 'none';
   @Input() pad: string = 'none';
-  @Input() placement: string = 'start stretch';
+  @Input() placement: string;
   @Input() flow: 'column' | 'row';
 }

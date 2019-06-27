@@ -3,8 +3,7 @@ import { GENERIC_PAGE_MODE } from '../../enums/generic-page-mode';
 
 @Component({
   selector: 'ag-form',
-  templateUrl: './generic-form.component.html',
-  styleUrls: ['../../styles/generic.css']
+  templateUrl: './generic-form.component.html'
 })
 export class GenericFormComponent implements OnInit {
 

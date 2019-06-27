@@ -1,6 +1,6 @@
 <div class="generic-column"
      [ngStyle]="{'gap': gap, 
                  'padding': pad,
-                 'place-content': placement}">
+                 'place-content': placement ? placement : false}">
   <ng-content></ng-content>
 </div>

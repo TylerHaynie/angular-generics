@@ -28,10 +28,6 @@ export * from './lib/containers/list/generic-list.module';
 export * from './lib/controls/button/generic-button.component';
 export * from './lib/controls/button/generic-button.module';
 
-// Dropdown
-export * from './lib/controls/dropdown/generic-dropdown.component';
-export * from './lib/controls/dropdown/generic-dropdown.module';
-
 // Input
 export * from './lib/controls/input/generic-input.component';
 export * from './lib/controls/input/generic-input.module';

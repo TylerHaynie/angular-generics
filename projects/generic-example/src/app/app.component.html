@@ -89,7 +89,7 @@
         <ag-input [(ngModel)]="inputbinding1">First Name</ag-input>
       </ag-column>
       <ag-column>
-        <ag-input [(ngModel)]="inputbinding1">Last Name</ag-input>
+        <ag-input [(ngModel)]="inputbinding1" [labelPlacement]="'end end'">Last Name</ag-input>
       </ag-column>
     </ag-row>
     <ag-row [gap]="'10px'">
@@ -97,7 +97,7 @@
         <ag-input [(ngModel)]="inputbinding1">City</ag-input>
       </ag-column>
       <ag-column>
-        <ag-input [(ngModel)]="inputbinding1">State</ag-input>
+        <ag-input [(ngModel)]="inputbinding1" [labelPlacement]="'end end'">State</ag-input>
       </ag-column>
     </ag-row>
     <ag-row [gap]="'10px'">
@@ -108,10 +108,11 @@
   <ag-grid class="example-fields" [pad]="'10px'">
     <ag-row [gap]="'10px'">
       <ag-column>
-        <ag-input [labelPosition]="'top'" [(ngModel)]="inputbinding1">First Name</ag-input>
+        <ag-input [labelPosition]="'above'" [(ngModel)]="inputbinding1">First Name</ag-input>
       </ag-column>
       <ag-column>
-        <ag-input [labelPosition]="'top'" [labelPlacement]="'end end'" [(ngModel)]="inputbinding1">Last Name</ag-input>
+        <ag-input [labelPosition]="'above'" [labelPlacement]="'end end'" [(ngModel)]="inputbinding1">Last Name
+        </ag-input>
       </ag-column>
     </ag-row>
   </ag-grid>
@@ -119,29 +120,33 @@
   <ag-grid class="example-fields" [pad]="'10px'" [gap]="'10px'">
     <ag-row [gap]="'10px'">
       <ag-column>
-        <ag-input [labelPosition]="'top'" [(ngModel)]="inputbinding1">First Name</ag-input>
-      </ag-column>
-      <ag-column>
-        <ag-input [labelPosition]="'top'" [(ngModel)]="inputbinding1">Last Name</ag-input>
+        <ag-input [labelPosition]="'above'" [labelPlacement]="'center center'" [(ngModel)]="inputbinding1">Book Title
+        </ag-input>
       </ag-column>
     </ag-row>
     <ag-row [gap]="'10px'">
       <ag-column>
-        <ag-input [labelPosition]="'top'" [(ngModel)]="inputbinding1">First Name</ag-input>
+        <ag-input [disabled]='true' [labelPosition]="'above'" [(ngModel)]="inputbinding1">Author</ag-input>
       </ag-column>
       <ag-column>
-        <ag-input [labelPosition]="'top'" [(ngModel)]="inputbinding1">Last Name</ag-input>
-      </ag-column>
-    </ag-row>
-    <ag-row [gap]="'10px'">
-      <ag-column>
-        <ag-input [labelPosition]="'top'" [(ngModel)]="inputbinding1">First Name</ag-input>
+        <ag-input [type]="'date'" [labelPosition]="'above'" [(ngModel)]="inputbinding1">Release Date</ag-input>
       </ag-column>
       <ag-column>
-        <ag-input [labelPosition]="'top'" [(ngModel)]="inputbinding1">Last Name</ag-input>
+        <ag-input [labelPosition]="'above'" [type]="'select'" [displayProperty]="'title'" [source]="dropdownSource">Category</ag-input>
       </ag-column>
     </ag-row>
   </ag-grid>
+
+  <ag-grid class="example-fields" [pad]="'10px'" [gap]="'10px'">
+    <ag-row [gap]="'10px'">
+      <ag-column>
+        <ag-input [type]="'check'" [labelPosition]="'left'" [(ngModel)]="checkBinding1">Default</ag-input>
+        <ag-input [type]="'check'" [subtype]="'slide'" [labelPosition]="'left'" [(ngModel)]="checkBinding1">Slide
+        </ag-input>
+      </ag-column>
+    </ag-row>
+  </ag-grid>
+
 
 </ag-page>
 

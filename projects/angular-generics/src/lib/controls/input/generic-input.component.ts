@@ -1,23 +1,64 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, TemplateRef, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MakeProvider, AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
+import { GenericApiService } from '../../services/generic-api.service';
 
 @Component({
   selector: 'ag-input',
   templateUrl: './generic-input.component.html',
-  styleUrls: ['../../styles/controls/input.css'],
+  styleUrls: [
+    '../../styles/controls/input.css',
+    '../../styles/controls/checkbox.css'
+  ],
   providers: [MakeProvider(GenericInputComponent)]
 })
-export class GenericInputComponent extends AbstractValueAccessor {
-  // text box
-  @Input() type: string = 'text';
-  @Input() placeholder: string = 'input...';
-  @Input() labelPlacement: string = 'end start';
+export class GenericInputComponent extends AbstractValueAccessor implements OnChanges {
+  // General
+  @Input() disabled: boolean = false;
+  @Input() customTemplate: TemplateRef<any>;
 
-  // text area
-  @Input() isTextArea: boolean = false;
+  // Label
+  @Input() labelPosition: 'above' | 'left' = 'left';
+  @Input() labelPlacement: string = 'end start';
+  @Input() showLabel: boolean = true;
+
+  @Input() type: string = 'text';
+  @Input() subtype: string = 'default';
+  @Input() placeholder: string = '';
+
+  // Text Area
   @Input() textRows: number = 5;
   @Input() textColumns: number = 0;
 
-  // // label
-  @Input() labelPosition: 'top' | 'left' = 'left';
+  // Source and Selection
+  @Input() source: string;
+  @Input() displayProperty: string;
+  itemList: any[];
+  currentSelection: any;
+
+  constructor(private api: GenericApiService) {
+    super();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.source) {
+      const sourceChange = changes.source.currentValue !== changes.source.previousValue;
+      if (sourceChange) {
+        this.getItems();
+      }
+    }
+  }
+
+  getItems() {
+    if (this.source) {
+      console.log('source', this.source);
+
+      this.api.get(this.source)
+        .then((items) => {
+          if (items) {
+            this.itemList = items;
+          }
+        });
+    }
+
+  }
 }

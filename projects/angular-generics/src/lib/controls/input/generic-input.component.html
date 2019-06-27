@@ -1,14 +1,108 @@
-<div class="generic-input" [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'top'}">
-  <label [ngStyle]="{'place-self': labelPlacement}" ><ng-content></ng-content></label>
-    <ng-container *ngIf="isTextArea; else elseTemplate">
-      <textarea [cols]="textColumns"
-                [rows]="textRows"
-                [placeholder]="placeholder"
-                [ngModel]="value"></textarea>
-    </ng-container>
-    <ng-template #elseTemplate>
-      <input [type]="type"
-             [(ngModel)]="value"
-             [placeholder]="placeholder" />
-    </ng-template>
+<!-- *** Layout *** -->
+
+<div class="generic-input" [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'above'}">
+  <label [ngStyle]="{'place-self': labelPlacement}">
+    <ng-content></ng-content>
+  </label>
+
+  <ng-container *ngIf="type=='custom'">
+    <ng-container *ngTemplateOutlet="customTemplate"></ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type=='text'">
+    <ng-container *ngTemplateOutlet="textbox"></ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type=='date'">
+    <ng-container *ngTemplateOutlet="dateBox"></ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type=='check'">
+    <ng-container *ngTemplateOutlet="checkBox"></ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type=='select'">
+    <ng-container *ngTemplateOutlet="selectBox"></ng-container>
+  </ng-container>
 </div>
+
+<!-- *** Conditionals *** -->
+
+<!-- Text Box SubTypes -->
+<ng-template #textbox>
+  <ng-container *ngIf="type=='text'">
+    <ng-container *ngTemplateOutlet="defaultTextbox"></ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="subtype=='textArea'">
+    <ng-container *ngTemplateOutlet="textArea"></ng-container>
+  </ng-container>
+</ng-template>
+
+<!-- Date Box SubTypes -->
+<ng-template #dateBox>
+  <ng-container *ngIf="subtype=='default'">
+    <ng-container *ngTemplateOutlet="defaultDate"></ng-container>
+  </ng-container>
+</ng-template>
+
+<!-- Check Box SubTypes -->
+<ng-template #checkBox>
+  <ng-container *ngIf="subtype=='default'">
+    <ng-container *ngTemplateOutlet="defaultCheck"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="subtype=='slide'">
+    <ng-container *ngTemplateOutlet="checkSlide"></ng-container>
+  </ng-container>
+</ng-template>
+
+<!-- Select Box SubTypes-->
+<ng-template #selectBox>
+  <ng-container *ngIf="subtype=='default'">
+    <ng-container *ngTemplateOutlet="defaultSelect"></ng-container>
+  </ng-container>
+</ng-template>
+
+
+<!--  *** TEMPLATES ***  -->
+
+<!-- Default Text Box -->
+<ng-template #defaultTextbox>
+  <input [disabled]="disabled" type="text" [(ngModel)]="value" [placeholder]="placeholder" />
+</ng-template>
+
+<!-- Text Area -->
+<ng-template #textArea>
+  <textarea [disabled]="disabled" [cols]="textColumns" [rows]="textRows" [placeholder]="placeholder"
+            [ngModel]="value"></textarea>
+</ng-template>
+
+<!-- Default Date -->
+<ng-template #defaultDate>
+  <input [disabled]="disabled" type="date" [(ngModel)]="value" [placeholder]="placeholder" />
+</ng-template>
+
+<!-- Default Checkbox -->
+<ng-template #defaultCheck>
+  <input [disabled]="disabled" type="checkbox" [(ngModel)]="value" />
+</ng-template>
+
+<!-- Slide Checkbox -->
+<ng-template #checkSlide>
+  <div class="checkbox-slider">
+    <input [disabled]="disabled" id="genericSliderCheckbox" type="checkbox" [(ngModel)]="value" />
+    <label for="genericSliderCheckbox"></label>
+  </div>
+</ng-template>
+
+<!-- Default Select -->
+<ng-template #defaultSelect>
+  <ng-container *ngIf="!disabled">
+    <select [(ngModel)]="value">
+      <option *ngFor="let item of itemList" [value]="item">{{item[displayProperty]}}</option>
+    </select>
+  </ng-container>
+  <ng-container *ngIf="disabled">
+    <input disabled type="text" [value]="currentSelection[displayProperty]">
+  </ng-container>
+</ng-template>

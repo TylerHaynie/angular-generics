@@ -10,8 +10,7 @@ export class CustomAction {
 
 @Component({
   selector: 'ag-table',
-  templateUrl: './generic-table.component.html',
-  styleUrls: ['../../styles/generic.css']
+  templateUrl: './generic-table.component.html'
 })
 export class GenericTableComponent<T> implements OnInit {
   // data

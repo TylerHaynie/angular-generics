@@ -1,7 +1,7 @@
 <div class="generic-element"
      [ngStyle]="{'gap': gap, 
                  'padding': pad,
-                 'place-content': placement,
+                 'place-content': placement ? placement : false,
                  'grid-auto-flow': flow}">
   <ng-content></ng-content>
 </div>

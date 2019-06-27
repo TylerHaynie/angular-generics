@@ -2,6 +2,7 @@
   --inputOutlineColor: rgb(171, 192, 216);
   --inputOutline: 1px solid var(--inputOutlineColor);
   --inputShadow: inset 0 0 3px 0px #f2fdff;
+  --inputBackground: white;
   --inputFontSize: 1.0em;
   --inputPadding: 5px 5px 2px 5px;
   --inputLabelColor: rgb(7, 7, 7);
@@ -12,17 +13,23 @@
   grid-template-rows: auto;
 }
 
+.generic-input select{
+  width: 100%;
+}
+
+.generic-input select,
 .generic-input input {
   box-shadow: var(--inputShadow);
   box-sizing: border-box;
 }
 
+.generic-input select,
 .generic-input input,
 .generic-input textarea {
   font-size: var(--inputFontSize);
   padding: var(--inputPadding);
   border: var(--inputOutline);
-
+  background: var(--inputBackground);
 }
 
 .generic-input input:disabled,
@@ -33,7 +40,6 @@
 
 .generic-input>label {
   color: var(--inputLabelColor);
-  font-weight: bold;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -44,15 +50,8 @@
   grid-template-columns: minmax(100px, 1fr) minmax(100px, 20fr);
 }
 
-/* .generic-input.label-left>label {
-  place-self: end start;
-} */
-
 .generic-input.label-top {
+  grid-gap: 2px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr, 1fr;
 }
-
-/* .generic-input.label-top>label {
-  place-self: start end;
-} */

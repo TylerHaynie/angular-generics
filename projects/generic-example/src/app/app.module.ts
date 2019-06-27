@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {
   GenericFormModule, GenericListModule, GenericAlertModule,
   GenericTableModule, GenericButtonModule, GenericServiceModule,
-  GenericDropdownModule, GenericDataSourceModule, GenericNavigationModule,
+  GenericDataSourceModule, GenericNavigationModule,
   GenericTablePagerModule, GenericTableFilterModule, GenericInputModule,
   GenericPageModule
 } from 'angular-generics';
@@ -22,14 +22,12 @@ import {
     FormsModule,
     HttpClientModule,
     GenericPageModule,
-    GenericDropdownModule,
     GenericFormModule,
     GenericListModule,
     GenericAlertModule,
     GenericTableModule,
     GenericButtonModule,
     GenericServiceModule,
-    GenericDropdownModule,
     GenericInputModule,
     GenericDataSourceModule,
     GenericNavigationModule,

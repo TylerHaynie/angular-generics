@@ -1,0 +1,53 @@
+.checkbox-slider input[type=checkbox] {
+  visibility: hidden;
+}
+
+.checkbox-slider {
+  width: 100px;
+  height: 25px;
+  background: #2f3947;
+
+  border-radius: 25px;
+  position: relative;
+}
+
+.checkbox-slider:before,
+.checkbox-slider:after {
+  position: absolute;
+  top: 4px;
+  height: 2px;
+  font-size: 16px;
+}
+
+.checkbox-slider:before {
+  content: 'Yes';
+  left: 13px;
+  color: #26ca28;
+}
+
+.checkbox-slider:after {
+  content: 'No';
+  left: 68px;
+  color: rgb(231, 66, 44);
+}
+
+.checkbox-slider label {
+  display: block;
+  width: 50px;
+  height: 19px;
+  border-radius: 10px;
+
+  transition: all .5s ease;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  z-index: 1;
+  left: 3px;
+  background: rgb(184, 51, 34);
+}
+
+
+.checkbox-slider input[type=checkbox]:checked+label {
+  left: 48px;
+  background: #26ca28;
+}

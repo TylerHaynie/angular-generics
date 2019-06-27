@@ -19,6 +19,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   inputbinding2: string;
   inputbinding3: string;
 
+  checkBinding1: boolean = false;
+
   dropdownSource: string = `https://jsonplaceholder.typicode.com/todos`;
   selectedDropdownId: number = 0;
 

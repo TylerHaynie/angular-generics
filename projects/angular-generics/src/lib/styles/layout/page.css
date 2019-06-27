@@ -9,11 +9,11 @@
 }
 
 .generic-column {
-  grid-template-columns: none;
   grid-auto-flow: row;
+  grid-auto-rows: 1fr;
 }
 
 .generic-row {
-  grid-template-rows: none;
   grid-auto-flow: column;
+  grid-auto-columns: 1fr;
 }

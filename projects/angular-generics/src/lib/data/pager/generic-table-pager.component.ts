@@ -8,8 +8,7 @@ export class PageChange {
 
 @Component({
   selector: 'ag-table-pager',
-  templateUrl: './generic-table-pager.component.html',
-  styleUrls: ['../../styles/generic.css']
+  templateUrl: './generic-table-pager.component.html'
 })
 export class GenericTablePagerComponent implements OnInit {
   @Input() showPager: boolean = true;

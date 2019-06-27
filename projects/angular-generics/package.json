@@ -1,6 +1,6 @@
 {
   "name": "angular-generics",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A collection of generic controls for Angular 8+",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
     "control",
     "data",
     "table",
-    "material"
+    "input"
   ],
   "author": "Tyler Haynie",
   "license": "MIT",

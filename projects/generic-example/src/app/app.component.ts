@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { GenericTableColumn, GenericSearchRequest, GenericApiService, GenericTableComponent, GenericDataSource } from 'angular-generics';
+import { GenericTableColumn, GenericSearchRequest, GenericTableComponent } from 'angular-generics';
 
 export class TestTable {
   userId: number;

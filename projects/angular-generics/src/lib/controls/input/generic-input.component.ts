@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, TemplateRef, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, TemplateRef, OnChanges, SimpleChanges } from '@angular/core';
 import { MakeProvider, AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 import { GenericApiService } from '../../services/generic-api.service';
 

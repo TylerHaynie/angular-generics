@@ -1,81 +1,16 @@
-<ag-page>
+<ag-button (click)="modal.show()">Show Modal</ag-button>
 
-  <ag-grid [columns]="2" [rows]="3">
-    <ag-column [gap]="'5px'">
-      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Client</ag-input>
-      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Interal Id</ag-input>
-      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Provision</ag-input>
-      <ag-input [type]="'select'">Match 1313(p) by</ag-input>
-      <ag-input [type]="'check'" [subtype]="'slide'">Skip Ref2 / Direct Id</ag-input>
-      <ag-input [type]="'check'">Oil Spill Tax</ag-input>
-      <ag-input [type]="'check'">Alternatives Apply</ag-input>
-      <ag-input [type]="'check'">Multi-Level BOM</ag-input>
-      <ag-input [type]="'check'">NAFTA</ag-input>
-      <ag-input [type]="'check'">CITRUS</ag-input>
-      <ag-input [type]="'check'">Import = Export Date</ag-input>
-    </ag-column>
+<!-- <ng-container *ngIf="showModal"> -->
+  <ag-modal #modal [title]="'Some Title'" [buttons]="customButtons">
+    <ag-input>Test</ag-input>
+    <ag-input>Test</ag-input>
+    <ag-input>Test</ag-input>
+  </ag-modal>
+<!-- </ng-container> -->
 
-    <ag-column [gap]="'5px'">
-      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Client</ag-input>
-      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Interal Id</ag-input>
-      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Provision</ag-input>
-      <ag-input [type]="'select'">Match 1313(p) by</ag-input>
-      <ag-input [type]="'check'" [subtype]="'slide'">Skip Ref2 / Direct Id</ag-input>
-      <ag-input [type]="'check'">Oil Spill Tax</ag-input>
-      <ag-input [type]="'check'">Alternatives Apply</ag-input>
-      <ag-input [type]="'check'">Multi-Level BOM</ag-input>
-      <ag-input [type]="'check'">NAFTA</ag-input>
-      <ag-input [type]="'check'">CITRUS</ag-input>
-      <ag-input [type]="'check'">Import = Export Date</ag-input>
-    </ag-column>
-
-    <ag-column>
-      3
-    </ag-column>
-
-    <ag-column>
-      4
-    </ag-column>
-
-    <ag-column>
-      5
-    </ag-column>
-
-    <ag-column>
-      6
-    </ag-column>
-  </ag-grid>
-
-
-
-
-  <!-- <ag-grid [pad]="'10px'">
-    <ag-row [gap]="'5px'">
-      <ag-column>
-        <div class="group-box">
-          <div class="header">General</div>
-          <div class="content">
-            <ag-grid>
-
-            </ag-grid>
-          </div>
-        </div>
-      </ag-column>
-      <ag-column>
-        <div class="group-box">
-          <div class="header">
-            Information
-          </div>
-          <div class="content">
-
-          </div>
-        </div>
-      </ag-column>
-    </ag-row>
-  </ag-grid> -->
-
-
-</ag-page>
+<ng-template #customButtons>
+  <ag-button (click)="modal.hide()">Custom</ag-button>
+</ng-template>
 
 <!-- <ag-page>
 

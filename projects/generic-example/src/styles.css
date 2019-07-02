@@ -1,10 +1,11 @@
 @import '../../angular-generics/src/lib/styles/base.css';
 @import '../../angular-generics/src/lib/styles/controls/button.css';
 @import '../../angular-generics/src/lib/styles/controls/input.css';
+@import '../../angular-generics/src/lib/styles/layout/modal.css';
 /* @import '../../angular-generics/src/lib/styles/controls/button.css'; */
 
 :root{
-  --inputLabelColor: white;
+  --inputLabelColor: black;
 }
 
 .generic-page {

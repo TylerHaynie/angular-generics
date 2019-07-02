@@ -1,0 +1,20 @@
+<ng-container *ngIf="showModal">
+  <div class="modal">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2>{{title}}</h2>
+        <i class="close pointer far fa-window-close" (click)="showModal=false"></i>
+      </div>
+      <div class="modal-body">
+        <ng-content></ng-content>
+      </div>
+      <div class="modal-footer">
+        <ng-container *ngTemplateOutlet="buttons ? buttons : defaultButtons"></ng-container>      
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #defaultButtons>
+  <ag-button (click)="showModal=false">OK</ag-button>
+</ng-template>

@@ -9,7 +9,7 @@ import {
   GenericTableModule, GenericButtonModule, GenericServiceModule,
   GenericDataSourceModule, GenericNavigationModule,
   GenericTablePagerModule, GenericTableFilterModule, GenericInputModule,
-  GenericPageModule
+  GenericPageModule, GenericModalModule
 } from 'angular-generics';
 
 @NgModule({
@@ -32,7 +32,8 @@ import {
     GenericDataSourceModule,
     GenericNavigationModule,
     GenericTablePagerModule,
-    GenericTableFilterModule
+    GenericTableFilterModule,
+    GenericModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

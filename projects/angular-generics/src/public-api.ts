@@ -24,6 +24,10 @@ export * from './lib/containers/form/generic-form.module';
 export * from './lib/containers/list/generic-list.component';
 export * from './lib/containers/list/generic-list.module';
 
+// Modal
+export * from './lib/containers/modal/generic-modal.component';
+export * from './lib/containers/modal/generic-modal.module';
+
 // Button
 export * from './lib/controls/button/generic-button.component';
 export * from './lib/controls/button/generic-button.module';

@@ -13,7 +13,7 @@
   grid-template-rows: auto;
 }
 
-.generic-input select{
+.generic-input select {
   width: 100%;
 }
 
@@ -38,7 +38,7 @@
   border-color: var(--disabledBorder);
 }
 
-.generic-input>label {
+.generic-input:first-child {
   color: var(--inputLabelColor);
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -47,7 +47,8 @@
 
 .generic-input.label-left {
   grid-gap: 5px;
-  grid-template-columns: minmax(100px, 1fr) minmax(100px, 20fr);
+  grid-template-rows: 1fr;
+  grid-template-columns: minmax(150px, 1fr) minmax(250px, 4fr);
 }
 
 .generic-input.label-top {

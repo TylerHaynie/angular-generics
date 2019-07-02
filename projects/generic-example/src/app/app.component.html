@@ -1,18 +1,93 @@
 <ag-page>
 
-  <!-- primary grid -->
+  <ag-grid [columns]="2" [rows]="3">
+    <ag-column [gap]="'5px'">
+      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Client</ag-input>
+      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Interal Id</ag-input>
+      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Provision</ag-input>
+      <ag-input [type]="'select'">Match 1313(p) by</ag-input>
+      <ag-input [type]="'check'" [subtype]="'slide'">Skip Ref2 / Direct Id</ag-input>
+      <ag-input [type]="'check'">Oil Spill Tax</ag-input>
+      <ag-input [type]="'check'">Alternatives Apply</ag-input>
+      <ag-input [type]="'check'">Multi-Level BOM</ag-input>
+      <ag-input [type]="'check'">NAFTA</ag-input>
+      <ag-input [type]="'check'">CITRUS</ag-input>
+      <ag-input [type]="'check'">Import = Export Date</ag-input>
+    </ag-column>
+
+    <ag-column [gap]="'5px'">
+      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Client</ag-input>
+      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Interal Id</ag-input>
+      <ag-input [labelPosition]="'left'" [labelPlacement]="'end end'">Provision</ag-input>
+      <ag-input [type]="'select'">Match 1313(p) by</ag-input>
+      <ag-input [type]="'check'" [subtype]="'slide'">Skip Ref2 / Direct Id</ag-input>
+      <ag-input [type]="'check'">Oil Spill Tax</ag-input>
+      <ag-input [type]="'check'">Alternatives Apply</ag-input>
+      <ag-input [type]="'check'">Multi-Level BOM</ag-input>
+      <ag-input [type]="'check'">NAFTA</ag-input>
+      <ag-input [type]="'check'">CITRUS</ag-input>
+      <ag-input [type]="'check'">Import = Export Date</ag-input>
+    </ag-column>
+
+    <ag-column>
+      3
+    </ag-column>
+
+    <ag-column>
+      4
+    </ag-column>
+
+    <ag-column>
+      5
+    </ag-column>
+
+    <ag-column>
+      6
+    </ag-column>
+  </ag-grid>
+
+
+
+
+  <!-- <ag-grid [pad]="'10px'">
+    <ag-row [gap]="'5px'">
+      <ag-column>
+        <div class="group-box">
+          <div class="header">General</div>
+          <div class="content">
+            <ag-grid>
+
+            </ag-grid>
+          </div>
+        </div>
+      </ag-column>
+      <ag-column>
+        <div class="group-box">
+          <div class="header">
+            Information
+          </div>
+          <div class="content">
+
+          </div>
+        </div>
+      </ag-column>
+    </ag-row>
+  </ag-grid> -->
+
+
+</ag-page>
+
+<!-- <ag-page>
+
   <ag-element class="primary-grid">
     <ag-grid [pad]="'5px'" [gap]="'10px'">
       <ag-row [pad]="'5px'" [gap]="'10px'">
         <ag-column [pad]="'5px'" [gap]="'10px'">
 
-          <!-- Grid 1 -->
+
           <ag-grid [pad]="'5px'" [gap]="'10px'">
-            <!-- Row -->
             <ag-row [gap]="'10px'" [pad]="'5px'">
-              <!-- Column -->
               <ag-column *ngFor="let col of _gridColumns; let x=index" [gap]="'10px'" [pad]="'5px'">
-                <!-- Content -->
                 <div>
                   <div>Grid 1</div>
                   <div>Row 1</div>
@@ -21,11 +96,8 @@
               </ag-column>
             </ag-row>
 
-            <!-- Row -->
             <ag-row [gap]="'10px'" [pad]="'5px'">
-              <!-- Column -->
               <ag-column [gap]="'10px'" [pad]="'5px'" *ngFor="let col of _gridColumns; let x=index">
-                <!-- Row -->
                 <ag-row>
                   <div>Grid 1</div>
                   <div>Row 2</div>
@@ -36,7 +108,6 @@
 
           </ag-grid>
 
-          <!-- Grid 2 -->
           <ag-grid [pad]="'5px'" [gap]="'10px'" [flow]="'column'">
 
             <ag-column [gap]="'10px'" [pad]="'5px'">
@@ -148,7 +219,7 @@
   </ag-grid>
 
 
-</ag-page>
+</ag-page> -->
 
 
 

@@ -2,6 +2,8 @@
      [ngStyle]="{'gap': gap, 
                  'padding': pad,
                  'place-content': placement ? placement : false,
-                 'grid-auto-flow': flow}">
+                 'grid-auto-flow': flow,
+                 'grid-template-columns': columns ? 'repeat(' + columns + ', 1fr' : 'auto',
+                 'grid-template-rows': columns ? 'repeat(' + rows + ', 1fr' : 'auto'}">
     <ng-content></ng-content>
 </div>

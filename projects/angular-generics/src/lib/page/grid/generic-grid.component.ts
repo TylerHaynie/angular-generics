@@ -9,4 +9,6 @@ export class GenericGridComponent {
   @Input() pad: string = 'none';
   @Input() flow: 'column' | 'row' | 'row dense' = 'row dense';
   @Input() placement: string;
+  @Input() rows: number;
+  @Input() columns: number;
 }

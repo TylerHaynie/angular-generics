@@ -1,9 +1,12 @@
 <!-- *** Layout *** -->
 
-<div class="generic-input" [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'above'}">
-  <label [ngStyle]="{'place-self': labelPlacement}">
-    <ng-content></ng-content>
-  </label>
+<div class="generic-input"
+     [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'above'}">
+  <div [ngStyle]="{'place-self': labelPlacement}">
+    <label>
+      <ng-content></ng-content>
+    </label>
+  </div>
 
   <ng-container *ngIf="type=='custom'">
     <ng-container *ngTemplateOutlet="customTemplate"></ng-container>

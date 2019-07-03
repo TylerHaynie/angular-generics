@@ -10,13 +10,7 @@
 
 .generic-input {
   display: grid;
-  grid-template-rows: auto;
-}
-
-.range{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
+  /* grid-template-rows: auto; */
 }
 
 .generic-input select {
@@ -54,11 +48,40 @@
 .generic-input.label-left {
   grid-gap: 5px;
   grid-template-rows: 1fr;
-  grid-template-columns: minmax(150px, 1fr) minmax(250px, 4fr);
+  grid-template-columns: minmax(150px, 1fr) minmax(150px, 4fr);
 }
 
 .generic-input.label-top {
   grid-gap: 2px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr, 1fr;
+}
+
+
+.range {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto auto;
+  grid-gap: 5px;
+}
+
+.range-box {
+  display: grid;
+  grid-template-columns: 50px auto 25px;
+  border: var(--inputOutline);
+  background: linear-gradient(to bottom, #a8b8c4 0%, #637182 100%);
+}
+
+.range-box>span {
+  text-transform: capitalize;
+  font-size: 0.95em;
+}
+
+.range-box i {
+  font-size: 1.0em;
+}
+
+.range-box i,
+.range-box span {
+  place-self: center;
 }

@@ -105,8 +105,16 @@
 <!-- Number Range -->
 <ng-template #numberRange>
   <div class="range">
-    <input [disabled]="disabled" type="number" [(ngModel)]="fromValue" (change)="rangeChange()" />
-    <input [disabled]="disabled" type="number" [(ngModel)]="toValue" (change)="rangeChange()" />
+    <div class="range-box">
+      <span>{{fromLabel}}</span>
+      <input [disabled]="disabled" type="number" [(ngModel)]="fromValue" (change)="rangeChange()" />
+      <i class="fas fa-hashtag"></i>
+    </div>
+    <div class="range-box">
+      <span>{{toLabel}}</span>
+      <input [disabled]="disabled" type="number" [(ngModel)]="toValue" (change)="rangeChange()" />
+      <i class="fas fa-hashtag"></i>
+    </div>
   </div>
 </ng-template>
 
@@ -117,10 +125,18 @@
 
 <!-- Date Range -->
 <ng-template #dateRange>
-  <div class="range">
-    <input [disabled]="disabled" type="date" [(ngModel)]="fromValue" (change)="rangeChange()" />
-    <input [disabled]="disabled" type="date" [(ngModel)]="toValue" (change)="rangeChange()" />
-  </div>
+    <div class="range">
+        <div class="range-box">
+          <span>from</span>
+          <input [disabled]="disabled" type="date" [(ngModel)]="fromValue" (change)="rangeChange()" />
+          <i class="far fa-calendar-alt"></i>
+        </div>
+        <div class="range-box">
+          <span>to</span>
+          <input [disabled]="disabled" type="date" [(ngModel)]="toValue" (change)="rangeChange()" />
+          <i class="far fa-calendar-alt"></i>
+        </div>
+      </div>
 </ng-template>
 
 <!-- Default Checkbox -->

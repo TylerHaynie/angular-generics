@@ -3,7 +3,7 @@
 <div class="generic-input"
      [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'above'}">
   <div [ngStyle]="{'place-self': labelPlacement}">
-    <label>
+    <label *ngIf="showLabel">
       <ng-content></ng-content>
     </label>
   </div>
@@ -13,7 +13,11 @@
   </ng-container>
 
   <ng-container *ngIf="type=='text'">
-    <ng-container *ngTemplateOutlet="textbox"></ng-container>
+    <ng-container *ngTemplateOutlet="textBox"></ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type=='number'">
+    <ng-container *ngTemplateOutlet="numberBox"></ng-container>
   </ng-container>
 
   <ng-container *ngIf="type=='date'">
@@ -32,9 +36,9 @@
 <!-- *** Conditionals *** -->
 
 <!-- Text Box SubTypes -->
-<ng-template #textbox>
-  <ng-container *ngIf="type=='text'">
-    <ng-container *ngTemplateOutlet="defaultTextbox"></ng-container>
+<ng-template #textBox>
+  <ng-container *ngIf="subtype == 'default'">
+    <ng-container *ngTemplateOutlet="defaultText"></ng-container>
   </ng-container>
 
   <ng-container *ngIf="subtype=='textArea'">
@@ -42,10 +46,23 @@
   </ng-container>
 </ng-template>
 
+<!-- Number SubTypes -->
+<ng-template #numberBox>
+  <ng-container *ngIf="subtype=='default'">
+    <ng-container *ngTemplateOutlet="defaultNumber"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="subtype=='range'">
+    <ng-container *ngTemplateOutlet="numberRange"></ng-container>
+  </ng-container>
+</ng-template>
+
 <!-- Date Box SubTypes -->
 <ng-template #dateBox>
   <ng-container *ngIf="subtype=='default'">
     <ng-container *ngTemplateOutlet="defaultDate"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="subtype=='range'">
+    <ng-container *ngTemplateOutlet="dateRange"></ng-container>
   </ng-container>
 </ng-template>
 
@@ -70,7 +87,7 @@
 <!--  *** TEMPLATES ***  -->
 
 <!-- Default Text Box -->
-<ng-template #defaultTextbox>
+<ng-template #defaultText>
   <input [disabled]="disabled" type="text" [(ngModel)]="value" [placeholder]="placeholder" />
 </ng-template>
 
@@ -80,9 +97,30 @@
             [ngModel]="value"></textarea>
 </ng-template>
 
+<!-- Number -->
+<ng-template #defaultNumber>
+  <input [disabled]="disabled" type="number" [(ngModel)]="value" [placeholder]="placeholder" />
+</ng-template>
+
+<!-- Number Range -->
+<ng-template #numberRange>
+  <div class="range">
+    <input [disabled]="disabled" type="number" [(ngModel)]="fromValue" (change)="rangeChange()" />
+    <input [disabled]="disabled" type="number" [(ngModel)]="toValue" (change)="rangeChange()" />
+  </div>
+</ng-template>
+
 <!-- Default Date -->
 <ng-template #defaultDate>
   <input [disabled]="disabled" type="date" [(ngModel)]="value" [placeholder]="placeholder" />
+</ng-template>
+
+<!-- Date Range -->
+<ng-template #dateRange>
+  <div class="range">
+    <input [disabled]="disabled" type="date" [(ngModel)]="fromValue" (change)="rangeChange()" />
+    <input [disabled]="disabled" type="date" [(ngModel)]="toValue" (change)="rangeChange()" />
+  </div>
 </ng-template>
 
 <!-- Default Checkbox -->

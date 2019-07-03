@@ -1,16 +1,15 @@
-<ag-button (click)="modal.show()">Show Modal</ag-button>
+<!-- <ag-button (click)="modal.show()">Show Modal</ag-button> -->
 
-<!-- <ng-container *ngIf="showModal"> -->
-  <ag-modal #modal [title]="'Some Title'" [buttons]="customButtons">
-    <ag-input>Test</ag-input>
-    <ag-input>Test</ag-input>
-    <ag-input>Test</ag-input>
-  </ag-modal>
-<!-- </ng-container> -->
+<!-- <ag-input [type]="'date'" [subtype]="'range'" [(ngModel)]="rangeValue">Date Range</ag-input> -->
+<ag-input [type]="'number'" [subtype]="'range'" [(ngModel)]="rangeValue">Number Range</ag-input>
+<!-- From: {{rangeValue?.from}} To: {{rangeValue?.to}} -->
+<!-- <ag-modal #modal [title]="'Some Title'" [buttons]="customButtons">
+ 
+</ag-modal>
 
 <ng-template #customButtons>
   <ag-button (click)="modal.hide()">Custom</ag-button>
-</ng-template>
+</ng-template> -->
 
 <!-- <ag-page>
 

@@ -21,6 +21,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   showModal: boolean = false;
 
+  rangeValue: { from: any, to: any };
+
   checkBinding1: boolean = false;
 
   dropdownSource: string = `https://jsonplaceholder.typicode.com/todos`;
@@ -39,7 +41,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.buildTableColumns();
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this._gridColumns = Array.from(Array(4), (x, i) => i);
   }
 

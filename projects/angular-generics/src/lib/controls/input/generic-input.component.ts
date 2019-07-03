@@ -35,10 +35,14 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   itemList: any[];
   currentSelection: any;
 
+  fromValue: any;
+  toValue: any;
+
   constructor(private api: GenericApiService) {
     super();
   }
 
+  // For Select box
   ngOnChanges(changes: SimpleChanges) {
     if (changes.source) {
       const sourceChange = changes.source.currentValue !== changes.source.previousValue;
@@ -60,5 +64,9 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
         });
     }
 
+  }
+
+  rangeChange() {
+    this.value = { from: this.fromValue, to: this.toValue };
   }
 }

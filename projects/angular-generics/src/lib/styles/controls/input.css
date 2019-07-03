@@ -4,6 +4,7 @@
   --inputShadow: inset 0 0 3px 0px #f2fdff;
   --inputBackground: white;
   --inputFontSize: 1.0em;
+  --inputLabelFontSize: .85em;
   --inputPadding: 5px 5px 2px 5px;
   --inputLabelColor: rgb(7, 7, 7);
 }
@@ -43,6 +44,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.generic-input.label-left,
+.generic-input.label-top{
+  font-size: var(--inputLabelFontSize);
 }
 
 .generic-input.label-left {

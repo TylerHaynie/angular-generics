@@ -52,7 +52,7 @@
     <ng-container *ngTemplateOutlet="defaultNumber"></ng-container>
   </ng-container>
   <ng-container *ngIf="subtype=='range'">
-    <ng-container *ngTemplateOutlet="numberRange"></ng-container>
+    <ng-container *ngTemplateOutlet="defaultRange"></ng-container>
   </ng-container>
 </ng-template>
 
@@ -62,7 +62,7 @@
     <ng-container *ngTemplateOutlet="defaultDate"></ng-container>
   </ng-container>
   <ng-container *ngIf="subtype=='range'">
-    <ng-container *ngTemplateOutlet="dateRange"></ng-container>
+    <ng-container *ngTemplateOutlet="defaultRange"></ng-container>
   </ng-container>
 </ng-template>
 
@@ -102,18 +102,28 @@
   <input [disabled]="disabled" type="number" [(ngModel)]="value" [placeholder]="placeholder" />
 </ng-template>
 
-<!-- Number Range -->
-<ng-template #numberRange>
+<!-- Default Range -->
+<ng-template #defaultRange>
   <div class="range">
     <div class="range-box">
       <span>{{fromLabel}}</span>
-      <input [disabled]="disabled" type="number" [(ngModel)]="fromValue" (change)="rangeChange()" />
-      <i class="fas fa-hashtag"></i>
+      <input [disabled]="disabled" [type]="type" [(ngModel)]="fromValue" (change)="rangeChange()" />
+      <div>
+        <i class="fas"
+           [ngClass]="{'fa-hashtag': type=='number',
+                    'fa-calendar-alt': type=='date'}"></i>
+      </div>
+
     </div>
     <div class="range-box">
       <span>{{toLabel}}</span>
-      <input [disabled]="disabled" type="number" [(ngModel)]="toValue" (change)="rangeChange()" />
-      <i class="fas fa-hashtag"></i>
+      <input [disabled]="disabled" [type]="type" [(ngModel)]="toValue" (change)="rangeChange()" />
+      <div>
+        <i class="fas"
+           [ngClass]="{'fa-hashtag': type=='number',
+                    'fa-calendar-alt': type=='date'}"></i>
+      </div>
+
     </div>
   </div>
 </ng-template>
@@ -121,22 +131,6 @@
 <!-- Default Date -->
 <ng-template #defaultDate>
   <input [disabled]="disabled" type="date" [(ngModel)]="value" [placeholder]="placeholder" />
-</ng-template>
-
-<!-- Date Range -->
-<ng-template #dateRange>
-    <div class="range">
-        <div class="range-box">
-          <span>from</span>
-          <input [disabled]="disabled" type="date" [(ngModel)]="fromValue" (change)="rangeChange()" />
-          <i class="far fa-calendar-alt"></i>
-        </div>
-        <div class="range-box">
-          <span>to</span>
-          <input [disabled]="disabled" type="date" [(ngModel)]="toValue" (change)="rangeChange()" />
-          <i class="far fa-calendar-alt"></i>
-        </div>
-      </div>
 </ng-template>
 
 <!-- Default Checkbox -->

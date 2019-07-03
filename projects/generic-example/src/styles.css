@@ -2,6 +2,7 @@
 @import '../../angular-generics/src/lib/styles/controls/button.css';
 @import '../../angular-generics/src/lib/styles/controls/input.css';
 @import '../../angular-generics/src/lib/styles/layout/modal.css';
+@import '../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 /* @import '../../angular-generics/src/lib/styles/controls/button.css'; */
 
 :root{

@@ -1,45 +1,15 @@
-@import '../../angular-generics/src/lib/styles/base.css';
-@import '../../angular-generics/src/lib/styles/controls/button.css';
-@import '../../angular-generics/src/lib/styles/controls/input.css';
-@import '../../angular-generics/src/lib/styles/layout/modal.css';
+@import '../../angular-generics/src/lib/styles/all.css';
 @import '../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
-/* @import '../../angular-generics/src/lib/styles/controls/button.css'; */
 
-:root{
-  --inputLabelColor: black;
+:root {
+  --inputLabelColor: rgb(0, 0, 0);
 }
 
-.generic-page {
-  background: rgb(15, 15, 15);
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.primary-grid .generic-grid {
-  background: rgba(255, 255, 255, 1);
-}
-
-.primary-grid .generic-row {
-  background: rgba(255, 0, 0, 0.5);
-}
-
-.primary-grid .generic-column {
-  background: rgba(0, 255, 0, 0.5);
-}
-
-.primary-grid .generic-element {
-  background: rgba(0, 0, 255, 0.5);
-}
-
-.generic-button {
-  color: white;
-  font-weight: bold;
-  width: 125px;
-}
-
-.example-fields>.generic-grid {
-  background: rgb(24, 24, 24);
-  border: 2px solid rgb(161, 161, 161);
-}
-
-.generic-input>label{
-  color: white;
+body {
+  height: 100vh;
 }

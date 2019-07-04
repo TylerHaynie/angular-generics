@@ -1,195 +1,121 @@
-<!-- <ag-button (click)="modal.show()">Show Modal</ag-button> -->
+<ag-el>
+  <ag-el [columns]="2" [pad]="'10px'" [gap]="'10px'">
+    <!-- Row 1 Column 1 -->
+    <ag-el>
+      <div class="group-box">
+        <div class="header">General</div>
+        <div class="content">
+          <ag-el [gap]="'8px'" [pad]="'5px'">
+            <ag-input [labelPlacement]="'end end'">Client</ag-input>
+            <ag-input [labelPlacement]="'end end'">Interal Id</ag-input>
+            <ag-input [labelPlacement]="'end end'">Provision</ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Match 1313(p)
+              by</ag-input>
+            <ag-input [type]="'check'" [labelPlacement]="'end end'">Skip Ref2
+              / Direct Id</ag-input>
+            <ag-input [type]="'check'" [labelPlacement]="'end end'">Oil Spill Tax
+            </ag-input>
+            <ag-input [type]="'check'" [labelPlacement]="'end end'">
+              Alternatives Apply</ag-input>
+            <ag-input [type]="'check'" [labelPlacement]="'end end'">Multi-Level
+              BOM</ag-input>
+            <ag-input [type]="'check'" [labelPlacement]="'end end'">NAFTA</ag-input>
+            <ag-input [type]="'check'" [labelPlacement]="'end end'">CITRUS</ag-input>
+            <ag-input [type]="'check'" [labelPlacement]="'end end'">Import = Export Date
+            </ag-input>
+          </ag-el>
+        </div>
+      </div>
+    </ag-el>
 
-<!-- <ag-input [type]="'date'" [subtype]="'range'" [(ngModel)]="rangeValue">Date Range</ag-input> -->
-<ag-input [type]="'date'" [subtype]="'range'" [(ngModel)]="rangeValue">Number Range</ag-input>
-<!-- From: {{rangeValue?.from}} To: {{rangeValue?.to}} -->
-<!-- <ag-modal #modal [title]="'Some Title'" [buttons]="customButtons">
- 
-</ag-modal>
+    <!-- Row 1 Column 2 -->
+    <ag-el>
+      <div class="group-box">
+        <div class="header">Matching Info</div>
+        <div class="content">
+          <!-- <mat-icon class="icon">info</mat-icon><label class="match-info-sub-heading">Provision Rules</label> -->
+        </div>
+      </div>
+    </ag-el>
 
-<ng-template #customButtons>
-  <ag-button (click)="modal.hide()">Custom</ag-button>
-</ng-template> -->
+    <!-- Row 2 Column 1 -->
+    <ag-el>
+      <div class="group-box">
+        <div class="header">Import</div>
+        <div class="content">
+          <ag-el [gap]="'10px'" [pad]="'5px'">
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Imports
+              Priority</ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Form 7501
+            </ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Importers
+            </ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Ref 1</ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Ref 3</ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Ref 4</ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">CD</ag-input>
+            <ag-input [type]="'date'" [subtype]="'range'" [labelPlacement]="'end end'">Imports Received</ag-input>
+            <ag-input [type]="'date'" [subtype]="'range'" [labelPlacement]="'end end'">Imports Used</ag-input>
+            <ag-input [type]="'date'" [subtype]="'range'" [labelPlacement]="'end end'">Imports Imported</ag-input>
+            <ag-input [type]="'check'" [labelPlacement]="'end end'">Domestic
+              / Free Apply</ag-input>
+          </ag-el>
+        </div>
+      </div>
+    </ag-el>
 
-<!-- <ag-page>
+    <!-- Row 2 Column 2 -->
+    <ag-el>
+      <div class="group-box">
+        <div class="header">Export</div>
+        <div class="content">
+          <ag-el [gap]="'10px'" [pad]="'5px'">
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Export Type
+            </ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Export
+              Priority</ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Batch Number
+            </ag-input>
+            <ag-input [type]="'date'" [subtype]="'range'" [labelPlacement]="'end end'">Export Date</ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Exporter
+            </ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">
+              Destination Country</ag-input>
+            <ag-input [type]="'select'" [labelPlacement]="'end end'">Part</ag-input>
+            <ag-input [type]="'date'" [subtype]="'range'" [labelPlacement]="'end end'">Export Produced</ag-input>
+            <ag-input [labelPlacement]="'end end'">Ref 1</ag-input>
+            <ag-input [labelPlacement]="'end end'">Direct ID</ag-input>
+          </ag-el>
+        </div>
+      </div>
+    </ag-el>
 
-  <ag-element class="primary-grid">
-    <ag-grid [pad]="'5px'" [gap]="'10px'">
-      <ag-row [pad]="'5px'" [gap]="'10px'">
-        <ag-column [pad]="'5px'" [gap]="'10px'">
+    <!-- Row 3 Column 1 -->
+    <ag-el>
+      <div class="group-box">
+        <div class="header">Import-Export Range Limit</div>
+        <div class="content">
+          <ag-el [gap]="'10px'" [pad]="'5px'">
+            <ag-input [type]="'text'" [labelPosition]="'above'" [labelPlacement]="'end start'">Imports-Exports Range
+              (Import)
+            </ag-input>
 
+            <ag-input [type]="'text'" [labelPosition]="'above'" [labelPlacement]="'end start'">Imports-Exports Range
+              (Entry)
+            </ag-input>
 
-          <ag-grid [pad]="'5px'" [gap]="'10px'">
-            <ag-row [gap]="'10px'" [pad]="'5px'">
-              <ag-column *ngFor="let col of _gridColumns; let x=index" [gap]="'10px'" [pad]="'5px'">
-                <div>
-                  <div>Grid 1</div>
-                  <div>Row 1</div>
-                  <div>Column {{x + 1}}</div>
-                </div>
-              </ag-column>
-            </ag-row>
+            <ag-input [type]="'text'" [labelPosition]="'above'" [labelPlacement]="'end start'">Market Value
+              Difference (cents)
+            </ag-input>
+          </ag-el>
+        </div>
+      </div>
+    </ag-el>
 
-            <ag-row [gap]="'10px'" [pad]="'5px'">
-              <ag-column [gap]="'10px'" [pad]="'5px'" *ngFor="let col of _gridColumns; let x=index">
-                <ag-row>
-                  <div>Grid 1</div>
-                  <div>Row 2</div>
-                  <div>Column {{x + 1}}</div>
-                </ag-row>
-              </ag-column>
-            </ag-row>
+    <!-- Row 3 Column 2 -->
+    <ag-el>
 
-          </ag-grid>
+    </ag-el>
+  </ag-el>
 
-          <ag-grid [pad]="'5px'" [gap]="'10px'" [flow]="'column'">
-
-            <ag-column [gap]="'10px'" [pad]="'5px'">
-              <ag-row [gap]="'10px'" [pad]="'5px'" *ngFor="let col of _gridColumns; let x=index">
-                <ag-element>Grid 2, Column 1, Row {{x + 1}}</ag-element>
-              </ag-row>
-            </ag-column>
-
-            <ag-column [gap]="'10px'" [pad]="'5px'">
-              <ag-row [gap]="'10px'" [pad]="'5px'" *ngFor="let col of _gridColumns; let x=index">
-                <ag-element [ngStyle]="{'text-align': 'right'}">
-                  <div>Grid 2, Column 2, Row {{x + 1}}</div>
-                </ag-element>
-              </ag-row>
-            </ag-column>
-
-          </ag-grid>
-
-        </ag-column>
-      </ag-row>
-    </ag-grid>
-  </ag-element>
-
-  <ag-element>
-    <ag-grid [flow]="'column'">
-      <ag-row [pad]="'10px 0 10px 0'" [gap]="'10px'">
-        <ag-column [placement]="'center right'">
-          <ag-element>
-            <ag-button (click)="buttonClicked()">Default Button</ag-button>
-          </ag-element>
-        </ag-column>
-        <ag-column [placement]="'center center'">
-          <ag-element>
-            <ag-button [color]="'green'" (click)="buttonClicked()">Test Button</ag-button>
-          </ag-element>
-        </ag-column>
-        <ag-column [placement]="'center left'">
-          <ag-element>
-            <ag-button [color]="'rgba(255, 0, 255, .75)'" [flat]="true" (click)="buttonClicked()">Test Button
-            </ag-button>
-          </ag-element>
-        </ag-column>
-      </ag-row>
-    </ag-grid>
-  </ag-element>
-
-  <ag-grid class="example-fields" [pad]="'10px'" [gap]="'5px'">
-    <ag-row [gap]="'10px'">
-      <ag-column>
-        <ag-input [(ngModel)]="inputbinding1">First Name</ag-input>
-      </ag-column>
-      <ag-column>
-        <ag-input [(ngModel)]="inputbinding1" [labelPlacement]="'end end'">Last Name</ag-input>
-      </ag-column>
-    </ag-row>
-    <ag-row [gap]="'10px'">
-      <ag-column>
-        <ag-input [(ngModel)]="inputbinding1">City</ag-input>
-      </ag-column>
-      <ag-column>
-        <ag-input [(ngModel)]="inputbinding1" [labelPlacement]="'end end'">State</ag-input>
-      </ag-column>
-    </ag-row>
-    <ag-row [gap]="'10px'">
-      <ag-input [(ngModel)]="inputbinding1">Comment</ag-input>
-    </ag-row>
-  </ag-grid>
-
-  <ag-grid class="example-fields" [pad]="'10px'">
-    <ag-row [gap]="'10px'">
-      <ag-column>
-        <ag-input [labelPosition]="'above'" [(ngModel)]="inputbinding1">First Name</ag-input>
-      </ag-column>
-      <ag-column>
-        <ag-input [labelPosition]="'above'" [labelPlacement]="'end end'" [(ngModel)]="inputbinding1">Last Name
-        </ag-input>
-      </ag-column>
-    </ag-row>
-  </ag-grid>
-
-  <ag-grid class="example-fields" [pad]="'10px'" [gap]="'10px'">
-    <ag-row [gap]="'10px'">
-      <ag-column>
-        <ag-input [labelPosition]="'above'" [labelPlacement]="'center center'" [(ngModel)]="inputbinding1">Book Title
-        </ag-input>
-      </ag-column>
-    </ag-row>
-    <ag-row [gap]="'10px'">
-      <ag-column>
-        <ag-input [disabled]='true' [labelPosition]="'above'" [(ngModel)]="inputbinding1">Author</ag-input>
-      </ag-column>
-      <ag-column>
-        <ag-input [type]="'date'" [labelPosition]="'above'" [(ngModel)]="inputbinding1">Release Date</ag-input>
-      </ag-column>
-      <ag-column>
-        <ag-input [labelPosition]="'above'" [type]="'select'" [displayProperty]="'title'" [source]="dropdownSource">Category</ag-input>
-      </ag-column>
-    </ag-row>
-  </ag-grid>
-
-  <ag-grid class="example-fields" [pad]="'10px'" [gap]="'10px'">
-    <ag-row [gap]="'10px'">
-      <ag-column>
-        <ag-input [type]="'check'" [labelPosition]="'left'" [(ngModel)]="checkBinding1">Default</ag-input>
-        <ag-input [type]="'check'" [subtype]="'slide'" [labelPosition]="'left'" [(ngModel)]="checkBinding1">Slide
-        </ag-input>
-      </ag-column>
-    </ag-row>
-  </ag-grid>
-
-
-</ag-page> -->
-
-
-
-
-<!-- 
-      <label>Generic Dropdown</label>
-      <ag-dropdown [displayProperty]="'title'" [indexProperty]="'id'" [source]="dropdownSource"
-                        [selectedId]="currentId" (selectionChanged)="dropdownChanged($event)">
-      </ag-dropdown>
-
-      <ag-button (click)="buttonClicked()">Button 01</ag-button>
-      <ag-button (click)="buttonClicked()" [color]="'linear-gradient(to bottom, #3399ff 0%, #0000ff  100%)'">Button
-        02</ag-button>
-      <ag-button (click)="buttonClicked()" [color]="'linear-gradient(to bottom, #9900cc 0%, #660033 100%)'">Button
-        03</ag-button>
-      <ag-button (click)="buttonClicked()" [color]="'linear-gradient(to bottom, #ffff66 0%, #cc3300 100%)'">Button
-        04</ag-button>
-
-      <ag-button (click)="buttonClicked()" [flat]="true">Button 01</ag-button>
-      <ag-button (click)="buttonClicked()" [flat]="true"
-                      [color]="'linear-gradient(to bottom, #3399ff 0%, #0000ff  100%)'">Button 02</ag-button>
-      <ag-button (click)="buttonClicked()" [flat]="true"
-                      [color]="'linear-gradient(to bottom, #9900cc 0%, #660033 100%)'">Button 03</ag-button>
-      <ag-button (click)="buttonClicked()" [flat]="true"
-                      [color]="'linear-gradient(to bottom, #ffff66 0%, #cc3300 100%)'">Button 04</ag-button>
-
-      <ag-button (click)="buttonClicked()" [flat]="true" [color]="'navy'">Button 01</ag-button>
-      <ag-button (click)="buttonClicked()" [flat]="true" [color]="'blue'">Button 02</ag-button>
-      <ag-button (click)="buttonClicked()" [flat]="true" [color]="'purple'">Button 03</ag-button>
-      <ag-button (click)="buttonClicked()" [flat]="true" [color]="'#cc3300'">Button 04</ag-button>
-
-      <ag-button (click)="buttonClicked()" [color]="'navy'">Button 01</ag-button>
-      <ag-button (click)="buttonClicked()" [color]="'blue'">Button 02</ag-button>
-      <ag-button (click)="buttonClicked()" [color]="'purple'">Button 03</ag-button>
-      <ag-button (click)="buttonClicked()" [color]="'#cc3300'">Button 04</ag-button>
-
-
-    <ag-table #dataTable [columns]="columns" [query]="testRequest"></ag-table>
- -->
+</ag-el>

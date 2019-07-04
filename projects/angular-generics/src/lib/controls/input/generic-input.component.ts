@@ -5,10 +5,6 @@ import { GenericApiService } from '../../services/generic-api.service';
 @Component({
   selector: 'ag-input',
   templateUrl: './generic-input.component.html',
-  styleUrls: [
-    '../../styles/controls/input.css',
-    '../../styles/controls/checkbox.css'
-  ],
   providers: [MakeProvider(GenericInputComponent)]
 })
 export class GenericInputComponent extends AbstractValueAccessor implements OnChanges {

@@ -2,19 +2,18 @@ import { Component, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'ag-modal',
-  templateUrl: './generic-modal.component.html',
-  styleUrls: ['../../styles/layout/modal.css']
+  templateUrl: './generic-modal.component.html'
 })
 export class GenericModalComponent {
   @Input() buttons: TemplateRef<any>;
   @Input() showModal: boolean = false;
   @Input() title: string = '';
 
-  show(){
+  show() {
     this.showModal = true;
   }
 
-  hide(){
+  hide() {
     this.showModal = false;
   }
 }

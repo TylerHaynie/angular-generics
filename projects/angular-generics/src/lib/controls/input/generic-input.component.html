@@ -1,4 +1,5 @@
 <!-- *** Layout *** -->
+<!-- //TODO: clean up and split into smaller parts -->
 
 <div class="generic-input"
      [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'above'}">
@@ -110,20 +111,16 @@
       <input [disabled]="disabled" [type]="type" [(ngModel)]="fromValue" (change)="rangeChange()" />
       <div>
         <i class="fas"
-           [ngClass]="{'fa-hashtag': type=='number',
-                    'fa-calendar-alt': type=='date'}"></i>
+           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"></i>
       </div>
-
     </div>
     <div class="range-box">
       <span>{{toLabel}}</span>
       <input [disabled]="disabled" [type]="type" [(ngModel)]="toValue" (change)="rangeChange()" />
       <div>
         <i class="fas"
-           [ngClass]="{'fa-hashtag': type=='number',
-                    'fa-calendar-alt': type=='date'}"></i>
+           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"></i>
       </div>
-
     </div>
   </div>
 </ng-template>

@@ -8,13 +8,9 @@ export * from './lib/alert/generic-alert.service';
 export * from './lib/alert/generic-alert';
 export * from './lib/alert/generic-alert.module';
 
-// Page
-export * from './lib/page/generic-page.component';
-export * from './lib/page/column/generic-column.component';
-export * from './lib/page/row/generic-row.component';
-export * from './lib/page/grid/generic-grid.component';
-export * from './lib/page/element/generic-element.component';
-export * from './lib/page/generic-page.module';
+// Element
+export * from './lib/element/generic-element.component';
+export * from './lib/element/generic-element.module';
 
 // Form
 export * from './lib/containers/form/generic-form.component';

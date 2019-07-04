@@ -10,7 +10,7 @@ export class TestTable {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('dataTable', { static: false }) dataTable: GenericTableComponent<TestTable>;

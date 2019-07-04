@@ -1,14 +1,7 @@
-@import './colors.css';
-
-* {
-  margin: 0;
-  padding: 0;
+.generic-element {
   box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  background: rgb(121, 121, 121);
+  display: grid;
+  height: 100%;
 }
 
 .no-selection {

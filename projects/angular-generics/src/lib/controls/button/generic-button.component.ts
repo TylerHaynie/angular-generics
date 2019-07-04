@@ -3,8 +3,7 @@ import { AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 
 @Component({
   selector: 'ag-button',
-  templateUrl: './generic-button.component.html',
-  styleUrls: ['../../styles/controls/button.css']
+  templateUrl: './generic-button.component.html'
 })
 export class GenericButtonComponent extends AbstractValueAccessor {
   @Input() isEnabled: boolean = true;

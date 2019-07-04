@@ -5,7 +5,8 @@
     "types": [
       "jasmine",
       "node"
-    ]
+    ],
+    "inlineSourceMap": true,
   },
   "files": [
     "src/test.ts"

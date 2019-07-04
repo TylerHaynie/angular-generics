@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
 @Component({
-  selector: 'ag-grid',
-  templateUrl: './generic-grid.component.html',
-  styleUrls: ['../../styles/layout/page.css']
+  selector: 'ag-el',
+  templateUrl: './generic-element.component.html',
 })
-export class GenericGridComponent {
+export class GenericElementComponent {
   @Input() gap: string = 'none';
   @Input() pad: string = 'none';
   @Input() flow: 'column' | 'row' | 'row dense' = 'row dense';

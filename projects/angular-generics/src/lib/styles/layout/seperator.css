@@ -15,3 +15,7 @@
 .h-seperator * {
   width: 100%;
 }
+
+.v-seperator * {
+  height: 100%;
+}

@@ -22,7 +22,7 @@
   "homepage": "https://github.com/TylerHaynie/angular-generic#readme",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4700 ",
     "publish": "npm publish .\\dist\\angular-generics\\angular-generics-0.0.21.tgz",
     "package": "npm run-script build && npm run-script copy-files && npm run-script pack",
     "build": "ng build angular-generics",

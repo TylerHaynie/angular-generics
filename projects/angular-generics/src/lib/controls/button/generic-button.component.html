@@ -1,4 +1,4 @@
-<div class="generic-button no-selection pointer"
-     [ngClass]="{'shadows': !flat, 'disabled': disabled}">
+<div class="generic-button no-selection pointer" (click)="onClick($event)"
+     [ngClass]="{'shadows': !flat, 'disabled': disableControl}">
   <ng-content></ng-content>
 </div>

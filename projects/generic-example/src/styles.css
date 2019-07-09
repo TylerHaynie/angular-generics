@@ -13,3 +13,8 @@
 body {
   height: 100vh;
 }
+
+.sample-box {
+  background-color: brown;
+height: 100%;
+}

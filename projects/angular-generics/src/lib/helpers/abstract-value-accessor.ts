@@ -22,8 +22,12 @@ export abstract class AbstractValueAccessor implements ControlValueAccessor {
 
   onChange = (_) => { };
   onTouched = () => { };
-  registerOnChange(fn: (_: any) => void): void { this.onChange = fn; }
-  registerOnTouched(fn: () => void): void { this.onTouched = fn; }
+  registerOnChange(fn: (_: any) => void): void {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
 }
 
 export function MakeProvider(type: any): Provider {

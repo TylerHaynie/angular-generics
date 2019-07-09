@@ -1,4 +1,4 @@
-<div class="col-1 full-width-content">
+<ag-el>
   <mat-paginator #paginator *ngIf="showPager" [pageSizeOptions]="pageSizeOptions" [length]="recordCount"
                  (page)="changePage($event)" showFirstLastButtons></mat-paginator>
-</div>
+</ag-el>

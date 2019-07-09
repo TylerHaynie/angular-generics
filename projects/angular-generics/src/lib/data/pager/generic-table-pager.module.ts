@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatPaginatorModule, PageEvent } from '@angular/material';
-import { GenericTablePagerComponent, PageChange } from './generic-table-pager.component';
+import { MatPaginatorModule } from '@angular/material';
+import { GenericTablePagerComponent } from './generic-table-pager.component';
 import { FormsModule } from '@angular/forms';
+import { GenericElementModule } from '../../element/generic-element.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    GenericElementModule
   ],
   exports: [
     GenericTablePagerComponent,

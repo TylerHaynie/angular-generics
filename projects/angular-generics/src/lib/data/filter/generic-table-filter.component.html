@@ -1,53 +1,26 @@
-<div class="filter-container col-1">
-  <div class="filter-header col-2-auto-right">
-    <div class="header col-1 v-center-self">
-      <div class="col-2-auto-left">
-        <mat-icon *ngIf="showFilter" class="pointer" (click)="showFilter = !showFilter">keyboard_arrow_up
-        </mat-icon>
-        <mat-icon *ngIf="!showFilter" class="pointer" (click)="showFilter = !showFilter">keyboard_arrow_down
-        </mat-icon>
-        Filter
-      </div>
-    </div>
+<ag-el>
 
-    <div class="col-2">
-      <ng-container *ngIf="showFilter">
-        <div class="col-1">
-          <ag-button (clicked)="searchClicked()">Search</ag-button>
-        </div>
-        <div class="col-1">
-          <ag-button (clicked)="resetSearch()">Reset</ag-button>
-        </div>
-      </ng-container>
-    </div>
-  </div>
+  <ag-el [pad]="'5px'" [columns]="'1fr auto'" class="filter-header">
+    <ag-el class="header pointer" [height]="'100%'" [columns]="'auto 1fr'"
+           [gap]="'3px'" [placement]="'center'" (click)="showFilter = !showFilter">
+      <i class="fas fa-minus" *ngIf="showFilter"></i>
+      <i class="fas fa-plus" *ngIf="!showFilter"></i>
+      <span>Filter</span>
+    </ag-el>
 
-  <div *ngIf="showFilter" class="filters col-4 pad-5 gap-10">
-    <ng-container *ngFor="let column of columns">
-      <div class="col-1 full-width-content" *ngIf="column.allowFilter && column.dataType">
-        <ng-container [ngSwitch]="column.dataType">
-          <label>{{column.display}}</label>
-          
-          <ng-container *ngSwitchCase="'number'">
-            <input type="number" placeholder="Enter number..." [(ngModel)]="filters[column.id]">
-          </ng-container>
+    <ag-el *ngIf="showFilter" [columns]="2" [gap]="'5px'">
+      <ag-button [flat]="true" (click)="searchClicked()">Search</ag-button>
+      <ag-button [flat]="true" (click)="resetSearch()">Reset</ag-button>
+    </ag-el>
+  </ag-el>
 
-          <ng-container *ngSwitchCase="'date'">
-            <input type="date" placeholder="Enter date..." [(ngModel)]="filters[column.id]">
-          </ng-container>
+  <ag-el *ngIf="showFilter" class="filters" [pad]="'5px'" [gap]="'10px'" [columns]="4">
+    <ag-el *ngFor="let column of columns">
+      <ag-input [type]="column.dataType"
+                [labelPosition]="'above'"
+                [(ngModel)]="filters[column.id]">{{column.display}}
+      </ag-input>
+    </ag-el>
+  </ag-el>
 
-          <ng-container *ngSwitchDefault>
-            <input type="text" [(ngModel)]="filters[column.id]">
-          </ng-container>
-
-    <!-- <ng-container #listTemplate *ngIf="column.dataType == 'list' : defaultTemplate">
-            <ag-dropdown [displayProperty]="column.list.display" [indexProperty]="column.list.value"
-              [source]="column.list.source" [label]="column.display">
-            </ag-dropdown>
-          </ng-container> 
-    -->
-        </ng-container>
-      </div>
-    </ng-container>
-  </div>
-</div>
+</ag-el>

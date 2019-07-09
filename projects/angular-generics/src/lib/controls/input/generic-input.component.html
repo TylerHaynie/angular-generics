@@ -13,7 +13,7 @@
     <ng-container *ngTemplateOutlet="customTemplate"></ng-container>
   </ng-container>
 
-  <ng-container *ngIf="type=='text'">
+  <ng-container *ngIf="type=='text' || type=='string'">
     <ng-container *ngTemplateOutlet="textBox"></ng-container>
   </ng-container>
 

@@ -47,7 +47,7 @@ export class TableExampleComponent implements AfterViewInit {
       new GenericTableColumn({
         id: 'completed',
         display: 'Finished',
-        dataType: 'boolean',
+        dataType: 'check',
         cell: (element: TestTable) => `${element.completed}`,
       }),
       new GenericTableColumn({
@@ -57,6 +57,11 @@ export class TableExampleComponent implements AfterViewInit {
         cell: (element: TestTable) => `${element.title}`,
       }),
     ];
+  }
+
+  filterSearch(e: { [field: string]: string; }) {
+    this.testRequest.filter = e;
+    this.dataTable.search();
   }
 
 }

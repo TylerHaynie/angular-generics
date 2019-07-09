@@ -9,6 +9,10 @@ export class GenericElementComponent {
   @Input() pad: string = 'none';
   @Input() flow: 'column' | 'row' | 'row dense' = 'row dense';
   @Input() placement: string;
-  @Input() rows: number;
-  @Input() columns: number;
+  @Input() rows: number | string = 'auto';
+  @Input() columns: number | string = 'auto';
+
+  isNumber(value: string | number): boolean {
+    return ((value != null) && !isNaN(Number(value.toString())));
+  }
 }

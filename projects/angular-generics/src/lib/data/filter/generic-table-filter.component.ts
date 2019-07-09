@@ -27,7 +27,11 @@ export class GenericTableFilterComponent<T> implements OnInit {
   }
 
   resetSearch() {
-    this.filters = {};
+    this.columns.forEach(column => {
+      this.filters[column.id] = undefined;
+    });
+
+    this.search.emit(this.filters);
   }
 
   // changeFilter(column: GenericTableColumn, value: any) {

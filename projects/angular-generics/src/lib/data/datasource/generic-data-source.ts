@@ -32,8 +32,6 @@ export class GenericDataSource<T> extends DataSource<T> {
   }
 
   search(request: GenericSearchRequest): void {
-    console.log('Query', request);
-
     if (request.method === "get") {
       this.api
         .get<T>(request.endpoint)

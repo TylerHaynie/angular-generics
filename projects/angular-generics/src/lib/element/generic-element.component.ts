@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './generic-element.component.html',
 })
 export class GenericElementComponent {
+  @Input() height: string = 'initial';
   @Input() gap: string = 'none';
   @Input() pad: string = 'none';
   @Input() flow: 'column' | 'row' | 'row dense' = 'row dense';

@@ -1,7 +1,7 @@
 .generic-element {
   box-sizing: border-box;
   display: grid;
-  height: 100%;
+  height: max-content;
 }
 
 .no-selection {

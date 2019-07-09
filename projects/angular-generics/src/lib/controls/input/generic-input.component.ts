@@ -52,8 +52,6 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
 
   getItems() {
     if (this.source) {
-      console.log('source', this.source);
-
       this.api.get(this.source)
         .then((items) => {
           if (items) {

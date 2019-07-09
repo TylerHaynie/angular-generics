@@ -1,5 +1,4 @@
 import { Component, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
-import { AbstractValueAccessor } from 'dist/angular-generics/lib/helpers/abstract-value-accessor';
 
 // might pop out the stepper into another control
 

@@ -18,7 +18,6 @@ export class GenericButtonComponent extends AbstractValueAccessor {
   onClick(event: Event) {
     event.stopPropagation();
     if (!this.disableControl) {
-      console.log('button clicked');
       this.click.next();
     }
   }

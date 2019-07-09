@@ -1,7 +1,7 @@
 <ag-el [pad]="'5px'" [gap]="'5px'" [flow]="'column'">
   <ag-button (click)="defaultModal.show()">Default Modal</ag-button>
-  <ag-button (click)="stepperModal.show()" (click)="loopSteps=true">Looped Stepper Modal</ag-button>
-  <ag-button (click)="stepperModal.show()" (click)="loopSteps=false">No-Loop Stepper Modal</ag-button>
+  <ag-button (click)="stepperModal.show() && loopSteps=true">Looped Stepper Modal</ag-button>
+  <ag-button (click)="stepperModal.show() && loopSteps=false">No-Loop Stepper Modal</ag-button>
   <ag-button [disabled]="true">A Disabled Button</ag-button>
 </ag-el>
 
@@ -33,24 +33,8 @@
 </ag-modal>
 
 <ng-template #step1>
-  <ag-el>
+  <ag-el [columns]="1">
     <div class="sample-box"></div>
-  </ag-el>
-
-  <ag-el>
-    <div class="sample-box"> </div>
-  </ag-el>
-
-  <ag-el>
-    <div class="sample-box">
-
-    </div>
-  </ag-el>
-
-  <ag-el>
-    <div class="sample-box">
-
-    </div>
   </ag-el>
 </ng-template>
 
@@ -76,9 +60,35 @@
     </div>
   </ag-el>
 
+  <ag-el>
+    <div class="sample-box"> </div>
+  </ag-el>
+
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+
 </ng-template>
 
 <ng-template #step4>
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+
+  <ag-el>
+    <div class="sample-box"> </div>
+  </ag-el>
+
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+
   <ag-el>
     <div class="sample-box">
 

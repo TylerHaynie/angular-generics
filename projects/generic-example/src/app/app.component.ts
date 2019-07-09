@@ -13,7 +13,7 @@ export class TestTable {
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  @ViewChild('dataTable', { static: false }) dataTable: GenericTableComponent<TestTable>;
+  // @ViewChild('dataTable', { static: false }) dataTable: GenericTableComponent<TestTable>;
 
   showStepperModal: boolean = false;
   showDefaultModal: boolean = false;

@@ -65,24 +65,20 @@ export class GenericTableComponent<T> implements OnInit {
   }
 
   doEdit(item: T) {
-    console.log('Edit', item);
     this.editAction.emit(item);
   }
 
   doDelete(item: T) {
-    console.log('Delete', item);
     this.deleteAction.emit(item);
   }
 
   doView(item: T) {
     if (!this.allowView) { return; }
 
-    console.log('View', item);
     this.viewAction.emit(item);
   }
 
   doCustom(item: T) {
-    console.log('CustomAction', item);
     this.customAction.emit(item);
   }
 

@@ -39,14 +39,17 @@
 .modal-body {
   box-sizing: border-box;
   display: grid;
+  overflow: auto;
 }
 
 .modal-footer {
   display: grid;
   grid-template-columns: 1fr;
+  grid-auto-flow: column;
   border-top: var(--modalBorder);
   place-items: center end;
   padding: 5px;
+  gap: 5px;
 }
 
 .close {

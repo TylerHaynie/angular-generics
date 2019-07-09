@@ -1,0 +1,44 @@
+.range {
+  display: grid;
+  /* grid-auto-flow: column; */
+  grid-template-columns: auto auto;
+  grid-gap: 5px;
+}
+
+.range-box {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto max-content;
+}
+
+.range-box>span {
+  text-transform: capitalize;
+  font-size: var(--rangeLabelSize);
+  grid-row-end: 1;
+  grid-column-start: 0;
+  grid-column-end: 2;
+  place-self: end start;
+}
+
+.range-box input {
+  grid-row-end: 2;
+  border: var(--inputOutline);
+  font-size: var(--inputFontSize);
+  border-right: none;
+}
+
+.range-box div {
+  display: grid;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  background: var(--inputBackground);
+  border: var(--inputOutline);
+  border-left: none;
+  padding: 0 3px;
+}
+
+.range-box div>i {
+  font-size: var(--rangeIconSize);
+  color: var(--rangeIconColor);
+  place-self: center center;
+}

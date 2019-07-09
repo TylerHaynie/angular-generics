@@ -6,7 +6,6 @@ import { AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
   templateUrl: './generic-button.component.html'
 })
 export class GenericButtonComponent extends AbstractValueAccessor {
-  @Input() isEnabled: boolean = true;
   @Input() flat: boolean = false;
-  @Input() color: string = 'linear-gradient(to bottom, #336699 0%, #003366 100%)';
+  @Input() disabled: boolean = false;
 }

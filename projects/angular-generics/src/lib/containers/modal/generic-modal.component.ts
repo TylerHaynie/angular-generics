@@ -6,7 +6,7 @@ import { Component, Input, TemplateRef } from '@angular/core';
 })
 export class GenericModalComponent {
   @Input() buttons: TemplateRef<any>;
-  @Input() showModal: boolean = false;
+  @Input('show') showModal: boolean = false;
   @Input() title: string = '';
 
   show() {

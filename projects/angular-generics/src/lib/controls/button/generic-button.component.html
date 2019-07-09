@@ -1,5 +1,4 @@
 <div class="generic-button no-selection pointer"
-     [ngClass]="{'shadows': !flat}"
-     [ngStyle]="{'background': color}">
+     [ngClass]="{'shadows': !flat, 'disabled': disabled}">
   <ng-content></ng-content>
 </div>

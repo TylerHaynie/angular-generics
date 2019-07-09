@@ -21,14 +21,11 @@
 
     <div class="col-2 full-width-content">
       <ag-button *ngIf="(!(pageMode == 'view')) && showCancel"
-                      (clicked)="doCancel()"
-                      [color]="'red'">Cancel</ag-button>
+                 (clicked)="doCancel()">Cancel</ag-button>
       <ag-button *ngIf="(!(pageMode == 'view')) && showSave"
-                      (clicked)="doSave()"
-                      [color]="'green'">Save</ag-button>
+                 (clicked)="doSave()">Save</ag-button>
       <ag-button *ngIf="(pageMode == 'view') && showEdit"
-                      (clicked)="doEdit()"
-                      [color]="'blue'">Edit</ag-button>
+                 (clicked)="doEdit()">Edit</ag-button>
 
       <ng-content select="[extraButtons]"></ng-content>
     </div>

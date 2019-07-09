@@ -17,9 +17,6 @@ export abstract class AbstractValueAccessor implements ControlValueAccessor {
 
   writeValue(value: any) {
     this._value = value;
-
-    // comment out the below if you only want to
-    // emit events on user interaction
     this.onChange(value);
   }
 

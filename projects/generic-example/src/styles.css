@@ -3,6 +3,10 @@
 
 :root {
   --inputLabelColor: rgb(0, 0, 0);
+  --tableHeaderBorderColor: rgb(155, 155, 155);
+  --tableCellBorderColor: rgb(211, 211, 211);
+  --tableRowHoverBorderColor: rgb(119, 119, 119);
+  --tableRowHoverColor: rgb(236, 236, 236);
 }
 
 * {

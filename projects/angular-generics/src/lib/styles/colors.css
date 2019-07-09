@@ -43,10 +43,6 @@
   --listItemColor: rgb(189, 189, 189);
   --listItemHoverColor: rgb(219, 219, 219);
 
-  /* Table Colors */
-  --tableHeaderBorderColor: rgb(211, 211, 211);
-  --tableCellBorderColor: rgb(211, 211, 211);
-
   /* Form Colors */
   --formHeaderBorderColor: var(--seperatorColor);
 }

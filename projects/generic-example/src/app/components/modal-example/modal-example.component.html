@@ -1,0 +1,117 @@
+<ag-el [pad]="'5px'" [gap]="'5px'" [flow]="'column'">
+  <ag-button (click)="defaultModal.show()">Default Modal</ag-button>
+  <ag-button (click)="stepperModal.show() && loopSteps=true">Looped Stepper Modal</ag-button>
+  <ag-button (click)="stepperModal.show() && loopSteps=false">No-Loop Stepper Modal</ag-button>
+  <ag-button [disabled]="true">A Disabled Button</ag-button>
+</ag-el>
+
+<!-- Stepper Modal -->
+<ag-modal #stepperModal
+          [(show)]="showStepperModal"
+          [title]="'Step ' + stepperModal.step"
+          [type]="'stepper'"
+          [loop]="loopSteps"
+          [steps]="4">
+  <ag-el [columns]="2" [gap]="'5px'" [pad]="'5px'">
+
+    <ng-container [ngSwitch]="stepperModal.step">
+      <ng-container *ngSwitchCase="1">
+        <ng-container *ngTemplateOutlet="step1"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        <ng-container *ngTemplateOutlet="step2"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="3">
+        <ng-container *ngTemplateOutlet="step3"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="4">
+        <ng-container *ngTemplateOutlet="step4"></ng-container>
+      </ng-container>
+    </ng-container>
+
+  </ag-el>
+</ag-modal>
+
+<ng-template #step1>
+  <ag-el [columns]="1">
+    <div class="sample-box"></div>
+  </ag-el>
+</ng-template>
+
+<ng-template #step2>
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+</ng-template>
+
+<ng-template #step3>
+
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+
+  <ag-el>
+    <div class="sample-box"> </div>
+  </ag-el>
+
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+
+</ng-template>
+
+<ng-template #step4>
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+
+  <ag-el>
+    <div class="sample-box"> </div>
+  </ag-el>
+
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+</ng-template>
+
+
+<ag-modal #defaultModal [(show)]="showDefaultModal" [title]="'Default Modal'">
+  <ag-el [columns]="2" [gap]="'5px'" [pad]="'5px'">
+    <ng-container *ngTemplateOutlet="noStep"></ng-container>
+  </ag-el>
+</ag-modal>
+
+<ng-template #noStep>
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+  <ag-el>
+    <div class="sample-box">
+
+    </div>
+  </ag-el>
+</ng-template>

@@ -11,10 +11,14 @@ import {
   GenericTablePagerModule, GenericTableFilterModule, GenericInputModule,
   GenericElementModule, GenericModalModule
 } from 'angular-generics';
+import { ModalExampleComponent } from './components/modal-example/modal-example.component';
+import { TableExampleComponent } from './components/table-example/table-example.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalExampleComponent,
+    TableExampleComponent
   ],
   imports: [
     BrowserModule,

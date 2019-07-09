@@ -14,7 +14,7 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
 
   // Label
   @Input() labelPosition: 'above' | 'left' = 'left';
-  @Input() labelPlacement: string = 'end start';
+  @Input() labelPlacement: string = 'center end';
   @Input() showLabel: boolean = true;
   @Input() fromLabel: string = 'from';
   @Input() toLabel: string = 'to';

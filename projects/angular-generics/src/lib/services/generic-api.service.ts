@@ -7,14 +7,14 @@ import { Injectable } from '@angular/core';
 export class GenericApiService {
   constructor(private http: HttpClient) { }
 
-  get<T>(path: string): Promise<T[]>;
-  get<T>(path: string, id: number | string): Promise<T>;
-  get<T>(path: string, id?: number | string): Promise<T | T[]> {
+  get<T>(path: string, ...options): Promise<T[]>;
+  get<T>(path: string, id: number | string, ...options): Promise<T>;
+  get<T>(path: string, id?: number | string, ...options): Promise<T | T[]> {
     let url = `${path}`;
     if (id) { url = `${url}/${id}`; }
 
     return new Promise((resolve, reject) => {
-      this.http.get(url)
+      this.http.get(url, ...options)
         .toPromise()
         .then((res: T | T[]) => {
           resolve(res);
@@ -25,11 +25,11 @@ export class GenericApiService {
     });
   }
 
-  post<T>(path: string, body: any): Promise<T> {
+  post<T>(path: string, body: any, ...options): Promise<T> {
     const url = `${path}`;
 
     return new Promise((resolve, reject) => {
-      this.http.post(url, body)
+      this.http.post(url, body, ...options)
         .toPromise()
         .then(
           (res: T) => { resolve(res); },
@@ -45,11 +45,11 @@ export class GenericApiService {
     });
   }
 
-  put<T>(path: string, body: any): Promise<T> {
+  put<T>(path: string, body: any, ...options): Promise<T> {
     const url = `${path}`;
 
     return new Promise((resolve, reject) => {
-      this.http.put(url, body)
+      this.http.put(url, body, ...options)
         .toPromise()
         .then(
           (res: T) => { resolve(res); },
@@ -65,14 +65,14 @@ export class GenericApiService {
     });
   }
 
-  delete<T>(path: string): Promise<T[]>;
-  delete<T>(path: string, id: number | string): Promise<T>;
-  delete<T>(path: string, id?: number | string): Promise<T | T[]> {
+  delete<T>(path: string, ...options): Promise<T[]>;
+  delete<T>(path: string, id: number | string, ...options): Promise<T>;
+  delete<T>(path: string, id?: number | string, ...options): Promise<T | T[]> {
     let url = `${path}`;
     if (id) { url = `${url}/${id}`; }
 
     return new Promise((resolve, reject) => {
-      this.http.delete(url)
+      this.http.delete(url, ...options)
         .toPromise()
         .then((res: T | T[]) => {
           resolve(res);
@@ -83,11 +83,11 @@ export class GenericApiService {
     });
   }
 
-  search<T, RT>(path: string, body: T): Promise<RT> {
+  search<T, RT>(path: string, body: T, ...options): Promise<RT> {
     const url = `${path}`;
 
     return new Promise((resolve, reject) => {
-      this.http.post(url, body)
+      this.http.post(url, body, ...options)
         .toPromise()
         .then(
           (res: RT) => { resolve(res); },

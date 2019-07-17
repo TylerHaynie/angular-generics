@@ -1,9 +1,8 @@
 <!-- *** Layout *** -->
 <!-- //TODO: clean up and split into smaller parts -->
 
-<div class="generic-input"
-     [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'above'}">
-  <div [ngStyle]="{'place-self': labelPlacement}">
+<div class="generic-input" [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'above'}">
+  <div class="label-container" [ngStyle]="{'place-self': labelPlacement}">
     <label *ngIf="showLabel">
       <ng-content></ng-content>
     </label>
@@ -31,6 +30,10 @@
 
   <ng-container *ngIf="type=='select'">
     <ng-container *ngTemplateOutlet="selectBox"></ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type=='file'">
+    <ng-container *ngTemplateOutlet="fileBox"></ng-container>
   </ng-container>
 </div>
 
@@ -84,23 +87,30 @@
   </ng-container>
 </ng-template>
 
+<!-- File Box SubTypes -->
+<ng-template #fileBox>
+  <ng-container *ngIf="subtype == 'default'">
+    <ng-container *ngTemplateOutlet="defaultFile"></ng-container>
+  </ng-container>
+</ng-template>
+
 
 <!--  *** TEMPLATES ***  -->
 
 <!-- Default Text Box -->
 <ng-template #defaultText>
-  <input [disabled]="disabled" type="text" [(ngModel)]="value" [placeholder]="placeholder" />
+  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="text" [(ngModel)]="value" [placeholder]="placeholder" />
 </ng-template>
 
 <!-- Text Area -->
 <ng-template #textArea>
-  <textarea [disabled]="disabled" [cols]="textColumns" [rows]="textRows" [placeholder]="placeholder"
+  <textarea [disabled]="disabled" [attr.required]="required ? '' : null" [cols]="textColumns" [rows]="textRows" [placeholder]="placeholder"
             [ngModel]="value"></textarea>
 </ng-template>
 
 <!-- Number -->
 <ng-template #defaultNumber>
-  <input [disabled]="disabled" type="number" [(ngModel)]="value" [placeholder]="placeholder" />
+  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="number" [(ngModel)]="value" [placeholder]="placeholder" />
 </ng-template>
 
 <!-- Default Range -->
@@ -108,18 +118,20 @@
   <div class="range">
     <div class="range-box">
       <span>{{fromLabel}}</span>
-      <input [disabled]="disabled" [type]="type" [(ngModel)]="fromValue" (change)="rangeChange()" />
+      <input [disabled]="disabled" [attr.required]="required ? '' : null" [type]="type" [(ngModel)]="fromValue" (change)="rangeChange()" />
       <div>
         <i class="fas"
-           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"></i>
+           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}">
+        </i>
       </div>
     </div>
     <div class="range-box">
       <span>{{toLabel}}</span>
-      <input [disabled]="disabled" [type]="type" [(ngModel)]="toValue" (change)="rangeChange()" />
+      <input [disabled]="disabled" [attr.required]="required ? '' : null" [type]="type" [(ngModel)]="toValue" (change)="rangeChange()" />
       <div>
         <i class="fas"
-           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"></i>
+           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}">
+        </i>
       </div>
     </div>
   </div>
@@ -127,18 +139,18 @@
 
 <!-- Default Date -->
 <ng-template #defaultDate>
-  <input [disabled]="disabled" type="date" [(ngModel)]="value" [placeholder]="placeholder" />
+  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="date" [(ngModel)]="value" />
 </ng-template>
 
 <!-- Default Checkbox -->
 <ng-template #defaultCheck>
-  <input [disabled]="disabled" type="checkbox" [(ngModel)]="value" />
+  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="checkbox" [(ngModel)]="value" />
 </ng-template>
 
 <!-- Slide Checkbox -->
 <ng-template #checkSlide>
   <div class="checkbox-slider">
-    <input [disabled]="disabled" id="genericSliderCheckbox" type="checkbox" [(ngModel)]="value" />
+    <input [disabled]="disabled" [attr.required]="required ? '' : null" id="genericSliderCheckbox" type="checkbox" [(ngModel)]="value" />
     <label for="genericSliderCheckbox"></label>
   </div>
 </ng-template>
@@ -146,11 +158,17 @@
 <!-- Default Select -->
 <ng-template #defaultSelect>
   <ng-container *ngIf="!disabled">
-    <select [(ngModel)]="value">
-      <option *ngFor="let item of itemList" [value]="item">{{item[displayProperty]}}</option>
+    <select [(ngModel)]="value" [attr.required]="required ? '' : null" [attr.multiple]="multiple ? '' : null">
+      <option value="" disabled selected hidden>{{placeholder}}</option>
+      <option *ngFor="let item of options" [value]="item">{{item[displayProperty]}}</option>
     </select>
   </ng-container>
   <ng-container *ngIf="disabled">
-    <input disabled type="text" [value]="currentSelection[displayProperty]">
+    <input disabled type="text" [attr.required]="required ? '' : null" [(ngModel)]="value">
   </ng-container>
+</ng-template>
+
+<!-- Default File -->
+<ng-template #defaultFile>
+  <input [disabled]="disabled" [attr.multiple]="multiple ? '' : null" [attr.required]="required ? '' : null" type="file" [(ngModel)]="value" [placeholder]="placeholder" />
 </ng-template>

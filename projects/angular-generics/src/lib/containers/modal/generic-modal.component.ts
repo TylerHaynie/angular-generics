@@ -31,12 +31,12 @@ export class GenericModalComponent {
 
   finish() {
     this.complete.emit();
-    this.hide();
+    this.reset();
   }
 
-  closeModal() {
+  close() {
     this.closed.emit();
-    this.hide();
+    this.reset();
   }
 
   nextClicked() {
@@ -46,4 +46,18 @@ export class GenericModalComponent {
   previousClicked() {
     this.step === 1 ? this.step = this.steps : this.step = this.step - 1;
   }
+
+  private reset(): void {
+    this.buttons = null;
+    this.showModal = false;
+    this.title = '';
+    this.type = 'default';
+    this.steps = 0;
+    this.loop = false;
+    this.step = 1;
+  }
+
+  // private dispose(): void {
+  //   Object.assign(this, null);
+  // }
 }

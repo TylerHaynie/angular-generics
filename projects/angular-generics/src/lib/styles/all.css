@@ -6,6 +6,7 @@
 @import './layout/seperator.css';
 @import './controls/button.css';
 @import './controls/checkbox.css';
+@import './controls/date.css';
 @import './controls/input.css';
 @import './controls/range.css';
 @import './layout/modal.css';

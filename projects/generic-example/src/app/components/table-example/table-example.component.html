@@ -1,2 +1,11 @@
-<ag-table-filter [columns]="columns" (search)="filterSearch($event)"></ag-table-filter>
-<ag-table #dataTable [query]="testRequest" [columns]="columns"></ag-table>
+<ag-el [gap]="'10px'">
+  <ag-el>
+    <ag-table-filter [columns]="columns" (search)="filterSearch($event)"></ag-table-filter>
+  </ag-el>
+  <ag-el>
+    <ag-table-pager (pageChanged)="pageChanged($event)"></ag-table-pager>
+  </ag-el>
+  <ag-el>
+    <ag-table #dataTable [query]="testRequest" [columns]="columns"></ag-table>
+  </ag-el>
+</ag-el>

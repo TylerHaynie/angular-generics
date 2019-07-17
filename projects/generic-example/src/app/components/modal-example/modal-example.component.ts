@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-modal-example',
-  templateUrl: './modal-example.component.html',
-  styleUrls: ['./modal-example.component.css']
+  templateUrl: './modal-example.component.html'
 })
 export class ModalExampleComponent implements OnInit {
   showStepperModal: boolean = false;

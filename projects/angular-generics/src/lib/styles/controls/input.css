@@ -15,24 +15,21 @@
 }
 
 .generic-input {
+  box-sizing: border-box;
   display: grid;
-  /* grid-template-rows: auto; */
-}
-
-.generic-input select {
   width: 100%;
 }
 
 .generic-input select,
 .generic-input input,
-.generic-input textarea {
+.generic-input textarea{
   color: var(--inputColor);
   font-size: var(--inputFontSize);
   padding: var(--inputPadding);
   border: var(--inputOutline);
   background: var(--inputBackground);
   box-shadow: var(--inputShadow);
-  box-sizing: border-box;
+  
 }
 
 .generic-input input:disabled,
@@ -41,12 +38,6 @@
   border-color: var(--disabledBorder);
 }
 
-.generic-input:first-child {
-  color: var(--inputLabelColor);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
 
 .generic-input.label-left,
 .generic-input.label-top {
@@ -56,11 +47,19 @@
 .generic-input.label-left {
   grid-gap: 5px;
   grid-template-rows: 1fr;
-  grid-template-columns: minmax(150px, 1fr) minmax(10px, 4fr);
+  grid-template-columns: minmax(50px, 2fr) minmax(150px, 4fr);
 }
 
 .generic-input.label-top {
   grid-gap: 2px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr, 1fr;
+}
+
+.generic-input>.label-container {
+  width: 100%;
+  color: var(--inputLabelColor);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

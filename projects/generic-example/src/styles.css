@@ -7,6 +7,7 @@
   --tableCellBorderColor: rgb(211, 211, 211);
   --tableRowHoverBorderColor: rgb(119, 119, 119);
   --tableRowHoverColor: rgb(236, 236, 236);
+  --inputColor: black;
 }
 
 * {
@@ -16,6 +17,7 @@
 
 body {
   height: 100vh;
+  color: black;
 }
 
 .sample-box {

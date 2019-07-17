@@ -10,8 +10,7 @@ export class TestTable {
 
 @Component({
   selector: 'app-table-example',
-  templateUrl: './table-example.component.html',
-  styleUrls: ['./table-example.component.css']
+  templateUrl: './table-example.component.html'
 })
 export class TableExampleComponent implements AfterViewInit {
   @ViewChild('dataTable', { static: false }) dataTable: GenericTableComponent<TestTable>;
@@ -61,6 +60,13 @@ export class TableExampleComponent implements AfterViewInit {
 
   filterSearch(e: { [field: string]: string; }) {
     this.testRequest.filter = e;
+    this.dataTable.search();
+  }
+
+  pageChanged(e: { pageNumber: number, takeAmount: number }) {
+    this.testRequest.page = e.pageNumber;
+    this.testRequest.take = e.takeAmount;
+
     this.dataTable.search();
   }
 

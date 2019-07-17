@@ -1,0 +1,34 @@
+<ag-el [columns]="1" [pad]="'5px'" [gap]="'25px'">
+  <ag-el [columns]="3" [gap]="'5px'">
+    <ag-input [type]="'text'" [labelPosition]="'above'">Textbox</ag-input>
+    <ag-input [type]="'number'" [labelPosition]="'above'">Number</ag-input>
+    <ag-input [type]="'date'" [labelPosition]="'above'">Date</ag-input>
+  </ag-el>
+
+  <ag-el [columns]="2">
+    <ag-input [type]="'check'" [labelPosition]="'above'">Check</ag-input>
+    <ag-input [type]="'check'" [subtype]="'slide'" [labelPosition]="'above'">Slider Check</ag-input>
+  </ag-el>
+
+  <ag-el [gap]="'5px'">
+    <ag-input [type]="'number'" [subtype]="'range'" [labelPosition]="'above'">Number Range</ag-input>
+    <ag-input [type]="'date'" [subtype]="'range'" [labelPosition]="'above'">Date</ag-input>
+  </ag-el>
+
+  <ag-el [gap]="'5px'">
+    <ag-input [type]="'select'" [source]="dropdownSource" [displayProperty]="'title'" [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) </ag-input>
+    <ag-input [type]="'select'" [source]="dropdownSource" [displayProperty]="'title'" [multiple]="true" [labelPosition]="'above'">Multiple Selection (ctrl + click) (http Source)</ag-input>
+  </ag-el>
+  
+  <ag-el [gap]="'5px'">
+      <ag-input [type]="'select'" [options]="dropDownOptions" [displayProperty]="'name'" [placeholder]="'select...'"  [labelPosition]="'above'">Single Selection (array)</ag-input>
+      <ag-input [type]="'select'" [options]="dropDownOptions" [displayProperty]="'name'" [multiple]="true" [labelPosition]="'above'">Multiple Selection (ctrl + click) (array)</ag-input>
+    </ag-el>
+
+  <ag-el [gap]="'5px'">
+    <ag-input [type]="'file'" [labelPosition]="'above'">Single File</ag-input>
+    <ag-input [type]="'file'" [multiple]="true" [labelPosition]="'above'">Multiple File</ag-input>
+  </ag-el>
+
+
+</ag-el>

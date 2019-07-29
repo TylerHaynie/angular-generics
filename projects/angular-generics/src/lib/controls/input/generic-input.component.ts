@@ -32,6 +32,7 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   // Source and Selection
   @Input() source: string;
   @Input() displayProperty: string;
+  @Input() valueProperty: string;
   @Input() options: any[] = [];
 
   // File Upload and Selection

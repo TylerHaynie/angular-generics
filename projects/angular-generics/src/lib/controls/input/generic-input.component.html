@@ -160,7 +160,7 @@
   <ng-container *ngIf="!disabled">
     <select [(ngModel)]="value" [attr.required]="required ? '' : null" [attr.multiple]="multiple ? '' : null">
       <option value="" disabled selected hidden>{{placeholder}}</option>
-      <option *ngFor="let item of options" [value]="item">{{item[displayProperty]}}</option>
+      <option *ngFor="let item of options" [value]="valueProperty == null ? item : item[valueProperty]">{{item[displayProperty]}}</option>
     </select>
   </ng-container>
   <ng-container *ngIf="disabled">

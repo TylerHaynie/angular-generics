@@ -34,7 +34,7 @@ export class GenericDataSource<T> extends DataSource<T> {
   search(request: GenericSearchRequest): void {
     if (request.method === "get") {
       this.api
-        .get<T>(request.endpoint)
+        .get<T[]>(request.endpoint)
         .then((data) => { this.dataSource.next(data); });
     }
     else {

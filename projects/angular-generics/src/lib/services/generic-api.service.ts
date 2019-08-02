@@ -7,16 +7,15 @@ import { Injectable } from '@angular/core';
 export class GenericApiService {
   constructor(private http: HttpClient) { }
 
-  get<T>(path: string, ...options): Promise<T[]>;
-  get<T>(path: string, id: number | string, ...options): Promise<T>;
-  get<T>(path: string, id?: number | string, ...options): Promise<T | T[]> {
+  get<T>(path: string): Promise<T>;
+  get<T>(path: string, id?: number | string, ...options): Promise<T> {
     let url = `${path}`;
     if (id) { url = `${url}/${id}`; }
 
     return new Promise((resolve, reject) => {
       this.http.get(url, ...options)
         .toPromise()
-        .then((res: T | T[]) => {
+        .then((res: T) => {
           resolve(res);
         })
         .catch(err => {
@@ -25,6 +24,7 @@ export class GenericApiService {
     });
   }
 
+  post<T>(path: string, body: any): Promise<T>;
   post<T>(path: string, body: any, ...options): Promise<T> {
     const url = `${path}`;
 
@@ -45,6 +45,7 @@ export class GenericApiService {
     });
   }
 
+  put<T>(path: string, body: any): Promise<T>;
   put<T>(path: string, body: any, ...options): Promise<T> {
     const url = `${path}`;
 
@@ -65,16 +66,15 @@ export class GenericApiService {
     });
   }
 
-  delete<T>(path: string, ...options): Promise<T[]>;
-  delete<T>(path: string, id: number | string, ...options): Promise<T>;
-  delete<T>(path: string, id?: number | string, ...options): Promise<T | T[]> {
+  delete<T>(path: string, ...options): Promise<T>;
+  delete<T>(path: string, id?: number | string, ...options): Promise<T> {
     let url = `${path}`;
     if (id) { url = `${url}/${id}`; }
 
     return new Promise((resolve, reject) => {
       this.http.delete(url, ...options)
         .toPromise()
-        .then((res: T | T[]) => {
+        .then((res: T) => {
           resolve(res);
         })
         .catch(err => {

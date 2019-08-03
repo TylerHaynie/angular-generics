@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class GenericApiService {
   constructor(private http: HttpClient) { }
 
-  get<T>(path: string): Promise<T>;
-  get<T>(path: string, id?: number | string, ...options): Promise<T> {
+  get<T>(path: string, ...options): Promise<T>;
+  get<T>(path: string, id: number | string, ...options): Promise<T> {
     let url = `${path}`;
     if (id) { url = `${url}/${id}`; }
 
@@ -67,7 +67,7 @@ export class GenericApiService {
   }
 
   delete<T>(path: string, ...options): Promise<T>;
-  delete<T>(path: string, id?: number | string, ...options): Promise<T> {
+  delete<T>(path: string, id: number | string, ...options): Promise<T> {
     let url = `${path}`;
     if (id) { url = `${url}/${id}`; }
 

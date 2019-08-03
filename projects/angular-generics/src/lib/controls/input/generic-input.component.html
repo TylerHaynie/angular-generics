@@ -1,9 +1,9 @@
 <!-- *** Layout *** -->
 <!-- //TODO: clean up and split into smaller parts -->
 
-<div class="generic-input" [ngClass]="{'label-left': labelPosition == 'left', 'label-top': labelPosition == 'above'}">
-  <div class="label-container" [ngStyle]="{'place-self': labelPlacement}">
-    <label *ngIf="showLabel">
+<div class="generic-input" [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 'label-top': labelPosition == 'above' && showLabel}">
+  <div *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelPlacement}">
+    <label>
       <ng-content></ng-content>
     </label>
   </div>

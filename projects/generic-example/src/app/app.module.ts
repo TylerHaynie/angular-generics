@@ -14,13 +14,15 @@ import {
 import { ModalExampleComponent } from './components/modal-example/modal-example.component';
 import { TableExampleComponent } from './components/table-example/table-example.component';
 import { InputExampleComponent } from './components/input-example/input-example.component';
+import { ListExampleComponent } from './components/list-example/input-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalExampleComponent,
     TableExampleComponent,
-    InputExampleComponent
+    InputExampleComponent,
+    ListExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { InputExampleComponent } from './components/input-example/input-example.
     GenericFormModule,
     GenericListModule,
     GenericAlertModule,
+    GenericListModule,
     GenericTableModule,
     GenericButtonModule,
     GenericServiceModule,

@@ -1,0 +1,46 @@
+<ag-el [columns]="1" [pad]="'10px'" [gap]="'10px'">
+
+  <ag-el class="search-box" [columns]="'1fr auto'">
+    <ag-input class="search" [showLabel]="false" [(ngModel)]="searchValue" [type]="'text'" placeholder="Search..."></ag-input>
+    <!-- <button mat-icon-button>
+      <mat-icon (click)="doSearch()">search</mat-icon>
+    </button> -->
+  </ag-el>
+
+  <ag-el class="list" [pad]="'10px 2px'">
+    <ag-el class="list-header" [columns]="'1fr auto'">
+      <ag-el class="list-title" [placement]="'center start'">Example List</ag-el>
+      <ag-el>
+        <ng-container *ngTemplateOutlet="filterTemplate ? filterTemplate : defaultFilter"></ng-container>
+      </ag-el>
+    </ag-el>
+
+    <ag-el class="item" [pad]="'5px'" [gap]="'5px'" *ngFor="let item of itemList" (click)="itemClicked(item)">
+
+      <ag-el [columns]="'1fr auto'" [gap]="'5px'" [placement]="'start center'">
+        <ag-el class="title" [columns]="1" [placement]="'start center'">
+          {{item.name}}
+        </ag-el>
+
+        <ag-el class="order-date" [placement]="'start center'">
+          {{'#0000' + item.id}}
+        </ag-el>
+      </ag-el>
+
+      <ag-el [columns]="'1fr auto'" [gap]="'5px'">
+        <ag-el class="details reference">
+          {{item.email}}
+        </ag-el>
+
+        <ag-el>
+          <!-- {{}} -->
+        </ag-el>
+      </ag-el>
+
+    </ag-el>
+
+    <ag-el class="list-footer" [rows]="1"></ag-el>
+
+    <ng-template #defaultFilter></ng-template>
+  </ag-el>
+</ag-el>

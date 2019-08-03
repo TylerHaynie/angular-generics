@@ -38,11 +38,6 @@
   --grayBorderColor: rgb(70, 70, 70);
 
   /* List Colors */
-  --listBackgroundColor: white;
-  --listBorderColor: rgb(104, 104, 104);
-  --listItemColor: rgb(189, 189, 189);
-  --listItemHoverColor: rgb(219, 219, 219);
 
-  /* Form Colors */
-  --formHeaderBorderColor: var(--seperatorColor);
+
 }

@@ -1,13 +1,10 @@
-/* :root {
+:root {
   --formHeaderBorder: 2px solid var(--formHeaderBorderColor);
-  --inputOutline: 1px solid var(--inputOutlineColor);
-  --inputHeight: 38px;
 }
 
 .form-wrapper {
   background: white;
   border-radius: 4px;
-  padding: 5px 5px
 }
 
 .form-header {
@@ -19,58 +16,3 @@
   font-weight: 600;
   font-size: 1.3em;
 }
-
-.search-box,
-.filter-box {
-  padding: 2px;
-  border: 1px solid rgb(115, 159, 189);
-  background: white;
-  min-height: 50px;
-}
-
-.search[type=text] {
-  padding: 6px;
-  font-size: 17px;
-  border: none;
-}
-
-.search-box>mat-icon {
-  padding-left: 10px;
-}
-
-.add-button {
-  color: rgb(255, 255, 255);
-  background: var(--blue);
-  font-size: 1.00em;
-}
-
-mat-select,
-.form-control input {
-  height: 32px;
-}
-
-.form-control input,
-.form-control textarea,
-mat-select {
-  font-size: 1.00em;
-  padding: 2px 2px 2px 2px;
-  border: var(--inputOutline);
-  box-sizing: border-box;
-}
-
-.form-control input:disabled,
-.form-control textarea:disabled,
-mat-select:disabled {
-  background-color: var(--disabledBackground);
-  border-color: var(--disabledBorder);
-}
-
-.form-control mat-radio-button {
-  font-size: .85em;
-}
-
-.form-control button {
-  background-color: var(--blue);
-  color: white;
-  height: 32px;
-} */

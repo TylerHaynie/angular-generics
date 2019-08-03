@@ -1,10 +1,10 @@
 <div class="generic-element"
-     [ngStyle]="{'gap': gap, 
-                 'padding': pad,
+     [ngStyle]="{'gap': isNumber(gap) ? gap + 'px' : gap, 
+                 'padding': isNumber(pad) ? pad + 'px' : pad,
                  'place-content': placement ? placement : false,
                  'grid-auto-flow': flow,
                  'grid-template-columns': isNumber(columns) ? 'repeat(' + columns + ', 1fr)' : columns,
                  'grid-template-rows': isNumber(rows) ? 'repeat(' + rows + ', 1fr)' : rows,
-                 'height': height}">
+                 'height': isNumber(height) ? height + 'px' : height}">
     <ng-content></ng-content>
 </div>

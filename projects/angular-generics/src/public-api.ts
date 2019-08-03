@@ -16,10 +16,6 @@ export * from './lib/element/generic-element.module';
 export * from './lib/containers/form/generic-form.component';
 export * from './lib/containers/form/generic-form.module';
 
-// List
-export * from './lib/containers/list/generic-list.component';
-export * from './lib/containers/list/generic-list.module';
-
 // Modal
 export * from './lib/containers/modal/generic-modal.component';
 export * from './lib/containers/modal/generic-modal.module';

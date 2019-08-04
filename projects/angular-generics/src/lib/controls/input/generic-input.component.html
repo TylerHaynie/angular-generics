@@ -1,7 +1,10 @@
 <!-- *** Layout *** -->
 <!-- //TODO: clean up and split into smaller parts -->
 
-<div class="generic-input" [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 'label-top': labelPosition == 'above' && showLabel}">
+<div class="generic-input"
+     [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 
+                 'label-top': labelPosition == 'above' && showLabel}"
+     [ngStyle]="{'width': width, 'height': height}">
   <div *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelPlacement}">
     <label>
       <ng-content></ng-content>

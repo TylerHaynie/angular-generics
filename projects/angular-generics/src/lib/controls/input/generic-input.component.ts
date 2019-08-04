@@ -12,6 +12,8 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   @Input() disabled: boolean = false;
   @Input() customTemplate: TemplateRef<any>;
   @Input() required: boolean = false;
+  @Input() width: number | string = 'initial';
+  @Input() height: number | string = 'initial';
 
   // Label
   @Input() labelPosition: 'above' | 'left' = 'left';
@@ -49,7 +51,6 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
     if (this.source && !this.displayProperty) {
       console.error(`[displayProperty] was not set for input with [source] or [options] usage'. A [displayProperty] is REQUIRED to diplsay when [source] or [options] is used.`);
     }
-
   }
 
   // For anything using source
@@ -71,7 +72,6 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
           }
         });
     }
-
   }
 
   rangeChange(): void {

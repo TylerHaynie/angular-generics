@@ -1,4 +1,4 @@
-.mat-cell {
+/* .mat-cell {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -19,4 +19,4 @@
 .mat-row:hover {
   border-color: var(--tableRowHoverBorderColor);
   background-color: var(--tableRowHoverColor);
-}
+} */

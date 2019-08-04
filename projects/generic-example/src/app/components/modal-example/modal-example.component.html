@@ -1,8 +1,8 @@
 <ag-el [pad]="'5px'" [gap]="'5px'" [flow]="'column'">
-  <ag-button (click)="defaultModal.show()">Default Modal</ag-button>
-  <ag-button (click)="stepperModal.show() && loopSteps=true">Looped Stepper Modal</ag-button>
-  <ag-button (click)="stepperModal.show() && loopSteps=false">No-Loop Stepper Modal</ag-button>
-  <ag-button [disabled]="true">A Disabled Button</ag-button>
+  <ag-button (click)="defaultModal.show()" (click)="buttonClick()">Default Modal</ag-button>
+  <ag-button (click)="stepperModal.show() && loopSteps=true" (click)="buttonClick()">Looped Stepper Modal</ag-button>
+  <ag-button (click)="stepperModal.show() && loopSteps=false" (click)="buttonClick()">No-Loop Stepper Modal</ag-button>
+  <ag-button [disabled]="true" (click)="buttonClick()">A Disabled Button</ag-button>
 </ag-el>
 
 <!-- Stepper Modal -->

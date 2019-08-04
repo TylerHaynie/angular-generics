@@ -1,6 +1,5 @@
 @import './base.css';
-@import './colors.css';
-@import './table.css';
+/* @import './table.css'; */
 @import './filter.css';
 @import './layout/groupbox.css';
 @import './layout/seperator.css';

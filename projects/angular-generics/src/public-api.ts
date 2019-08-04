@@ -12,10 +12,6 @@ export * from './lib/alert/generic-alert.module';
 export * from './lib/element/generic-element.component';
 export * from './lib/element/generic-element.module';
 
-// Form
-export * from './lib/containers/form/generic-form.component';
-export * from './lib/containers/form/generic-form.module';
-
 // Modal
 export * from './lib/containers/modal/generic-modal.component';
 export * from './lib/containers/modal/generic-modal.module';

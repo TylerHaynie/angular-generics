@@ -5,24 +5,21 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {
-  GenericFormModule, GenericListModule, GenericAlertModule,
-  GenericTableModule, GenericButtonModule, GenericServiceModule,
-  GenericDataSourceModule, GenericNavigationModule,
+  GenericAlertModule, GenericTableModule, GenericButtonModule,
+  GenericServiceModule, GenericDataSourceModule, GenericNavigationModule,
   GenericTablePagerModule, GenericTableFilterModule, GenericInputModule,
   GenericElementModule, GenericModalModule
 } from 'angular-generics';
 import { ModalExampleComponent } from './components/modal-example/modal-example.component';
 import { TableExampleComponent } from './components/table-example/table-example.component';
 import { InputExampleComponent } from './components/input-example/input-example.component';
-import { ListExampleComponent } from './components/list-example/input-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalExampleComponent,
     TableExampleComponent,
-    InputExampleComponent,
-    ListExampleComponent
+    InputExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -30,10 +27,7 @@ import { ListExampleComponent } from './components/list-example/input-example.co
     FormsModule,
     HttpClientModule,
     GenericElementModule,
-    GenericFormModule,
-    GenericListModule,
     GenericAlertModule,
-    GenericListModule,
     GenericTableModule,
     GenericButtonModule,
     GenericServiceModule,

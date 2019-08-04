@@ -14,4 +14,8 @@ export class ModalExampleComponent implements OnInit {
   ngOnInit() {
   }
 
+  buttonClick(){
+    console.log('clicked');
+  }
+
 }

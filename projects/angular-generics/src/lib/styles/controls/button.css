@@ -1,4 +1,5 @@
 :root {
+  --shadowDark: rgb(34, 34, 34);
   --buttonBorderRadius: 5px;
   --buttonPadding: 5px 8px;
   --buttonInactiveShadow: 0px 1px 4px 0px var(--shadowDark);

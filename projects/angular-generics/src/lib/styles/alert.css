@@ -1,6 +1,10 @@
-/* .alert {
+/*
+:root{
+  --shadowDark: rgb(34, 34, 34);
+}
+
+ .alert {
   padding: 5px;
-  color: var(--alertFontColor);
   font-weight: bold;
   letter-spacing: 0.03em;
 }

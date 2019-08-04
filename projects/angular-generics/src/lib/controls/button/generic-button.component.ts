@@ -7,6 +7,8 @@ import { AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 })
 export class GenericButtonComponent extends AbstractValueAccessor {
   @Input() flat: boolean = false;
+  @Input() width: number | string = 'initial';
+  @Input() height: number | string = 'initial';
   @Input('disabled') disableControl: boolean = false;
 
   @Output() click = new EventEmitter();
@@ -17,6 +19,7 @@ export class GenericButtonComponent extends AbstractValueAccessor {
 
   onClick(event: Event) {
     event.stopPropagation();
+    event.stopImmediatePropagation();
     if (!this.disableControl) {
       this.click.next();
     }

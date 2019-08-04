@@ -1,4 +1,4 @@
-<ag-el [pad]="'5px'" [gap]="'5px'" [flow]="'column'">
+<ag-el [pad]="5" [gap]="5" [flow]="'column'">
   <ag-button (click)="defaultModal.show()" (click)="buttonClick()">Default Modal</ag-button>
   <ag-button (click)="stepperModal.show() && loopSteps=true" (click)="buttonClick()">Looped Stepper Modal</ag-button>
   <ag-button (click)="stepperModal.show() && loopSteps=false" (click)="buttonClick()">No-Loop Stepper Modal</ag-button>
@@ -12,7 +12,7 @@
           [type]="'stepper'"
           [loop]="loopSteps"
           [steps]="4">
-  <ag-el [columns]="2" [gap]="'5px'" [pad]="'5px'">
+  <ag-el [columns]="2" [gap]="5" [pad]="5">
 
     <ng-container [ngSwitch]="stepperModal.step">
       <ng-container *ngSwitchCase="1">
@@ -98,7 +98,7 @@
 
 
 <ag-modal #defaultModal [(show)]="showDefaultModal" [title]="'Default Modal'">
-  <ag-el [columns]="2" [gap]="'5px'" [pad]="'5px'">
+  <ag-el [columns]="2" [gap]="5" [pad]="5">
     <ng-container *ngTemplateOutlet="noStep"></ng-container>
   </ag-el>
 </ag-modal>

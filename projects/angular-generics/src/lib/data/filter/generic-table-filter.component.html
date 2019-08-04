@@ -1,20 +1,20 @@
 <ag-el>
 
-  <ag-el [pad]="'5px'" [columns]="'1fr auto'" class="filter-header">
+  <ag-el [pad]="5" [columns]="'1fr auto'" class="filter-header">
     <ag-el class="header pointer" [height]="'100%'" [columns]="'auto 1fr'"
-           [gap]="'3px'" [placement]="'center'" (click)="showFilter = !showFilter">
+           [gap]="3" [placement]="'center'" (click)="showFilter = !showFilter">
       <i class="fas fa-minus" *ngIf="showFilter"></i>
       <i class="fas fa-plus" *ngIf="!showFilter"></i>
       <span>Filter</span>
     </ag-el>
 
-    <ag-el *ngIf="showFilter" [columns]="2" [gap]="'5px'">
+    <ag-el *ngIf="showFilter" [columns]="2" [gap]="5">
       <ag-button [flat]="true" (click)="searchClicked()">Search</ag-button>
       <ag-button [flat]="true" (click)="resetSearch()">Reset</ag-button>
     </ag-el>
   </ag-el>
 
-  <ag-el *ngIf="showFilter" class="filters" [pad]="'5px'" [gap]="'10px'" [columns]="4">
+  <ag-el *ngIf="showFilter" class="filters" [pad]="5" [gap]="10" [columns]="4">
     <ag-el *ngFor="let column of columns">
       <ag-input [type]="column.dataType"
                 [labelPosition]="'above'"

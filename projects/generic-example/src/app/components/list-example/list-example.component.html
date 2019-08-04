@@ -1,4 +1,4 @@
-<ag-el [columns]="1" [pad]="'10px'" [gap]="'10px'">
+<ag-el [columns]="1" [pad]="10" [gap]="10">
 
   <ag-el class="search-box" [columns]="'1fr auto'">
     <ag-input class="search" [showLabel]="false" [(ngModel)]="searchValue" [type]="'text'" placeholder="Search..."></ag-input>
@@ -15,9 +15,9 @@
       </ag-el>
     </ag-el>
 
-    <ag-el class="item" [pad]="'5px'" [gap]="'5px'" *ngFor="let item of itemList" (click)="itemClicked(item)">
+    <ag-el class="item" [pad]="5" [gap]="5" *ngFor="let item of itemList" (click)="itemClicked(item)">
 
-      <ag-el [columns]="'1fr auto'" [gap]="'5px'" [placement]="'start center'">
+      <ag-el [columns]="'1fr auto'" [gap]="5" [placement]="'start center'">
         <ag-el class="title" [columns]="1" [placement]="'start center'">
           {{item.name}}
         </ag-el>
@@ -27,7 +27,7 @@
         </ag-el>
       </ag-el>
 
-      <ag-el [columns]="'1fr auto'" [gap]="'5px'">
+      <ag-el [columns]="'1fr auto'" [gap]="5">
         <ag-el class="details reference">
           {{item.email}}
         </ag-el>

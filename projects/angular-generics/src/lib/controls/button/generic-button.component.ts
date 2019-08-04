@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 
 @Component({
@@ -18,10 +18,12 @@ export class GenericButtonComponent extends AbstractValueAccessor {
   }
 
   onClick(event: Event) {
-    event.stopPropagation();
-    event.stopImmediatePropagation();
     if (!this.disableControl) {
+      event.stopPropagation();
       this.click.next();
+    }
+    else {
+      event.stopImmediatePropagation();
     }
   }
 

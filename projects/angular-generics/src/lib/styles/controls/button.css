@@ -2,8 +2,6 @@
   --shadowDark: rgb(34, 34, 34);
   --buttonBorderRadius: 5px;
   --buttonPadding: 5px 8px;
-  --buttonInactiveShadow: 0px 1px 4px 0px var(--shadowDark);
-  --buttonActiveShadow: inset 0 0 5px 1px var(--shadowDark);
   --buttonTextShadow: 0px 0px 4px var(--shadowDark);
   --buttonFontColor: white;
   --buttonBackground: linear-gradient(to bottom, #336699 0%, #003366 100%);
@@ -24,12 +22,7 @@
 }
 
 .generic-button.shadows {
-  box-shadow: var(--buttonInactiveShadow);
   text-shadow: var(--buttonTextShadow);
-}
-
-.generic-button.shadows:active {
-  box-shadow: var(--buttonActiveShadow);
 }
 
 .generic-button.disabled:active,
@@ -38,7 +31,6 @@
   text-shadow: none;
   background: var(--buttonDisabledBackground);
   color: var(--buttonDisabledFontColor);
-  box-shadow: var(--buttonInactiveShadow);
 }
 
 .generic-button.disabled:hover {

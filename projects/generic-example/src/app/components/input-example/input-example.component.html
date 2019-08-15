@@ -16,14 +16,26 @@
   </ag-el>
 
   <ag-el [gap]="5">
-    <ag-input [type]="'select'" [source]="dropdownSource" [displayProperty]="'title'" [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) </ag-input>
-    <ag-input [type]="'select'" [source]="dropdownSource" [displayProperty]="'title'" [multiple]="true" [labelPosition]="'above'">Multiple Selection (ctrl + click) (http Source)</ag-input>
+    <ag-input [type]="'select'" [source]="dropdownSource"
+              [displayProperty]="'title'"
+              [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) </ag-input>
+
+    <ag-input [type]="'select'" [source]="dropdownSource"
+              [displayProperty]="'title'" [multiple]="true"
+              [labelPosition]="'above'">Multiple Selection (ctrl + click) (http Source)</ag-input>
   </ag-el>
-  
+
   <ag-el [gap]="5">
-      <ag-input [type]="'select'" [options]="dropDownOptions" [displayProperty]="'name'" [placeholder]="'select...'"  [labelPosition]="'above'">Single Selection (array)</ag-input>
-      <ag-input [type]="'select'" [options]="dropDownOptions" [displayProperty]="'name'" [multiple]="true" [labelPosition]="'above'">Multiple Selection (ctrl + click) (array)</ag-input>
-    </ag-el>
+    <ag-input [disabled]="true"
+              [type]="'select'" [options]="dropDownOptions"
+              [displayProperty]="'name'" 
+              [(ngModel)]="selectedItem" [placeholder]="'select...'"
+              [labelPosition]="'above'">Single Selection (array)</ag-input>
+
+    <ag-input [type]="'select'" [options]="dropDownOptions"
+              [displayProperty]="'name'" [multiple]="true"
+              [labelPosition]="'above'">Multiple Selection (ctrl + click) (array)</ag-input>
+  </ag-el>
 
   <ag-el [gap]="5">
     <ag-input [type]="'file'" [labelPosition]="'above'">Single File</ag-input>

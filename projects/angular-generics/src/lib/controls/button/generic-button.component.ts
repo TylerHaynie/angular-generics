@@ -8,7 +8,7 @@ import { AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 export class GenericButtonComponent extends AbstractValueAccessor {
   @Input() flat: boolean = false;
   @Input() width: number | string = 'initial';
-  @Input() height: number | string = 'initial';
+  @Input() fontSize: number | string = 'initial';
   @Input('disabled') disableControl: boolean = false;
 
   @Output() click = new EventEmitter();
@@ -25,6 +25,10 @@ export class GenericButtonComponent extends AbstractValueAccessor {
     else {
       event.stopImmediatePropagation();
     }
+  }
+
+  isNumber(value: string | number): boolean {
+    return ((value != null) && !isNaN(Number(value.toString())));
   }
 
 }

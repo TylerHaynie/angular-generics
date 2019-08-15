@@ -44,6 +44,9 @@ export * from './lib/data/table/generic-table.module';
 // Enums
 export * from './lib/enums/generic-enums';
 
+// Helpers
+export * from './lib/helpers/abstract-value-accessor';
+
 // Navigation
 export * from './lib/navigation/generic-route-definition';
 export * from './lib/navigation/generic-navigation.service';

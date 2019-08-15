@@ -1,17 +1,21 @@
+:root{
+  --groupBoxBorderColor: #4a5668;
+  --groupBoxContentBorder: 1px solid #d3dbe3;
+  --groupBoxContentBorderTop: 4px solid #7c8ba6;
+}
+
 .group-box {
   box-sizing: border-box;
-  color: #4a5668;
-  height: 100%;
+  color: var(--groupBoxBorderColor);
 }
 
 .group-box>.header {
   text-transform: uppercase;
-  font-size: 13px;
   font-weight: bold;
 }
 
 .group-box .content {
   box-sizing: border-box;
-  border: 1px solid #d3dbe3;
-  border-top: 4px solid #7c8ba6;
+  border: var(--groupBoxContentBorder);
+  border-top: var(--groupBoxContentBorderTop);
 }

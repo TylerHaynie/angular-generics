@@ -34,14 +34,16 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   // Source and Selection
   @Input() source: string;
   @Input() displayProperty: string;
-  @Input() valueProperty: string;
+  @Input() valueProperty: string = '';
   @Input() options: any[] = [];
+  @Input() allowEmpty: boolean = false;
 
   // File Upload and Selection
   @Input() multiple: boolean = false;
 
   fromValue: any;
   toValue: any;
+  currentSelection: any;
 
   constructor(private api: GenericApiService) {
     super();
@@ -76,5 +78,25 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
 
   rangeChange(): void {
     this.value = { from: this.fromValue, to: this.toValue };
+  }
+
+  getSelectedDisplay() {
+    let v = '';
+    if (this.valueProperty !== '') {
+      v = this.options.find(x => x[this.valueProperty] === this.value)[this.displayProperty];
+    }
+    else {
+      if (this.value) {
+        if (this.value[this.displayProperty]) {
+          v = this.value[this.displayProperty];
+        }
+      }
+    }
+
+    return v;
+  }
+
+  isNumber(value: string | number): boolean {
+    return ((value != null) && !isNaN(Number(value.toString())));
   }
 }

@@ -1,10 +1,9 @@
 :root {
-  --shadowDark: rgb(34, 34, 34);
   --buttonBorderRadius: 5px;
-  --buttonPadding: 5px 8px;
-  --buttonTextShadow: 0px 0px 4px var(--shadowDark);
+  --buttonPadding: 5px 5px;
+  --buttonTextShadow: 0px 0px 4px rgb(34, 34, 34);
   --buttonFontColor: white;
-  --buttonBackground: linear-gradient(to bottom, #336699 0%, #003366 100%);
+  --buttonBackground: linear-gradient(to bottom, #437ab1 0%, #003366 100%);
   --buttonDisabledBackground: rgb(95, 95, 95);
   --buttonDisabledFontColor: rgb(34, 34, 34);
 }
@@ -12,13 +11,11 @@
 .generic-button {
   box-sizing: border-box;
   text-align: center;
+  padding: var(--buttonPadding);
   border-radius: var(--buttonBorderRadius);
   background: var(--buttonBackground);
   color: var(--buttonFontColor);
-}
-
-.generic-button {
-  padding: var(--buttonPadding);
+  border: none;
 }
 
 .generic-button.shadows {

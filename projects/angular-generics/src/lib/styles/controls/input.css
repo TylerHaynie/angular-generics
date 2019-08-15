@@ -18,10 +18,6 @@
   --minInputWidth: 10px;
   --maxInputWidth: 4fr;
 
-  --rangeLabelSize: 10px;
-  --rangeIconSize: 15px;
-  --rangeIconColor: #d9d9d9;
-
   --disabledBackground: rgb(221, 232, 239);
   --disabledBorder: rgb(99, 127, 151);
 }

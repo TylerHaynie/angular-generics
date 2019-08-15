@@ -21,9 +21,14 @@ export class InputExampleComponent implements OnInit {
     { id: 7, name: 'Tonya' },
   ];
 
-  constructor() { }
+  selectedItem;
+
+  constructor() {
+
+   }
 
   ngOnInit() {
+    this.selectedItem = { id: 3, name: 'Roger' };
   }
 
 }

@@ -4,7 +4,7 @@
 <div class="generic-input"
      [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 
                  'label-top': labelPosition == 'above' && showLabel}"
-     [ngStyle]="{'width': width, 'height': height}">
+     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width, 'height': isNumber(height) ? height + 'px' : height}">
   <div *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelPlacement}">
     <label>
       <ng-content></ng-content>
@@ -163,11 +163,12 @@
   <ng-container *ngIf="!disabled">
     <select [(ngModel)]="value" [attr.required]="required ? '' : null" [attr.multiple]="multiple ? '' : null">
       <option value="" disabled selected hidden>{{placeholder}}</option>
-      <option *ngFor="let item of options" [value]="valueProperty == null ? item : item[valueProperty]">{{item[displayProperty]}}</option>
+      <option *ngIf="allowEmpty" [value]="null"></option>
+      <option *ngFor="let item of options" [value]="valueProperty == '' ? item : item[valueProperty]">{{item[displayProperty]}}</option>
     </select>
   </ng-container>
   <ng-container *ngIf="disabled">
-    <input disabled type="text" [attr.required]="required ? '' : null" [(ngModel)]="value">
+    <input disabled type="text" [attr.required]="required ? '' : null" [value]="getSelectedDisplay()">
   </ng-container>
 </ng-template>
 

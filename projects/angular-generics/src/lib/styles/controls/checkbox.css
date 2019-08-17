@@ -1,4 +1,24 @@
-.generic-input input[type=checkbox]{
+:root {
+  --sliderHeight: 30px;
+  --sliderWidth: 100%;
+  --sliderCoverWidth: 75px;
+  --sliderChangeSpeed: 0.35s;
+
+  --sliderRadius: 10px;
+  --sliderPadding: 7px;
+
+  --sliderBackgroundColor: #354558;
+  --sliderFontSize: 16px;
+
+  --sliderTrueText: 'Yes';
+  --sliderTrueColor: #26ca28;
+
+  --sliderFalseText: 'No';
+  --sliderFalseColor: rgb(231, 66, 44);
+  --sliderFalseTextOffset: 35px;
+}
+
+.generic-input input[type=checkbox] {
   box-shadow: none;
   place-self: center start;
 }
@@ -8,51 +28,49 @@
 }
 
 .checkbox-slider {
-  width: 100px;
-  height: 25px;
-  background: #2f3947;
-
-  border-radius: 25px;
   position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: var(--sliderWidth);
+  height: var(--sliderHeight);
+  background: var(--sliderBackgroundColor);
+  border-radius: var(--sliderRadius);
 }
 
 .checkbox-slider:before,
 .checkbox-slider:after {
   position: absolute;
-  top: 4px;
-  height: 2px;
-  font-size: 16px;
+  top: var(--sliderPadding);
+  font-size: var(--sliderFontSize);
 }
 
 .checkbox-slider:before {
-  content: 'Yes';
-  left: 13px;
-  color: #26ca28;
+  content: var(--sliderTrueText);
+  left: var(--sliderPadding);
+  color: var(--sliderTrueColor);
 }
 
 .checkbox-slider:after {
-  content: 'No';
-  left: 68px;
-  color: rgb(231, 66, 44);
+  content: var(--sliderFalseText);
+  left: calc((var(--sliderWidth) - var(--sliderPadding)) - var(--sliderFalseTextOffset));
+  color: var(--sliderFalseColor);
 }
 
 .checkbox-slider label {
-  display: block;
-  width: 50px;
-  height: 19px;
-  border-radius: 10px;
-
-  transition: all .5s ease;
-  cursor: pointer;
   position: absolute;
-  top: 3px;
+  cursor: pointer;
   z-index: 1;
-  left: 3px;
-  background: rgb(184, 51, 34);
+  transition: all var(--sliderChangeSpeed) ease;
+  width: var(--sliderCoverWidth);
+  height: calc(var(--sliderHeight) - (var(--sliderPadding)));
+  top: calc(var(--sliderPadding) / 2);
+  left: calc(var(--sliderPadding) / 1.75);
+  border-radius: calc(var(--sliderRadius) - (var(--sliderRadius) * .25));
+  background: var(--sliderFalseColor);
 }
 
-
 .checkbox-slider input[type=checkbox]:checked+label {
-  left: 48px;
-  background: #26ca28;
+  left: calc((var(--sliderWidth) - var(--sliderCoverWidth)) - (var(--sliderPadding) / 1.75));
+  background: var(--sliderTrueColor);
 }

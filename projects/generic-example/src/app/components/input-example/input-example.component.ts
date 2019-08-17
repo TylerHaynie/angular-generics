@@ -21,13 +21,16 @@ export class InputExampleComponent implements OnInit {
     { id: 7, name: 'Tonya' },
   ];
 
-  selectedItem;
+  selectedItem: any;
+  checkValue: boolean = false;
+  dateValue: Date = new Date();
+  numberValue: number = 0;
+  textValue: string = '';
 
-  constructor() {
-
-   }
+  constructor() { }
 
   ngOnInit() {
+    // testing
     this.selectedItem = { id: 3, name: 'Roger' };
   }
 

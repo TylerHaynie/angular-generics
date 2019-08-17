@@ -9,6 +9,7 @@ import { GenericApiService } from '../../services/generic-api.service';
 })
 export class GenericInputComponent extends AbstractValueAccessor implements OnChanges, OnInit {
   // General
+  @Input() name: string;
   @Input() disabled: boolean = false;
   @Input() customTemplate: TemplateRef<any>;
   @Input() required: boolean = false;
@@ -47,6 +48,7 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
 
   constructor(private api: GenericApiService) {
     super();
+    this.name = `generic_input_${this.type}}`;
   }
 
   ngOnInit(): void {
@@ -83,7 +85,10 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   getSelectedDisplay() {
     let v = '';
     if (this.valueProperty !== '') {
-      v = this.options.find(x => x[this.valueProperty] === this.value)[this.displayProperty];
+      const selected = this.options.find(x => x[this.valueProperty] === this.value);
+      if (selected) {
+        v = selected[this.displayProperty];
+      }
     }
     else {
       if (this.value) {

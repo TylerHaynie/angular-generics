@@ -21,8 +21,15 @@ export class InputExampleComponent implements OnInit {
     { id: 7, name: 'Tonya' },
   ];
 
-  selectedItem: any;
-  checkValue: boolean = false;
+  
+  select1: any;
+  select2: any;
+  select3: any;
+  select4: any;
+
+  checkValue1: boolean = false;
+  checkValue2: boolean = false;
+  checkValue3: boolean = false;
   dateValue: Date = new Date();
   numberValue: number = 0;
   textValue: string = '';
@@ -31,7 +38,7 @@ export class InputExampleComponent implements OnInit {
 
   ngOnInit() {
     // testing
-    this.selectedItem = { id: 3, name: 'Roger' };
+    this.select3 = { id: 3, name: 'Roger' };
   }
 
 }

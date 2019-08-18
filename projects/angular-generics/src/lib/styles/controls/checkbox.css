@@ -87,9 +87,17 @@
   color:  rgb(49, 49, 49);
 }
 
+<<<<<<< HEAD
 .checkbox-slider.disabled input[type=checkbox]:checked+label,
 .checkbox-slider label.disabled {
   cursor: default;
+=======
+
+.checkbox-slider label.disabled {
+  position: absolute;
+  cursor: default;
+  z-index: 1;
+>>>>>>> master
   background: rgb(107, 107, 107);
 }
 

@@ -56,7 +56,6 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
     }
   }
 
-  // For anything using source
   ngOnChanges(changes: SimpleChanges) {
     if (changes.source) {
       const sourceChange = changes.source.currentValue !== changes.source.previousValue;
@@ -82,9 +81,14 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   }
 
   getSelectedDisplay() {
-    return this.valueProperty ?
-            this.options.find(x => x[this.valueProperty])[this.displayProperty] :
-            this.value[this.displayProperty];
+    if (this.value && this.options.length > 0) {
+      if (this.valueProperty) {
+        return this.options.find(x => x[this.valueProperty] === this.value)[this.displayProperty];
+      }
+      else {
+        return this.options.find(x => x === this.value)[this.displayProperty];
+      }
+    }
   }
 
   isNumber(value: string | number): boolean {

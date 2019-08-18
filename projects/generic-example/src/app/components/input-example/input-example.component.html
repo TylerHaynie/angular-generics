@@ -11,8 +11,8 @@
   </ag-el>
 
   <ag-el [columns]="3" [gap]="5">
-    <ag-input [type]="'check'" [subtype]="'slide'"
-              [labelPosition]="'above'" [(ngModel)]="checkValue1">Slider Check</ag-input>
+    <ag-input [type]="'check'" [subtype]="'slide'" [disabled]="checkValue1"
+              [labelPosition]="'above'" >Slider Check</ag-input>
 
     <ag-input [type]="'check'" [subtype]="'slide'"
               [labelPosition]="'above'" [(ngModel)]="checkValue2">Slider Check</ag-input>
@@ -22,7 +22,7 @@
   </ag-el>
 
   <ag-el [columns]="3">
-    <ag-input [type]="'check'" [labelPosition]="'above'" [(ngModel)]="checkValue1">Check</ag-input>
+    <ag-input [type]="'check'" [labelPosition]="'above'" (click)="checkValue1 = !checkValue1">Check</ag-input>
 
     <ag-input [type]="'check'" [labelPosition]="'above'" [(ngModel)]="checkValue2">Check</ag-input>
 

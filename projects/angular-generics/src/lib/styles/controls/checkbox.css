@@ -36,6 +36,7 @@
   height: var(--sliderHeight);
   background: var(--sliderBackgroundColor);
   border-radius: var(--sliderRadius);
+  border: 1px solid rgb(27, 27, 27);
 }
 
 .checkbox-slider:before,
@@ -71,6 +72,28 @@
 }
 
 .checkbox-slider input[type=checkbox]:checked+label {
+  left: calc((var(--sliderWidth) - var(--sliderCoverWidth)) - (var(--sliderPadding) / 1.75));
+  background: var(--sliderTrueColor);
+}
+
+.checkbox-slider.disabled {
+  background: var(--disabledBackground);
+  background-color: var(--disabledBackground);
+  border-color: var(--disabledBorder);
+}
+
+.checkbox-slider.disabled:before,
+.checkbox-slider.disabled:after {
+  color:  rgb(49, 49, 49);
+}
+
+.checkbox-slider.disabled input[type=checkbox]:checked+label,
+.checkbox-slider label.disabled {
+  cursor: default;
+  background: rgb(107, 107, 107);
+}
+
+.checkbox-sliderinput[type=checkbox]:checked+label.disabled {
   left: calc((var(--sliderWidth) - var(--sliderCoverWidth)) - (var(--sliderPadding) / 1.75));
   background: var(--sliderTrueColor);
 }

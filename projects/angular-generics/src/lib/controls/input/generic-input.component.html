@@ -152,9 +152,9 @@
 
 <!-- Slide Checkbox -->
 <ng-template #checkSlide>
-  <div class="checkbox-slider">
+  <div class="checkbox-slider" [ngClass]="{'disabled': disabled}">
     <input [disabled]="disabled" [attr.required]="required ? '' : null" type="checkbox" [(ngModel)]="value" />
-    <label (click)="value = !value"></label>
+    <label [ngClass]="{'disabled': disabled}" (click)="disabled ? null : value = !value"></label>
   </div>
 </ng-template>
 

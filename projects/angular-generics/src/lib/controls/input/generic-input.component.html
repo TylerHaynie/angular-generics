@@ -161,10 +161,11 @@
 <!-- Default Select -->
 <ng-template #defaultSelect>
   <ng-container *ngIf="!disabled">
-    <select [(ngModel)]="value" [attr.required]="required ? '' : null" [attr.multiple]="multiple ? '' : null">
+    <select [(ngModel)]="value" [attr.required]="required ? '' : null"
+            [attr.multiple]="multiple ? '' : null">
       <option value="" disabled selected hidden>{{placeholder}}</option>
-      <option *ngIf="allowEmpty" [value]="null"></option>
-      <option *ngFor="let item of options" [value]="valueProperty == '' ? item : item[valueProperty]">{{item[displayProperty]}}</option>
+      <!-- <option *ngIf="allowEmpty" [value]="null"></option> -->
+      <option *ngFor="let item of options" [ngValue]="valueProperty ? item[valueproperty] : item">{{item[displayProperty]}}</option>
     </select>
   </ng-container>
   <ng-container *ngIf="disabled">
@@ -174,5 +175,6 @@
 
 <!-- Default File -->
 <ng-template #defaultFile>
-  <input [disabled]="disabled" [attr.multiple]="multiple ? '' : null" [attr.required]="required ? '' : null" type="file" [(ngModel)]="value" [placeholder]="placeholder" />
+  <input [disabled]="disabled" [attr.multiple]="multiple ? '' : null" [attr.required]="required ? '' : null"
+         type="file" [(ngModel)]="value" [placeholder]="placeholder" />
 </ng-template>

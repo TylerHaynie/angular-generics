@@ -21,8 +21,7 @@ export class InputExampleComponent implements OnInit {
     { id: 7, name: 'Tonya' },
   ];
 
-  
-  select1: any;
+  select1: number;
   select2: any;
   select3: any;
   select4: any;
@@ -34,11 +33,11 @@ export class InputExampleComponent implements OnInit {
   numberValue: number = 0;
   textValue: string = '';
 
-  constructor() { }
-
-  ngOnInit() {
-    // testing
-    this.select3 = { id: 3, name: 'Roger' };
+  constructor() {
+    // value must be from the same source to bind properly
+    this.select3 = this.dropDownOptions[2];
   }
+
+  ngOnInit() { }
 
 }

@@ -35,7 +35,7 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   // Source and Selection
   @Input() source: string;
   @Input() displayProperty: string;
-  @Input() valueProperty: string = '';
+  @Input() valueProperty: string;
   @Input() options: any[] = [];
   @Input() allowEmpty: boolean = false;
 
@@ -48,7 +48,6 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
 
   constructor(private api: GenericApiService) {
     super();
-    this.name = `generic_input_${this.type}}`;
   }
 
   ngOnInit(): void {
@@ -83,22 +82,9 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   }
 
   getSelectedDisplay() {
-    let v = '';
-    if (this.valueProperty !== '') {
-      const selected = this.options.find(x => x[this.valueProperty] === this.value);
-      if (selected) {
-        v = selected[this.displayProperty];
-      }
-    }
-    else {
-      if (this.value) {
-        if (this.value[this.displayProperty]) {
-          v = this.value[this.displayProperty];
-        }
-      }
-    }
-
-    return v;
+    return this.valueProperty ?
+            this.options.find(x => x[this.valueProperty])[this.displayProperty] :
+            this.value[this.displayProperty];
   }
 
   isNumber(value: string | number): boolean {

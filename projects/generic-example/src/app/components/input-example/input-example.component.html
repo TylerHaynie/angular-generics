@@ -37,12 +37,12 @@
 
   <ag-el [gap]="5">
     <ag-input [type]="'select'" [source]="dropdownSource"
-              [(ngModel)]="select1" [displayProperty]="'title'"
+              [(ngModel)]="select1" [displayProperty]="'title'" [valueProperty]="'id'"
               [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) </ag-input>
 
-              <ag-input [disabled]="true"
+    <ag-input [disabled]="true"
               [type]="'select'" [source]="dropdownSource"
-              [(ngModel)]="select1" [displayProperty]="'title'"
+              [(ngModel)]="select1" [displayProperty]="'title'" [valueProperty]="'id'"
               [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) (disabled)</ag-input>
 
     <ag-input [type]="'select'" [source]="dropdownSource" [(ngModel)]="select2"
@@ -53,14 +53,12 @@
   <ag-el [gap]="5">
     <ag-input [(ngModel)]="select3"
               [type]="'select'" [options]="dropDownOptions"
-              [displayProperty]="'name'"
-              [placeholder]="'select...'"
+              [displayProperty]="'name'" [placeholder]="'select...'"
               [labelPosition]="'above'">Single Selection (array)</ag-input>
 
     <ag-input [disabled]="true" [(ngModel)]="select3"
               [type]="'select'" [options]="dropDownOptions"
-              [displayProperty]="'name'"
-              [placeholder]="'select...'"
+              [displayProperty]="'name'" [placeholder]="'select...'"
               [labelPosition]="'above'">Single Selection (array) (disabled)</ag-input>
 
     <ag-input [type]="'select'" [options]="dropDownOptions" [(ngModel)]="select4"
@@ -73,6 +71,5 @@
 
     <ag-input [type]="'file'" [multiple]="true" [labelPosition]="'above'">Multiple File</ag-input>
   </ag-el>
-
 
 </ag-el>

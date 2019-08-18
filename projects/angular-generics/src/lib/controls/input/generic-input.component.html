@@ -161,11 +161,10 @@
 <!-- Default Select -->
 <ng-template #defaultSelect>
   <ng-container *ngIf="!disabled">
-    <select [(ngModel)]="value" [attr.required]="required ? '' : null"
-            [attr.multiple]="multiple ? '' : null">
+    <select [(ngModel)]="value" [attr.required]="required ? '' : null" [attr.multiple]="multiple ? '' : null">
       <option value="" disabled selected hidden>{{placeholder}}</option>
       <!-- <option *ngIf="allowEmpty" [value]="null"></option> -->
-      <option *ngFor="let item of options" [ngValue]="valueProperty ? item[valueproperty] : item">{{item[displayProperty]}}</option>
+      <option *ngFor="let item of options" [ngValue]="valueProperty ? item[valueProperty] : item">{{item[displayProperty]}}</option>
     </select>
   </ng-container>
   <ng-container *ngIf="disabled">

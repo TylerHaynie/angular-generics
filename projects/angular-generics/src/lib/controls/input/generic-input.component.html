@@ -1,15 +1,15 @@
 <!-- *** Layout *** -->
 <!-- //TODO: clean up and split into smaller parts -->
 
-<div class="generic-input"
-     [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 
+<ag-el class="generic-input"
+       [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 
                  'label-top': labelPosition == 'above' && showLabel}"
-     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width, 'height': isNumber(height) ? height + 'px' : height}">
-  <div *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelPlacement}">
+       [ngStyle]="{'width': isNumber(width) ? width + 'px' : width, 'height': isNumber(height) ? height + 'px' : height}">
+  <ag-el *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelPlacement}">
     <label>
       <ng-content></ng-content>
     </label>
-  </div>
+  </ag-el>
 
   <ng-container *ngIf="type=='custom'">
     <ng-container *ngTemplateOutlet="customTemplate"></ng-container>
@@ -38,7 +38,7 @@
   <ng-container *ngIf="type=='file'">
     <ng-container *ngTemplateOutlet="fileBox"></ng-container>
   </ng-container>
-</div>
+</ag-el>
 
 <!-- *** Conditionals *** -->
 
@@ -118,26 +118,33 @@
 
 <!-- Default Range -->
 <ng-template #defaultRange>
-  <div class="range">
-    <div class="range-box">
-      <span>{{fromLabel}}</span>
-      <input [disabled]="disabled" [attr.required]="required ? '' : null" [type]="type" [(ngModel)]="fromValue" (change)="rangeChange()" />
-      <div>
-        <i class="fas"
-           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}">
-        </i>
-      </div>
-    </div>
-    <div class="range-box">
-      <span>{{toLabel}}</span>
-      <input [disabled]="disabled" [attr.required]="required ? '' : null" [type]="type" [(ngModel)]="toValue" (change)="rangeChange()" />
-      <div>
-        <i class="fas"
-           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}">
-        </i>
-      </div>
-    </div>
-  </div>
+  <ag-el [columns]="2" [gap]="5">
+
+    <ag-el>
+      <ag-el [placement]="'end start'" [pad]="'0 15px 0 0'">{{fromLabel}}</ag-el>
+      <ag-el [columns]="'1fr auto'">
+        <input [disabled]="disabled" [attr.required]="required ? '' : null"
+               [type]="type" [(ngModel)]="fromValue" (change)="rangeChange()" />
+        <ag-el [height]="'100%'" [placement]="'center center'">
+          <i class="fas"
+             [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i>
+        </ag-el>
+      </ag-el>
+    </ag-el>
+
+    <ag-el>
+      <ag-el class="" [placement]="'end start'" [pad]="'0 15px 0 0'">{{toLabel}}</ag-el>
+      <ag-el [columns]="'1fr auto'">
+        <input [disabled]="disabled" [attr.required]="required ? '' : null"
+               [type]="type" [(ngModel)]="toValue" (change)="rangeChange()" />
+        <ag-el [height]="'100%'" [placement]="'center center'">
+          <i class="fas"
+             [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i>
+        </ag-el>
+      </ag-el>
+    </ag-el>
+
+  </ag-el>
 </ng-template>
 
 <!-- Default Date -->
@@ -152,10 +159,10 @@
 
 <!-- Slide Checkbox -->
 <ng-template #checkSlide>
-  <div class="checkbox-slider" [ngClass]="{'disabled': disabled}">
+  <ag-el class="checkbox-slider" [ngClass]="{'disabled': disabled}">
     <input [disabled]="disabled" [attr.required]="required ? '' : null" type="checkbox" [(ngModel)]="value" />
     <label [ngClass]="{'disabled': disabled}" (click)="disabled ? null : value = !value"></label>
-  </div>
+  </ag-el>
 </ng-template>
 
 <!-- Default Select -->

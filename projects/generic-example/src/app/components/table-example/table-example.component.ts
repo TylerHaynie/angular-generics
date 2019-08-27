@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { GenericTableColumn, GenericTableComponent, GenericSearchRequest } from 'angular-generics';
 
 export class TestTable {

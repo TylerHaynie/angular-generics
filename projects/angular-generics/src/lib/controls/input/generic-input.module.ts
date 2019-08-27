@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GenericInputComponent } from './generic-input.component';
+import { GenericElementModule } from '../../element/generic-element.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { GenericInputComponent } from './generic-input.component';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    GenericElementModule
   ],
   exports: [
     GenericInputComponent

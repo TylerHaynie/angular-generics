@@ -22,11 +22,6 @@
   --disabledBorder: rgb(99, 127, 151);
 }
 
-.generic-input {
-  box-sizing: border-box;
-  display: grid;
-}
-
 .generic-input select,
 .generic-input input,
 .generic-input textarea {

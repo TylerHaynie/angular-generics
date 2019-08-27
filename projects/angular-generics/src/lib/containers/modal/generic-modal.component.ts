@@ -8,7 +8,7 @@ import { Component, Input, TemplateRef, Output, EventEmitter } from '@angular/co
 })
 export class GenericModalComponent {
   @Input() buttons: TemplateRef<any>;
-  @Input('show') showModal: boolean = false;
+
   @Input() title: string = '';
   @Input() type: 'stepper' | 'default' = 'default';
   @Input() steps: number = 0;
@@ -18,25 +18,21 @@ export class GenericModalComponent {
   @Output() closed: EventEmitter<any> = new EventEmitter();
 
   step: number = 1;
+  showModal: boolean = false;
 
   constructor() { }
 
-  show() {
+  open() {
     this.showModal = true;
   }
 
-  hide() {
+  close() {
     this.showModal = false;
+    this.closed.emit();
   }
 
   finish() {
     this.complete.emit();
-    this.reset();
-  }
-
-  close() {
-    this.closed.emit();
-    this.reset();
   }
 
   nextClicked() {
@@ -45,16 +41,6 @@ export class GenericModalComponent {
 
   previousClicked() {
     this.step === 1 ? this.step = this.steps : this.step = this.step - 1;
-  }
-
-  private reset(): void {
-    this.buttons = null;
-    this.showModal = false;
-    this.title = '';
-    this.type = 'default';
-    this.steps = 0;
-    this.loop = false;
-    this.step = 1;
   }
 
   // private dispose(): void {

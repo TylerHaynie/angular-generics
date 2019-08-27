@@ -12,7 +12,6 @@ export class GenericElementComponent {
   @Input() rows: number | string = 'auto';
   @Input() columns: number | string = 'auto';
 
-
   isNumber(value: string | number): boolean {
     return ((value != null) && !isNaN(Number(value.toString())));
   }

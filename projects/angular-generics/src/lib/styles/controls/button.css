@@ -3,7 +3,10 @@
   --buttonPadding: 5px 5px;
   --buttonTextShadow: 0px 0px 4px rgb(34, 34, 34);
   --buttonFontColor: white;
+  --buttonFontSize: 0.80em;
+  --buttonHeight: 100%;
   --buttonBackground: linear-gradient(to bottom, #437ab1 0%, #003366 100%);
+  --buttonBorder: 1px solid #465d6c;
   --buttonDisabledBackground: rgb(95, 95, 95);
   --buttonDisabledFontColor: rgb(34, 34, 34);
 }
@@ -15,7 +18,9 @@
   border-radius: var(--buttonBorderRadius);
   background: var(--buttonBackground);
   color: var(--buttonFontColor);
-  border: none;
+  font-size: var(--buttonFontSize);
+  height: var(--buttonHeight);
+  border: var(--buttonBorder);
 }
 
 .generic-button.shadows {

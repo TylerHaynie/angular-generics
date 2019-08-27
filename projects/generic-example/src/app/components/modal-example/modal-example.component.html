@@ -1,18 +1,17 @@
-<ag-el [pad]="5" [gap]="5" [flow]="'column'">
-  <ag-button (click)="defaultModal.show()" (click)="buttonClick()">Default Modal</ag-button>
-  <ag-button (click)="stepperModal.show() && loopSteps=true" (click)="buttonClick()">Looped Stepper Modal</ag-button>
-  <ag-button (click)="stepperModal.show() && loopSteps=false" (click)="buttonClick()">No-Loop Stepper Modal</ag-button>
-  <ag-button (click)="customModal.show()">Custom Buttons</ag-button>
-</ag-el>
+<ag-div [pad]="5" [gap]="5" [flow]="'column'">
+  <ag-button (click)="defaultModal.open()" (click)="buttonClick()">Default Modal</ag-button>
+  <ag-button (click)="stepperModal.open() && loopSteps=true" (click)="buttonClick()">Looped Stepper Modal</ag-button>
+  <ag-button (click)="stepperModal.open() && loopSteps=false" (click)="buttonClick()">No-Loop Stepper Modal</ag-button>
+  <ag-button (click)="customModal.open()">Custom Buttons</ag-button>
+</ag-div>
 
 <!-- Stepper Modal -->
 <ag-modal #stepperModal
-          [(show)]="showStepperModal"
           [title]="'Step ' + stepperModal.step"
           [type]="'stepper'"
           [loop]="loopSteps"
           [steps]="4">
-  <ag-el [columns]="2" [gap]="5" [pad]="5">
+  <ag-div [columns]="2" [gap]="5" [pad]="5">
 
     <ng-container [ngSwitch]="stepperModal.step">
       <ng-container *ngSwitchCase="1">
@@ -29,110 +28,110 @@
       </ng-container>
     </ng-container>
 
-  </ag-el>
+  </ag-div>
 </ag-modal>
 
 <!-- Default Modal -->
-<ag-modal #defaultModal [(show)]="showDefaultModal" [title]="'Default Modal'">
-  <ag-el [columns]="2" [gap]="5" [pad]="5">
+<ag-modal #defaultModal [title]="'Default Modal'">
+  <ag-div [columns]="2" [gap]="5" [pad]="5">
     <ng-container *ngTemplateOutlet="noStep"></ng-container>
-  </ag-el>
+  </ag-div>
 </ag-modal>
 
 <ag-modal #customModal [title]="'Custom Buttons'"  [buttons]="buttons">
-  <ag-el [columns]="2" [gap]="5" [pad]="5">
+  <ag-div [columns]="2" [gap]="5" [pad]="5">
     <ng-container *ngTemplateOutlet="noStep"></ng-container>
-  </ag-el>
+  </ag-div>
 </ag-modal>
 
 <ng-template #step1>
-  <ag-el [columns]="1">
+  <ag-div [columns]="1">
     <div class="sample-box"></div>
-  </ag-el>
+  </ag-div>
 </ng-template>
 
 <ng-template #step2>
-  <ag-el>
+  <ag-div>
     <div class="sample-box">
 
     </div>
-  </ag-el>
+  </ag-div>
 
-  <ag-el>
+  <ag-div>
     <div class="sample-box">
 
     </div>
-  </ag-el>
+  </ag-div>
 </ng-template>
 
 <ng-template #step3>
 
-  <ag-el>
+  <ag-div>
     <div class="sample-box">
 
     </div>
-  </ag-el>
+  </ag-div>
 
-  <ag-el>
+  <ag-div>
     <div class="sample-box"> </div>
-  </ag-el>
+  </ag-div>
 
-  <ag-el>
+  <ag-div>
     <div class="sample-box">
 
     </div>
-  </ag-el>
+  </ag-div>
 
 </ng-template>
 
 <ng-template #step4>
-  <ag-el>
+  <ag-div>
     <div class="sample-box">
 
     </div>
-  </ag-el>
+  </ag-div>
 
-  <ag-el>
+  <ag-div>
     <div class="sample-box"> </div>
-  </ag-el>
+  </ag-div>
 
-  <ag-el>
+  <ag-div>
     <div class="sample-box">
 
     </div>
-  </ag-el>
+  </ag-div>
 
-  <ag-el>
+  <ag-div>
     <div class="sample-box">
 
     </div>
-  </ag-el>
+  </ag-div>
 </ng-template>
 
 <ng-template #noStep>
-  <ag-el>
+  <ag-div>
     <div class="sample-box">
 
     </div>
-  </ag-el>
-  <ag-el>
+  </ag-div>
+  <ag-div>
     <div class="sample-box">
 
     </div>
-  </ag-el>
+  </ag-div>
 </ng-template>
 
 <ng-template #buttons>
-  <ag-el>
+  <ag-div>
     <ag-button> Button 1 </ag-button>
-  </ag-el>
-  <ag-el>
+  </ag-div>
+  <ag-div>
     <ag-button> Button 2 </ag-button>
-  </ag-el>
-  <ag-el>
+  </ag-div>
+  <ag-div>
     <ag-button> Button 3 </ag-button>
-  </ag-el>
-  <ag-el>
+  </ag-div>
+  <ag-div>
     <ag-button> Button 4 </ag-button>
-  </ag-el>
+  </ag-div>
 </ng-template>

@@ -1,26 +1,26 @@
-<ag-el>
+<ag-div>
 
-  <ag-el [pad]="5" [columns]="'1fr auto'" class="filter-header">
-    <ag-el class="header pointer" [height]="'100%'" [columns]="'auto 1fr'"
+  <ag-div [pad]="5" [columns]="'1fr auto'" class="filter-header">
+    <ag-div class="header pointer" [height]="'100%'" [columns]="'auto 1fr'"
            [gap]="3" [placement]="'center'" (click)="showFilter = !showFilter">
       <i class="fas fa-minus" *ngIf="showFilter"></i>
       <i class="fas fa-plus" *ngIf="!showFilter"></i>
       <span>Filter</span>
-    </ag-el>
+    </ag-div>
 
-    <ag-el *ngIf="showFilter" [columns]="2" [gap]="5">
+    <ag-div *ngIf="showFilter" [columns]="2" [gap]="5">
       <ag-button [flat]="true" (click)="searchClicked()">Search</ag-button>
       <ag-button [flat]="true" (click)="resetSearch()">Reset</ag-button>
-    </ag-el>
-  </ag-el>
+    </ag-div>
+  </ag-div>
 
-  <ag-el *ngIf="showFilter" class="filters" [pad]="5" [gap]="10" [columns]="4">
-    <ag-el *ngFor="let column of columns">
+  <ag-div *ngIf="showFilter" class="filters" [pad]="5" [gap]="10" [columns]="4">
+    <ag-div *ngFor="let column of columns">
       <ag-input [type]="column.dataType"
                 [labelPosition]="'above'"
                 [(ngModel)]="filters[column.id]">{{column.display}}
       </ag-input>
-    </ag-el>
-  </ag-el>
+    </ag-div>
+  </ag-div>
 
-</ag-el>
+</ag-div>

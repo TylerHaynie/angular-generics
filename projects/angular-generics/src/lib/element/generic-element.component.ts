@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 @Component({
-  selector: 'ag-el',
+  selector: 'ag-div',
   templateUrl: './generic-element.component.html',
 })
 export class GenericElementComponent {

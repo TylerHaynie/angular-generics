@@ -81,12 +81,20 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   }
 
   getSelectedDisplay() {
+    let value: any;
     if (this.value && this.options.length > 0) {
       if (this.valueProperty) {
-        return this.options.find(x => x[this.valueProperty] === this.value)[this.displayProperty];
+        value = this.options.find(x => x[this.valueProperty] === this.value);
       }
       else {
-        return this.options.find(x => x === this.value)[this.displayProperty];
+        value = this.options.find(x => x === this.value);
+      }
+
+      if (value) {
+        return value[this.displayProperty];
+      }
+      else{
+        return null;
       }
     }
   }

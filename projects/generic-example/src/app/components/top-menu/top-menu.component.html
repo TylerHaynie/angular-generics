@@ -1,0 +1,22 @@
+<ag-div [columns]="1">
+  <ag-div class="top-wrapper" [columns]="'1fr auto'" [pad]="'3px 5px 3px 0'">
+
+    <ag-div [placeContent]="'center start'">
+      <img src="assets/images/random-logo.png" alt="random-logo">
+    </ag-div>
+
+    <ag-div [columns]="'50px'" [height]="'100%'">
+
+      <ag-div class="avatar"
+              [ngStyle]="{'background-image': 'url(assets/images/avatar.svg)'}">
+
+        <ag-div class="notifications" [columns]="'auto auto'"  [placeContent]="'center end'" [pad]="3" [gap]="3">
+          <span class="notify-count">3</span>
+          <i class="fas fa-bell pointer"></i>
+        </ag-div>
+
+      </ag-div>
+    </ag-div>
+
+  </ag-div>
+</ag-div>

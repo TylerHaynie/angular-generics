@@ -14,6 +14,11 @@ import { ModalExampleComponent } from './components/modal-example/modal-example.
 import { TableExampleComponent } from './components/table-example/table-example.component';
 import { InputExampleComponent } from './components/input-example/input-example.component';
 import { MenuExampleComponent } from './components/menu-example/menu-example.component';
+import { TopMenuComponent } from './components/top-menu/top-menu.component';
+import { LeftMenuComponent } from './components/left-menu/left-menu.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { ListExampleComponent } from './components/list-example/list-example.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +26,17 @@ import { MenuExampleComponent } from './components/menu-example/menu-example.com
     ModalExampleComponent,
     TableExampleComponent,
     InputExampleComponent,
-    MenuExampleComponent
+    MenuExampleComponent,
+    TopMenuComponent,
+    LeftMenuComponent,
+    ListExampleComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
     HttpClientModule,
+    AppRoutingModule,
     GenericElementModule,
     GenericAlertModule,
     GenericTableModule,

@@ -4,11 +4,13 @@ import { Component, Input } from '@angular/core';
   templateUrl: './generic-element.component.html',
 })
 export class GenericElementComponent {
-  @Input() height: string | number = 'initial';
-  @Input() gap: string | number = 'none';
-  @Input() pad: string | number = 'none';
-  @Input() flow: 'column' | 'row' | 'row dense' = 'row dense';
-  @Input() placement: string;
+  @Input() height: string | number = 'inherit';
+  @Input() width: string | number = 'inherit';
+  @Input() gap: string | number;
+  @Input() pad: string | number;
+  @Input() placeContent: string;
+
+  @Input() flow: string = 'row';
   @Input() rows: number | string = 'auto';
   @Input() columns: number | string = 'auto';
 

@@ -2,7 +2,7 @@
 
   <ag-div [pad]="5" [columns]="'1fr auto'" class="filter-header">
     <ag-div class="header pointer" [height]="'100%'" [columns]="'auto 1fr'"
-           [gap]="3" [placement]="'center'" (click)="showFilter = !showFilter">
+           [gap]="3" [placeContent]="'center'" (click)="showFilter = !showFilter">
       <i class="fas fa-minus" *ngIf="showFilter"></i>
       <i class="fas fa-plus" *ngIf="!showFilter"></i>
       <span>Filter</span>

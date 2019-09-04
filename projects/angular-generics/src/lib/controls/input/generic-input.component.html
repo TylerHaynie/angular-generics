@@ -5,7 +5,7 @@
        [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 
                  'label-top': labelPosition == 'above' && showLabel}"
        [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
-  <ag-div *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelPlacement}">
+  <ag-div *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelplaceContent}">
     <label>
       <ng-content></ng-content>
     </label>
@@ -121,11 +121,11 @@
   <ag-div [columns]="2" [gap]="5">
 
     <ag-div>
-      <ag-div [placement]="'end start'" [pad]="'0 15px 0 0'">{{fromLabel}}</ag-div>
+      <ag-div [placeContent]="'end start'" [pad]="'0 15px 0 0'">{{fromLabel}}</ag-div>
       <ag-div [columns]="'1fr auto'">
         <input [disabled]="disabled" [attr.required]="required ? '' : null"
                [type]="type" [(ngModel)]="fromValue" (change)="rangeChange()" />
-        <ag-div [height]="'100%'" [placement]="'center center'">
+        <ag-div [height]="'100%'" [placeContent]="'center center'">
           <i class="fas"
              [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i>
         </ag-div>
@@ -133,11 +133,11 @@
     </ag-div>
 
     <ag-div>
-      <ag-div class="" [placement]="'end start'" [pad]="'0 15px 0 0'">{{toLabel}}</ag-div>
+      <ag-div class="" [placeContent]="'end start'" [pad]="'0 15px 0 0'">{{toLabel}}</ag-div>
       <ag-div [columns]="'1fr auto'">
         <input [disabled]="disabled" [attr.required]="required ? '' : null"
                [type]="type" [(ngModel)]="toValue" (change)="rangeChange()" />
-        <ag-div [height]="'100%'" [placement]="'center center'">
+        <ag-div [height]="'100%'" [placeContent]="'center center'">
           <i class="fas"
              [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i>
         </ag-div>

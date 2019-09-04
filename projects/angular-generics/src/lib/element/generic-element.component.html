@@ -1,10 +1,11 @@
 <div class="generic-element"
-     [ngStyle]="{'gap': isNumber(gap) ? gap + 'px' : gap, 
-                 'padding': isNumber(pad) ? pad + 'px' : pad,
-                 'place-content': placement ? placement : false,
-                 'grid-auto-flow': flow,
-                 'grid-template-columns': isNumber(columns) ? 'repeat(' + columns + ', 1fr)' : columns,
+     [ngStyle]="{'grid-template-columns': isNumber(columns) ? 'repeat(' + columns + ', 1fr)' : columns,
                  'grid-template-rows': isNumber(rows) ? 'repeat(' + rows + ', 1fr)' : rows,
-                 'height': isNumber(height) ? height + 'px' : height}">
+                 'place-content': placeContent ? placeContent : false,
+                 'grid-auto-flow': flow,
+                 'height': isNumber(height) ? height + 'px' : height,
+                 'width': isNumber(width) ? width + 'px' : width,
+                 'grid-gap': isNumber(gap) ? gap + 'px' : gap, 
+                 'padding': isNumber(pad) ? pad + 'px' : pad }">
     <ng-content></ng-content>
 </div>

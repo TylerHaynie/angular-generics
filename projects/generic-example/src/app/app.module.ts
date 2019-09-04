@@ -13,13 +13,15 @@ import {
 import { ModalExampleComponent } from './components/modal-example/modal-example.component';
 import { TableExampleComponent } from './components/table-example/table-example.component';
 import { InputExampleComponent } from './components/input-example/input-example.component';
+import { MenuExampleComponent } from './components/menu-example/menu-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalExampleComponent,
     TableExampleComponent,
-    InputExampleComponent
+    InputExampleComponent,
+    MenuExampleComponent
   ],
   imports: [
     BrowserModule,

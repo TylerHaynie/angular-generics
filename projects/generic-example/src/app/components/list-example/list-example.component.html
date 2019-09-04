@@ -9,7 +9,7 @@
 
   <ag-div class="list" [pad]="'10px 2px'">
     <ag-div class="list-header" [columns]="'1fr auto'">
-      <ag-div class="list-title" [placement]="'center start'">Example List</ag-div>
+      <ag-div class="list-title" [placeContent]="'center start'">Example List</ag-div>
       <ag-div>
         <ng-container *ngTemplateOutlet="filterTemplate ? filterTemplate : defaultFilter"></ng-container>
       </ag-div>
@@ -17,12 +17,12 @@
 
     <ag-div class="item" [pad]="5" [gap]="5" *ngFor="let item of itemList" (click)="itemClicked(item)">
 
-      <ag-div [columns]="'1fr auto'" [gap]="5" [placement]="'start center'">
-        <ag-div class="title" [columns]="1" [placement]="'start center'">
+      <ag-div [columns]="'1fr auto'" [gap]="5" [placeContent]="'start center'">
+        <ag-div class="title" [columns]="1" [placeContent]="'start center'">
           {{item.name}}
         </ag-div>
 
-        <ag-div class="order-date" [placement]="'start center'">
+        <ag-div class="order-date" [placeContent]="'start center'">
           {{'#0000' + item.id}}
         </ag-div>
       </ag-div>

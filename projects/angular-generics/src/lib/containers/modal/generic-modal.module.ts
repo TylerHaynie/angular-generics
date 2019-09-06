@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GenericModalComponent } from './generic-modal.component';
-import { MatIconModule } from '@angular/material';
 import { GenericButtonModule } from '../../controls/button/generic-button.module';
 
 @NgModule({
@@ -10,7 +9,6 @@ import { GenericButtonModule } from '../../controls/button/generic-button.module
   ],
   imports: [
     CommonModule,
-    MatIconModule,
     GenericButtonModule
   ],
   exports: [

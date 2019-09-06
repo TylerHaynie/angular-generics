@@ -1,10 +1,10 @@
-<ag-div [width]="collapsed ? 'auto' : 150" [height]="'100%'">
+<ag-div [width]="collapsed ? 'auto' : width" [height]="'100%'">
   <ag-div class="menu-wrapper" [gap]="10">
     <ag-div class="menu-header pointer" [height]="45" (click)="collapsed = !collapsed"
             [placeContent]="'center start'">
       <ag-div [columns]="'auto 1fr'" [gap]="8" [pad]="'0 0 0 18px'">
         <i class="fas fa-bars"></i>
-        <span *ngIf="!collapsed">Menu</span>
+        <span *ngIf="!collapsed">{{menuHeader}}</span>
       </ag-div>
     </ag-div>
 
@@ -13,7 +13,7 @@
     </ag-div>
 
     <ag-div class="menu-items" [height]="'100%'">
-      <ag-div *ngFor="let item of items" class="menu-item open" (mouseenter)="hoveredMenu=item.name"
+      <ag-div *ngFor="let item of menuItems" class="menu-item open" (mouseenter)="hoveredMenu=item.name"
               (mouseleave)="hoveredMenu=null" (click)="selectedMenu=item.name"
               [ngClass]="hoveredMenu == item.name ? 'open' : 'closed'">
         <ag-div class="main pointer" [columns]="'auto 1fr'"
@@ -26,7 +26,7 @@
         </ag-div>
         <ag-div class="sub-items">
           <ng-container *ngIf="hoveredMenu == item.name && !collapsed">
-            <ag-div *ngFor="let subItem of item.subItems" class="sub-item pointer" (click)="navigateTo(subItem.route)"
+            <ag-div *ngFor="let subItem of item.subItems" class="sub-item pointer" (click)="subItem.route ? navigateTo(subItem.route) : subItem.click(subItem)"
                     [columns]="'1fr auto'" [gap]="10" [pad]="8">
               <span *ngIf="!collapsed" [ngStyle]="{'text-align': 'end'}">{{subItem.display}}</span>
               <i [ngClass]="subItem.icon ? 'fas fa-' + subItem.icon : null"></i>

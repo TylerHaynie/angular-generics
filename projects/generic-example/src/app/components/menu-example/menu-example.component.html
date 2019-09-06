@@ -1,9 +1,11 @@
 <ag-div [columns]="'auto 1fr'" [height]="'100%'">
   <ag-div [height]="'100%'">
-    <app-left-menu></app-left-menu>
+    <ag-side-nav [menuItems]="menuItems"></ag-side-nav>
   </ag-div>
   <ag-div class="main-content" [rows]="'auto 1fr'">
-    <app-top-menu></app-top-menu>
+    <ag-top-nav [logoUrl]="'assets/images/random-logo.png'"
+                [avatarUrl]="'assets/images/avatar.svg'"
+                [notifyCount]="2"></ag-top-nav>
     <ng-content></ng-content>
   </ag-div>
 </ag-div>

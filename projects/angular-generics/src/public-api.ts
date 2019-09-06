@@ -48,8 +48,9 @@ export * from './lib/enums/generic-enums';
 export * from './lib/helpers/abstract-value-accessor';
 
 // Navigation
-export * from './lib/navigation/generic-route-definition';
-export * from './lib/navigation/generic-navigation.service';
+export * from './lib/navigation/menu-item';
+export * from './lib/navigation/side-nav/side-nav.component';
+export * from './lib/navigation/top-nav/top-nav.component';
 export * from './lib/navigation/generic-navigation.module';
 
 // HTTP/API

@@ -1,0 +1,22 @@
+<ag-div [columns]="1">
+  <ag-div class="top-wrapper" [columns]="'1fr auto'" [pad]="'3px 5px 3px 0'">
+
+    <ag-div [placeContent]="'center start'">
+      <img [src]="logoUrl" alt="random-logo">
+    </ag-div>
+
+    <ag-div [columns]="'50px'" [height]="height">
+
+      <ag-div class="avatar"
+              [ngStyle]="{'background-image': 'url(' + avatarUrl + ')'}">
+
+        <ag-div *ngIf="notifyCount > 0" class="notifications" [columns]="'auto auto'"  [placeContent]="'center end'" [pad]="3" [gap]="3">
+          <span class="notify-count">{{notifyCount > 0 ? notifyCount : ''}}</span>
+          <i class="fas fa-bell pointer"></i>
+        </ag-div>
+
+      </ag-div>
+    </ag-div>
+
+  </ag-div>
+</ag-div>

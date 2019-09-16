@@ -2,12 +2,13 @@
 <!-- //TODO: clean up and split into smaller parts -->
 
 <ag-div class="generic-input"
-       [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 
-                 'label-top': labelPosition == 'above' && showLabel}"
-       [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
-  <ag-div *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelplaceContent}">
+        [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 
+                    'label-top': labelPosition == 'above' && showLabel,
+                    'missing': missing}"
+        [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
+  <ag-div *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelPlacement}">
     <label>
-      <ng-content></ng-content>
+      <ng-content></ng-content><span *ngIf="required && !disabled" [style.color]="'red'"> *</span>
     </label>
   </ag-div>
 
@@ -102,18 +103,21 @@
 
 <!-- Default Text Box -->
 <ng-template #defaultText>
-  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="text" [(ngModel)]="value" [placeholder]="placeholder" />
+  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="text" [(ngModel)]="value"
+         [placeholder]="placeholder" />
 </ng-template>
 
 <!-- Text Area -->
 <ng-template #textArea>
-  <textarea [disabled]="disabled" [attr.required]="required ? '' : null" [cols]="textColumns" [rows]="textRows" [placeholder]="placeholder"
+  <textarea [disabled]="disabled" [attr.required]="required ? '' : null" [cols]="textColumns" [rows]="textRows"
+            [placeholder]="placeholder"
             [(ngModel)]="value"></textarea>
 </ng-template>
 
 <!-- Number -->
 <ng-template #defaultNumber>
-  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="number" [(ngModel)]="value" [placeholder]="placeholder" />
+  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="number" [(ngModel)]="value"
+         [placeholder]="placeholder" />
 </ng-template>
 
 <!-- Default Range -->
@@ -171,7 +175,8 @@
     <select [(ngModel)]="value" [attr.required]="required ? '' : null" [attr.multiple]="multiple ? '' : null">
       <option value="" disabled selected hidden>{{placeholder}}</option>
       <!-- <option *ngIf="allowEmpty" [value]="null"></option> -->
-      <option *ngFor="let item of options" [ngValue]="valueProperty ? item[valueProperty] : item">{{item[displayProperty]}}</option>
+      <option *ngFor="let item of options" [ngValue]="valueProperty ? item[valueProperty] : item">
+        {{item[displayProperty]}}</option>
     </select>
   </ng-container>
   <ng-container *ngIf="disabled">

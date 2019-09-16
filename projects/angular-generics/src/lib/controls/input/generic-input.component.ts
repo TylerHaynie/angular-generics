@@ -15,10 +15,11 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   @Input() required: boolean = false;
   @Input() width: number | string = 'initial';
   @Input() height: number | string = 'initial';
+  @Input() missing: boolean = false;
 
   // Label
   @Input() labelPosition: 'above' | 'left' = 'left';
-  @Input() labelplaceContent: string = 'center start';
+  @Input() labelPlacement: string = 'center start';
   @Input() showLabel: boolean = true;
 
   @Input() fromLabel: string = 'from';

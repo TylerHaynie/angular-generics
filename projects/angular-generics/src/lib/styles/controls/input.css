@@ -20,6 +20,8 @@
 
   --disabledBackground: rgb(221, 232, 239);
   --disabledBorder: rgb(99, 127, 151);
+
+  --missingOutline: 1px solid rgb(226, 27, 27);
 }
 
 .generic-input {
@@ -36,6 +38,12 @@
   border: var(--inputOutline);
   background: var(--inputBackground);
   box-shadow: var(--inputShadow);
+}
+
+.generic-input.missing select,
+.generic-input.missing input,
+.generic-input.missing textarea {
+  border: var(--missingOutline);
 }
 
 .generic-input input:disabled,

@@ -1,9 +1,9 @@
 <ag-div [columns]="1" [pad]="5" [gap]="25">
   <ag-div [columns]="3" [gap]="5">
-    <ag-input [type]="'text'" [labelPosition]="'above'"
+    <ag-input [type]="'text'" [labelPosition]="'above'" [required]="true" [missing]="true"
               [(ngModel)]="textValue">Textbox</ag-input>
 
-    <ag-input [type]="'number'" [labelPosition]="'above'"
+    <ag-input [type]="'number'" [labelPosition]="'above'" [required]="true"
               [(ngModel)]="numberValue">Number</ag-input>
 
     <ag-input [type]="'date'" [labelPosition]="'above'"
@@ -47,7 +47,7 @@
   </ag-div>
 
   <ag-div [gap]="5">
-    <ag-input [type]="'select'" [source]="dropdownSource"
+    <ag-input [type]="'select'" [source]="dropdownSource" [required]="true"
               [(ngModel)]="select1" [displayProperty]="'title'" [valueProperty]="'id'"
               [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) </ag-input>
 

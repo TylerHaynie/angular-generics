@@ -14,7 +14,7 @@
 
     <ag-div class="menu-items" [height]="'100%'">
       <ag-div *ngFor="let item of menuItems" class="menu-item open" (mouseenter)="hoveredMenu=item.name"
-              (mouseleave)="hoveredMenu=null" (click)="selectedMenu=item.name"
+              (mouseleave)="hoveredMenu=null" (click)="item.route ? navigateTo(item.route) : item.click(item)" (click)="selectedMenu=item.name"
               [ngClass]="hoveredMenu == item.name ? 'open' : 'closed'">
         <ag-div class="main pointer" [columns]="'auto 1fr'"
                 [gap]="5">

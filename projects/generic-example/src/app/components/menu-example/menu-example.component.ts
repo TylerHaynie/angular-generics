@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from "../../../../../angular-generics/src/lib/navigation/menu-item";
+import { MenuItem } from 'angular-generics';
 
 @Component({
   selector: 'app-menu-example',

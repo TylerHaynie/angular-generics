@@ -10,6 +10,7 @@ export class TopNavComponent implements OnInit {
 @Input() logoUrl: string;
 @Input() avatarUrl: string;
 @Input() notifyCount: number = 0;
+@Input() route: string = "/";
 
   constructor() { }
 

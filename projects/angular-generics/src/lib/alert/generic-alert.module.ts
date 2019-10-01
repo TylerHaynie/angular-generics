@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material';
 import { GenericAlertComponent } from './generic-alert.component';
+import { GenericElementModule } from '../element/generic-element.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +9,7 @@ import { GenericAlertComponent } from './generic-alert.component';
   ],
   imports: [
     CommonModule,
-    MatIconModule,
+    GenericElementModule
   ],
   exports: [
     GenericAlertComponent,

@@ -1,11 +1,10 @@
-<div class="alerts col-1">
-  <div *ngFor="let item of alerts" class="alert v-center-content col-2-auto-right"
-    [ngClass]="{'red-box': item.color == 'red', 'green-box': item.color == 'green', 'blue-box': item.color == 'blue', 'purple-box': item.color == 'purple', 'orange-box': item.color == 'orange'}">
-    <div class="alert-message">
+<ag-div class="alerts" [gap]="5">
+  <ag-div [columns]="'1fr auto'" [gap]="10" [pad]="3" *ngFor="let item of alerts" class="alert" [ngClass]="item.class">
+    <ag-div class="alert-message">
       {{item.message}}
-    </div>
-    <div class="col-1">
-      <mat-icon class="close-button pointer" (click)="alertClosed(item)">cancel</mat-icon>
-    </div>
-  </div>
-</div>
+    </ag-div>
+    <ag-div [placeContent]="'center'">
+      <i class="fas fa-times-circle pointer" (click)="alertClosed(item)"></i>
+    </ag-div>
+  </ag-div>
+</ag-div>

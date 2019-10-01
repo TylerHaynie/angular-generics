@@ -1,7 +1,7 @@
 export class GenericAlert {
   message: string;
   timeout: number = 0;
-  color: 'blue' | 'green' | 'red' | 'purple' | 'orange' = 'green';
+  class: string = 'normal';
 
   constructor(init?: Partial<GenericAlert>) {
     Object.assign(this, init);

@@ -9,7 +9,7 @@ import {
   GenericAlertModule, GenericTableModule, GenericButtonModule,
   GenericServiceModule, GenericDataSourceModule, GenericNavigationModule,
   GenericTablePagerModule, GenericTableFilterModule, GenericInputModule,
-  GenericElementModule, GenericModalModule
+  GenericElementModule, GenericModalModule, GenericAlertService
 } from 'angular-generics';
 
 import { ModalExampleComponent } from './components/modal-example/modal-example.component';
@@ -19,6 +19,7 @@ import { MenuExampleComponent } from './components/menu-example/menu-example.com
 
 import { AppRoutingModule } from './app-routing.module';
 import { ListExampleComponent } from './components/list-example/list-example.component';
+import { AlertExampleComponent } from './components/alert-example/alert-example.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ListExampleComponent } from './components/list-example/list-example.com
     TableExampleComponent,
     InputExampleComponent,
     MenuExampleComponent,
-    ListExampleComponent
+    ListExampleComponent,
+    AlertExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,9 @@ import { ListExampleComponent } from './components/list-example/list-example.com
     GenericTableFilterModule,
     GenericModalModule
   ],
-  providers: [],
+  providers: [
+    GenericAlertService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

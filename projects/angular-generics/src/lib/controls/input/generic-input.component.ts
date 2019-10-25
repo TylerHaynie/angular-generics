@@ -13,8 +13,8 @@ export class GenericInputComponent extends AbstractValueAccessor implements OnCh
   @Input() disabled: boolean = false;
   @Input() customTemplate: TemplateRef<any>;
   @Input() required: boolean = false;
-  @Input() width: number | string = 'initial';
-  @Input() height: number | string = 'initial';
+  @Input() width: number | string = 'auto';
+  @Input() height: number | string = 'auto';
   @Input() missing: boolean = false;
 
   // Label

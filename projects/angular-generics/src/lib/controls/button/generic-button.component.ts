@@ -7,8 +7,8 @@ import { AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 })
 export class GenericButtonComponent extends AbstractValueAccessor {
   @Input() flat: boolean = false;
-  @Input() width: number | string = 'initial';
-  @Input() fontSize: number | string = 'initial';
+  @Input() width: number | string = 'auto';
+  @Input() fontSize: number | string = 'auto';
   @Input('disabled') disableControl: boolean = false;
 
   @Output() click = new EventEmitter();

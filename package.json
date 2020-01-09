@@ -29,8 +29,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pack": "cd dist/angular-generics && npm pack",
-    "copy-files": "cp -R .\\projects\\angular-generics\\src\\lib\\styles\\ .\\dist\\angular-generics\\lib\\styles\\"
+    "pack": "cd dist/angular-generics && npm pack"
   },
   "private": false,
   "dependencies": {

@@ -21,6 +21,14 @@ export class SideNavComponent implements OnInit {
   ngOnInit() {
   }
 
+  menuItemClicked(item: MenuItem){
+    if(item && item.route){
+      this.navigateTo(item.route);
+    }
+
+    this.selectedMenu = item.name;
+  }
+
   navigateTo(path: string) {
     if (path && path.length > 0) {
       this.router.navigateByUrl(path);

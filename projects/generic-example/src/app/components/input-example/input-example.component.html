@@ -12,7 +12,7 @@
 
   <ag-content [columns]="3" [gap]="5">
     <ag-input [type]="'check'" [subtype]="'slide'" [disabled]="checkValue1"
-              [labelPosition]="'above'" >Slider Check</ag-input>
+              [labelPosition]="'above'">Slider Check</ag-input>
 
     <ag-input [type]="'check'" [subtype]="'slide'"
               [labelPosition]="'above'" [(ngModel)]="checkValue2">Slider Check</ag-input>
@@ -23,7 +23,7 @@
 
   <ag-content [columns]="3" [gap]="5">
     <ag-input [type]="'check'" [subtype]="'slide'" [disabled]="checkValue1"
-              [labelPosition]="'above'" >Slider Check</ag-input>
+              [labelPosition]="'above'">Slider Check</ag-input>
 
     <ag-input [type]="'check'" [subtype]="'slide'"
               [labelPosition]="'above'" [(ngModel)]="checkValue2">Slider Check</ag-input>
@@ -39,44 +39,44 @@
   </ag-content>
 
   <ag-content [gap]="5">
-    <ag-range [type]="'number'" [subtype]="'range'" [labelPosition]="'above'">Number Range</ag-range>
-    <ag-range [type]="'date'" [subtype]="'range'" [labelPosition]="'above'">Date</ag-range>
+    <ag-range [type]="'number'" [labelPosition]="'above'">Number Range</ag-range>
+    <ag-range [type]="'date'" [labelPosition]="'above'">Date</ag-range>
   </ag-content>
 
   <ag-content [gap]="5">
     <ag-select [options]="dropDownItems" [required]="true"
-              [(ngModel)]="select1" [displayProperty]="'title'"
-              [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) </ag-select>
+               [(ngModel)]="select1" [displayName]="'title'"
+               [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) </ag-select>
 
-    <ag-select [disabled]="true"
-              [type]="'select'" [options]="dropdownItems"
-              [(ngModel)]="select1" [displayProperty]="'title'"
-              [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) (disabled)</ag-select>
+    <ag-select [disabled]="true" [options]="dropdownItems"
+               [(ngModel)]="select1" [displayName]="'title'"
+               [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) (disabled)
+    </ag-select>
 
-    <ag-select [type]="'select'" [options]="dropdownItems" [(ngModel)]="select2"
-              [displayProperty]="'title'" [multiple]="true"
-              [labelPosition]="'above'">Multiple Selection (ctrl + click) (http Source)</ag-select>
+    <ag-select [options]="dropdownItems" [(ngModel)]="select2"
+               [displayName]="'title'" [multiple]="true"
+               [labelPosition]="'above'">Multiple Selection (ctrl + click) (http Source)</ag-select>
   </ag-content>
 
   <ag-content [gap]="5">
     <ag-select [(ngModel)]="select3"
-              [type]="'select'" [options]="staticOptions"
-              [displayProperty]="'name'" [placeholder]="'select...'"
-              [labelPosition]="'above'">Single Selection (array)</ag-select>
+               [options]="staticOptions"
+               [displayName]="'name'" [placeholder]="'select...'"
+               [labelPosition]="'above'">Single Selection (array)</ag-select>
 
     <ag-select [disabled]="true" [(ngModel)]="select3"
-              [type]="'select'" [options]="staticOptions"
-              [displayProperty]="'name'" [placeholder]="'select...'"
-              [labelPosition]="'above'">Single Selection (array) (disabled)</ag-select>
+               [options]="staticOptions"
+               [displayName]="'name'" [placeholder]="'select...'"
+               [labelPosition]="'above'">Single Selection (array) (disabled)</ag-select>
 
-    <ag-select [type]="'select'" [options]="staticOptions" [(ngModel)]="select4"
-              [displayProperty]="'name'" [multiple]="true"
-              [labelPosition]="'above'">Multiple Selection (ctrl + click) (array)</ag-select>
+    <ag-select [options]="staticOptions" [(ngModel)]="select4"
+               [displayName]="'name'" [multiple]="true"
+               [labelPosition]="'above'">Multiple Selection (ctrl + click) (array)</ag-select>
   </ag-content>
 
   <ag-content [gap]="5">
-    <ag-file [type]="'file'" [labelPosition]="'above'">Single File</ag-file>
-    <ag-file [type]="'file'" [multiple]="true" [labelPosition]="'above'">Multiple File</ag-file>
+    <ag-file [labelPosition]="'above'">Single File</ag-file>
+    <ag-file [multiple]="true" [labelPosition]="'above'">Multiple File</ag-file>
   </ag-content>
 
 </ag-content>

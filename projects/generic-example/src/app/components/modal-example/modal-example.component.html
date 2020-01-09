@@ -11,7 +11,7 @@
   </ag-content>
 </ag-modal>
 
-<ag-modal #customModal [title]="'Custom Buttons'"  [buttons]="buttons">
+<ag-modal #customModal [title]="'Custom Buttons'"  [footer]="buttons">
   <ag-content [columns]="2" [gap]="5" [pad]="5">
     <ng-container *ngTemplateOutlet="defaultContent"></ng-container>
   </ag-content>

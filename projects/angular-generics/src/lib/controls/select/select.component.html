@@ -1,0 +1,24 @@
+<div class="generic-input"
+     [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 'label-top': labelPosition == 'above' && showLabel}"
+     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
+  <label>
+    <ng-content #name></ng-content> <span *ngIf="required && !(disabled)" [style.color]="'red'"> *</span>
+  </label>
+  <ng-container *ngIf="!disabled">
+    <select #ddbx
+            [(ngModel)]="value"
+            [compareWith]="compareSelect"
+            (change)="selectionChanged(ddbx.value)"
+            [attr.required]="required ? '' : null"
+            [attr.multiple]="multiple ? '' : null">
+      <option *ngIf="!required" [ngValue]="null"></option>
+      <option *ngFor="let item of options" [ngValue]="item">
+        {{item[displayName]}}</option>
+    </select>
+  </ng-container>
+  <ng-container *ngIf="disabled">
+    <input disabled type="text"
+           [attr.required]="required ? '' : null"
+           [value]="displayName && value ? value[displayName] : null">
+  </ng-container>
+</div>

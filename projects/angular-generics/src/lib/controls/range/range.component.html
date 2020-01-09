@@ -1,0 +1,25 @@
+<div class="generic-input"
+     [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 
+                 'label-top': labelPosition == 'above' && showLabel}"
+     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
+
+  <label *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelPlacement}">
+    <ng-content></ng-content><span *ngIf="required && !disabled" [style.color]="'red'"> *</span>
+  </label>
+
+  <div class="range-from">
+    <label>{{fromLabel}}</label>
+    <input [disabled]="disabled" [attr.required]="required ? '' : null"
+           [type]="type" [(ngModel)]="fromValue" (change)="rangeChange()" />
+    <i class="fas"
+       [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i>
+  </div>
+
+  <div class="range-to">
+    <label>{{toLabel}}</label>
+    <input [disabled]="disabled" [attr.required]="required ? '' : null"
+           [type]="type" [(ngModel)]="toValue" (change)="rangeChange()" />
+    <i class="fas"
+       [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i>
+  </div>
+</div>

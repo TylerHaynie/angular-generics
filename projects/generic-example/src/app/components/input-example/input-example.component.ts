@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export class CustomSelectObject {
-  id: number;
-  name: string;
-}
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-input-example',
@@ -11,7 +7,9 @@ export class CustomSelectObject {
 })
 export class InputExampleComponent implements OnInit {
   dropdownSource: string = `https://jsonplaceholder.typicode.com/todos`;
-  dropDownOptions: CustomSelectObject[] = [
+  dropdownItems: any[] = [];
+
+  staticOptions: { id: number, name: string }[] = [
     { id: 1, name: 'Tom' },
     { id: 2, name: 'Steve' },
     { id: 3, name: 'Roger' },
@@ -21,11 +19,9 @@ export class InputExampleComponent implements OnInit {
     { id: 7, name: 'Tonya' },
   ];
 
-  select1: number = 1;
+  select1: any;
   select2: any;
-
-  // value must be from the same source to bind properly
-  select3: any = this.dropDownOptions[2];
+  select3: any = this.staticOptions[2];
   select4: any;
 
   checkValue1: boolean = false;
@@ -35,10 +31,18 @@ export class InputExampleComponent implements OnInit {
   numberValue: number = 0;
   textValue: string = '';
 
-  constructor() {
-
+  constructor(private http: HttpClient) {
+    this.loadItems();
   }
 
   ngOnInit() { }
+
+  loadItems() {
+    this.http.get(this.dropdownSource)
+      .toPromise()
+      .then((d: any[]) => {
+        this.dropdownItems = d;
+      });
+  }
 
 }

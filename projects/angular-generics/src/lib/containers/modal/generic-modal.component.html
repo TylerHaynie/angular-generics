@@ -1,43 +1,28 @@
 <ng-container *ngIf="showModal">
   <div class="modal">
     <div class="modal-panel">
+
       <div class="modal-header">
-        <h2>{{title}}</h2>
+        <ng-container *ngTemplateOutlet="header ? header : defaultHeader"></ng-container>
         <i class="pointer close fas fa-window-close" (click)="close()"></i>
       </div>
+
       <div class="modal-body">
         <ng-content></ng-content>
       </div>
 
-      <ng-container *ngIf="type=='default'">
-        <ng-container *ngTemplateOutlet="defaultFooter"></ng-container>
-      </ng-container>
-
-      <ng-container *ngIf="type=='stepper'">
-        <ng-container *ngTemplateOutlet="stepperFooter"></ng-container>
-      </ng-container>
+      <div class="modal-footer">
+        <ng-container *ngTemplateOutlet="footer ? footer : defaultButtons"></ng-container>
+      </div>
 
     </div>
   </div>
 </ng-container>
 
-
-<ng-template #defaultFooter>
-  <div class="modal-footer">
-    <ng-container *ngTemplateOutlet="buttons ? buttons : defaultButtons"></ng-container>
-  </div>
-
-  <ng-template #defaultButtons>
-    <ag-button (click)="close()">Close</ag-button>
-  </ng-template>
+<ng-template #defaultButtons>
+  <ag-button (click)="close()">Close</ag-button>
 </ng-template>
 
-
-<ng-template #stepperFooter>
-  <div class="modal-footer">
-    <ag-button (click)="close()">Cancel</ag-button>
-    <ag-button [disabled]="step==1 && !loop" (click)="previousClicked()">Previous</ag-button>
-    <ag-button [disabled]="step==steps && !loop" (click)="nextClicked()">Next</ag-button>
-    <ag-button [disabled]="step!=steps" (click)="finish()">Finish</ag-button>
-  </div>
+<ng-template #defaultHeader>
+  <h2>{{title}}</h2>
 </ng-template>

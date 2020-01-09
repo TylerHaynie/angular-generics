@@ -1,0 +1,7 @@
+<button class="generic-button no-selection pointer"
+        [ngClass]="{'shadows': !flat, 'disabled': disableControl}"
+        [ngStyle]="{'width': isNumber(width) ? width + 'px' : width, 
+                    'font-size': isNumber(fontSize) ? fontSize + 'px' : fontSize}"
+        (click)="onClick($event)">
+  <ng-content></ng-content>
+</button>

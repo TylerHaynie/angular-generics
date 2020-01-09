@@ -1,0 +1,11 @@
+<div class="generic-input"
+     [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 
+                 'label-top': labelPosition == 'above' && showLabel}"
+     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
+  <label *ngIf="showLabel">
+    <ng-content></ng-content><span *ngIf="required && !disabled" [style.color]="'red'"> *</span>
+  </label>
+
+  <input [disabled]="disabled" [attr.multiple]="multiple ? '' : null" [attr.required]="required ? '' : null"
+         type="file" [(ngModel)]="value" [placeholder]="placeholder" />
+</div>

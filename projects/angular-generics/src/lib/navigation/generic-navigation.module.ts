@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SideNavComponent } from './side-nav/side-nav.component';
-import { GenericElementModule } from '../element/generic-element.module';
 import { TopNavComponent } from './top-nav/top-nav.component';
+import { GenericContentModule } from '../containers/content/content.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { TopNavComponent } from './top-nav/top-nav.component';
     CommonModule,
     FormsModule,
     RouterModule,
-    GenericElementModule
+    GenericContentModule
   ],
   exports: [
     SideNavComponent,

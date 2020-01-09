@@ -6,10 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
-  GenericAlertModule, GenericTableModule, GenericButtonModule,
-  GenericServiceModule, GenericDataSourceModule, GenericNavigationModule,
-  GenericTablePagerModule, GenericTableFilterModule, GenericInputModule,
-  GenericElementModule, GenericModalModule, GenericAlertService
+  GenericAlertModule, GenericModalModule, GenericFileModule,
+  GenericInputModule, GenericRangeModule, GenericButtonModule,
+  GenericSelectModule, GenericContentModule, GenericNavigationModule,
+  GenericAlertService
 } from 'angular-generics';
 
 import { ModalExampleComponent } from './components/modal-example/modal-example.component';
@@ -37,17 +37,9 @@ import { AlertExampleComponent } from './components/alert-example/alert-example.
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    GenericElementModule,
-    GenericAlertModule,
-    GenericTableModule,
-    GenericButtonModule,
-    GenericServiceModule,
-    GenericInputModule,
-    GenericDataSourceModule,
-    GenericNavigationModule,
-    GenericTablePagerModule,
-    GenericTableFilterModule,
-    GenericModalModule
+    GenericAlertModule, GenericModalModule, GenericFileModule,
+    GenericInputModule, GenericRangeModule, GenericButtonModule,
+    GenericSelectModule, GenericContentModule, GenericNavigationModule
   ],
   providers: [
     GenericAlertService,

@@ -1,6 +1,6 @@
-<ag-div [columns]="1" [pad]="5" [gap]="25">
-  <ag-div [columns]="3" [gap]="5">
-    <ag-input [type]="'text'" [labelPosition]="'above'" [required]="true" [missing]="true"
+<ag-content [columns]="1" [pad]="5" [gap]="25">
+  <ag-content [columns]="3" [gap]="5">
+    <ag-input [type]="'text'" [labelPosition]="'above'" [required]="true"
               [(ngModel)]="textValue">Textbox</ag-input>
 
     <ag-input [type]="'number'" [labelPosition]="'above'" [required]="true"
@@ -8,9 +8,9 @@
 
     <ag-input [type]="'date'" [labelPosition]="'above'"
               [(ngModel)]="dateValue">Date</ag-input>
-  </ag-div>
+  </ag-content>
 
-  <ag-div [columns]="3" [gap]="5">
+  <ag-content [columns]="3" [gap]="5">
     <ag-input [type]="'check'" [subtype]="'slide'" [disabled]="checkValue1"
               [labelPosition]="'above'" >Slider Check</ag-input>
 
@@ -19,9 +19,9 @@
 
     <ag-input [type]="'check'" [subtype]="'slide'"
               [labelPosition]="'above'" [(ngModel)]="checkValue3">Slider Check</ag-input>
-  </ag-div>
+  </ag-content>
 
-  <ag-div [columns]="3" [gap]="5">
+  <ag-content [columns]="3" [gap]="5">
     <ag-input [type]="'check'" [subtype]="'slide'" [disabled]="checkValue1"
               [labelPosition]="'above'" >Slider Check</ag-input>
 
@@ -30,57 +30,53 @@
 
     <ag-input [type]="'check'" [subtype]="'slide'"
               [labelPosition]="'above'" [(ngModel)]="checkValue3">Slider Check</ag-input>
-  </ag-div>
+  </ag-content>
 
-  <ag-div [columns]="3">
+  <ag-content [columns]="3">
     <ag-input [type]="'check'" [labelPosition]="'above'" (click)="checkValue1 = !checkValue1">Check</ag-input>
-
     <ag-input [type]="'check'" [labelPosition]="'above'" [(ngModel)]="checkValue2">Check</ag-input>
-
     <ag-input [type]="'check'" [labelPosition]="'above'" [(ngModel)]="checkValue3">Check</ag-input>
-  </ag-div>
+  </ag-content>
 
-  <ag-div [gap]="5">
-    <ag-input [type]="'number'" [subtype]="'range'" [labelPosition]="'above'">Number Range</ag-input>
+  <ag-content [gap]="5">
+    <ag-range [type]="'number'" [subtype]="'range'" [labelPosition]="'above'">Number Range</ag-range>
+    <ag-range [type]="'date'" [subtype]="'range'" [labelPosition]="'above'">Date</ag-range>
+  </ag-content>
 
-    <ag-input [type]="'date'" [subtype]="'range'" [labelPosition]="'above'">Date</ag-input>
-  </ag-div>
+  <ag-content [gap]="5">
+    <ag-select [options]="dropDownItems" [required]="true"
+              [(ngModel)]="select1" [displayProperty]="'title'"
+              [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) </ag-select>
 
-  <ag-div [gap]="5">
-    <ag-input [type]="'select'" [source]="dropdownSource" [required]="true"
-              [(ngModel)]="select1" [displayProperty]="'title'" [valueProperty]="'id'"
-              [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) </ag-input>
+    <ag-select [disabled]="true"
+              [type]="'select'" [options]="dropdownItems"
+              [(ngModel)]="select1" [displayProperty]="'title'"
+              [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) (disabled)</ag-select>
 
-    <ag-input [disabled]="true"
-              [type]="'select'" [source]="dropdownSource"
-              [(ngModel)]="select1" [displayProperty]="'title'" [valueProperty]="'id'"
-              [placeholder]="'select...'" [labelPosition]="'above'">Single Selection (http Source) (disabled)</ag-input>
-
-    <ag-input [type]="'select'" [source]="dropdownSource" [(ngModel)]="select2"
+    <ag-select [type]="'select'" [options]="dropdownItems" [(ngModel)]="select2"
               [displayProperty]="'title'" [multiple]="true"
-              [labelPosition]="'above'">Multiple Selection (ctrl + click) (http Source)</ag-input>
-  </ag-div>
+              [labelPosition]="'above'">Multiple Selection (ctrl + click) (http Source)</ag-select>
+  </ag-content>
 
-  <ag-div [gap]="5">
-    <ag-input [(ngModel)]="select3"
-              [type]="'select'" [options]="dropDownOptions"
+  <ag-content [gap]="5">
+    <ag-select [(ngModel)]="select3"
+              [type]="'select'" [options]="staticOptions"
               [displayProperty]="'name'" [placeholder]="'select...'"
-              [labelPosition]="'above'">Single Selection (array)</ag-input>
+              [labelPosition]="'above'">Single Selection (array)</ag-select>
 
-    <ag-input [disabled]="true" [(ngModel)]="select3"
-              [type]="'select'" [options]="dropDownOptions"
+    <ag-select [disabled]="true" [(ngModel)]="select3"
+              [type]="'select'" [options]="staticOptions"
               [displayProperty]="'name'" [placeholder]="'select...'"
-              [labelPosition]="'above'">Single Selection (array) (disabled)</ag-input>
+              [labelPosition]="'above'">Single Selection (array) (disabled)</ag-select>
 
-    <ag-input [type]="'select'" [options]="dropDownOptions" [(ngModel)]="select4"
+    <ag-select [type]="'select'" [options]="staticOptions" [(ngModel)]="select4"
               [displayProperty]="'name'" [multiple]="true"
-              [labelPosition]="'above'">Multiple Selection (ctrl + click) (array)</ag-input>
-  </ag-div>
+              [labelPosition]="'above'">Multiple Selection (ctrl + click) (array)</ag-select>
+  </ag-content>
 
-  <ag-div [gap]="5">
-    <ag-input [type]="'file'" [labelPosition]="'above'">Single File</ag-input>
+  <ag-content [gap]="5">
+    <ag-file [type]="'file'" [labelPosition]="'above'">Single File</ag-file>
+    <ag-file [type]="'file'" [multiple]="true" [labelPosition]="'above'">Multiple File</ag-file>
+  </ag-content>
 
-    <ag-input [type]="'file'" [multiple]="true" [labelPosition]="'above'">Multiple File</ag-input>
-  </ag-div>
-
-</ag-div>
+</ag-content>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GenericAlertComponent } from './generic-alert.component';
-import { GenericElementModule } from '../element/generic-element.module';
+import { GenericContentModule } from '../containers/content/content.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +9,7 @@ import { GenericElementModule } from '../element/generic-element.module';
   ],
   imports: [
     CommonModule,
-    GenericElementModule
+    GenericContentModule
   ],
   exports: [
     GenericAlertComponent,

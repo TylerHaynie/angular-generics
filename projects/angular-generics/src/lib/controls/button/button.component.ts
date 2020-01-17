@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, ViewEncapsulation } from '@angular/core';
 import { AbstractValueAccessor, MakeProvider } from '../../helpers/abstract-value-accessor';
 import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
 
@@ -6,7 +6,8 @@ import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
   selector: 'ag-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css'],
-  providers: [MakeProvider(ButtonComponent)]
+  providers: [MakeProvider(ButtonComponent)],
+  encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent extends AbstractValueAccessor {
   @Input() flat: boolean = false;

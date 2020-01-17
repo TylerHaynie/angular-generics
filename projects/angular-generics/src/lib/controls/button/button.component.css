@@ -1,6 +1,6 @@
 :root {
   --buttonBorderRadius: 5px;
-  --buttonPadding: 5px 5px;
+  --buttonPadding: 5px 8px;
   --buttonTextShadow: 0px 0px 4px rgb(34, 34, 34);
   --buttonBackground: linear-gradient(to bottom, #437ab1 0%, #003366 100%);
   --buttonBorder: 1px solid #465d6c;
@@ -15,6 +15,7 @@
   border-radius: var(--buttonBorderRadius);
   background: var(--buttonBackground);
   border: var(--buttonBorder);
+  color: rgb(255, 255, 255);
 }
 
 .generic-button.shadows {
@@ -30,19 +31,4 @@
 
 .generic-button.disabled:hover {
   cursor: default;
-}
-
-.no-selection {
-  -webkit-user-select: none;
-  /* webkit (safari, chrome) browsers */
-  -moz-user-select: none;
-  /* mozilla browsers */
-  -khtml-user-select: none;
-  /* webkit (konqueror) browsers */
-  -ms-user-select: none;
-  /* IE10+ */
-}
-
-.pointer:hover {
-  cursor: pointer;
 }

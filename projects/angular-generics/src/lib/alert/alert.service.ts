@@ -1,10 +1,8 @@
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { GenericAlert } from './generic-alert';
+import { GenericAlert } from './models/generic-alert';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GenericAlertService {
   private _addAlertSource = new BehaviorSubject<GenericAlert>(null);
   alertAdded$ = this._addAlertSource.asObservable();

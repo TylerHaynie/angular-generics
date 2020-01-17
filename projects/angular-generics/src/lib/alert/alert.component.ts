@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
-import { GenericAlert } from './generic-alert';
-import { GenericAlertService } from './generic-alert.service';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { GenericAlert } from './models/generic-alert';
+import { GenericAlertService } from './alert.service';
 
 @Component({
   selector: 'ag-alert',
   templateUrl: './generic-alert.component.html',
-  styleUrls: ['./generic-alert.component.css']
+  styleUrls: ['./generic-alert.component.css'],
+  providers: [GenericAlertService],
+  encapsulation: ViewEncapsulation.None
 })
 export class GenericAlertComponent {
   alerts: GenericAlert[] = [];

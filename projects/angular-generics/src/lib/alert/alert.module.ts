@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GenericAlertComponent } from './generic-alert.component';
+import { GenericAlertComponent } from './alert.component';
 import { GenericContentModule } from '../containers/content/content.module';
+import { GenericAlertService } from './alert.service';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,10 @@ import { GenericContentModule } from '../containers/content/content.module';
   ],
   imports: [
     CommonModule,
-    GenericContentModule
+    GenericContentModule,
+  ],
+  providers: [
+    GenericAlertService
   ],
   exports: [
     GenericAlertComponent,

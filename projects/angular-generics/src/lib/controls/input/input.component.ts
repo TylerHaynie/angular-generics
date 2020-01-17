@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { MakeProvider, AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
 
@@ -8,7 +8,8 @@ import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
   styleUrls: [
     './input.component.css',
     './input-checkbox.css'],
-  providers: [MakeProvider(InputComponent)]
+  providers: [MakeProvider(InputComponent)],
+  encapsulation: ViewEncapsulation.None
 })
 export class InputComponent extends AbstractValueAccessor {
   // General
@@ -23,9 +24,9 @@ export class InputComponent extends AbstractValueAccessor {
   @Input() height: number | string = 'inherit';
 
   // Label
-  @Input() labelPosition: 'above' | 'left' = 'left';
-  @Input() labelPlacement: string = 'center start';
   @Input() showLabel: boolean = true;
+  @Input() floatLabel: boolean = true;
+  @Input() placeLabel: string = 'bottom start';
 
   // Text Area
   @Input() textRows: number = 5;

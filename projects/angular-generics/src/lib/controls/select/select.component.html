@@ -1,5 +1,6 @@
 <div class="generic-input"
-     [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 'label-top': labelPosition == 'above' && showLabel}"
+     [ngClass]="{'label-left': showLabel && !floatLabel, 
+                 'label-top': showLabel && floatLabel}"
      [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
   <label>
     <ng-content #name></ng-content> <span *ngIf="required && !(disabled)" [style.color]="'red'"> *</span>
@@ -9,8 +10,7 @@
             [(ngModel)]="value"
             [compareWith]="compareSelect"
             (change)="selectionChanged(ddbx.value)"
-            [attr.required]="required ? '' : null"
-            [attr.multiple]="multiple ? '' : null">
+            [attr.required]="required ? '' : null">
       <option *ngIf="!required" [ngValue]="null"></option>
       <option *ngFor="let item of options" [ngValue]="item">
         {{item[displayName]}}</option>

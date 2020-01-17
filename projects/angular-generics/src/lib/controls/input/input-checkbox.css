@@ -20,7 +20,8 @@
 
 .generic-input input[type=checkbox] {
   box-shadow: none;
-  place-self: center start;
+  align-self: center;
+  justify-self: start;
 }
 
 .checkbox-slider input[type=checkbox] {
@@ -96,19 +97,4 @@
 .checkbox-sliderinput[type=checkbox]:checked+label.disabled {
   left: calc((var(--sliderWidth) - var(--sliderCoverWidth)) - (var(--sliderPadding) / 1.75));
   background: var(--sliderTrueColor);
-}
-
-.no-selection {
-  -webkit-user-select: none;
-  /* webkit (safari, chrome) browsers */
-  -moz-user-select: none;
-  /* mozilla browsers */
-  -khtml-user-select: none;
-  /* webkit (konqueror) browsers */
-  -ms-user-select: none;
-  /* IE10+ */
-}
-
-.pointer:hover {
-  cursor: pointer;
 }

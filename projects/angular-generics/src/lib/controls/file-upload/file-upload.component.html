@@ -1,7 +1,8 @@
 <div class="generic-input"
-     [ngClass]="{'label-left': labelPosition == 'left' && showLabel, 
-                 'label-top': labelPosition == 'above' && showLabel}"
-     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
+     [ngClass]="{'label-left': showLabel && !floatLabel, 
+                 'label-top': showLabel && floatLabel}"
+     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 
+                 'height': isNumber(height) ? height + 'px' : height ? height : null}">
   <label *ngIf="showLabel">
     <ng-content></ng-content><span *ngIf="required && !disabled" [style.color]="'red'"> *</span>
   </label>

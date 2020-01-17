@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { MakeProvider, AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
 
@@ -6,7 +6,8 @@ import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
   selector: 'ag-file',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.css'],
-  providers: [MakeProvider(FileUploadComponent)]
+  providers: [MakeProvider(FileUploadComponent)],
+  encapsulation: ViewEncapsulation.None
 })
 export class FileUploadComponent extends AbstractValueAccessor {
   @Input() name: string;
@@ -17,9 +18,9 @@ export class FileUploadComponent extends AbstractValueAccessor {
 
   @Input() placeholder: string = '';
 
-  @Input() labelPosition: 'above' | 'left' = 'left';
-  @Input() labelPlacement: string = 'center start';
   @Input() showLabel: boolean = true;
+  @Input() floatLabel: boolean = true;
+  @Input() placeLabel: string = 'bottom start';
 
   @Input() multiple: boolean = false;
 

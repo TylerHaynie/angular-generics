@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { MakeProvider, AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
 import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
 
@@ -6,7 +6,8 @@ import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
   selector: 'ag-range',
   templateUrl: './range.component.html',
   styleUrls: ['./range.component.css'],
-  providers: [MakeProvider(RangeComponent)]
+  providers: [MakeProvider(RangeComponent)],
+  encapsulation: ViewEncapsulation.None
 })
 export class RangeComponent extends AbstractValueAccessor {
   // General
@@ -19,9 +20,9 @@ export class RangeComponent extends AbstractValueAccessor {
   @Input() type: 'date' | 'number' = 'number';
 
   // Label
-  @Input() labelPosition: 'above' | 'left' = 'left';
-  @Input() labelPlacement: string = 'center start';
   @Input() showLabel: boolean = true;
+  @Input() floatLabel: boolean = true;
+  @Input() placeLabel: string = 'bottom start';
 
   @Input() fromLabel: string = 'from';
   fromValue: any;

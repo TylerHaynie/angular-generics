@@ -37,13 +37,13 @@
 }
 
 .generic-input.label-left {
-  grid-gap: var(--labelInputGap);
+  gap: var(--labelInputGap);
   grid-template-rows: 1fr;
   grid-template-columns: minmax(var(--minLabelWidth), var(--maxLabelWidth)) minmax(var(--minInputWidth), var(--maxInputWidth));
 }
 
 .generic-input.label-top {
-  grid-gap: var(--labelInputGap);
+  gap: var(--labelInputGap);
   grid-template-columns: 1fr;
   grid-template-rows: 1fr, 1fr;
 }

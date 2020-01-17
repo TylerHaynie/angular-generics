@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { AbstractValueAccessor, MakeProvider } from '../../helpers/abstract-value-accessor';
 import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
 
@@ -6,7 +6,8 @@ import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
   selector: 'ag-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css'],
-  providers: [MakeProvider(SelectComponent)]
+  providers: [MakeProvider(SelectComponent)],
+  encapsulation: ViewEncapsulation.None
 })
 export class SelectComponent extends AbstractValueAccessor {
   @Input() name: string;
@@ -17,9 +18,9 @@ export class SelectComponent extends AbstractValueAccessor {
   @Input() width: number | string = 'inherit';
   @Input() height: number | string = 'inherit';
 
-  @Input() labelPosition: 'above' | 'left' = 'left';
-  @Input() labelPlacement: string = 'center start';
   @Input() showLabel: boolean = true;
+  @Input() floatLabel: boolean = true;
+  @Input() placeLabel: string = 'bottom start';
 
   @Input() displayName: string;
   @Input() options: any[] = [];
@@ -27,7 +28,7 @@ export class SelectComponent extends AbstractValueAccessor {
 
   @Output() selectionChange: EventEmitter<any>;
 
-  _helpers: ValueTypeHelpers = new ValueTypeHelpers();
+  private _helpers: ValueTypeHelpers = new ValueTypeHelpers();
 
   constructor() {
     super();

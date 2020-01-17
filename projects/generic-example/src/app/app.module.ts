@@ -18,7 +18,6 @@ import { InputExampleComponent } from './components/input-example/input-example.
 import { MenuExampleComponent } from './components/menu-example/menu-example.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { ListExampleComponent } from './components/list-example/list-example.component';
 import { AlertExampleComponent } from './components/alert-example/alert-example.component';
 
 @NgModule({
@@ -28,7 +27,6 @@ import { AlertExampleComponent } from './components/alert-example/alert-example.
     TableExampleComponent,
     InputExampleComponent,
     MenuExampleComponent,
-    ListExampleComponent,
     AlertExampleComponent
   ],
   imports: [

@@ -1,0 +1,26 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="title">
+        {{title}}
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <ag-content class="filter-container">
+      <ng-container *ngFor="let column of columns">
+        <ng-container *ngIf="column.allowFilter">
+          <ag-input [type]="'text'" [(ngModel)]="column.filterValue">{{column.display}}</ag-input>
+        </ng-container>
+        <!-- ... select, checkbox, etc. based on type -->
+      </ng-container>
+    </ag-content>
+
+    <ag-content>
+      <ag-button (click)="applyFilter()">Apply</ag-button>
+      <ag-button (click)="resetFilter()">Reset</ag-button>
+    </ag-content>
+
+  </mat-expansion-panel>
+</mat-accordion>

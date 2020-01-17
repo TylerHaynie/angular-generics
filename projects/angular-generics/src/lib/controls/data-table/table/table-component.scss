@@ -1,0 +1,140 @@
+.component-wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  box-shadow: 0 0 6px -2px black;
+  border-radius: 5px;
+  border: 1px solid #b3b3b3;
+}
+
+.table-wrapper {
+  overflow: auto;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+table {
+  width: 100%;
+  align-content: start;
+}
+
+.table-header {
+  background: white;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  padding: 10px 20px;
+  border-bottom: 0.11em solid #c2c2c2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.no-header {
+  padding: 0;
+  border: none;
+}
+
+.title {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-self: center;
+  column-gap: 10px;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #2f2e2e;
+}
+
+.loader {
+  align-self: center;
+}
+
+.table-footer {
+  align-content: end;
+}
+
+.mat-expansion-panel-header {
+  border-bottom: 1px solid rgb(156, 156, 156);
+}
+
+.header-controls {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.group-by {
+  align-self: end;
+  justify-self: end;
+}
+
+.export-container {
+  align-self: center;
+  justify-self: center;
+}
+
+.drop-down {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+}
+
+.drop-down>div {
+  align-self: end;
+  color: #636363;
+  font-weight: bold;
+}
+
+tr.mat-header-row {
+  height: 30px;
+  color: black;
+  // background-color: #f9f9f9;
+}
+
+th.mat-header-cell {
+  text-align: center;
+  color: rgb(71, 71, 71);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+tr.mat-row {
+  height: 28px;
+}
+
+td.mat-cell {
+  text-align: center;
+}
+
+td.mat-footer-cell {
+  font-weight: bold;
+  text-align: center;
+}
+
+.total-footer>td>.mat-footer-cell {
+  border-bottom: 1px solid #636363;
+}
+
+td.mat-footer-cell.mat-column-pager {
+  padding: 0;
+}
+
+.mat-paginator-container>.mat-paginator-container {
+  padding: 0 !important;
+}
+
+tr.total-footer.mat-footer-row.ng-star-inserted>td {
+  border-top: 1px solid #333333;
+  background-color: #f9f9f9;
+}
+
+tr.mat-footer-row.ng-star-inserted>td.mat-column-pager {
+  border-top: 1px solid #545454;
+}
+
+.mat-expansion-panel-header{
+  
+}

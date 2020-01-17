@@ -1,0 +1,3 @@
+<mat-paginator #paginator [pageSizeOptions]="sizeOptions"
+               [pageSize]="page.take" [length]="page.recordCount"
+               (page)="changePage()" showFirstLastButtons></mat-paginator>

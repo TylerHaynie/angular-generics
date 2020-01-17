@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { TableFilterComponent } from './table-filter.component';
 import { GenericInputModule } from '../../input/input.module';
 import { GenericSelectModule } from '../../select/select.module';
-import { GenericRangeModule } from 'dist/angular-generics/public-api';
 import { GenericButtonModule } from '../../button/button.module';
+import { GenericRangeModule } from '../../range/range.module';
 
 @NgModule({
   declarations: [

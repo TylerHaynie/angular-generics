@@ -21,7 +21,7 @@ export class PageBase<T> {
     this._pageData = v;
   }
   
-  constructor(initialState: PAGE_STATE = PAGE_STATE.CLOSED) {
+  constructor() {
     this.stateSubject = new Subject<PAGE_STATE>();
     this.stateChange = this.stateSubject.asObservable();
   }

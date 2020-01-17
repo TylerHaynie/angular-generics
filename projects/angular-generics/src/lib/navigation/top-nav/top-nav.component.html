@@ -1,20 +1,24 @@
 <ag-content [columns]="1">
   <ag-content class="top-wrapper" [columns]="'1fr auto'" [pad]="'3px 5px 3px 0'">
 
+    <!-- Page Content -->
     <ag-content [placeContent]="'center start'">
-        <a [routerLink]="route"><img [src]="logoUrl" alt="random-logo"></a>
+      <a [routerLink]="route"><img [src]="logoUrl" alt="random-logo"></a>
     </ag-content>
+    <!-- *** -->
 
-    <ag-content [columns]="'50px'" [height]="height">
+    <ag-content [columns]="'50px'" [height]="'100%'">
 
       <ag-content class="avatar"
-              [ngStyle]="{'background-image': 'url(' + avatarUrl + ')'}">
-
-        <ag-content *ngIf="notifyCount > 0" class="notifications" [columns]="'auto auto'"  [placeContent]="'center end'" [pad]="3" [gap]="3">
+                  [ngStyle]="{'background-image': 'url(' + avatarUrl + ')'}">
+        <ag-content *ngIf="notifyCount > 0" class="notifications"
+                    [columns]="'auto auto'"
+                    [placeContent]="'center end'"
+                    [pad]="3" 
+                    [gap]="3">
           <span class="notify-count">{{notifyCount > 0 ? notifyCount : ''}}</span>
           <i class="fas fa-bell pointer"></i>
         </ag-content>
-
       </ag-content>
     </ag-content>
 

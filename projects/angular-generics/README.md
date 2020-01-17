@@ -1,25 +1,60 @@
-# AngularGenerics
-!!! NOT FOR USE IN PRODUCTION !!!
+# Angular Generics
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+---
 
-## Code scaffolding
+**!!! NOT READY PRODUCTION !!!**
 
-Run `ng generate component component-name --project angular-generics` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project angular-generics`.
-> Note: Don't forget to add `--project angular-generics` or else it will be added to the default project in your `angular.json` file. 
+---
 
-## Build
 
-Run `ng build angular-generics` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Controls
+## Alert Component
+ 
+| Inputs  | Outputs  | Selector | Service             |
+|:--------|:---------|:---------|:--------------------|
+|         |          | ag-alert | GenericAlertService |
 
-## Publishing
+##### alert-example.html
+```
+<div>
+  <ag-alert></ag-alert>
+</div>
+```
 
-After building your library with `ng build angular-generics`, go to the dist folder `cd dist/angular-generics` and run `npm publish`.
+##### alert-example.ts
+```typescript
+import { Component } from '@angular/core';
+import { GenericAlertService, GenericAlert } from 'angular-generics';
 
-## Running unit tests
+@Component({
+  selector:    'alert-example',
+  templateUrl: './alert-example.html',
+})
+export class AlertExampleComponent {
 
-Run `ng test angular-generics` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  constructor(private alertService: GenericAlertService) { }
 
-## Further help
+  showAlert() {
+    let alert = new GenericAlert();
+    alert.message = "You have an alert!";
+    alert.timeout = 2000; // optional
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    this.alertService.addAlert(alert);
+  }
+}  
+```
+
+##### GenericAlert
+```typescript
+export class GenericAlert {
+  message: string;
+  timeout: number;
+}
+```
+  
+
+
+
+## Services
+### GenericAlertService
++ asdas 

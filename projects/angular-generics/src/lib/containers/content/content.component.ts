@@ -1,21 +1,26 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
+
 @Component({
   selector: 'ag-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css']
+  styleUrls: ['./content.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ContentComponent {
   @Input() height: string | number = 'inherit';
   @Input() width: string | number = 'inherit';
   @Input() gap: string | number;
   @Input() pad: string | number;
-  @Input() placeContent: string;
+  @Input() place: string = 'start';
 
   @Input() flow: string = 'row';
   @Input() rows: number | string = 'auto';
-  @Input() columns: number | string = 'auto';
+  @Input() cols: number | string = 'auto';
+
+  private typeHelper: ValueTypeHelpers = new ValueTypeHelpers();
 
   isNumber(value: string | number): boolean {
-    return ((value != null) && !isNaN(Number(value.toString())));
+    return this.typeHelper.isNumber(value);
   }
 }

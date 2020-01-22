@@ -1,6 +1,6 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { MakeProvider, AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
-import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
+import { MakeProvider, AbstractValueAccessor } from '../generic-control/abstract-value-accessor';
+import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
 
 @Component({
   selector: 'ag-range',
@@ -30,7 +30,7 @@ export class RangeComponent extends AbstractValueAccessor {
   @Input() toLabel: string = 'to';
   toValue: any;
 
-  _helpers: ValueTypeHelpers = new ValueTypeHelpers();
+  private _helpers: ValueTypeHelpers = new ValueTypeHelpers();
   constructor() {
     super();
   }

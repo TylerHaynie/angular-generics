@@ -1,15 +1,12 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { MakeProvider, AbstractValueAccessor } from '../../helpers/abstract-value-accessor';
-import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
+import { Component, Input, ViewEncapsulation, Directive } from '@angular/core';
+import { MakeProvider, AbstractValueAccessor } from '../generic-control/abstract-value-accessor';
+import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
 
-@Component({
-  selector: 'ag-file',
-  templateUrl: './file-upload.component.html',
-  styleUrls: ['./file-upload.component.css'],
-  providers: [MakeProvider(FileUploadComponent)],
-  encapsulation: ViewEncapsulation.None
+@Directive({
+  selector: 'genericInput',
+  providers: [MakeProvider(InputDirective)],
 })
-export class FileUploadComponent extends AbstractValueAccessor {
+export class InputDirective extends AbstractValueAccessor {
   @Input() name: string;
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
@@ -22,9 +19,7 @@ export class FileUploadComponent extends AbstractValueAccessor {
   @Input() floatLabel: boolean = true;
   @Input() placeLabel: string = 'bottom start';
 
-  @Input() multiple: boolean = false;
-
-  _helpers: ValueTypeHelpers = new ValueTypeHelpers();
+  private _helpers: ValueTypeHelpers = new ValueTypeHelpers();
 
   constructor() {
     super();
@@ -33,4 +28,16 @@ export class FileUploadComponent extends AbstractValueAccessor {
   isNumber(value: string | number): boolean {
     return this._helpers.isNumber(value);
   }
+}
+
+@Component({
+  selector: 'ag-file',
+  templateUrl: './file-upload.component.html',
+  styleUrls: ['./file-upload.component.css'],
+  encapsulation: ViewEncapsulation.None
+})
+export class FileUploadComponent {
+  @Input() multiple: boolean = false;
+
+  constructor() { }
 }

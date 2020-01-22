@@ -1,0 +1,35 @@
+<div class="generic-input"
+     [ngClass]="{'label-left': showLabel && !floatLabel, 
+                 'label-top': showLabel && floatLabel}"
+     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
+  <label *ngIf="showLabel">
+    <ng-content></ng-content><span *ngIf="required && !disabled" [style.color]="'red'"> *</span>
+  </label>
+
+  <ng-container *ngIf="type=='check'">
+    <ng-container *ngTemplateOutlet="checkBox"></ng-container>
+  </ng-container>
+</div>
+
+<!-- Check Box SubTypes -->
+<ng-template #checkBox>
+  <ng-container *ngIf="subtype=='default'">
+    <ng-container *ngTemplateOutlet="defaultCheck"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="subtype=='slide'">
+    <ng-container *ngTemplateOutlet="checkSlide"></ng-container>
+  </ng-container>
+</ng-template>
+
+<!-- Default Checkbox -->
+<ng-template #defaultCheck>
+  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="checkbox" [(ngModel)]="value" />
+</ng-template>
+
+<!-- Slide Checkbox -->
+<ng-template #checkSlide>
+  <div class="checkbox-slider" [ngClass]="{'disabled': disabled}">
+    <input [disabled]="disabled" [attr.required]="required ? '' : null" type="checkbox" [(ngModel)]="value" />
+    <label [ngClass]="{'disabled': disabled}" (click)="disabled ? null : value = !value"></label>
+  </div>
+</ng-template>

@@ -11,7 +11,7 @@
     <ag-content class="filter-container">
       <ng-container *ngFor="let column of columns">
         <ng-container *ngIf="column.allowFilter">
-          <ag-input [type]="'text'" [(ngModel)]="column.filterValue">{{column.display}}</ag-input>
+          <!-- <ag-input [type]="'text'" [(ngModel)]="column.filterValue">{{column.display}}</ag-input> -->
         </ng-container>
         <!-- ... select, checkbox, etc. based on type -->
       </ng-container>

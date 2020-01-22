@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
+import { ValueTypeHelpers } from '../../controls/generic-control/value-type-helpers';
 
 @Component({
   selector: 'ag-content',

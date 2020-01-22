@@ -1,97 +1,10 @@
 <div class="generic-input"
-     [ngClass]="{'label-left': showLabel && !floatLabel, 
-                 'label-top': showLabel && floatLabel}"
-     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
-  <label *ngIf="showLabel">
-    <ng-content></ng-content><span *ngIf="required && !disabled" [style.color]="'red'"> *</span>
+     [ngClass]="{'label-left': hasLabel() && !floatLabel, 
+                 'label-top': hasLabel() && floatLabel}"
+     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 
+                 'height': isNumber(height) ? height + 'px' : height ? height : null}">
+  <label *ngIf="hasLabel()">
+    {{label}}<span *ngIf="required && !disabled" [style.color]="'red'"> *</span>
   </label>
-
-  <ng-container *ngIf="type=='text'">
-    <ng-container *ngTemplateOutlet="textBox"></ng-container>
-  </ng-container>
-
-  <ng-container *ngIf="type=='number'">
-    <ng-container *ngTemplateOutlet="numberBox"></ng-container>
-  </ng-container>
-
-  <ng-container *ngIf="type=='date'">
-    <ng-container *ngTemplateOutlet="dateBox"></ng-container>
-  </ng-container>
-
-  <ng-container *ngIf="type=='check'">
-    <ng-container *ngTemplateOutlet="checkBox"></ng-container>
-  </ng-container>
+  <ng-content #genericControl></ng-content>
 </div>
-
-<!-- *** Conditionals *** -->
-<!--  Text Box SubTypes   -->
-<ng-template #textBox>
-  <ng-container *ngIf="subtype == 'default'">
-    <ng-container *ngTemplateOutlet="defaultText"></ng-container>
-  </ng-container>
-
-  <ng-container *ngIf="subtype=='area'">
-    <ng-container *ngTemplateOutlet="textArea"></ng-container>
-  </ng-container>
-</ng-template>
-
-<!-- Number SubTypes -->
-<ng-template #numberBox>
-  <ng-container *ngIf="subtype=='default'">
-    <ng-container *ngTemplateOutlet="defaultNumber"></ng-container>
-  </ng-container>
-</ng-template>
-
-<!-- Date Box SubTypes -->
-<ng-template #dateBox>
-  <ng-container *ngIf="subtype=='default'">
-    <ng-container *ngTemplateOutlet="defaultDate"></ng-container>
-  </ng-container>
-</ng-template>
-
-<!-- Check Box SubTypes -->
-<ng-template #checkBox>
-  <ng-container *ngIf="subtype=='default'">
-    <ng-container *ngTemplateOutlet="defaultCheck"></ng-container>
-  </ng-container>
-  <ng-container *ngIf="subtype=='slide'">
-    <ng-container *ngTemplateOutlet="checkSlide"></ng-container>
-  </ng-container>
-</ng-template>
-
-<!-- Default Text Box -->
-<ng-template #defaultText>
-  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="text" [(ngModel)]="value"
-         [placeholder]="placeholder" />
-</ng-template>
-
-<!-- Text Area -->
-<ng-template #textArea>
-  <textarea [disabled]="disabled" [attr.required]="required ? '' : null" [cols]="textColumns" [rows]="textRows"
-            [placeholder]="placeholder"
-            [(ngModel)]="value"></textarea>
-</ng-template>
-
-<!-- Number -->
-<ng-template #defaultNumber>
-  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="number" [(ngModel)]="value"
-         [placeholder]="placeholder" />
-</ng-template>
-
-<!-- Default Date -->
-<ng-template #defaultDate>
-  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="date" [(ngModel)]="value" />
-</ng-template>
-
-<!-- Default Checkbox -->
-<ng-template #defaultCheck>
-  <input [disabled]="disabled" [attr.required]="required ? '' : null" type="checkbox" [(ngModel)]="value" />
-</ng-template>
-
-<!-- Slide Checkbox -->
-<ng-template #checkSlide>
-  <div class="checkbox-slider" [ngClass]="{'disabled': disabled}">
-    <input [disabled]="disabled" [attr.required]="required ? '' : null" type="checkbox" [(ngModel)]="value" />
-    <label [ngClass]="{'disabled': disabled}" (click)="disabled ? null : value = !value"></label>
-  </div>
-</ng-template>

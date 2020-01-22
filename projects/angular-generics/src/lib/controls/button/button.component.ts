@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, Input, ViewEncapsulation } from '@angular/core';
-import { AbstractValueAccessor, MakeProvider } from '../../helpers/abstract-value-accessor';
-import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
+import { AbstractValueAccessor, MakeProvider } from '../generic-control/abstract-value-accessor';
+import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
 
 @Component({
   selector: 'ag-button',
@@ -10,14 +10,14 @@ import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
   encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent extends AbstractValueAccessor {
-  @Input() flat: boolean = false;
   @Input() width: number | string = 'inherit';
+  @Input() height: number | string = 'inherit';
   @Input() fontSize: number | string = 'inherit';
   @Input('disabled') disableControl: boolean = false;
 
   @Output() click = new EventEmitter();
-  
-  _helpers: ValueTypeHelpers = new ValueTypeHelpers();
+
+  private _helpers: ValueTypeHelpers = new ValueTypeHelpers();
 
   constructor() {
     super();

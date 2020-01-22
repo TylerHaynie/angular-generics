@@ -9,13 +9,15 @@ import { Component, Input, TemplateRef, Output, EventEmitter, ViewEncapsulation 
 export class GenericModalComponent {
   @Input() footer: TemplateRef<any>;
   @Input() header: TemplateRef<any>;
+  @Input() title: string;
 
-  @Input() title: string = '';
-  @Output() closed: EventEmitter<any> = new EventEmitter();
+  @Output() closed: EventEmitter<null>;
 
-  showModal: boolean = false;
+  protected showModal: boolean = false;
 
-  constructor() { }
+  constructor() { 
+    this.closed = new EventEmitter<null>();
+  }
 
   open() {
     this.showModal = true;

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { AbstractValueAccessor, MakeProvider } from '../../helpers/abstract-value-accessor';
-import { ValueTypeHelpers } from '../../helpers/value-type-helpers';
+import { AbstractValueAccessor, MakeProvider } from '../generic-control/abstract-value-accessor';
+import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
 
 @Component({
   selector: 'ag-select',

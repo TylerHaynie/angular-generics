@@ -7,9 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {
   GenericAlertModule, GenericModalModule, GenericFileModule,
-  GenericInputModule, GenericRangeModule, GenericButtonModule,
-  GenericSelectModule, GenericContentModule, GenericNavigationModule,
-  GenericAlertService
+  GenericRangeModule, GenericButtonModule, GenericSelectModule,
+  GenericContentModule, GenericNavigationModule, GenericAlertService
 } from 'angular-generics';
 
 import { ModalExampleComponent } from './components/modal-example/modal-example.component';
@@ -36,8 +35,8 @@ import { AlertExampleComponent } from './components/alert-example/alert-example.
     HttpClientModule,
     AppRoutingModule,
     GenericAlertModule, GenericModalModule, GenericFileModule,
-    GenericInputModule, GenericRangeModule, GenericButtonModule,
-    GenericSelectModule, GenericContentModule, GenericNavigationModule
+    GenericRangeModule, GenericButtonModule, GenericNavigationModule,
+    GenericSelectModule, GenericContentModule, 
   ],
   providers: [
     GenericAlertService,

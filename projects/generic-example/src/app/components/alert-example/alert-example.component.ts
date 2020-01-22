@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GenericAlertService, GenericAlert } from 'angular-generics';
 
 @Component({
-  selector: 'app-alert-example',
+  selector: 'alert-example',
   templateUrl: './alert-example.component.html',
   styleUrls: ['./alert-example.component.css']
 })
@@ -14,15 +14,12 @@ export class AlertExampleComponent implements OnInit {
   }
 
   showAlert(timed: boolean = false) {
-    const a = new GenericAlert(
-      {
-        message: "Test Message",
-        timeout: timed ? 1500 : 0,
-        class: 'error',
-      }
-    );
+    let alert = new GenericAlert();
+    alert.message = "You have an alert!";
+    alert.timeout = 2000;
 
-    this.alertService.addAlert(a);
+    this.alertService.addAlert(alert);
   }
+
 
 }

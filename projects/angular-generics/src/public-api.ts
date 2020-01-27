@@ -1,12 +1,12 @@
-// Content
-export * from './lib/containers/content/content.component';
-export * from './lib/containers/content/content.module';
-
 // Alert
 export * from './lib/alert/alert.component';
 export * from './lib/alert/alert.module';
 export * from './lib/alert/alert.service';
 export * from './lib/alert/models/generic-alert';
+
+// Content
+export * from './lib/containers/content/content.component';
+export * from './lib/containers/content/content.module';
 
 // Modal
 export * from './lib/containers/modal/generic-modal.component';
@@ -20,17 +20,17 @@ export * from './lib/containers/page/page-state';
 export * from './lib/controls/button/button.component';
 export * from './lib/controls/button/button.module';
 
-// Input * internal use only *
-// export * from './lib/controls/input/input.component';
-// export * from './lib/controls/input/input.module';
-
-// Checkbox
+// Check
 export * from './lib/controls/check/check.component';
 export * from './lib/controls/check/check.module';
 
-// File Upload
-export * from './lib/controls/file-upload/file-upload.component';
-export * from './lib/controls/file-upload/file-upload.module';
+// File
+export * from './lib/controls/file/file.component';
+export * from './lib/controls/file/file.module';
+
+// input
+export * from './lib/controls/input/input.component';
+export * from './lib/controls/input/input.module';
 
 // Range
 export * from './lib/controls/range/range.component';
@@ -40,13 +40,17 @@ export * from './lib/controls/range/range.module';
 export * from './lib/controls/select/select.component';
 export * from './lib/controls/select/select.module';
 
+// Text
+export * from './lib/controls/text/text.component';
+export * from './lib/controls/text/text.module';
+
 // Navigation
 export * from './lib/navigation/models/menu-item';
 export * from './lib/navigation/side-nav/side-nav.component';
 export * from './lib/navigation/top-nav/top-nav.component';
 export * from './lib/navigation/navigation.module';
 
-// DataTable 
+// DataTable
 export * from './lib/controls/data-table/table/table-data-source';
 export * from './lib/controls/data-table/table/table.component';
 export * from './lib/controls/data-table/table/table.module';

@@ -1,6 +1,4 @@
-/*  source:
-    https://stackoverflow.com/a/37786142/1204412
-*/
+// ref: https://stackoverflow.com/a/37786142/1204412
 
 import { forwardRef, Provider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';

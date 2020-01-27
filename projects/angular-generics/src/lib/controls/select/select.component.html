@@ -1,10 +1,7 @@
-<div class="generic-input"
-     [ngClass]="{'label-left': showLabel && !floatLabel, 
-                 'label-top': showLabel && floatLabel}"
-     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
-  <label>
-    <ng-content #name></ng-content> <span *ngIf="required && !(disabled)" [style.color]="'red'"> *</span>
-  </label>
+<ag-input [label]="label" [floatLabel]="floatLabel" [placeLabel]="placeLabel"
+          [disabled]="disabled" [required]="required" [width]="width" [height]="height">
+
+  <!-- enabled -->
   <ng-container *ngIf="!disabled">
     <select #ddbx
             [(ngModel)]="value"
@@ -16,9 +13,12 @@
         {{item[displayName]}}</option>
     </select>
   </ng-container>
+
+  <!-- disabled -->
   <ng-container *ngIf="disabled">
     <input disabled type="text"
            [attr.required]="required ? '' : null"
            [value]="displayName && value ? value[displayName] : null">
   </ng-container>
-</div>
+
+</ag-input>

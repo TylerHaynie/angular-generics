@@ -1,34 +1,20 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { AbstractValueAccessor, MakeProvider } from '../generic-control/abstract-value-accessor';
-import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
+import { GenericInput } from '../generic-control/generic-input';
 
 @Component({
   selector: 'ag-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css'],
-  providers: [MakeProvider(SelectComponent)],
   encapsulation: ViewEncapsulation.None
 })
-export class SelectComponent extends AbstractValueAccessor {
-  @Input() name: string;
-  @Input() disabled: boolean = false;
-  @Input() required: boolean = false;
-
-  @Input() placeholder: string = '';
-  @Input() width: number | string = 'inherit';
-  @Input() height: number | string = 'inherit';
-
-  @Input() showLabel: boolean = true;
-  @Input() floatLabel: boolean = true;
-  @Input() placeLabel: string = 'bottom start';
+export class SelectComponent extends GenericInput {
+  type: string = 'text';
 
   @Input() displayName: string;
   @Input() options: any[] = [];
   @Input() multiple: boolean = false;
 
   @Output() selectionChange: EventEmitter<any>;
-
-  private _helpers: ValueTypeHelpers = new ValueTypeHelpers();
 
   constructor() {
     super();
@@ -50,9 +36,5 @@ export class SelectComponent extends AbstractValueAccessor {
     }
 
     return false;
-  }
-
-  isNumber(value: string | number): boolean {
-    return this._helpers.isNumber(value);
   }
 }

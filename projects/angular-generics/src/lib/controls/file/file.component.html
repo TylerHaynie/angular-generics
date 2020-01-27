@@ -1,0 +1,7 @@
+<ag-input [label]="label" [floatLabel]="floatLabel" [placeLabel]="placeLabel"
+          [disabled]="disabled" [required]="required" [width]="width" [height]="height">
+
+  <input [(ngModel)]="value" [disabled]="disabled" [attr.multiple]="multiple ? '' : null"
+         [attr.required]="required ? '' : null" type="file" [placeholder]="placeholder" />
+
+</ag-input>

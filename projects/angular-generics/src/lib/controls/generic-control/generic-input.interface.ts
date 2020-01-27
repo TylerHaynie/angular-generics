@@ -1,4 +1,4 @@
-export interface IGenericInputControl {
+export interface IGenericInput {
   name: string;
   id: string;
   type: string;

@@ -1,18 +1,13 @@
-<div class="generic-input"
-     [ngClass]="{'label-left': showLabel && !floatLabel, 
-                 'label-top': showLabel && floatLabel}"
-     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 'height': isNumber(height) ? height + 'px' : height ? height : null}">
-
-  <label *ngIf="showLabel" class="label-container" [ngStyle]="{'place-self': labelPlacement}">
-    <ng-content></ng-content><span *ngIf="required && !disabled" [style.color]="'red'"> *</span>
-  </label>
+<ag-input [label]="label" [floatLabel]="floatLabel" [placeLabel]="placeLabel"
+          [disabled]="disabled" [required]="required" [width]="width" [height]="height">
 
   <div class="range-from">
     <label>{{fromLabel}}</label>
     <input [disabled]="disabled" [attr.required]="required ? '' : null"
            [type]="type" [(ngModel)]="fromValue" (change)="rangeChange()" />
     <i class="fas"
-       [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i>
+       [ngClass]="{'fa-hashtag': type=='number',
+                   'fa-calendar-alt': type=='date'}"> </i>
   </div>
 
   <div class="range-to">
@@ -20,6 +15,8 @@
     <input [disabled]="disabled" [attr.required]="required ? '' : null"
            [type]="type" [(ngModel)]="toValue" (change)="rangeChange()" />
     <i class="fas"
-       [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i>
+       [ngClass]="{'fa-hashtag': type=='number',
+                   'fa-calendar-alt': type=='date'}"> </i>
   </div>
-</div>
+
+</ag-input>

@@ -1,9 +1,9 @@
 import { Input } from '@angular/core';
 import { AbstractValueAccessor } from './abstract-value-accessor';
 import { ValueTypeHelpers } from './value-type-helpers';
-import { IGenericInputControl } from './generic-input-control.interface';
+import { IGenericInput } from './generic-input.interface';
 
-export class GenericInputControl extends AbstractValueAccessor implements IGenericInputControl {
+export class GenericInput extends AbstractValueAccessor implements IGenericInput {
   @Input() name: string;
   @Input() id: string;
   @Input() disabled: boolean;

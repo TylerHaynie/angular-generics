@@ -1,6 +1,6 @@
 import {
   Component, Input, OnChanges, SimpleChanges,
-  ViewEncapsulation, Output, EventEmitter
+  ViewEncapsulation, Output, EventEmitter, TemplateRef
 } from "@angular/core";
 import { TableColumn } from "../models/table-column";
 import { TableSort } from '../models/table-sort';
@@ -17,21 +17,20 @@ import { TableDataSource } from './table-data-source';
 })
 export class TableComponent implements OnChanges {
   @Input() dataTable: DataTable;
+  @Input() headerTemplate: TemplateRef<any>;
 
   @Input() showHeader: boolean = true;
-  @Input() title: string;
+  @Input() title: string = 'Table';
 
   @Input() showPager: boolean = true;
   @Input() showFooter: boolean = false;
-  @Input() grouped: boolean = false;
 
   @Input() allowGroup: boolean = true;
-  @Input() allowExport: boolean = true;
+  @Input() grouped: boolean = false;
 
   @Output() sortChange: EventEmitter<TableSort>;
   @Output() pageChange: EventEmitter<TablePage>;
   @Output() groupChange: EventEmitter<TableColumn>;
-  @Output() exported: EventEmitter<DataTable>;
 
   @Input() loading: boolean = false;
   @Input() debug: boolean = true;
@@ -43,7 +42,6 @@ export class TableComponent implements OnChanges {
     this.sortChange = new EventEmitter<TableSort>();
     this.pageChange = new EventEmitter<TablePage>();
     this.groupChange = new EventEmitter<TableColumn>();
-    this.exported = new EventEmitter<DataTable>();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -90,7 +88,6 @@ export class TableComponent implements OnChanges {
       console.log("-- Page Changed --", e);
     }
 
-    // this.dataTable.page = e;
     this.pageChange.emit(this.dataTable.page);
   }
 
@@ -99,12 +96,7 @@ export class TableComponent implements OnChanges {
       console.log("-- Group Changed --", g);
     }
 
-    // this.dataTable.groupBy = g;
     this.groupChange.emit(this.dataTable.groupBy);
-  }
-
-  protected doExport() {
-    this.exported.emit(this.dataTable);
   }
 
   protected calculateTotal(e: TableColumn, key: any = null): number {

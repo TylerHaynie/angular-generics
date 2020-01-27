@@ -33,11 +33,6 @@ table {
   border-top-right-radius: 5px;
 }
 
-.no-header {
-  padding: 0;
-  border: none;
-}
-
 .title {
   display: grid;
   grid-template-columns: auto auto;
@@ -62,7 +57,7 @@ table {
 
 .header-controls {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-auto-columns: auto;
   gap: 10px;
 }
 
@@ -136,5 +131,5 @@ tr.mat-footer-row.ng-star-inserted>td.mat-column-pager {
 }
 
 .mat-expansion-panel-header{
-  
+
 }

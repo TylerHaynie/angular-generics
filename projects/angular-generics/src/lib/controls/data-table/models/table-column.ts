@@ -1,7 +1,6 @@
 export class TableColumn {
   name: string;
   display: string;
-  reference: string;
 
   allowFilter: boolean = true;
   filterValue: any;
@@ -12,4 +11,6 @@ export class TableColumn {
 
   cellValue: (element: any) => any;
   footerValue: (element: any) => any;
+
+  meta: any;
 }

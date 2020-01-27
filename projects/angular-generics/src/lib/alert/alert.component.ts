@@ -4,8 +4,8 @@ import { GenericAlertService } from './alert.service';
 
 @Component({
   selector: 'ag-alert',
-  templateUrl: './generic-alert.component.html',
-  styleUrls: ['./generic-alert.component.css'],
+  templateUrl: './alert.component.html',
+  styleUrls: ['./alert.component.css'],
   providers: [GenericAlertService],
   encapsulation: ViewEncapsulation.None
 })

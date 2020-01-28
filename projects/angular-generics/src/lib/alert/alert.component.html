@@ -1,11 +1,11 @@
 <ag-content class="alerts" [gap]="5">
-  <ag-content class="alert" 
-              [columns]="'1fr auto'" [gap]="10"
+  <ag-content class="alert"
+              [cols]="'1fr auto'" [gap]="10"
               [pad]="3" *ngFor="let item of alerts">
     <ag-content class="alert-message">
       {{item.message}}
     </ag-content>
-    <ag-content [placeContent]="'center'">
+    <ag-content [place]="'center'">
       <i class="fas fa-times-circle pointer"
          (click)="alertClosed(item)"></i>
     </ag-content>

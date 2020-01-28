@@ -1,25 +1,23 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { MakeProvider } from '../generic-control/generic-input-accessor';
 
 @Component({
   selector: 'ag-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css'],
+  providers: [MakeProvider(InputComponent)],
   encapsulation: ViewEncapsulation.None
 })
 export class InputComponent {
-  @Input() disabled: boolean = false;
-  @Input() required: boolean = false;
+  @Input() disabled: boolean;
+  @Input() required: boolean;
 
   @Input() label: string;
-  @Input() floatLabel: boolean = true;
-  @Input() placeLabel: string = 'bottom start';
+  @Input() floatLabel: boolean;
+  @Input() placeLabel: string;
 
-  @Input() width: number | string = 'inherit';
-  @Input() height: number | string = 'inherit';
+  @Input() width: number | string;
+  @Input() height: number | string;
 
   constructor() { }
-
-  hasLabel(): boolean {
-    return this.label && this.label != '';
-  }
 }

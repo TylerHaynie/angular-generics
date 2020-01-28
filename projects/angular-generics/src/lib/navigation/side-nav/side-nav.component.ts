@@ -9,7 +9,7 @@ import { MenuItem } from '../models/menu-item';
   encapsulation: ViewEncapsulation.None
 })
 export class SideNavComponent implements OnInit {
-  @Input() width: string | number = 150;
+  @Input() width: string | number = 200;
   @Input() menuItems: MenuItem[] = [];
   @Input() menuHeader: string = 'Menu';
 

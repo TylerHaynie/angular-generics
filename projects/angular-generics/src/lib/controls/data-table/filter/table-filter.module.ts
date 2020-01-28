@@ -6,6 +6,8 @@ import { GenericInputModule } from '../../input/input.module';
 import { GenericSelectModule } from '../../select/select.module';
 import { GenericButtonModule } from '../../button/button.module';
 import { GenericRangeModule } from '../../range/range.module';
+import { MatExpansionModule } from '@angular/material';
+import { GenericContentModule } from '../../../containers/content/content.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { GenericRangeModule } from '../../range/range.module';
     GenericInputModule,
     GenericSelectModule,
     GenericButtonModule,
-    GenericRangeModule
+    GenericRangeModule,
+    MatExpansionModule,
+    GenericContentModule
   ],
   exports: [
     TableFilterComponent

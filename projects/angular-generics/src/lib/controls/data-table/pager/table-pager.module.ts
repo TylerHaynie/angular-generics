@@ -9,7 +9,7 @@ import { MatPaginatorModule } from '@angular/material';
   ],
   imports: [
     CommonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
   ],
   exports: [
     TablePagerComponent

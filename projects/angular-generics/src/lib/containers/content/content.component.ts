@@ -8,15 +8,15 @@ import { ValueTypeHelpers } from '../../controls/generic-control/value-type-help
   encapsulation: ViewEncapsulation.None
 })
 export class ContentComponent {
-  @Input() height: string | number = 'inherit';
-  @Input() width: string | number = 'inherit';
+  @Input() height: string | number;
+  @Input() width: string | number;
   @Input() gap: string | number;
   @Input() pad: string | number;
-  @Input() place: string = 'start';
+  @Input() place: string;
 
-  @Input() flow: string = 'row';
-  @Input() rows: number | string = 'auto';
-  @Input() cols: number | string = 'auto';
+  @Input() flow: string;
+  @Input() rows: number | string = 1;
+  @Input() cols: number | string = 1;
 
   private typeHelper: ValueTypeHelpers = new ValueTypeHelpers();
 

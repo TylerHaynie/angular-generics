@@ -5,13 +5,13 @@
 
 
 <ag-modal #defaultModal [title]="'Default Modal'">
-  <ag-content [columns]="2" [gap]="5" [pad]="5">
+  <ag-content [cols]="2" [gap]="5" [pad]="5">
     <ng-container *ngTemplateOutlet="defaultContent"></ng-container>
   </ag-content>
 </ag-modal>
 
 <ag-modal #customModal [title]="'Custom Buttons'"  [footer]="buttons">
-  <ag-content [columns]="2" [gap]="5" [pad]="5">
+  <ag-content [cols]="2" [gap]="5" [pad]="5">
     <ng-container *ngTemplateOutlet="defaultContent"></ng-container>
   </ag-content>
 </ag-modal>

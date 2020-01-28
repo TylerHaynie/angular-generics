@@ -1,0 +1,8 @@
+.main-content {
+  overflow: hidden;
+}
+
+.page-content {
+  overflow: auto;
+  height: 100%;
+}

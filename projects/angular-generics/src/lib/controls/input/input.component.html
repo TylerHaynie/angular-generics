@@ -1,10 +1,11 @@
 <div class="generic-input"
-     [ngClass]="{'label-left': hasLabel() && !floatLabel, 
-                 'label-top': hasLabel() && floatLabel}"
-     [ngStyle]="{'width': isNumber(width) ? width + 'px' : width ? width : null, 
-                 'height': isNumber(height) ? height + 'px' : height ? height : null}">
-  <label *ngIf="hasLabel()">
-    {{label}}<span *ngIf="required && !disabled" [style.color]="'red'"> *</span>
+     [ngClass]="{'label-left': !floatLabel, 'label-top': floatLabel}"
+     [ngStyle]="{'width': width ? isNumber(width) ? width + 'px' : width : null,
+                 'height': height ? isNumber(height) ? height + 'px' : height : null}">
+  <label>
+    <span *ngIf="required && !disabled && !floatLabel" [style.color]="'red'"> *</span>
+    {{label}}
+    <span *ngIf="required && !disabled && floatLabel" [style.color]="'red'"> *</span>
   </label>
   <ng-content #genericControl></ng-content>
 </div>

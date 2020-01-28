@@ -1,13 +1,14 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { GenericInput } from '../generic-control/generic-input';
+import { MakeProvider, GenericInputAccessor } from '../generic-control/generic-input-accessor';
 
 @Component({
   selector: 'ag-text',
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.css'],
+  providers: [MakeProvider(TextComponent)],
   encapsulation: ViewEncapsulation.None
 })
-export class TextComponent extends GenericInput {
+export class TextComponent extends GenericInputAccessor {
   @Input() type: string = 'text';
 
   @Input() subtype: string;

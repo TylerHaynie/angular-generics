@@ -39,7 +39,7 @@ import { GenericContentModule } from 'angular-generics';
 ```html
   <ag-content [height]="200" [width]="'100%'" [rows]="1" [cols]="4"
               [gap]="5" [pad]="5" [place]="'start'" [flow]="row">
-              
+
               <!-- content -->
 
   </ag-content>
@@ -47,10 +47,10 @@ import { GenericContentModule } from 'angular-generics';
 
 ##### another-content-example.html
 ```html
-  <ag-content [height]="'1.8em'" [width]="25" [rows]="'1fr'" 
+  <ag-content [height]="'1.8em'" [width]="25" [rows]="'1fr'"
               [cols]="'1fr 1fr'" [gap]="'5px 10px'" [flow]="col"
               [pad]="'5px 5px 1px 5px'" [place]="'center center'">
-              
+
               <!-- content -->
 
   </ag-content>
@@ -58,14 +58,14 @@ import { GenericContentModule } from 'angular-generics';
 
 
 ## Alert
- 
+
 | Selector | Input  | Output  | Service             |
 |:---------|:------:|:-------:|:--------------------|
 | ag-alert | -      | -       | GenericAlertService |
 
 ##### app.module.ts
 ```typescript
-import { GenericAlertModule, 
+import { GenericAlertModule,
          GenericAlertService } from 'angular-generics';
 
 @NgModule({
@@ -102,7 +102,7 @@ export class AlertExampleComponent {
 
     this.alertService.addAlert(alert);
   }
-}  
+}
 ```
 
 ##### GenericAlert
@@ -115,7 +115,7 @@ export class GenericAlert {
 
 
 ## Modal
- 
+
 | Selector |
 |:---------|
 | ag-modal |
@@ -163,11 +163,11 @@ export class ModalExampleComponent {
 
   constructor() { }
 
-}  
+}
 ```
 
 ## Button
- 
+
 | Selector               |
 |:-----------------------|
 | ag-button              |
@@ -213,5 +213,33 @@ export class ButtonExampleComponent {
   buttonClicked(){
     // example button clicked
   }
-}  
+}
+```
+
+## Check
+| Selector    | Output     |
+|:-----------:|:----------:|
+| ag-         | -          |
+
+| Input   | Type             | Default Value |
+|:--------|:-----------------|:-------------:|
+|         |                  |               |
+
+
+##### app.module.ts
+```typescript
+import { Generic___Module } from 'angular-generics';
+
+@NgModule({
+  imports: [
+    Generic___Module
+  ]
+})
+```
+
+##### example.html
+```html
+  <ag-___>
+
+  </ag-___>
 ```

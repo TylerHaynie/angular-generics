@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input, ViewEncapsulation } from '@angular/core';
-import { AbstractValueAccessor, MakeProvider } from '../generic-control/abstract-value-accessor';
+import { GenericInputAccessor, MakeProvider } from '../generic-control/generic-input-accessor';
 import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
 
 @Component({
@@ -9,7 +9,7 @@ import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
   providers: [MakeProvider(ButtonComponent)],
   encapsulation: ViewEncapsulation.None
 })
-export class ButtonComponent extends AbstractValueAccessor {
+export class ButtonComponent extends GenericInputAccessor {
   @Input() width: number | string = 'inherit';
   @Input() height: number | string = 'inherit';
   @Input() fontSize: number | string = 'inherit';

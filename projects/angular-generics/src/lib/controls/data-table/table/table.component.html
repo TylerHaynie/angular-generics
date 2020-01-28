@@ -50,9 +50,9 @@
     <div class="header-controls">
       <div class="group-by" *ngIf="allowGroup">
         <div *ngIf="grouped" class="drop-down">
-          <ag-select [options]="activeColumns" [(ngModel)]="dataTable.groupBy"
-                     [displayName]="'display'" [placeholder]="'select...'" [disabled]="!(dataTable || dataSource.data)"
-                     [labelPosition]="'above'" (selectionChange)="groupChanged($event)">Group By</ag-select>
+          <!-- <ag-select [options]="activeColumns" [(ngModel)]="dataTable.groupBy"
+                     [display]="'display'" [placeholder]="'select...'" [disabled]="!(dataTable || dataSource.data)"
+                     [labelPosition]="'above'" (selectionChange)="groupChanged($event)">Group By</ag-select> -->
         </div>
       </div>
     </div>
@@ -77,7 +77,7 @@
 
     <ng-container matColumnDef="pager">
       <td mat-footer-cell *matFooterCellDef [attr.colspan]="activeColumns.length">
-        <app-table-pager [(page)]="dataTable.page" (pageChange)="pageChanged($event)"></app-table-pager>
+        <ag-table-pager [(page)]="dataTable.page" (pageChange)="pageChanged($event)"></ag-table-pager>
       </td>
     </ng-container>
 

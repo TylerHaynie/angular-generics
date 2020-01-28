@@ -10,7 +10,7 @@
             [attr.required]="required ? '' : null">
       <option *ngIf="!required" [ngValue]="null"></option>
       <option *ngFor="let item of options" [ngValue]="item">
-        {{item[displayName]}}</option>
+        {{item[display]}}</option>
     </select>
   </ng-container>
 
@@ -18,7 +18,7 @@
   <ng-container *ngIf="disabled">
     <input disabled type="text"
            [attr.required]="required ? '' : null"
-           [value]="displayName && value ? value[displayName] : null">
+           [value]="display && value ? value[display] : null">
   </ng-container>
 
 </ag-input>

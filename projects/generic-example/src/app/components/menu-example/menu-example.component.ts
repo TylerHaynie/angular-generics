@@ -20,6 +20,11 @@ export class MenuExampleComponent implements OnInit {
           route: 'examples/input'
         }),
         new MenuItem({
+          name: 'table',
+          display: 'Table',
+          route: 'examples/table'
+        }),
+        new MenuItem({
           name: 'modal',
           display: 'Modal Dialog',
           route: 'examples/modal'

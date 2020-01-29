@@ -65,7 +65,7 @@ export * from './lib/controls/data-table/pager/table-pager.module';
 
 // DataTable Models
 export * from './lib/controls/data-table/models/column-filter';
-export * from './lib/controls/data-table/models/data-table';
+export * from './lib/controls/data-table/models/table-config';
 export * from './lib/controls/data-table/models/table-column';
 export * from './lib/controls/data-table/models/table-page';
 export * from './lib/controls/data-table/models/table-sort';

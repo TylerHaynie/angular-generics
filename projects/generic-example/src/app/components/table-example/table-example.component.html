@@ -1,10 +1,8 @@
-<!-- <div class="table-wrapper">
-  <div class="page-header">
-      <h3>Table Example</h3>
-  </div>
+<div class="table-wrapper">
+  <!-- <app-table-filter [cols]="tableHeaders" (search)="search($event)"></app-table-filter> -->
 
-  <app-table-filter [cols]="tableHeaders" (search)="search($event)"></app-table-filter>
+  <!-- <ag-table #exampleTable [title]="'Example Table'"> </ag-table> -->
 
-  <app-table id="dataTable" name="dataTable" #dataTable [data]="tableData"
-             [cols]="tableHeaders" [title]="tableTitle"></app-table>
-</div> -->
+  <ag-table #dataTable [columns]="tableColumns" (search)="updateTable($event)"
+            [title]="'Example Table'" (export)="export()"></ag-table>
+</div>

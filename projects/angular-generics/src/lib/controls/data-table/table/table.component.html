@@ -1,30 +1,56 @@
 <div class="component-wrapper">
 
-  <ng-container *ngIf="showHeader">
-    <div class="table-header">
-      <ng-container *ngTemplateOutlet="headerTemplate ? headerTemplate : defaultHeader"></ng-container>
+  <div [ngClass]="{'no-header': !showHeader}" class="table-header">
+    <div *ngIf="showHeader" class="title">
+      {{ title }}
+      <div class="loader">
+        <mat-spinner *ngIf="isLoading"
+                     [diameter]="20">
+        </mat-spinner>
+      </div>
     </div>
-  </ng-container>
+    <div *ngIf="showHeader" class="header-controls">
+      <div class="group-by">
+
+        <div *ngIf="allowGroup" class="drop-down">
+          <div>Group By</div>
+          <select [(ngModel)]="tableConfig.groupBy" (change)="doSearch()">
+            <option [ngValue]="{name: '', value: null}"> </option>
+            <option *ngFor="let col of columns" [ngValue]="{name: col.display, value: col.name}">
+              {{col.display}}
+            </option>
+          </select>
+        </div>
+
+      </div>
+      <div class="export-container">
+        <button *ngIf="allowExport" mat-raised-button color="accent" (click)="doExport()"
+                [disabled]="!(dataLength > 0)">
+          Export
+        </button>
+      </div>
+    </div>
+  </div>
 
   <div class="table-wrapper">
 
     <!-- Ungrouped -->
-    <ng-container *ngIf="!grouped">
+    <ng-container *ngIf="!isGrouped">
       <ng-container *ngTemplateOutlet="tableTemplate;context:{$implicit: dataSource.data}"></ng-container>
     </ng-container>
 
     <!-- Grouped -->
-    <ng-container *ngIf="grouped">
+    <ng-container *ngIf="isGrouped">
       <mat-accordion>
         <ng-container *ngFor="let tableData of dataSource.data | async | keyvalue">
 
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{dataTable.groupBy.name}} : &nbsp; <b>{{tableData.key}}</b>
+                {{tableConfig.groupBy.name}} : &nbsp; <b>{{tableData.key}}</b>
               </mat-panel-title>
               <mat-panel-description>
-                Records: &nbsp; {{tableData.page.recordCount}}
+                Records: &nbsp; {{tableData.value.length}}
               </mat-panel-description>
             </mat-expansion-panel-header>
 
@@ -38,26 +64,6 @@
 
   </div>
 </div>
-
-<ng-template *ngTemplateOutlet="defaultHeader">
-  <ng-container *ngIf="showHeader">
-    <div class="title">
-      {{ title }}
-      <div class="loader">
-        <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
-      </div>
-    </div>
-    <div class="header-controls">
-      <div class="group-by" *ngIf="allowGroup">
-        <div *ngIf="grouped" class="drop-down">
-          <!-- <ag-select [options]="activeColumns" [(ngModel)]="dataTable.groupBy"
-                     [display]="'display'" [placeholder]="'select...'" [disabled]="!(dataTable || dataSource.data)"
-                     [labelPosition]="'above'" (selectionChange)="groupChanged($event)">Group By</ag-select> -->
-        </div>
-      </div>
-    </div>
-  </ng-container>
-</ng-template>
 
 <ng-template #tableTemplate let-tdata let-tkey="key">
   <table mat-table [dataSource]="tdata">
@@ -76,8 +82,9 @@
     </ng-container>
 
     <ng-container matColumnDef="pager">
-      <td mat-footer-cell *matFooterCellDef [attr.colspan]="activeColumns.length">
-        <ag-table-pager [(page)]="dataTable.page" (pageChange)="pageChanged($event)"></ag-table-pager>
+      <td mat-footer-cell *matFooterCellDef [attr.colspan]="getColCount()">
+        <ag-table-pager [page]="tableConfig.page"
+                        (pageChanged)="pageChanged($event)"></ag-table-pager>
       </td>
     </ng-container>
 

@@ -13,4 +13,8 @@ export class TableColumn {
   footerValue: (element: any) => any;
 
   meta: any;
+
+  constructor(column: Partial<TableColumn>) {
+    Object.assign(this, column);
+  }
 }

@@ -3,11 +3,11 @@ import { TableColumn } from './table-column';
 import { TableSort } from './table-sort';
 import { ColumnFilter } from './column-filter';
 
-export class DataTable {
+export class TableConfig {
   data: any;
   columns: TableColumn[] = [];
   filters: ColumnFilter[] = [];
   page: TablePage = new TablePage();
   sortBy: TableSort;
-  groupBy: TableColumn;
+  groupBy: ColumnFilter;
 }

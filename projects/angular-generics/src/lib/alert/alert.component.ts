@@ -10,7 +10,7 @@ import { GenericAlertService } from './alert.service';
   encapsulation: ViewEncapsulation.None
 })
 export class GenericAlertComponent {
-  protected alerts: GenericAlert[] = [];
+  alerts: GenericAlert[] = [];
 
   constructor(alertService: GenericAlertService) {
 

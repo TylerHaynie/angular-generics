@@ -1,5 +1,6 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { MakeProvider } from '../generic-control/generic-input-accessor';
+import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
 
 @Component({
   selector: 'ag-input',
@@ -18,6 +19,8 @@ export class InputComponent {
 
   @Input() width: number | string;
   @Input() height: number | string;
+
+  typeHelpers: ValueTypeHelpers = new ValueTypeHelpers();
 
   constructor() { }
 }

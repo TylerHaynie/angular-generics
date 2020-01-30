@@ -13,9 +13,9 @@ export class GenericModalComponent {
 
   @Output() closed: EventEmitter<null>;
 
-  protected showModal: boolean = false;
+  showModal: boolean = false;
 
-  constructor() { 
+  constructor() {
     this.closed = new EventEmitter<null>();
   }
 

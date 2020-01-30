@@ -23,8 +23,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4700 ",
-    "publish": "npm publish .\\dist\\angular-generics\\angular-generics-0.2.tgz",
-    "package": "npm run-script build && npm run-script copy-files && npm run-script pack",
+    "publish": "npm publish .\\dist\\angular-generics\\angular-generics-0.3.0.tgz",
+    "package": "npm run-script build && npm run-script pack",
     "build": "ng build angular-generics",
     "test": "ng test",
     "lint": "ng lint",

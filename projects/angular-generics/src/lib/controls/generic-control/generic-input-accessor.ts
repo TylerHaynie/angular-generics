@@ -28,7 +28,6 @@ export abstract class GenericInputAccessor implements ControlValueAccessor {
     }
   }
 
-
   writeValue(value: any) {
     this._value = value;
     this.onChange(value);

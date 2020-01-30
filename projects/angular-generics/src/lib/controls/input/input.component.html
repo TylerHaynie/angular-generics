@@ -1,7 +1,7 @@
 <div class="generic-input"
      [ngClass]="{'label-left': !floatLabel, 'label-top': floatLabel}"
-     [ngStyle]="{'width': width ? isNumber(width) ? width + 'px' : width : null,
-                 'height': height ? isNumber(height) ? height + 'px' : height : null}">
+     [ngStyle]="{'width': width ? typeHelpers.isNumber(width) ? width + 'px' : width : null,
+                 'height': height ? typeHelpers.isNumber(height) ? height + 'px' : height : null}">
   <label>
     <span *ngIf="required && !disabled && !floatLabel" [style.color]="'red'"> *</span>
     {{label}}

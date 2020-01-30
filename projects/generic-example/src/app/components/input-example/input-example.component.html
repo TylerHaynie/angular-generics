@@ -1,22 +1,20 @@
 <ag-content [cols]="1" [pad]="5" [gap]="25">
   <ag-content [cols]="3" [gap]="5">
-    <ag-text [label]="'Textbox'" [floatLabel]="true" [type]="'text'" [(ngModel)]="textValue" [required]="true"></ag-text>
+    <ag-text [label]="'Textbox'" [type]="'text'" [(ngModel)]="textValue" [required]="true"></ag-text>
     <ag-text [label]="'Number'" [type]="'number'" [(ngModel)]="numberValue" [required]="true"></ag-text>
     <ag-text [label]="'Date'" [type]="'date'" [(ngModel)]="dateValue"></ag-text>
   </ag-content>
 
   <ag-content [cols]="3" [gap]="5">
     <ag-check [label]="'Slider Check'" [type]="'slide'" [(ngModel)]="checkValue1" [disabled]="checkValue1"></ag-check>
-
     <ag-check [label]="'Slider Check'" [type]="'slide'" [(ngModel)]="checkValue2"></ag-check>
-
     <ag-check [label]="'Slider Check'" [type]="'slide'" [(ngModel)]="checkValue3"></ag-check>
   </ag-content>
 
   <ag-content [cols]="3">
-    <ag-check [label]="'Check'" [type]="'check'" (click)="checkValue1 = !checkValue1"></ag-check>
-    <ag-check [label]="'Check'" [type]="'check'" [(ngModel)]="checkValue2"></ag-check>
-    <ag-check [label]="'Check'" [type]="'check'" [(ngModel)]="checkValue3"></ag-check>
+    <ag-check [label]="'Check'" (click)="checkValue1 = !checkValue1"></ag-check>
+    <ag-check [label]="'Check'" [(ngModel)]="checkValue2"></ag-check>
+    <ag-check [label]="'Check'" [(ngModel)]="checkValue3"></ag-check>
   </ag-content>
 
   <ag-content [gap]="5">

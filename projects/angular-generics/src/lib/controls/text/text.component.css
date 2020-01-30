@@ -5,14 +5,11 @@
   --inputBackground: white;
   --inputPadding: 5px 5px 2px 5px;
   --inputLabelColor: rgb(7, 7, 7);
-
   --labelInputGap: 5px;
-
   --minLabelWidth: 10px;
   --maxLabelWidth: 2fr;
   --minInputWidth: 10px;
   --maxInputWidth: 4fr;
-
   --disabledBackground: rgb(221, 232, 239);
   --disabledBorder: rgb(99, 127, 151);
 }
@@ -22,16 +19,14 @@
   display: grid;
 }
 
-.generic-input input,
-.generic-input textarea {
+.generic-input input, .generic-input textarea {
   padding: var(--inputPadding);
   border: var(--inputOutline);
   background: var(--inputBackground);
   box-shadow: var(--inputShadow);
 }
 
-.generic-input input:disabled,
-.generic-input textarea:disabled {
+.generic-input input:disabled, .generic-input textarea:disabled {
   background-color: var(--disabledBackground);
   border-color: var(--disabledBorder);
 }

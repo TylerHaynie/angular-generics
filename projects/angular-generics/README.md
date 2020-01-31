@@ -216,30 +216,4 @@ export class ButtonExampleComponent {
 }
 ```
 
-## Check
-| Selector    | Output     |
-|:-----------:|:----------:|
-| ag-         | -          |
-
-| Input   | Type             | Default Value |
-|:--------|:-----------------|:-------------:|
-|         |                  |               |
-
-
-##### app.module.ts
-```typescript
-import { Generic___Module } from 'angular-generics';
-
-@NgModule({
-  imports: [
-    Generic___Module
-  ]
-})
-```
-
-##### example.html
-```html
-  <ag-___>
-
-  </ag-___>
-```
+more documentation soon

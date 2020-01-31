@@ -1,6 +1,5 @@
 import { Component, Input, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { TableColumn } from '../models/table-column';
-import { TableConfig } from 'dist/angular-generics/public-api';
 
 @Component({
   selector: 'ag-table-filter',

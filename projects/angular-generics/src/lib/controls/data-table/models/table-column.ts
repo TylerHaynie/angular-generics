@@ -1,14 +1,11 @@
 export class TableColumn {
   name: string;
-  display: string;
-
-  allowFilter: boolean = true;
-  filterValue: any;
-
   visible: boolean = true;
-  allowSort: boolean = true;
   calculate: boolean = false;
+  alignHeader: 'left' | 'center' | 'right' = 'left';
+  alignColumn: 'left' | 'center' | 'right' = 'left';
 
+  headerValue: (element: any) => any;
   cellValue: (element: any) => any;
   footerValue: (element: any) => any;
 

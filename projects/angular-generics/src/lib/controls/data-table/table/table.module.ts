@@ -6,6 +6,7 @@ import { GenericSelectModule } from '../../select/select.module';
 import { GenericPagerModule } from '../pager/table-pager.module';
 import { MatExpansionModule, MatProgressSpinnerModule, MatTableModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { GenericContentModule } from '../../../containers/content/content.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     GenericSelectModule,
     GenericPagerModule,
     GenericPagerModule,
+    GenericContentModule
   ],
   exports: [
     TableComponent

@@ -1,8 +1,35 @@
-<div class="table-wrapper">
-  <!-- <app-table-filter [cols]="tableHeaders" (search)="search($event)"></app-table-filter> -->
+<!-- <div [ngClass]="{'no-header': !showHeader}" class="table-header">
+    <div *ngIf="showHeader" class="title">
+      {{ title }}
+      <div class="loader">
+        <mat-spinner *ngIf="isLoading"
+                     [diameter]="20">
+        </mat-spinner>
+      </div>
+    </div>
+    <div *ngIf="showHeader" class="header-controls">
+      <div class="group-by">
 
-  <!-- <ag-table #exampleTable [title]="'Example Table'"> </ag-table> -->
+        <div *ngIf="allowGroup" class="drop-down">
+          <div>Group By</div>
+          <select [(ngModel)]="tableConfig.groupBy" (change)="doSearch()">
+            <option [ngValue]="{name: '', value: null}"> </option>
+            <option *ngFor="let col of columns" [ngValue]="{name: col.display, value: col.name}">
+              {{col.display}}
+            </option>
+          </select>
+        </div>
 
-  <ag-table #dataTable [columns]="tableColumns" (search)="updateTable($event)"
-            [title]="'Example Table'" (export)="export()"></ag-table>
-</div>
+      </div>
+      <div class="export-container">
+        <button *ngIf="allowExport" mat-raised-button color="accent" (click)="doExport()"
+                [disabled]="!(dataLength > 0)">
+          Export
+        </button>
+      </div>
+    </div>
+  </div> -->
+
+<ag-content>
+  <ag-table #dataTable [(config)]="tableConfig" (search)="updateTable($event)"></ag-table>
+</ag-content>

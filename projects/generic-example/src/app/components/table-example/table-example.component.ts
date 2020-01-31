@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
-import { TableComponent, TableColumn, TableConfig } from 'angular-generics';
+import { TableComponent, TableColumn, TableConfig, ColumnFilter } from 'angular-generics';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -10,12 +10,14 @@ export class TableExampleComponent implements OnInit {
   @ViewChild('dataTable', { static: false }) exampleTable: TableComponent;
 
   tableSource: string = `https://jsonplaceholder.typicode.com/todos`;
-  tableColumns: TableColumn[] = [];
+  tableConfig: TableConfig = new TableConfig();
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.tableColumns = this.setTableColumns();
+    this.tableConfig.columns = this.setTableColumns();
+    // this.tableConfig.groupBy = this.tableConfig.columns[0];
+
     this.updateTable(null);
   }
 
@@ -23,7 +25,13 @@ export class TableExampleComponent implements OnInit {
     this.http.get(this.tableSource)
       .toPromise()
       .then((d: any[]) => {
-        this.exampleTable.update(d);
+        if (this.tableConfig.groupBy) {
+          var gd = this.groupDataResult(d, this.tableConfig.groupBy.name);
+          this.exampleTable.update(gd);
+        }
+        else {
+          this.exampleTable.update(d);
+        }
       });
   }
 
@@ -31,34 +39,30 @@ export class TableExampleComponent implements OnInit {
     return [
       new TableColumn({
         name: "userId",
-        display: "User ID",
-        allowFilter: false,
-        calculate: false,
+        calculate: true,
         visible: true,
+        headerValue: (element: any) => 'User ID',
         cellValue: (element: any) => this.getValue(element.userId)
       }),
       new TableColumn({
         name: "id",
-        display: "ID",
-        allowFilter: false,
         calculate: false,
         visible: true,
+        headerValue: (element: any) => 'ID',
         cellValue: (element: any) => this.getValue(element.id)
       }),
       new TableColumn({
         name: "title",
-        display: "Title",
-        allowFilter: false,
         calculate: false,
         visible: true,
+        headerValue: (element: any) => 'Title',
         cellValue: (element: any) => this.getValue(element.title)
       }),
       new TableColumn({
         name: "completed",
-        display: "Complete",
-        allowFilter: false,
         calculate: false,
         visible: true,
+        headerValue: (element: any) => 'Complete',
         cellValue: (element: any) => this.getValue(element.completed)
       }),
     ];
@@ -71,4 +75,21 @@ export class TableExampleComponent implements OnInit {
     return `${elemValue}`;
   }
 
+  private groupDataResult(data: any[], colName: string) {
+    var grouped: { [key: string]: any[]; } = {};
+
+    data.forEach(d => {
+      var key: string = d[colName].toString();
+
+      if (!(grouped[key])) {
+        grouped[key] = [];
+      }
+
+      grouped[key].push(d);
+    });
+
+    console.log('Grouped Data', grouped);
+
+    return grouped;
+  }
 }

@@ -4,10 +4,9 @@ import { TableSort } from './table-sort';
 import { ColumnFilter } from './column-filter';
 
 export class TableConfig {
-  data: any;
   columns: TableColumn[] = [];
   filters: ColumnFilter[] = [];
   page: TablePage = new TablePage();
   sortBy: TableSort;
-  groupBy: ColumnFilter;
+  groupBy: TableColumn;
 }

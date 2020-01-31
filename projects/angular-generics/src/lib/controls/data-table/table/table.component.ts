@@ -8,30 +8,28 @@ import { map, reduce } from 'rxjs/operators';
 import { TableColumn } from '../models/table-column';
 import { TableConfig } from '../models/table-config';
 import { SORT_DIRECTION } from '../models/table-sort';
+import { TablePage } from '../models/table-page';
 
 @Component({
   selector: "ag-table",
   templateUrl: "./table.component.html",
   styleUrls: ["./table-component.scss"],
 })
-export class TableComponent implements OnChanges, OnInit {
-  @Input() title: string;
-  @Input() columns: TableColumn[] = [];
-  @Input() allowExport: boolean = true;
-  @Input() allowGroup: boolean = true;
-  @Input() showHeader: boolean = true;
+export class TableComponent implements OnChanges {
+  // @Input() columns: TableColumn[] = [];
   @Input() showPager: boolean = true;
-  @Input() isDebug: boolean = true;
 
-  @Output() export: EventEmitter<null>;
+  @Input() config: TableConfig = new TableConfig();
+  @Output() configChange: EventEmitter<TableConfig>;
   @Output() search: EventEmitter<TableConfig>;
 
+  @Input() isDebug: boolean = true;
+
   public activeColumns: string[] = [];
-  public dataSource: TableDataSource = new TableDataSource();
-  public isLoading: boolean = false;
   public isGrouped: boolean = false;
   public showFooter: boolean = false;
-  public tableConfig: TableConfig = new TableConfig();
+
+  public dataSource: TableDataSource = new TableDataSource();
 
   private _dataLength: number = 0;
   public get dataLength(): number { return this._dataLength; }
@@ -40,12 +38,8 @@ export class TableComponent implements OnChanges, OnInit {
   private decimalpipe = new DecimalPipe('en-us');
 
   constructor() {
-    this.export = new EventEmitter<null>();
     this.search = new EventEmitter<null>();
-  }
-
-  ngOnInit() {
-
+    this.configChange = new EventEmitter<TableConfig>();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -60,7 +54,7 @@ export class TableComponent implements OnChanges, OnInit {
     this.activeColumns = [];
     this.showFooter = false;
 
-    this.columns.forEach(col => {
+    this.config.columns.forEach(col => {
       if (col.visible) {
         this.activeColumns.push(col.name)
 
@@ -72,32 +66,21 @@ export class TableComponent implements OnChanges, OnInit {
   }
 
   doSearch() {
-    this.isLoading = true;
-    this.isGrouped ? this.dataSource.update(null) : this.dataSource.update(null);
-    this.isGrouped = this.tableConfig.groupBy != null && this.tableConfig.groupBy.value != null;
-
-    this.search.emit(this.tableConfig);
+    this.dataSource.update(null);
+    this.isGrouped = this.config.groupBy != null;
+    this.search.emit(this.config);
   }
 
-  update(data: any[]) {
+  update(data: any) {
     if (this.isDebug) {
       console.log("-- Table Update --", data);
     }
 
-    this.isLoading = false;
-    this._dataLength = data.length;
-    // this.tableConfig.data = data;
+    this.data = data;
+    this.config.page.recordCount = data.length;
 
     this.updateColumns();
     this.dataSource.update(data);
-  }
-
-  doExport() {
-    if (this.isDebug) {
-      console.log("-- EXPORTING --");
-    }
-
-    this.export.emit();
   }
 
   doSort(sortEvent: { active: string; direction: SORT_DIRECTION }) {
@@ -108,47 +91,45 @@ export class TableComponent implements OnChanges, OnInit {
     }
 
     if (sortEvent.direction && sortEvent.active) {
-      this.tableConfig.sortBy.direction = sortEvent.direction;
-      this.tableConfig.sortBy.columnName = sortEvent.active;
+      this.config.sortBy.direction = sortEvent.direction;
+      this.config.sortBy.columnName = sortEvent.active;
     }
     else {
-      this.tableConfig.sortBy = null;
+      this.config.sortBy = null;
     }
 
     this.doSearch();
   }
 
-  pageChanged(e: { pageNumber: number; takeAmount: number }) {
+  pageChange(e: TablePage) {
     if (this.isDebug) {
       console.log("-- Page Changed --", e);
-      console.log(`Page: ${e.pageNumber}`);
-      console.log(`Take: ${e.takeAmount}`);
+      console.log(`Page: ${e.page}`);
+      console.log(`Take: ${e.take}`);
     }
 
-    this.tableConfig.page.page = e.pageNumber;
-    this.tableConfig.page.take = e.takeAmount;
+    this.config.page.page = e.page;
+    this.config.page.take = e.take;
 
-    if (this._dataLength > 0) {
+    if (this.config.page.recordCount > 0) {
       this.doSearch();
     }
   }
 
-  calculateTotal(e: TableColumn, key: any = null) {
-    let colName: string = e.name;
-    let casedName = colName.charAt(0).toLowerCase() + colName.substring(1);
+  calculateTotal(col: TableColumn, key: any = null) {
     let result = 0;
 
     if (this.isGrouped) {
       if (this.data && key) {
         result = this.data[key]
-          .map((t: any[]) => t[casedName])
+          .map((t: any) => t[col.name])
           .reduce((acc, value) => acc + value, 0);
       }
     }
     else {
-      if ((this.data) && (this.data.length > 0)) {
+      if (this.data) {
         result = this.data
-          .map((t: any[]) => t[casedName])
+          .map((t: any) => t[col.name])
           .reduce((acc, value) => acc + value, 0);
       }
     }

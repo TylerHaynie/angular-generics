@@ -1,5 +1,6 @@
 import { Component, Input, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { TableColumn } from '../models/table-column';
+import { TableConfig } from 'dist/angular-generics/public-api';
 
 @Component({
   selector: 'ag-table-filter',
@@ -12,24 +13,30 @@ export class TableFilterComponent {
   @Input() columns: TableColumn[] = [];
   @Output() filter: EventEmitter<TableColumn[]>;
 
+  // tableConfig: TableConfig;
+
   constructor() {
     this.filter = new EventEmitter<TableColumn[]>();
   }
 
   applyFilter() {
-    this.columns.forEach(col => {
-      if (!col.allowFilter || col.filterValue == '' || col.filterValue == null) {
-        col.filterValue = null;
-      }
-    });
+    // this.tableConfig.filters.forEach(filter => {
 
-    this.filter.emit(this.columns);
+    // });
+
+    // this.columns.forEach(col => {
+    //   if (col.filterValue == '' || col.filterValue == null) {
+    //     col.filterValue = null;
+    //   }
+    // });
+
+    // this.filter.emit(this.columns);
   }
 
   resetFilter() {
-    this.columns.forEach(column => {
-      column.filterValue = null;
-    });
+    // this.columns.forEach(column => {
+    //   column.filterValue = null;
+    // });
   }
 
 }

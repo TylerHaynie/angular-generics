@@ -20,16 +20,16 @@ export abstract class GenericInputAccessor implements ControlValueAccessor {
   private typeHelpers: ValueTypeHelpers = new ValueTypeHelpers();
 
   _value: any = '';
-  get value(): any { return this._value; }
+  get value(): any { return this._value ? this._value : ''; }
   set value(v: any) {
     if (v !== this._value) {
-      this._value = v;
+      this._value = v ? v : '';
       this.onChange(v);
     }
   }
 
   writeValue(value: any) {
-    this._value = value;
+    this._value = value ? value : '';
     this.onChange(value);
   }
 

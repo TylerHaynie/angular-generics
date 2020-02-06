@@ -18,7 +18,6 @@ import { AlertExampleComponent } from './components/alert-example/alert-example.
 import { ModalExampleComponent } from './components/modal-example/modal-example.component';
 import { TableExampleComponent } from './components/table-example/table-example.component';
 import { InputExampleComponent } from './components/input-example/input-example.component';
-import { MenuExampleComponent } from './components/menu-example/menu-example.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { MenuExampleComponent } from './components/menu-example/menu-example.com
     ModalExampleComponent,
     TableExampleComponent,
     InputExampleComponent,
-    MenuExampleComponent,
     AlertExampleComponent
   ],
   imports: [

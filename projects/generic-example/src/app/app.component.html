@@ -1,3 +1,11 @@
-<app-menu-example>
-  <router-outlet></router-outlet>
-</app-menu-example>
+<ag-content [cols]="'auto 1fr'" [height]="'100%'">
+  <ag-side-nav [menuItems]="menuItems"></ag-side-nav>
+  <ag-content class="main-content" [rows]="'auto 1fr'" [height]="'100%'">
+    <ag-top-nav [logoUrl]="'assets/images/random-logo.png'"
+                [avatarUrl]="'assets/images/avatar.svg'"
+                [notifyCount]="2"></ag-top-nav>
+    <ag-content class="page-content" [rows]="'auto 1fr'">
+      <router-outlet></router-outlet>
+    </ag-content>
+  </ag-content>
+</ag-content>

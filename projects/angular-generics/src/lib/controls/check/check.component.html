@@ -1,13 +1,19 @@
 <ag-input [label]="label" [floatLabel]="floatLabel" [placeLabel]="placeLabel"
-          [disabled]="disabled" [required]="required" [width]="width" [height]="height">
+          [required]="required" [width]="width" [height]="height" [disabled]="disabled">
 
   <ng-container *ngIf="type==null || type==''">
-    <input [disabled]="disabled" [attr.required]="required ? '' : null" type="checkbox" [(ngModel)]="value" />
+    <label class="check-container" [ngClass]="{'disabled': disabled}">
+      <span class="label-text">One</span>
+      <input [(ngModel)]="value" [disabled]="disabled" type="checkbox"
+             [attr.required]="required ? '' : null">
+      <span class="checkmark" [ngClass]="{'disabled': disabled, 'enabled':!disabled}"></span>
+    </label>
   </ng-container>
 
   <ng-container *ngIf="type=='slide'">
     <div class="checkbox-slider" [ngClass]="{'disabled': disabled}">
-      <input [disabled]="disabled" [attr.required]="required ? '' : null" type="checkbox" [(ngModel)]="value" />
+      <input [disabled]="disabled" [attr.required]="required ? '' : null"
+             type="checkbox" [(ngModel)]="value" />
       <label [ngClass]="{'disabled': disabled}" (click)="disabled ? null : value = !value"></label>
     </div>
   </ng-container>

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RangeComponent } from './range.component';
 import { GenericInputModule } from '../input/input.module';
+import { GenericContentModule } from '../../containers/content/content.module';
+import { GenericTextModule } from '../text/text.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { GenericInputModule } from '../input/input.module';
   imports: [
     CommonModule,
     FormsModule,
-    GenericInputModule
+    GenericInputModule,
+    GenericContentModule,
+    GenericTextModule
   ],
   exports: [
     RangeComponent

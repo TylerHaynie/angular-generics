@@ -1,22 +1,28 @@
 <ag-input [label]="label" [floatLabel]="floatLabel" [placeLabel]="placeLabel"
-          [disabled]="disabled" [required]="required" [width]="width" [height]="height">
+          [required]="required" [width]="width" [height]="height">
+  <ag-content [gap]="10" [cols]="'1fr 1fr'">
 
-  <div class="range-from">
-    <label>{{fromLabel}}</label>
-    <input [disabled]="disabled" [attr.required]="required ? '' : null"
-           [type]="type" [(ngModel)]="fromValue" (change)="rangeChange()" />
-    <i class="fas"
-       [ngClass]="{'fa-hashtag': type=='number',
-                   'fa-calendar-alt': type=='date'}"> </i>
-  </div>
+    <ag-content [cols]="'1fr auto'">
+      <ag-text [(ngModel)]="startValue" [type]="type"
+               [required]="required" [disabled]="disabled" (change)="rangeChange()"></ag-text>
+      <ag-content [rows]="2" [height]="'100%'" [forceLeft]="23" [forceUp]="15"[width]="0">
+        <i class="fas"
+           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"
+           [ngStyle]="{'place-self': 'center', 'grid-row': 2}"> </i>
+      </ag-content>
+    </ag-content>
 
-  <div class="range-to">
-    <label>{{toLabel}}</label>
-    <input [disabled]="disabled" [attr.required]="required ? '' : null"
-           [type]="type" [(ngModel)]="toValue" (change)="rangeChange()" />
-    <i class="fas"
-       [ngClass]="{'fa-hashtag': type=='number',
-                   'fa-calendar-alt': type=='date'}"> </i>
-  </div>
+    <ag-content [cols]="'1fr auto'">
+      <ag-text [(ngModel)]="endValue" [type]="type"
+               [required]="required" [disabled]="disabled" (change)="rangeChange()"></ag-text>
+      <ag-content [rows]="2" [height]="'100%'" [forceLeft]="23" [forceUp]="15"[width]="0">
+        <i class="fas"
+           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"
+           [ngStyle]="{'place-self': 'center', 'grid-row': 2}"> </i>
+      </ag-content>
+    </ag-content>
+
+  </ag-content>
+
 
 </ag-input>

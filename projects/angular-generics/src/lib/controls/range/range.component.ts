@@ -11,17 +11,14 @@ import { MakeProvider, GenericInputAccessor } from '../generic-control/generic-i
 export class RangeComponent extends GenericInputAccessor {
   @Input() type: 'date' | 'number' = 'number';
 
-  @Input() fromLabel: string = 'from';
-  fromValue: any;
-
-  @Input() toLabel: string = 'to';
-  toValue: any;
+  startValue: any;
+  endValue: any;
 
   constructor() {
     super();
   }
 
   rangeChange(): void {
-    this.value = { from: this.fromValue, to: this.toValue };
+    this.value = { start: this.startValue, end: this.endValue };
   }
 }

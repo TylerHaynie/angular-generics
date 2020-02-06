@@ -6,13 +6,13 @@
   </ag-content>
 
   <ag-content [cols]="3" [gap]="5">
-    <ag-check [label]="'Slider Check'" [type]="'slide'" [(ngModel)]="checkValue1" [disabled]="checkValue1"></ag-check>
+    <ag-check [label]="'Slider Check'" [disabled]="true" [type]="'slide'" [(ngModel)]="checkValue1"></ag-check>
     <ag-check [label]="'Slider Check'" [type]="'slide'" [(ngModel)]="checkValue2"></ag-check>
     <ag-check [label]="'Slider Check'" [type]="'slide'" [(ngModel)]="checkValue3"></ag-check>
   </ag-content>
 
   <ag-content [cols]="3">
-    <ag-check [label]="'Check'" (click)="checkValue1 = !checkValue1"></ag-check>
+    <ag-check [label]="'Check'" [(ngModel)]="checkValue1" [disabled]="true"></ag-check>
     <ag-check [label]="'Check'" [(ngModel)]="checkValue2"></ag-check>
     <ag-check [label]="'Check'" [(ngModel)]="checkValue3"></ag-check>
   </ag-content>
@@ -22,7 +22,7 @@
     <ag-range [label]="'Date'" [type]="'date'"></ag-range>
   </ag-content>
 
-  <ag-content [gap]="5">
+  <ag-content [gap]="5" [cols]="2">
     <ag-select [label]="'Single Selection (http Source)'"
                [options]="dropdownItems" [required]="true"
                [(ngModel)]="select1" [display]="'title'"

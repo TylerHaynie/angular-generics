@@ -24,7 +24,7 @@ export class InputExampleComponent implements OnInit {
   select3: any = this.staticOptions[2];
   select4: any;
 
-  checkValue1: boolean = false;
+  checkValue1: boolean = true;
   checkValue2: boolean = false;
   checkValue3: boolean = false;
   dateValue: Date = new Date();

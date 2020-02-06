@@ -27,12 +27,12 @@
 </ng-container>
 
 <ng-template #tableTemplate let-tdata let-tkey="key">
-  <table mat-table [dataSource]="tdata">
+  <table mat-table class="mat-table-fill-height" [dataSource]="tdata">
     <ng-container *ngFor="let column of config.columns" [matColumnDef]="column.name">
       <th mat-header-cell *matHeaderCellDef="let element">
         {{ column.headerValue ? column.headerValue(element) : '' }}
       </th>
-      <td mat-cell *matCellDef="let element">
+      <td mat-cell *matCellDef="let element" (click)="clickedRow(element)">
         {{ column.cellValue ? column.cellValue(element) : "" }}
       </td>
       <ng-container *ngIf="showFooter">

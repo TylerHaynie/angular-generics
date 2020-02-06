@@ -15,15 +15,15 @@ import { TablePage } from '../models/table-page';
   templateUrl: "./table.component.html",
   styleUrls: ["./table-component.scss"],
 })
-export class TableComponent implements OnChanges {
-  // @Input() columns: TableColumn[] = [];
+export class TableComponent {
   @Input() showPager: boolean = true;
 
   @Input() config: TableConfig = new TableConfig();
   @Output() configChange: EventEmitter<TableConfig>;
   @Output() search: EventEmitter<TableConfig>;
+  @Output() rowClick: EventEmitter<any>;
 
-  @Input() isDebug: boolean = true;
+  @Input() isDebug: boolean = false;
 
   public activeColumns: string[] = [];
   public isGrouped: boolean = false;
@@ -34,53 +34,75 @@ export class TableComponent implements OnChanges {
   private _dataLength: number = 0;
   public get dataLength(): number { return this._dataLength; }
 
-  private data: any;
+  private data: any[];
   private decimalpipe = new DecimalPipe('en-us');
 
   constructor() {
     this.search = new EventEmitter<null>();
     this.configChange = new EventEmitter<TableConfig>();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes.columns) {
-      if (changes.columns.currentValue !== changes.columns.previousValue) {
-        this.updateColumns();
-      }
-    }
+    this.rowClick = new EventEmitter<any>();
   }
 
   private updateColumns(): void {
-    this.activeColumns = [];
+    var ac: string[] = [];
     this.showFooter = false;
 
     this.config.columns.forEach(col => {
       if (col.visible) {
-        this.activeColumns.push(col.name)
+        ac.push(col.name)
 
         if (col.calculate) {
           this.showFooter = true;
         }
       }
     });
+
+    if (ac != this.activeColumns) {
+      this.activeColumns = ac;
+    }
   }
 
   doSearch() {
-    this.dataSource.update(null);
     this.isGrouped = this.config.groupBy != null;
     this.search.emit(this.config);
   }
 
-  update(data: any) {
+  clickedRow(row: any) {
+    this.rowClick.emit(row);
+  }
+
+  update(data: any[]) {
+    this.data = data;
+
     if (this.isDebug) {
-      console.log("-- Table Update --", data);
+      console.log("-- Table Data --", this.data);
+      console.log("-- Page Settings --", this.config.page);
     }
 
-    this.data = data;
-    this.config.page.recordCount = data.length;
+    if (this.data.length > this.config.page.take && data != null) {
+      this.config.page.recordCount = data.length;
+
+      if (this.isDebug) {
+        console.log("-- [Data Stored In Memory] --");
+      }
+
+      var skipAmount = (this.config.page.page * this.config.page.take) - this.config.page.take;
+      if (this.isDebug) {
+        console.log("-- Skip Amount --", skipAmount);
+      }
+
+      var taken = this.data.slice(skipAmount, skipAmount + this.config.page.take);
+      if (this.isDebug) {
+        console.log("-- Taken --", taken);
+      }
+
+      this.dataSource.update(taken);
+    }
+    else {
+      this.dataSource.update(this.data);
+    }
 
     this.updateColumns();
-    this.dataSource.update(data);
   }
 
   doSort(sortEvent: { active: string; direction: SORT_DIRECTION }) {
@@ -139,6 +161,24 @@ export class TableComponent implements OnChanges {
 
   getColCount(): number {
     return this.activeColumns.length;
+  }
+
+  private groupMemoryData(data: any[], colName: string) {
+    var grouped: { [key: string]: any[]; } = {};
+
+    data.forEach(d => {
+      var key: string = d[colName].toString();
+
+      if (!(grouped[key])) {
+        grouped[key] = [];
+      }
+
+      grouped[key].push(d);
+    });
+
+    console.log('Grouped Data', grouped);
+
+    return grouped;
   }
 
 }

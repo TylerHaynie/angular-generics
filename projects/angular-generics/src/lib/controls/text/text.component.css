@@ -19,6 +19,24 @@
   display: grid;
 }
 
+.generic-input input {
+  width: inherit;
+  height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.generic-input select {
+  width: 100%;
+  height: 31px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  appearance: none;
+  padding: 5px
+}
+
 .generic-input input, .generic-input textarea {
   padding: var(--inputPadding);
   border: var(--inputOutline);

@@ -27,11 +27,12 @@
 </ng-template>
 
 <ng-template #defaultText>
-  <input [name]="name" [id]="id" [(ngModel)]="value" [type]="type" [disabled]="disabled"
-         [attr.required]="required ? '' : null" [placeholder]="placeholder" />
+  <input [name]="name" [id]="id ? id : null" [(ngModel)]="value" [type]="type" [disabled]="disabled"
+         [attr.required]="required ? '' : null" [placeholder]="placeholder ? placeholder : null" />
 </ng-template>
 
 <ng-template #textArea>
-  <textarea [name]="name" [id]="id" [(ngModel)]="value" [disabled]="disabled" [placeholder]="placeholder"
+  <textarea [name]="name" [id]="id ? id : null" [(ngModel)]="value" [disabled]="disabled"
+            [placeholder]="placeholder ? placeholder : null"
             [cols]="textColumns" [rows]="textRows" [attr.required]="required ? '' : null"></textarea>
 </ng-template>

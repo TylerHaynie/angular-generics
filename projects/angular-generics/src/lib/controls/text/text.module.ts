@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TextComponent } from './text.component';
 import { GenericInputModule } from '../input/input.module';
+import { GenericContentModule } from '../../containers/content/content.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { GenericInputModule } from '../input/input.module';
   imports: [
     CommonModule,
     FormsModule,
-    GenericInputModule
+    GenericInputModule,
+    GenericContentModule
   ],
   exports: [
     TextComponent

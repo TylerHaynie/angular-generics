@@ -1,35 +1,6 @@
-<!-- <div [ngClass]="{'no-header': !showHeader}" class="table-header">
-    <div *ngIf="showHeader" class="title">
-      {{ title }}
-      <div class="loader">
-        <mat-spinner *ngIf="isLoading"
-                     [diameter]="20">
-        </mat-spinner>
-      </div>
-    </div>
-    <div *ngIf="showHeader" class="header-controls">
-      <div class="group-by">
-
-        <div *ngIf="allowGroup" class="drop-down">
-          <div>Group By</div>
-          <select [(ngModel)]="tableConfig.groupBy" (change)="doSearch()">
-            <option [ngValue]="{name: '', value: null}"> </option>
-            <option *ngFor="let col of columns" [ngValue]="{name: col.display, value: col.name}">
-              {{col.display}}
-            </option>
-          </select>
-        </div>
-
-      </div>
-      <div class="export-container">
-        <button *ngIf="allowExport" mat-raised-button color="accent" (click)="doExport()"
-                [disabled]="!(dataLength > 0)">
-          Export
-        </button>
-      </div>
-    </div>
-  </div> -->
-
-<ag-content>
-  <ag-table #dataTable [(config)]="tableConfig" (search)="updateTable($event)"></ag-table>
+<ag-content [height]="'100%'">
+  <ag-table #dataTable
+            [(config)]="tableConfig"
+            (search)="updateTable($event)"
+            (rowClick)="rowSelected($event)"></ag-table>
 </ag-content>

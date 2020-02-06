@@ -11,13 +11,12 @@ export class TableExampleComponent implements OnInit {
 
   tableSource: string = `https://jsonplaceholder.typicode.com/todos`;
   tableConfig: TableConfig = new TableConfig();
+  selectedRow: any;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.tableConfig.columns = this.setTableColumns();
-    // this.tableConfig.groupBy = this.tableConfig.columns[0];
-
     this.updateTable(null);
   }
 
@@ -25,13 +24,7 @@ export class TableExampleComponent implements OnInit {
     this.http.get(this.tableSource)
       .toPromise()
       .then((d: any[]) => {
-        if (this.tableConfig.groupBy) {
-          var gd = this.groupDataResult(d, this.tableConfig.groupBy.name);
-          this.exampleTable.update(gd);
-        }
-        else {
-          this.exampleTable.update(d);
-        }
+        this.exampleTable.update(d);
       });
   }
 
@@ -68,28 +61,15 @@ export class TableExampleComponent implements OnInit {
     ];
   }
 
+  rowSelected(rowData: any) {
+    this.selectedRow = rowData;
+    console.log("-- selected row --", rowData);
+  }
+
   private getValue(elemValue: any): string {
     if (elemValue == null || elemValue == undefined) {
       return '';
     }
     return `${elemValue}`;
-  }
-
-  private groupDataResult(data: any[], colName: string) {
-    var grouped: { [key: string]: any[]; } = {};
-
-    data.forEach(d => {
-      var key: string = d[colName].toString();
-
-      if (!(grouped[key])) {
-        grouped[key] = [];
-      }
-
-      grouped[key].push(d);
-    });
-
-    console.log('Grouped Data', grouped);
-
-    return grouped;
   }
 }

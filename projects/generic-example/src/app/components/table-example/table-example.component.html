@@ -1,6 +1,36 @@
-<ag-content [height]="'100%'">
-  <ag-table #dataTable
-            [(config)]="tableConfig"
-            (search)="updateTable($event)"
-            (rowClick)="rowSelected($event)"></ag-table>
+<ag-content [height]="'100%'" [gap]="30" [pad]="20">
+  <ag-content>
+    <ag-content>
+      Async Table
+    </ag-content>
+    <ag-table #asyncTable
+              [isDebug]="true"
+              [(config)]="asyncConfig"
+              (search)="updateAsyncData($event)"
+              (rowSelect)="asyncRowSelected($event)">
+    </ag-table>
+    Selected: {{asyncRowOutput}}
+  </ag-content>
+
+  <ag-content>
+    <ag-content [cols]="'1fr auto'" [place]="'center start'">
+      <ag-content>
+        Static Table
+      </ag-content>
+
+      <ag-content>
+        <ag-button (click)="updateStaticData()">Load Static Data</ag-button>
+      </ag-content>
+
+
+    </ag-content>
+    <ag-table #staticTable
+              [isDebug]="true"
+              [(config)]="staticConfig"
+              (search)="updateStaticData($event)"
+              (rowSelect)="staticRowSelected($event)">
+    </ag-table>
+
+    Selected: {{staticRowOutput}}
+  </ag-content>
 </ag-content>

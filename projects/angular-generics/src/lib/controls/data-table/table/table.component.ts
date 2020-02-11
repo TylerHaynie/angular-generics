@@ -20,8 +20,9 @@ export class TableComponent {
 
   @Input() config: TableConfig = new TableConfig();
   @Output() configChange: EventEmitter<TableConfig>;
+
   @Output() search: EventEmitter<TableConfig>;
-  @Output() rowClick: EventEmitter<any>;
+  @Output() rowSelect: EventEmitter<any>;
 
   @Input() isDebug: boolean = false;
 
@@ -37,72 +38,71 @@ export class TableComponent {
   private data: any[];
   private decimalpipe = new DecimalPipe('en-us');
 
+  selectedItem: any;
+
   constructor() {
     this.search = new EventEmitter<null>();
     this.configChange = new EventEmitter<TableConfig>();
-    this.rowClick = new EventEmitter<any>();
-  }
-
-  private updateColumns(): void {
-    var ac: string[] = [];
-    this.showFooter = false;
-
-    this.config.columns.forEach(col => {
-      if (col.visible) {
-        ac.push(col.name)
-
-        if (col.calculate) {
-          this.showFooter = true;
-        }
-      }
-    });
-
-    if (ac != this.activeColumns) {
-      this.activeColumns = ac;
-    }
+    this.rowSelect = new EventEmitter<any>();
   }
 
   doSearch() {
     this.isGrouped = this.config.groupBy != null;
-    this.search.emit(this.config);
+    this.configChange.emit(this.config);
+    this.search.emit();
   }
 
   clickedRow(row: any) {
-    this.rowClick.emit(row);
+    if (this.isDebug) {
+      console.log("-- selected row --", row);
+    }
+
+    this.selectedItem = row;
+    this.rowSelect.emit(this.selectedItem);
   }
 
   update(data: any[]) {
-    this.data = data;
+    // setTimeout() will stall the table update
+    // while children components run through their first lifecycle hooks
+    setTimeout(() => {
+      this.data = data;
+      this.config.page.recordCount = this.data.length;
 
-    if (this.isDebug) {
-      console.log("-- Table Data --", this.data);
-      console.log("-- Page Settings --", this.config.page);
-    }
-
-    if (this.data.length > this.config.page.take && data != null) {
-      this.config.page.recordCount = data.length;
+      this.updateColumns();
 
       if (this.isDebug) {
-        console.log("-- [Data Stored In Memory] --");
+        console.log("-- Table Data --", this.data);
+        console.log("-- Page Settings --", this.config.page);
       }
 
-      var skipAmount = (this.config.page.page * this.config.page.take) - this.config.page.take;
-      if (this.isDebug) {
-        console.log("-- Skip Amount --", skipAmount);
+      if (this.showPager) {
+        if ((data != null && this.config.page.take > 0) && (this.data.length > this.config.page.take)) {
+          // if (this.data.length > this.config.page.take && data != null) {
+
+          if (this.isDebug) {
+            console.log("-- [Data Stored In Memory] --");
+          }
+
+          var skipAmount = (this.config.page.page * this.config.page.take) - this.config.page.take;
+          if (this.isDebug) {
+            console.log("-- Skip Amount --", skipAmount);
+          }
+
+          var taken = this.data.slice(skipAmount, skipAmount + this.config.page.take);
+          if (this.isDebug) {
+            console.log("-- Taken --", taken);
+          }
+
+          this.dataSource.update(taken);
+        }
+        else {
+          this.dataSource.update(this.data);
+        }
       }
-
-      var taken = this.data.slice(skipAmount, skipAmount + this.config.page.take);
-      if (this.isDebug) {
-        console.log("-- Taken --", taken);
+      else {
+        this.dataSource.update(this.data);
       }
-
-      this.dataSource.update(taken);
-    }
-    else {
-      this.dataSource.update(this.data);
-    }
-
-    this.updateColumns();
+    }, 1)
   }
 
   doSort(sortEvent: { active: string; direction: SORT_DIRECTION }) {
@@ -159,8 +159,28 @@ export class TableComponent {
     return this.decimalpipe.transform(result);
   }
 
-  getColCount(): number {
-    return this.activeColumns.length;
+  private updateColumns(): void {
+    if (this.isDebug) {
+      console.log("-- Updating Columns --");
+      console.log(`Columns`, this.config.columns);
+    }
+
+    var ac: string[] = [];
+    this.showFooter = false;
+
+    this.config.columns.forEach(col => {
+      if (col.visible) {
+        ac.push(col.name)
+
+        if (col.calculate) {
+          this.showFooter = true;
+        }
+      }
+    });
+
+    if (ac != this.activeColumns) {
+      this.activeColumns = ac;
+    }
   }
 
   private groupMemoryData(data: any[], colName: string) {

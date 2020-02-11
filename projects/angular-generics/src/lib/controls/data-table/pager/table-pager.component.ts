@@ -19,17 +19,21 @@ export class TablePagerComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.paginator) {
-      this.page.page = 1;
-      this.page.take = this.paginator.pageSize;
-      this.page.recordCount = 0;
-    }
+    // setTimeout(() => {
+    //   if (this.paginator) {
+    //     this.page.page = 1;
+    //     this.page.take = this.paginator.pageSize;
+    //     this.page.recordCount = 0;
+    //   }
+    // }, 1);
   }
 
   changePage() {
+    if (this.paginator) {
     this.page.page = this.paginator.pageIndex + 1;
     this.page.take = this.paginator.pageSize;
 
     this.pageChange.emit(this.page);
+    }
   }
 }

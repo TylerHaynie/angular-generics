@@ -19,12 +19,14 @@ table {
 
 tr.mat-header-row {
   height: 45px;
+  background: #f7f7f7;
 }
 
 th.mat-header-cell {
   color: rgb(66, 66, 66);
   font-size: 14px;
   font-weight: bold;
+  border-bottom: 1px solid #555;
 }
 
 tr.mat-row {
@@ -32,8 +34,18 @@ tr.mat-row {
 }
 
 tr.mat-row:hover {
-  background: rgb(182, 182, 182);
+  background: rgb(220, 220, 220);
   cursor: pointer;
+}
+
+tr.mat-row.selected {
+  background: #e8e8e8;
+  cursor: pointer;
+}
+
+tr.mat-row.selected td{
+  border-bottom: 1px solid rgb(150, 150, 150);
+  border-top: 1px solid rgb(150, 150, 150);
 }
 
 td.mat-footer-cell {

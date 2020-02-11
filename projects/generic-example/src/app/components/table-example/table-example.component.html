@@ -1,5 +1,5 @@
-<ag-content [height]="'100%'" [gap]="30" [pad]="20">
-  <ag-content>
+<ag-content [height]="'100%'" [gap]="30" [pad]="5">
+  <ag-content [gap]="10">
     <ag-content>
       Async Table
     </ag-content>
@@ -9,21 +9,18 @@
               (search)="updateAsyncData($event)"
               (rowSelect)="asyncRowSelected($event)">
     </ag-table>
-    Selected: {{asyncRowOutput}}
+
+    <ag-content>
+      Selected: {{asyncRowOutput}}
+    </ag-content>
   </ag-content>
 
-  <ag-content>
-    <ag-content [cols]="'1fr auto'" [place]="'center start'">
-      <ag-content>
-        Static Table
-      </ag-content>
-
-      <ag-content>
-        <ag-button (click)="updateStaticData()">Load Static Data</ag-button>
-      </ag-content>
-
-
+  <ag-content [gap]="10">
+    <ag-content>
+      Static Table
     </ag-content>
+
+
     <ag-table #staticTable
               [isDebug]="true"
               [(config)]="staticConfig"
@@ -31,6 +28,9 @@
               (rowSelect)="staticRowSelected($event)">
     </ag-table>
 
-    Selected: {{staticRowOutput}}
+    <ag-content>
+      Selected: {{staticRowOutput}}
+    </ag-content>
+
   </ag-content>
 </ag-content>

@@ -66,16 +66,16 @@ export class TableComponent {
     // while children components run through their first lifecycle hooks
     setTimeout(() => {
       this.data = data;
-      this.config.page.recordCount = this.data.length;
-
       this.updateColumns();
 
-      if (this.isDebug) {
-        console.log("-- Table Data --", this.data);
-        console.log("-- Page Settings --", this.config.page);
-      }
+      if (this.showPager && this.config && this.config.page) {
+        if (this.isDebug) {
+          console.log("-- Table Data --", this.data);
+          console.log("-- Page Settings --", this.config.page);
+        }
 
-      if (this.showPager) {
+        this.config.page.recordCount = this.data.length;
+
         if ((data != null && this.config.page.take > 0) && (this.data.length > this.config.page.take)) {
           // if (this.data.length > this.config.page.take && data != null) {
 
@@ -129,12 +129,16 @@ export class TableComponent {
       console.log(`Page: ${e.page}`);
       console.log(`Take: ${e.take}`);
     }
+    if (this.config) {
+      if (this.config.page == null) { this.config.page = new TablePage(); }
 
-    this.config.page.page = e.page;
-    this.config.page.take = e.take;
 
-    if (this.config.page.recordCount > 0) {
-      this.doSearch();
+      this.config.page.page = e.page;
+      this.config.page.take = e.take;
+
+      if (this.config.page.recordCount > 0) {
+        this.doSearch();
+      }
     }
   }
 

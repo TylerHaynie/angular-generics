@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter, ViewEncapsulation, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material';
 import { TablePage } from '../models/table-page';
 
@@ -7,7 +7,7 @@ import { TablePage } from '../models/table-page';
   templateUrl: './table-pager.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class TablePagerComponent implements OnInit {
+export class TablePagerComponent implements AfterViewInit {
   @ViewChild('paginator', { static: false }) paginator: MatPaginator;
   @Input() sizeOptions: number[] = [10, 25, 50, 100, 250, 500, 1000];
 
@@ -18,22 +18,20 @@ export class TablePagerComponent implements OnInit {
     this.pageChange = new EventEmitter<TablePage>();
   }
 
-  ngOnInit() {
-    // setTimeout(() => {
-    //   if (this.paginator) {
-    //     this.page.page = 1;
-    //     this.page.take = this.paginator.pageSize;
-    //     this.page.recordCount = 0;
-    //   }
-    // }, 1);
+  ngAfterViewInit() {
+    if (this.paginator) {
+      this.page.page = 1;
+      this.page.take = this.paginator.pageSize;
+      this.page.recordCount = 0;
+    }
   }
 
   changePage() {
-    if (this.paginator) {
-    this.page.page = this.paginator.pageIndex + 1;
-    this.page.take = this.paginator.pageSize;
+    if (this.paginator && this.page) {
+      this.page.page = this.paginator.pageIndex + 1;
+      this.page.take = this.paginator.pageSize;
 
-    this.pageChange.emit(this.page);
+      this.pageChange.emit(this.page);
     }
   }
 }

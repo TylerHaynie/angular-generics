@@ -6,7 +6,7 @@ import { GenericInputModule } from '../../input/input.module';
 import { GenericSelectModule } from '../../select/select.module';
 import { GenericButtonModule } from '../../button/button.module';
 import { GenericRangeModule } from '../../range/range.module';
-import { MatExpansionModule } from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { GenericContentModule } from '../../../containers/content/content.module';
 
 @NgModule({

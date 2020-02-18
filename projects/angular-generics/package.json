@@ -1,7 +1,7 @@
 {
   "name": "angular-generics",
-  "version": "0.4.3",
-  "description": "A collection of generic controls for Angular 8+",
+  "version": "0.4.4",
+  "description": "A collection of generic controls for Angular 9+",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TylerHaynie/angular-generic.git"
@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/TylerHaynie/angular-generic#readme",
   "peerDependencies": {
-    "@angular/common": "^8.0.0",
-    "@angular/core": "^8.0.0",
-    "@angular/cdk": "^8.0.0",
-    "@angular/material": "^8.0.0",
-    "@fortawesome/fontawesome-free": "^5.9.0"
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@angular/cdk": "^8.2.3",
+    "@angular/material": "^8.2.3",
+    "@fortawesome/fontawesome-free": "^5.12.1"
   },
   "dependencies": {},
   "devDependencies": {}

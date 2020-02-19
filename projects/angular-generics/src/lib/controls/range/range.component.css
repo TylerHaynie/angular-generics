@@ -20,7 +20,7 @@
   padding: 0 3px;
 }
 
-i {
+.range i {
   font-size: var(--rangeIconSize);
   color: var(--rangeIconColor);
 }

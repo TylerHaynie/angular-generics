@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit, TemplateRef } from '@angular/core';
 import { MenuItem } from 'angular-generics';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { MenuItem } from 'angular-generics';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
 
@@ -61,5 +62,12 @@ export class AppComponent implements OnInit {
       icon: 'chart-pie',
     })
   ];
+
+  menuSelect(item: MenuItem) {
+    if (item && item.route) {
+      console.log(item);
+      this.router.navigateByUrl(item.route);
+    }
+  }
 
 }

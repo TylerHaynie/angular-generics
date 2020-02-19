@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from '../models/menu-item';
 
@@ -13,27 +13,23 @@ export class SideNavComponent implements OnInit {
   @Input() menuItems: MenuItem[] = [];
   @Input() menuHeader: string = 'Menu';
 
+  @Output() select: EventEmitter<MenuItem>;
+
+  openedMenu: string;
   hoveredMenu: string;
   selectedMenu: string;
   collapsed: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor() {
+    this.select = new EventEmitter<MenuItem>();
+  }
 
   ngOnInit() {
   }
 
-  menuItemClicked(item: MenuItem){
-    if(item && item.route){
-      this.navigateTo(item.route);
-    }
-
+  menuItemClicked(item: MenuItem) {
     this.selectedMenu = item.name;
-  }
-
-  navigateTo(path: string) {
-    if (path && path.length > 0) {
-      this.router.navigateByUrl(path);
-    }
+    this.select.emit(item);
   }
 
 }

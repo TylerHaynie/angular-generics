@@ -1,5 +1,5 @@
 <ag-content [cols]="'auto 1fr'" [height]="'100%'">
-  <ag-side-nav [menuItems]="menuItems"></ag-side-nav>
+  <ag-side-nav [menuItems]="menuItems" (select)="menuSelect($event)"></ag-side-nav>
   <ag-content class="main-content" [rows]="'auto 1fr'" [height]="'100%'">
     <ag-top-nav [logoUrl]="'assets/images/random-logo.png'"
                 [avatarUrl]="'assets/images/avatar.svg'"

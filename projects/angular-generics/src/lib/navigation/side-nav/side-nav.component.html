@@ -1,6 +1,7 @@
 <ag-content [width]="collapsed ? 'auto' : width" [height]="'100%'">
   <ag-content class="menu-wrapper" [gap]="10">
-    <ag-content class="menu-header pointer" [height]="45" (click)="collapsed = !collapsed">
+
+    <ag-content stop-click-prop class="menu-header pointer" [height]="45" (click)="collapsed = !collapsed">
       <ag-content [cols]="'auto 1fr'" [gap]="8" [pad]="'0 0 0 18px'" [place]="'center start'" [height]="'100%'">
         <i class="fas fa-bars"></i>
         <span *ngIf="!collapsed">{{menuHeader}}</span>
@@ -12,27 +13,32 @@
     </ag-content>
 
     <ag-content class="menu-items" [height]="'100%'">
-      <ag-content *ngFor="let item of menuItems" class="menu-item open" (mouseenter)="hoveredMenu=item.name"
-                  (mouseleave)="hoveredMenu=null" (click)="menuItemClicked(item)"
-                  [ngClass]="hoveredMenu == item.name ? 'open' : 'closed'">
-        <ag-content class="main pointer" [cols]="'auto 1fr'"
-                    [gap]="5">
-          <ag-content [width]="5" [ngClass]="{'indicator': selectedMenu == item.name}"></ag-content>
+      <ag-content stop-click-prop *ngFor="let item of menuItems" class="menu-item open"
+                  (mouseenter)="hoveredMenu=item.name"
+                  (mouseleave)="hoveredMenu=null" (click)="menuItemClicked(item)" (click)="openedMenu = item.name"
+                  [ngClass]="(hoveredMenu == item.name || openedMenu == item.name) ? 'open' : 'closed'">
+
+        <ag-content class="main pointer" [cols]="'auto 1fr'" [gap]="5">
+          <ag-content [width]="5" [ngClass]="{'indicator': selectedMenu == item.name || openedMenu == item.name}">
+          </ag-content>
           <ag-content [cols]="'auto 1fr'" [gap]="10" [pad]="10" [place]="'center start'">
             <i [ngClass]="item.icon ? 'fas fa-' + item.icon : null"></i>
             <span *ngIf="!collapsed">{{item.display}}</span>
           </ag-content>
         </ag-content>
+
         <ag-content class="sub-items">
-          <ng-container *ngIf="hoveredMenu == item.name && !collapsed">
-            <ag-content *ngFor="let subItem of item.subItems" class="sub-item pointer"
-                        (click)="menuItemClicked(subItem)"
+          <ng-container *ngIf="(hoveredMenu == item.name || openedMenu == item.name) && !collapsed">
+            <ag-content stop-click-prop *ngFor="let subItem of item.subItems" class="sub-item pointer"
+                        [ngClass]="{'indicator': selectedMenu == subItem.name}"
+                        (click)="menuItemClicked(subItem)" (click)="openedMenu = item.name"
                         [cols]="'1fr auto'" [gap]="10" [pad]="8">
               <span *ngIf="!collapsed" [ngStyle]="{'text-align': 'end'}">{{subItem.display}}</span>
               <i [ngClass]="subItem.icon ? 'fas fa-' + subItem.icon : null"></i>
             </ag-content>
           </ng-container>
         </ag-content>
+
       </ag-content>
     </ag-content>
 

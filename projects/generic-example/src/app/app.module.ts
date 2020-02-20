@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import {
   GenericAlertModule, GenericButtonModule, GenericCheckModule, GenericContentModule,
-  GenericFileModule, GenericFilterModule, GenericInputModule, GenericModalModule,
+  GenericFileModule, GenericFilterModule, GenericModalModule,
   GenericNavigationModule, GenericPagerModule, GenericRangeModule, GenericSelectModule,
   GenericTableModule, GenericTextModule, GenericAlertService
 } from 'angular-generics';
@@ -39,7 +39,6 @@ import { InputExampleComponent } from './components/input-example/input-example.
     GenericContentModule,
     GenericFileModule,
     GenericFilterModule,
-    GenericInputModule,
     GenericModalModule,
     GenericNavigationModule,
     GenericPagerModule,

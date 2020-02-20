@@ -1,17 +1,34 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { MakeProvider, GenericInputAccessor } from '../generic-control/generic-input-accessor';
+import { GenericInputAccessor, ValueAccessProvider } from '../generic-control/generic-input-accessor';
+import { IGenericInput } from '../generic-control/generic-input.interface';
 
 @Component({
   selector: 'ag-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css'],
-  providers: [MakeProvider(SelectComponent)],
+  providers: [ValueAccessProvider(SelectComponent)],
   encapsulation: ViewEncapsulation.None
 })
-export class SelectComponent extends GenericInputAccessor {
+export class SelectComponent extends GenericInputAccessor implements IGenericInput {
+    // implementation
+  @Input() disabled: boolean;
+  @Input() required: boolean;
+
+  @Input() label: string;
+  @Input() floatLabel: boolean;
+  @Input() placeLabel: string;
+  @Input() placeholder: string;
+
+  @Input() width: string | number;
+  @Input() height: string | number;
+
+  @Input() type: string;
+
+  // component specific
   @Input() display: string;
   @Input() options: any[] = [];
   @Input() multiple: boolean = false;
+
   @Output() selectionChange: EventEmitter<any>;
 
   constructor() {

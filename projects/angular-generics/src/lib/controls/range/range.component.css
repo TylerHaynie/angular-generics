@@ -1,26 +1,11 @@
+@import "../../../../styles/base.css";
+
 :root {
   --rangeIconSize: 22px;
   --rangeIconColor: #afafaf;
 }
 
-.range-box input {
-  grid-row-end: 2;
-  border: var(--inputOutline);
-  font-size: var(--inputFontSize);
-  border-right: none;
-}
-
-.range-box div {
-  display: grid;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  background: var(--inputBackground);
-  border: var(--inputOutline);
-  border-left: none;
-  padding: 0 3px;
-}
-
-.range i {
+i {
   font-size: var(--rangeIconSize);
   color: var(--rangeIconColor);
 }

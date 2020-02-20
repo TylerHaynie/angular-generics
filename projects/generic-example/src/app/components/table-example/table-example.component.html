@@ -1,8 +1,7 @@
 <ag-content [height]="'100%'" [gap]="30" [pad]="5">
   <ag-content [gap]="10">
-    <ag-content>
-      Async Table
-    </ag-content>
+    <ag-table-filter [(config)]="asyncConfig" (search)="doAsyncSearch()"></ag-table-filter>
+
     <ag-table #asyncTable
               [isDebug]="true"
               [(config)]="asyncConfig"
@@ -16,10 +15,7 @@
   </ag-content>
 
   <ag-content [gap]="10">
-    <ag-content>
-      Static Table
-    </ag-content>
-
+    <ag-table-filter [(config)]="staticConfig" (search)="doStaticSearch()"></ag-table-filter>
 
     <ag-table #staticTable
               [isDebug]="true"

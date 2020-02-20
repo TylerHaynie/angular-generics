@@ -11,11 +11,13 @@
   </ng-container>
 
   <ng-container *ngIf="type=='slide'">
-    <div class="checkbox-slider" [ngClass]="{'disabled': disabled}">
+
+    <ag-div class="checkbox-slider" [ngClass]="{'disabled': disabled}">
       <input [disabled]="disabled" [attr.required]="required ? '' : null"
              type="checkbox" [(ngModel)]="value" />
-      <label stop-click-prop [ngClass]="{'disabled': disabled}" (click)="disabled ? null : value = !value"></label>
-    </div>
+      <label [ngClass]="{'disabled': disabled}" (click)="disabled ? null : value = !value"></label>
+    </ag-div>
+
   </ng-container>
 
 </ag-input>

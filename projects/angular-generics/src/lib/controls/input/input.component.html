@@ -1,11 +1,11 @@
-<div class="generic-input"
-     [ngClass]="{'label-left': !floatLabel, 'label-top': floatLabel}"
-     [ngStyle]="{'width': typeHelpers.isNumber(width) ? width + 'px' : width,
-                 'height': typeHelpers.isNumber(height) ? height + 'px' : height }">
+<ag-content class="generic-input"
+            [ngClass]="{'label-left': !floatLabel, 'label-top': floatLabel}"
+            [ngStyle]="{'width': typeHelpers.isNumber(width) ? width + 'px' : width,
+                        'height': typeHelpers.isNumber(height) ? height + 'px' : height }">
   <label [ngStyle]="{'place-self': placeLabel}">
     <span *ngIf="required && !disabled && !floatLabel" [style.color]="'red'"> *</span>
     {{label}}
     <span *ngIf="required && !disabled && floatLabel" [style.color]="'red'"> *</span>
   </label>
   <ng-content #genericControl></ng-content>
-</div>
+</ag-content>

@@ -1,3 +1,5 @@
+@import "../../../../styles/base.css";
+
 :root {
   --sliderHeight: 30px;
   --sliderWidth: 100%;
@@ -16,8 +18,8 @@
 
 .generic-input input[type=checkbox] {
   box-shadow: none;
-  align-self: center;
-  justify-self: start;
+  /* align-self: center;
+  justify-self: start; */
 }
 
 .checkbox-slider input[type=checkbox] {
@@ -93,10 +95,10 @@
 }
 
 .check-container {
-  display: block;
+  display: grid;
+  grid-template-columns: auto 1fr;
   position: relative;
-  padding-left: 35px;
-  cursor: pointer;
+  padding-left: 30px;
   font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -183,4 +185,8 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.label-text {
+  padding-top: 4px;
 }

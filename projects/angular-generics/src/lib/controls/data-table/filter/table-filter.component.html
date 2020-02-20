@@ -2,24 +2,32 @@
   <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header>
       <mat-panel-title class="title">
-        {{title}}
+        Filter
       </mat-panel-title>
       <mat-panel-description>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <ag-content class="filter-container">
-      <ng-container *ngFor="let column of columns">
-        <ng-container *ngIf="column.allowFilter">
-          <!-- <ag-input [type]="'text'" [(ngModel)]="column.filterValue">{{column.display}}</ag-input> -->
-        </ng-container>
-        <!-- ... select, checkbox, etc. based on type -->
-      </ng-container>
-    </ag-content>
+    <ag-content [gap]="10" [rows]="'1fr auto'">
+      <ag-content class="filter-container" [cols]="4" [gap]="10" [pad]="'5px 0 0 0'">
+        <ng-container *ngFor="let column of config.columns">
+          <ng-container *ngIf="column.filterable">
 
-    <ag-content>
-      <ag-button (click)="applyFilter()">Apply</ag-button>
-      <ag-button (click)="resetFilter()">Reset</ag-button>
+            <ag-content class="generic-input label-top">
+              <label>
+                {{column.headerValue()}}
+              </label>
+              <input name="column.name" [(ngModel)]="column.filter.value">
+            </ag-content>
+
+          </ng-container>
+        </ng-container>
+      </ag-content>
+
+      <ag-content [gap]="10" [cols]="'1fr auto'" [place]="'end'">
+        <ag-button (click)="resetSearch()">Reset</ag-button>
+        <ag-button (click)="searchClicked()">Search</ag-button>
+      </ag-content>
     </ag-content>
 
   </mat-expansion-panel>

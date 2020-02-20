@@ -1,6 +1,6 @@
 export interface IGenericInput {
-  name: string;
-  id: string;
+  // name: string;
+  // id: string;
   type: string;
   disabled: boolean;
   required: boolean;

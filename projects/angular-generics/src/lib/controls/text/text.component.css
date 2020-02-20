@@ -1,4 +1,6 @@
-:root {
+@import "../../../../styles/base.css";
+
+/* :root {
   --inputOutlineColor: rgb(171, 192, 216);
   --inputOutline: 1px solid var(--inputOutlineColor);
   --inputShadow: inset 0 0 3px 0px #f2fdff;
@@ -69,4 +71,4 @@
 
 [type="date"]::-webkit-inner-spin-button {
   display: none;
-}
+} */

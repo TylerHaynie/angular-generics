@@ -50,7 +50,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="activeColumns; sticky: true"></tr>
-    <tr mat-row stop-click-prop *matRowDef="let row; columns: activeColumns;" [ngClass]="{'selected': row == selectedItem}"
+    <tr mat-row *matRowDef="let row; columns: activeColumns;" [ngClass]="{'selected': row == selectedItem}"
         (click)="clickedRow(row)"></tr>
     <ng-container *ngIf="showFooter">
       <tr class="total-footer" mat-footer-row *matFooterRowDef="activeColumns; sticky: true"></tr>

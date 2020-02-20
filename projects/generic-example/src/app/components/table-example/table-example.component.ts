@@ -17,8 +17,11 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
 
   selectedAsyncRow: any;
   selectedStaticRow: any;
+
   staticRowOutput: string;
   asyncRowOutput: string;
+
+  showFilter: boolean = false;
 
   staticData: { id: number, name: string, rank: string }[] = [
     { id: 1, name: 'Tom', rank: '12A' },
@@ -113,6 +116,14 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
         cellValue: (element: any) => this.getValue(element.rank)
       }),
     ];
+  }
+
+  doAsyncSearch() {
+    console.log(this.asyncConfig);
+  }
+
+  doStraticSearch() {
+    console.log(this.staticConfig);
   }
 
   asyncRowSelected(rowData: any) {

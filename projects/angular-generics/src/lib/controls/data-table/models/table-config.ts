@@ -5,7 +5,6 @@ import { ColumnFilter } from './column-filter';
 
 export class TableConfig {
   columns: TableColumn[] = [];
-  filters: ColumnFilter[] = [];
   page: TablePage = new TablePage();
   sortBy: TableSort;
   groupBy: TableColumn;

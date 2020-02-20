@@ -1,7 +1,7 @@
 <ag-input [label]="label" [floatLabel]="floatLabel" [placeLabel]="placeLabel"
           [disabled]="disabled" [required]="required" [width]="width" [height]="height">
 
-  <ng-container *ngIf="type=='text'">
+  <ng-container *ngIf="type=='text' || type == '' || type == null">
     <ng-container *ngTemplateOutlet="textBox"></ng-container>
   </ng-container>
 
@@ -17,22 +17,22 @@
 
 <!-- Templates -->
 <ng-template #textBox>
-  <ng-container *ngIf="subtype==null || subtype==''">
+  <ng-container *ngIf="subtype == null || subtype == ''">
     <ng-container *ngTemplateOutlet="defaultText"></ng-container>
   </ng-container>
 
-  <ng-container *ngIf="subtype=='area'">
+  <ng-container *ngIf="subtype == 'area'">
     <ng-container *ngTemplateOutlet="textArea"></ng-container>
   </ng-container>
 </ng-template>
 
 <ng-template #defaultText>
-  <input [name]="name" [id]="id ? id : null" [(ngModel)]="value" [type]="type" [disabled]="disabled"
-         [attr.required]="required ? '' : null" [placeholder]="placeholder ? placeholder : null" />
+  <input [(ngModel)]="value" [type]="type" [disabled]="disabled"
+         [attr.required]="required ? '' : null" [placeholder]="placeholder ? placeholder : ''" />
 </ng-template>
 
 <ng-template #textArea>
-  <textarea [name]="name" [id]="id ? id : null" [(ngModel)]="value" [disabled]="disabled"
-            [placeholder]="placeholder ? placeholder : null"
-            [cols]="textColumns" [rows]="textRows" [attr.required]="required ? '' : null"></textarea>
+  <textarea [(ngModel)]="value" [disabled]="disabled"
+            [placeholder]="placeholder ? placeholder : ''" [cols]="textColumns" [rows]="textRows"
+            [attr.required]="required ? '' : null"></textarea>
 </ng-template>

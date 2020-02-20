@@ -1,23 +1,14 @@
-:root {
-  --labelGap: 2px;
+@import "../../../../styles/base.css";
+/* :root {
+  --labelGap: 1px;
   --disabledBackground: rgb(221, 232, 239);
   --disabledBorder: rgb(99, 127, 151);
 }
 
-.generic-input {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: grid;
-}
-
 .generic-input.label-left {
   gap: var(--labelGap);
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-}
-
-.generic-input.label-left label {
-  place-self: center end;
 }
 
 .generic-input.label-top {
@@ -30,4 +21,4 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
+} */

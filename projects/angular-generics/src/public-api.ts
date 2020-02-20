@@ -29,8 +29,8 @@ export * from './lib/controls/file/file.component';
 export * from './lib/controls/file/file.module';
 
 // input
-export * from './lib/controls/input/input.component';
-export * from './lib/controls/input/input.module';
+// export * from './lib/controls/input/input.component';
+// export * from './lib/controls/input/input.module';
 
 // Range
 export * from './lib/controls/range/range.component';

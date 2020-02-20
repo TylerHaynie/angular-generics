@@ -5,24 +5,23 @@
     <ag-content [cols]="'1fr auto'">
       <ag-text [(ngModel)]="startValue" [type]="type"
                [required]="required" [disabled]="disabled" (change)="rangeChange()"></ag-text>
-      <ag-content [rows]="2" [height]="'100%'" [forceLeft]="23" [forceUp]="15"[width]="0">
+      <ag-content class="icon-holder" [place]="'end'" [height]="'100%'">
         <i class="fas"
            [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"
-           [ngStyle]="{'place-self': 'center', 'grid-row': 2}"> </i>
+          > </i>
       </ag-content>
     </ag-content>
 
     <ag-content [cols]="'1fr auto'">
       <ag-text [(ngModel)]="endValue" [type]="type"
                [required]="required" [disabled]="disabled" (change)="rangeChange()"></ag-text>
-      <ag-content [rows]="2" [height]="'100%'" [forceLeft]="23" [forceUp]="15"[width]="0">
+      <ag-content class="icon-holder" [place]="'end'" [height]="'100%'">
         <i class="fas"
            [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"
-           [ngStyle]="{'place-self': 'center', 'grid-row': 2}"> </i>
+           > </i>
       </ag-content>
     </ag-content>
 
   </ag-content>
-
 
 </ag-input>

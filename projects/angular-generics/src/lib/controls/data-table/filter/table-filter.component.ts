@@ -1,41 +1,34 @@
 import { Component, Input, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
-import { TableColumn } from '../models/table-column';
+import { TableConfig } from '../models/table-config';
+import { ColumnFilter } from '../models/column-filter';
+import { ValueAccessProvider } from '../../generic-control/generic-input-accessor';
 
 @Component({
   selector: 'ag-table-filter',
   templateUrl: './table-filter.component.html',
   styleUrls: ['./table-filter.component.scss'],
+  providers: [ValueAccessProvider(TableFilterComponent)],
   encapsulation: ViewEncapsulation.None
 })
 export class TableFilterComponent {
-  @Input() title: string = 'Filter';
-  @Input() columns: TableColumn[] = [];
-  @Output() filter: EventEmitter<TableColumn[]>;
-
-  // tableConfig: TableConfig;
+  @Input() config: TableConfig;
+  @Output() configChange: EventEmitter<TableConfig>;
+  @Output() search: EventEmitter<null>;
 
   constructor() {
-    this.filter = new EventEmitter<TableColumn[]>();
+    this.search = new EventEmitter<null>();
+    this.configChange = new EventEmitter<TableConfig>();
   }
 
-  applyFilter() {
-    // this.tableConfig.filters.forEach(filter => {
-
-    // });
-
-    // this.columns.forEach(col => {
-    //   if (col.filterValue == '' || col.filterValue == null) {
-    //     col.filterValue = null;
-    //   }
-    // });
-
-    // this.filter.emit(this.columns);
+  searchClicked() {
+    this.configChange.emit(this.config);
+    this.search.emit();
   }
 
-  resetFilter() {
-    // this.columns.forEach(column => {
-    //   column.filterValue = null;
-    // });
+  resetSearch() {
+    this.config.columns.forEach(column => {
+      column.filter = new ColumnFilter();
+    });
   }
 
 }

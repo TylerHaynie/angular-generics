@@ -18,7 +18,7 @@
   <ng-container *ngIf="disabled">
     <input disabled type="text"
            [attr.required]="required ? '' : null"
-           [value]="display && value ? value[display] : null">
+           [value]="display && value ? value[display] : ''">
   </ng-container>
 
 </ag-input>

@@ -1,12 +1,10 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { MakeProvider } from '../generic-control/generic-input-accessor';
 import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
 
 @Component({
   selector: 'ag-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css'],
-  providers: [MakeProvider(InputComponent)],
   encapsulation: ViewEncapsulation.None
 })
 export class InputComponent {

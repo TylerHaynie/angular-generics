@@ -28,7 +28,7 @@ export class SideNavComponent implements OnInit {
   }
 
   menuItemClicked(item: MenuItem) {
-    this.selectedMenu = item.name;
+    // this.selectedMenu = item.name;
     this.select.emit(item);
   }
 

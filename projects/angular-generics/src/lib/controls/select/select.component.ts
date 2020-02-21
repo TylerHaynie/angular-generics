@@ -5,12 +5,13 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
 @Component({
   selector: 'ag-select',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.css'],
+  styleUrls: ['./select.component.css',
+    '../../../../styles/base.css'],
   providers: [ValueAccessProvider(SelectComponent)],
   encapsulation: ViewEncapsulation.None
 })
 export class SelectComponent extends GenericInputAccessor implements IGenericInput {
-    // implementation
+  // implementation
   @Input() disabled: boolean;
   @Input() required: boolean;
 

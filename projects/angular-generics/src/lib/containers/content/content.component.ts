@@ -4,7 +4,8 @@ import { ValueTypeHelpers } from '../../controls/generic-control/value-type-help
 @Component({
   selector: 'ag-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css'],
+  styleUrls: ['./content.component.css',
+    '../../../../styles/base.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class ContentComponent {

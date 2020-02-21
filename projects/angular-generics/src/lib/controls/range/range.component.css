@@ -1,16 +1,14 @@
-@import "../../../../styles/base.css";
-
 :root {
   --rangeIconSize: 22px;
   --rangeIconColor: #afafaf;
 }
 
-i {
+.icon-holder>i {
   font-size: var(--rangeIconSize);
   color: var(--rangeIconColor);
 }
 
-ag-input input[type=number]::-webkit-inner-spin-button, ag-input input[type=date]::-webkit-calendar-picker-indicator, ag-input input[type=date]::-webkit-inner-spin-button {
+ag-input.range input[type=number]::-webkit-inner-spin-button, ag-input input[type=date]::-webkit-calendar-picker-indicator, ag-input input[type=date]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   display: none;
 }

@@ -4,7 +4,8 @@ import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
 @Component({
   selector: 'ag-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.css'],
+  styleUrls: ['./input.component.css',
+    '../../../../styles/base.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class InputComponent {

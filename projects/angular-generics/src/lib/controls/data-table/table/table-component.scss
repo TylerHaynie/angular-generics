@@ -1,6 +1,4 @@
-@import "../../../../../styles/base.css";
-
-table {
+.generic-table {
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -18,12 +16,12 @@ table {
   border-bottom: 1px solid rgb(126, 126, 126);
 }
 
-tr.mat-header-row {
+.generic-table tr.mat-header-row {
   height: 45px;
   background: #f7f7f7;
 }
 
-th.mat-header-cell {
+.generic-table th.mat-header-cell {
   color: rgb(66, 66, 66);
   font-size: 14px;
   font-weight: bold;
@@ -31,26 +29,26 @@ th.mat-header-cell {
   border-top: 1px solid #555;;
 }
 
-tr.mat-row {
+.generic-table tr.mat-row {
   height: 28px;
 }
 
-tr.mat-row:hover {
+.generic-table tr.mat-row:hover {
   background: rgb(220, 220, 220);
   cursor: pointer;
 }
 
-tr.mat-row.selected {
+.generic-table tr.mat-row.selected {
   background: #e8e8e8;
   cursor: pointer;
 }
 
-tr.mat-row.selected td{
+.generic-table tr.mat-row.selected td{
   border-bottom: 1px solid rgb(150, 150, 150);
   border-top: 1px solid rgb(150, 150, 150);
 }
 
-td.mat-footer-cell {
+.generic-table td.mat-footer-cell {
   font-weight: bold;
 }
 
@@ -58,7 +56,7 @@ td.mat-footer-cell {
   border-bottom: 1px solid #636363;
 }
 
-td.mat-footer-cell.mat-column-pager {
+.generic-table td.mat-footer-cell.mat-column-pager {
   padding: 0;
 }
 
@@ -66,11 +64,11 @@ td.mat-footer-cell.mat-column-pager {
   padding: 0 !important;
 }
 
-tr.total-footer.mat-footer-row.ng-star-inserted>td {
+.generic-table tr.total-footer.mat-footer-row.ng-star-inserted>td {
   border-top: 1px solid #333333;
   background-color: #f9f9f9;
 }
 
-tr.mat-footer-row.ng-star-inserted>td.mat-column-pager {
+.generic-table tr.mat-footer-row.ng-star-inserted>td.mat-column-pager {
   border-top: 1px solid #545454;
 }

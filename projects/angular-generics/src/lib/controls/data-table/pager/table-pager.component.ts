@@ -5,6 +5,7 @@ import { TablePage } from '../models/table-page';
 @Component({
   selector: 'ag-table-pager',
   templateUrl: './table-pager.component.html',
+  styleUrls: ['../../../../../styles/base.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class TablePagerComponent implements AfterViewInit {

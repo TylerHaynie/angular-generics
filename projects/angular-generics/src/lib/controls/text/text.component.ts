@@ -5,7 +5,8 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
 @Component({
   selector: 'ag-text',
   templateUrl: './text.component.html',
-  styleUrls: ['./text.component.css'],
+  styleUrls: ['./text.component.css',
+    '../../../../styles/base.css'],
   providers: [ValueAccessProvider(TextComponent)],
   encapsulation: ViewEncapsulation.None
 })

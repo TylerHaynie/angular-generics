@@ -4,7 +4,8 @@ import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
 @Component({
   selector: 'ag-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css'],
+  styleUrls: ['./button.component.css',
+  '../../../../styles/base.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent {

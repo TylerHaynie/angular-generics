@@ -6,7 +6,8 @@ import { ValueAccessProvider } from '../../generic-control/generic-input-accesso
 @Component({
   selector: 'ag-table-filter',
   templateUrl: './table-filter.component.html',
-  styleUrls: ['./table-filter.component.scss'],
+  styleUrls: ['./table-filter.component.scss',
+    '../../../../../styles/base.css'],
   providers: [ValueAccessProvider(TableFilterComponent)],
   encapsulation: ViewEncapsulation.None
 })

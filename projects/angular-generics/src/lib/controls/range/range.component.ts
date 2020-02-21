@@ -5,7 +5,8 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
 @Component({
   selector: 'ag-range',
   templateUrl: './range.component.html',
-  styleUrls: ['./range.component.css'],
+  styleUrls: ['./range.component.css',
+    '../../../../styles/base.css'],
   providers: [ValueAccessProvider(RangeComponent)],
   encapsulation: ViewEncapsulation.None
 })

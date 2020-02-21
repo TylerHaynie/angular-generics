@@ -12,7 +12,7 @@ export class ModalExampleComponent implements OnInit {
   ngOnInit() {
   }
 
-  buttonClick(){
+  buttonClick() {
     console.log('clicked');
   }
 

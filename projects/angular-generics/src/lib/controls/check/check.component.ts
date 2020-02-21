@@ -5,7 +5,8 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
 @Component({
   selector: 'ag-check',
   templateUrl: './check.component.html',
-  styleUrls: ['./check.component.css'],
+  styleUrls: ['./check.component.css',
+  '../../../../styles/base.css'],
   providers: [ValueAccessProvider(CheckComponent)],
   encapsulation: ViewEncapsulation.None
 })

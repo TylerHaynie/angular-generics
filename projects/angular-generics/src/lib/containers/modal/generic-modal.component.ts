@@ -3,7 +3,9 @@ import { Component, Input, TemplateRef, Output, EventEmitter, ViewEncapsulation 
 @Component({
   selector: 'ag-modal',
   templateUrl: './generic-modal.component.html',
-  styleUrls: ['./generic-modal.component.css'],
+  styleUrls: [
+    './generic-modal.component.css',
+    '../../../../styles/base.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class GenericModalComponent {

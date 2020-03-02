@@ -27,37 +27,42 @@
 </ng-container>
 
 <ng-template #tableTemplate let-tdata let-tkey="key">
-  <table mat-table class="generic-table mat-table-fill-height" [dataSource]="tdata">
-    <ng-container *ngFor="let column of config.columns" [matColumnDef]="column.name">
-      <th mat-header-cell *matHeaderCellDef="let element">
-        {{ column.headerValue ? column.headerValue(element) : '' }}
-      </th>
-      <td mat-cell *matCellDef="let element">
-        {{ column.cellValue ? column.cellValue(element) : "" }}
-      </td>
-      <ng-container *ngIf="showFooter">
-        <td mat-footer-cell *matFooterCellDef="let element">
-          {{ column.calculate ? calculateTotal(column, tkey)  : "" }}
+  <ag-content [rows]="'1fr auto'">
+    <table mat-table class="generic-table mat-table-fill-height" [dataSource]="tdata">
+      <ng-container *ngFor="let column of config.columns" [matColumnDef]="column.name">
+        <th mat-header-cell *matHeaderCellDef="let element">
+          {{ column.headerValue ? column.headerValue(element) : '' }}
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ column.cellValue ? column.cellValue(element) : "" }}
+        </td>
+        <ng-container *ngIf="showFooter">
+          <td mat-footer-cell *matFooterCellDef="let element">
+            {{ column.calculate ? calculateTotal(column, tkey)  : "" }}
+          </td>
+        </ng-container>
+      </ng-container>
+
+      <ng-container matColumnDef="pager">
+        <td mat-footer-cell *matFooterCellDef [attr.colspan]="activeColumns.length">
+          <ag-table-pager [page]="config.page"
+                          (pageChange)="pageChange($event)"></ag-table-pager>
         </td>
       </ng-container>
-    </ng-container>
 
-    <ng-container matColumnDef="pager">
-      <td mat-footer-cell *matFooterCellDef [attr.colspan]="activeColumns.length">
-        <ag-table-pager [page]="config.page"
-                        (pageChange)="pageChange($event)"></ag-table-pager>
-      </td>
-    </ng-container>
+      <tr mat-header-row *matHeaderRowDef="activeColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: activeColumns;" [ngClass]="{'selected': row == selectedItem}"
+          (click)="clickedRow(row)"></tr>
+      <ng-container *ngIf="showFooter">
+        <tr class="total-footer" mat-footer-row *matFooterRowDef="activeColumns; sticky: true"></tr>
+      </ng-container>
+      <ng-container *ngIf="showPager">
+        <tr mat-footer-row *matFooterRowDef="['pager']; sticky: true"></tr>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="activeColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: activeColumns;" [ngClass]="{'selected': row == selectedItem}"
-        (click)="clickedRow(row)"></tr>
-    <ng-container *ngIf="showFooter">
-      <tr class="total-footer" mat-footer-row *matFooterRowDef="activeColumns; sticky: true"></tr>
-    </ng-container>
-    <ng-container *ngIf="showPager">
-      <tr mat-footer-row *matFooterRowDef="['pager']; sticky: true"></tr>
-    </ng-container>
+    </table>
+    <ag-table-pager [page]="config.page"
+                    (pageChange)="pageChange($event)"></ag-table-pager>
 
-  </table>
+  </ag-content>
 </ng-template>

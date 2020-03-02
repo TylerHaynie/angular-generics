@@ -18,11 +18,7 @@
 body {
   height: 100vh;
   color: black;
-}
 
-.sample-box {
-  background-color: brown;
-  height: 200px;
 }
 
 .alert.error{

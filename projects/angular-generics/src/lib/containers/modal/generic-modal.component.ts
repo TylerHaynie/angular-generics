@@ -15,18 +15,18 @@ export class GenericModalComponent {
 
   @Output() closed: EventEmitter<null>;
 
-  showModal: boolean = false;
+  isOpen: boolean = false;
 
   constructor() {
     this.closed = new EventEmitter<null>();
   }
 
   open() {
-    this.showModal = true;
+    this.isOpen = true;
   }
 
   close() {
-    this.showModal = false;
+    this.isOpen = false;
     this.closed.emit();
   }
 

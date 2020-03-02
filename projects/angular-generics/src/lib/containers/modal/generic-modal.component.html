@@ -1,4 +1,4 @@
-<ng-container *ngIf="showModal">
+<!-- <ng-container *ngIf="isOpen">
   <div class="modal">
     <div class="modal-panel">
 
@@ -20,9 +20,39 @@
 </ng-container>
 
 <ng-template #defaultButtons>
-  <ag-button (click)="close()">Close</ag-button>
+  <ag-button (click)="close()">OK</ag-button>
 </ng-template>
 
 <ng-template #defaultHeader>
   <h2>{{title}}</h2>
-</ng-template>
+</ng-template> -->
+
+<ng-container *ngIf="isOpen">
+  <ag-content class="modal-cover" [height]="'100%'"
+              [place]="'center center'" [width]="'100%'">
+    <ag-content class="modal-panel" [gap]="10" [rows]="'auto 1fr auto'">
+
+      <ag-content [cols]="'1fr auto'" class="modal-header" [pad]="'10px 10px 2px 10px'">
+        <ng-container *ngTemplateOutlet="header ? header : defaultHeader"></ng-container>
+        <i class="pointer close fas fa-window-close" (click)="close()"></i>
+      </ag-content>
+
+      <ag-content [pad]="10" class="modal-body">
+        <ng-content></ng-content>
+      </ag-content>
+
+      <ag-content class="modal-footer" [place]="'end'" [pad]="'5'">
+        <ng-container *ngTemplateOutlet="footer ? footer : defaultFooter"></ng-container>
+      </ag-content>
+
+    </ag-content>
+  </ag-content>
+
+  <ng-template #defaultHeader>
+    <h2>{{title}}</h2>
+  </ng-template>
+
+  <ng-template #defaultFooter>
+    <ag-button (click)="close()">OK</ag-button>
+  </ng-template>
+</ng-container>

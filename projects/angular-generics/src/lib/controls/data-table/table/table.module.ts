@@ -24,7 +24,6 @@ import { GenericContentModule } from '../../../containers/content/content.module
     MatTableModule,
     GenericSelectModule,
     GenericPagerModule,
-    GenericPagerModule,
     GenericContentModule
   ],
   exports: [

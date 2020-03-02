@@ -2,7 +2,7 @@
   <ag-content [gap]="10">
     <ag-table-filter [(config)]="asyncConfig" (search)="doAsyncSearch()"></ag-table-filter>
 
-    <ag-table #asyncTable
+    <ag-table class="table-wrapper" #asyncTable
               [isDebug]="true"
               [(config)]="asyncConfig"
               (search)="updateAsyncData($event)"
@@ -17,7 +17,7 @@
   <ag-content [gap]="10">
     <ag-table-filter [(config)]="staticConfig" (search)="doStaticSearch()"></ag-table-filter>
 
-    <ag-table #staticTable
+    <ag-table class="table-wrapper" #staticTable
               [isDebug]="true"
               [(config)]="staticConfig"
               (search)="updateStaticData($event)"

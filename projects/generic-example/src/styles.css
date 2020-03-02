@@ -18,14 +18,14 @@
 body {
   height: 100vh;
   color: black;
-}
 
-.sample-box {
-  background-color: brown;
-  height: 200px;
 }
 
 .alert.error{
   background-color: rgb(233, 135, 135);
   border: 1px solid rgb(168, 33, 33);
+}
+
+.table-wrapper{
+  border: 1px solid rgb(177, 177, 177);
 }

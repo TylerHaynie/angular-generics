@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GenericModalComponent } from './generic-modal.component';
 import { GenericButtonModule } from '../../controls/button/button.module';
+import { GenericContentModule } from '../content/content.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { GenericButtonModule } from '../../controls/button/button.module';
   ],
   imports: [
     CommonModule,
-    GenericButtonModule
+    GenericButtonModule,
+    GenericContentModule
   ],
   exports: [
     GenericModalComponent

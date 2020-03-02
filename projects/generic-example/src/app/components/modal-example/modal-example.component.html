@@ -1,45 +1,18 @@
-<!-- <ag-content [pad]="5" [gap]="5" [flow]="'column'">
-  <ag-button (click)="defaultModal.open()" (click)="buttonClick()">Default Modal</ag-button>
-  <ag-button (click)="customModal.open()">Using Template</ag-button>
+<ag-content [pad]="5" [gap]="5" [flow]="'column'">
+  <ag-button (click)="defaultModal.open()" (click)="buttonClick()">View Modal</ag-button>
 </ag-content>
 
-
 <ag-modal #defaultModal [title]="'Default Modal'">
-  <ag-content [cols]="2" [gap]="5" [pad]="5">
-    <ng-container *ngTemplateOutlet="defaultContent"></ng-container>
+  <ag-content [cols]="2" [gap]="10" [pad]="5">
+    <ag-text [label]="'Text Field One'"></ag-text>
+    <ag-text [label]="'Text Field Two'"></ag-text>
+    <ag-text [label]="'Text Field Three'"></ag-text>
+    <ag-text [label]="'Text Field Four'"></ag-text>
+    <ag-text [label]="'Text Field Five'"></ag-text>
+    <ag-text [label]="'Text Field Six'"></ag-text>
+    <ag-text [label]="'Text Field Seven'"></ag-text>
+    <ag-text [label]="'Text Field Eight'"></ag-text>
+    <ag-text [label]="'Text Field Nine'"></ag-text>
+    <ag-text [label]="'Text Field Ten'"></ag-text>
   </ag-content>
 </ag-modal>
-
-<ag-modal #customModal [title]="'Custom Buttons'"  [footer]="buttons">
-  <ag-content [cols]="2" [gap]="5" [pad]="5">
-    <ng-container *ngTemplateOutlet="defaultContent"></ng-container>
-  </ag-content>
-</ag-modal>
-
-<ng-template #defaultContent>
-  <ag-content>
-    <div class="sample-box">
-
-    </div>
-  </ag-content>
-  <ag-content>
-    <div class="sample-box">
-
-    </div>
-  </ag-content>
-</ng-template>
-
-<ng-template #buttons>
-  <ag-content>
-    <ag-button> Button 1 </ag-button>
-  </ag-content>
-  <ag-content>
-    <ag-button> Button 2 </ag-button>
-  </ag-content>
-  <ag-content>
-    <ag-button> Button 3 </ag-button>
-  </ag-content>
-  <ag-content>
-    <ag-button> Button 4 </ag-button>
-  </ag-content>
-</ng-template> -->

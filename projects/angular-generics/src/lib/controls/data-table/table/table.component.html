@@ -42,13 +42,13 @@
           </td>
         </ng-container>
       </ng-container>
-
+<!--
       <ng-container matColumnDef="pager">
         <td mat-footer-cell *matFooterCellDef [attr.colspan]="activeColumns.length">
           <ag-table-pager [page]="config.page"
                           (pageChange)="pageChange($event)"></ag-table-pager>
         </td>
-      </ng-container>
+      </ng-container> -->
 
       <tr mat-header-row *matHeaderRowDef="activeColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: activeColumns;" [ngClass]="{'selected': row == selectedItem}"
@@ -56,9 +56,9 @@
       <ng-container *ngIf="showFooter">
         <tr class="total-footer" mat-footer-row *matFooterRowDef="activeColumns; sticky: true"></tr>
       </ng-container>
-      <ng-container *ngIf="showPager">
+      <!-- <ng-container *ngIf="showPager">
         <tr mat-footer-row *matFooterRowDef="['pager']; sticky: true"></tr>
-      </ng-container>
+      </ng-container> -->
 
     </table>
     <ag-table-pager [page]="config.page"

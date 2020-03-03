@@ -1,6 +1,6 @@
 {
   "name": "angular-generics",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "A collection of generic controls for Angular 9+",
   "repository": {
     "type": "git",
@@ -24,8 +24,7 @@
   "peerDependencies": {
     "@angular/common": "^9.0.0",
     "@angular/core": "^9.0.0",
-    "@angular/cdk": "^8.2.3",
-    "@angular/material": "^8.2.3",
+    "@angular/forms": "^9.0.0",
     "@fortawesome/fontawesome-free": "^5.12.1"
   },
   "dependencies": {},

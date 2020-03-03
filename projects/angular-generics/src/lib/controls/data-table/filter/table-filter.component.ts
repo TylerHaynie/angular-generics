@@ -16,6 +16,8 @@ export class TableFilterComponent {
   @Output() configChange: EventEmitter<TableConfig>;
   @Output() search: EventEmitter<null>;
 
+  isOpen: boolean = true;
+
   constructor() {
     this.search = new EventEmitter<null>();
     this.configChange = new EventEmitter<TableConfig>();

@@ -1,20 +1,24 @@
 <ag-content [height]="'100%'" [gap]="30" [pad]="5">
-  <ag-content [gap]="10">
-    <ag-table-filter [(config)]="asyncConfig" (search)="doAsyncSearch()"></ag-table-filter>
 
-    <ag-table class="table-wrapper" #asyncTable
+  <ag-content>
+    <ag-table-filter [(config)]="asyncConfig" (search)="doAsyncSearch()"></ag-table-filter>
+  </ag-content>
+  <ag-content [height]="'100%'">
+    <ag-table #asyncTable
               [isDebug]="true"
               [(config)]="asyncConfig"
               (search)="updateAsyncData($event)"
               (rowSelect)="asyncRowSelected($event)">
     </ag-table>
-
-    <ag-content>
-      Selected: {{asyncRowOutput}}
-    </ag-content>
   </ag-content>
 
-  <ag-content [gap]="10">
+
+  <ag-content *ngIf="asyncRowOutput">
+    <b>Selected</b> {{asyncRowOutput}}
+  </ag-content>
+
+
+<!-- <ag-content [gap]="10">
     <ag-table-filter [(config)]="staticConfig" (search)="doStaticSearch()"></ag-table-filter>
 
     <ag-table class="table-wrapper" #staticTable
@@ -28,5 +32,5 @@
       Selected: {{staticRowOutput}}
     </ag-content>
 
-  </ag-content>
+  </ag-content> -->
 </ag-content>

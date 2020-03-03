@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TablePagerComponent } from './table-pager.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { GenericContentModule } from '../../../containers/content/content.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   ],
   imports: [
     CommonModule,
-    MatPaginatorModule,
+    GenericContentModule,
+    FormsModule
   ],
   exports: [
     TablePagerComponent

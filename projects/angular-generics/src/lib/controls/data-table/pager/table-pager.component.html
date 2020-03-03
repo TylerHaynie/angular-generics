@@ -5,7 +5,7 @@
     </ag-content>
 
     <ag-content>
-      <select name="sizeSelection" [ngModel]="page.take" (change)="sizeChanged($event.target.value)">
+      <select name="sizeSelection" [(ngModel)]="page.take" (change)="sizeChanged($event.target.value)">
         <option *ngFor="let opt of sizeOptions" [value]="opt">{{opt}}</option>
       </select>
     </ag-content>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TablePagerComponent } from './table-pager.component';
 import { GenericContentModule } from '../../../containers/content/content.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { GenericContentModule } from '../../../containers/content/content.module
   ],
   imports: [
     CommonModule,
-    GenericContentModule
+    GenericContentModule,
+    FormsModule
   ],
   exports: [
     TablePagerComponent

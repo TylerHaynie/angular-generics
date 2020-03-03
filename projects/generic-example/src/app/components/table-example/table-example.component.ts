@@ -63,7 +63,7 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
     return [
       new TableColumn({
         name: "userId",
-        calculate: true,
+        calculate: false,
         visible: true,
         headerValue: (element: any) => 'User',
         cellValue: (element: any) => this.getValue(element.userId)

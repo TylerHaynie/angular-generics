@@ -17,22 +17,22 @@
               (click)="clickedRow(row)">
             <ng-container *ngFor="let col of activeColumns">
               <td>
-                {{row[col.name]}}
+                {{row ? col.cellValue(row) : ''}}
               </td>
             </ng-container>
           </tr>
         </ng-container>
-        <tr class="footer-row">
+        <tr *ngIf="showFooter" class="footer-row">
           <ng-container *ngFor="let column of activeColumns">
             <td>
-              {{ column.calculate ? calculateTotal(column)  : "" }}
+              {{ column.calculate ? calculateTotal(column)  : '' }}
             </td>
           </ng-container>
         </tr>
       </tbody>
     </table>
   </ag-content>
-  <ag-content class="pager-container">
+  <ag-content *ngIf="showPager" class="pager-container">
     <ag-table-pager [(page)]="config.page"
                     (pageChange)="pageChange($event)"></ag-table-pager>
   </ag-content>

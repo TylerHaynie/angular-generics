@@ -65,7 +65,7 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
         name: "userId",
         calculate: true,
         visible: true,
-        headerValue: (element: any) => 'User ID',
+        headerValue: (element: any) => 'User',
         cellValue: (element: any) => this.getValue(element.userId)
       }),
       new TableColumn({
@@ -128,7 +128,7 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
 
   asyncRowSelected(rowData: any) {
     this.selectedAsyncRow = rowData;
-    this.asyncRowOutput = JSON.stringify(this.selectedAsyncRow);
+    this.asyncRowOutput = JSON.stringify(rowData, null, 2);
   }
 
   staticRowSelected(rowData: any) {

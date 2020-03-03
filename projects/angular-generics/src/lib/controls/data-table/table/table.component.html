@@ -1,68 +1,39 @@
-<!-- Ungrouped -->
-<ng-container *ngIf="!isGrouped">
-  <ng-container *ngTemplateOutlet="tableTemplate;context:{$implicit: dataSource.data}"></ng-container>
-</ng-container>
+<ag-content [rows]="'1fr auto'">
+  <ag-content>
+    <table class="generic-table">
+      <thead>
+        <tr class="header-row">
+          <ng-container *ngFor="let column of activeColumns">
+            <th>
+              {{ column ? column.headerValue() : ''}}
+            </th>
+          </ng-container>
+        </tr>
+      </thead>
 
-<!-- Grouped -->
-<ng-container *ngIf="isGrouped">
-  <mat-accordion>
-    <ng-container *ngFor="let tableData of dataSource.data | async | keyvalue">
-
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{config.groupBy.name}} : &nbsp; <b>{{tableData.key}}</b>
-          </mat-panel-title>
-          <mat-panel-description>
-            Records: &nbsp; {{tableData.value.length}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <ng-container *ngTemplateOutlet="tableTemplate;context:{$implicit: tableData.value, key: tableData.key}">
+      <tbody>
+        <ng-container *ngFor="let row of dataSource.data | async">
+          <tr class="table-row" [ngClass]="{'selected': row == selectedItem}"
+              (click)="clickedRow(row)">
+            <ng-container *ngFor="let col of activeColumns">
+              <td>
+                {{row[col.name]}}
+              </td>
+            </ng-container>
+          </tr>
         </ng-container>
-      </mat-expansion-panel>
-
-    </ng-container>
-  </mat-accordion>
-</ng-container>
-
-<ng-template #tableTemplate let-tdata let-tkey="key">
-  <ag-content [rows]="'1fr auto'">
-    <table mat-table class="generic-table mat-table-fill-height" [dataSource]="tdata">
-      <ng-container *ngFor="let column of config.columns" [matColumnDef]="column.name">
-        <th mat-header-cell *matHeaderCellDef="let element">
-          {{ column.headerValue ? column.headerValue(element) : '' }}
-        </th>
-        <td mat-cell *matCellDef="let element">
-          {{ column.cellValue ? column.cellValue(element) : "" }}
-        </td>
-        <ng-container *ngIf="showFooter">
-          <td mat-footer-cell *matFooterCellDef="let element">
-            {{ column.calculate ? calculateTotal(column, tkey)  : "" }}
-          </td>
-        </ng-container>
-      </ng-container>
-<!--
-      <ng-container matColumnDef="pager">
-        <td mat-footer-cell *matFooterCellDef [attr.colspan]="activeColumns.length">
-          <ag-table-pager [page]="config.page"
-                          (pageChange)="pageChange($event)"></ag-table-pager>
-        </td>
-      </ng-container> -->
-
-      <tr mat-header-row *matHeaderRowDef="activeColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: activeColumns;" [ngClass]="{'selected': row == selectedItem}"
-          (click)="clickedRow(row)"></tr>
-      <ng-container *ngIf="showFooter">
-        <tr class="total-footer" mat-footer-row *matFooterRowDef="activeColumns; sticky: true"></tr>
-      </ng-container>
-      <!-- <ng-container *ngIf="showPager">
-        <tr mat-footer-row *matFooterRowDef="['pager']; sticky: true"></tr>
-      </ng-container> -->
-
+        <tr class="footer-row">
+          <ng-container *ngFor="let column of activeColumns">
+            <td>
+              {{ column.calculate ? calculateTotal(column)  : "" }}
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
     </table>
-    <ag-table-pager [page]="config.page"
-                    (pageChange)="pageChange($event)"></ag-table-pager>
-
   </ag-content>
-</ng-template>
+  <ag-content class="pager-container">
+    <ag-table-pager [(page)]="config.page"
+                    (pageChange)="pageChange($event)"></ag-table-pager>
+  </ag-content>
+</ag-content>

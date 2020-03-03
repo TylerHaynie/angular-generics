@@ -1,6 +1,4 @@
 @import '../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-
 :root {
   --inputLabelColor: rgb(0, 0, 0);
   --tableHeaderBorderColor: rgb(155, 155, 155);
@@ -18,14 +16,10 @@
 body {
   height: 100vh;
   color: black;
-
+  overflow: hidden;
 }
 
-.alert.error{
+.alert.error {
   background-color: rgb(233, 135, 135);
   border: 1px solid rgb(168, 33, 33);
-}
-
-.table-wrapper{
-  border: 1px solid rgb(177, 177, 177);
 }

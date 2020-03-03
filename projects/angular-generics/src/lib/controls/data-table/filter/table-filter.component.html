@@ -1,14 +1,16 @@
-<mat-accordion>
-  <mat-expansion-panel [expanded]="true">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="title">
-        Filter
-      </mat-panel-title>
-      <mat-panel-description>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
+<ag-content class="group" [ngClass]="{'open': isOpen, 'closed': !isOpen}">
+  <ag-content class="group-title" [place]="'baseline'" [pad]="'10px 10px 3px 10px'" [cols]="'1fr auto'">
+    <ag-content>
+      Filter
+    </ag-content>
 
-    <ag-content [gap]="10" [rows]="'1fr auto'">
+    <ag-content>
+      <button (click)="isOpen = !isOpen">Toggle</button>
+    </ag-content>
+  </ag-content>
+
+  <ng-container *ngIf="isOpen">
+    <ag-content class="group-content" [gap]="10" [pad]="10">
       <ag-content class="filter-container" [cols]="4" [gap]="10" [pad]="'5px 0 0 0'">
         <ng-container *ngFor="let column of config.columns">
           <ng-container *ngIf="column.filterable">
@@ -29,6 +31,5 @@
         <ag-button (click)="searchClicked()">Search</ag-button>
       </ag-content>
     </ag-content>
-
-  </mat-expansion-panel>
-</mat-accordion>
+  </ng-container>
+</ag-content>

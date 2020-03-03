@@ -1,8 +1,5 @@
-import {
-  Component, Input, EventEmitter,
-  Output, OnChanges, SimpleChanges, OnInit
-} from "@angular/core";
-import { DecimalPipe, KeyValue } from '@angular/common';
+import { Component, Input, EventEmitter, Output } from "@angular/core";
+import { DecimalPipe } from '@angular/common';
 import { TableDataSource } from './table-data-source';
 import { map, reduce } from 'rxjs/operators';
 import { TableColumn } from '../models/table-column';
@@ -27,11 +24,11 @@ export class TableComponent {
 
   @Input() isDebug: boolean = false;
 
-  public activeColumns: string[] = [];
+  public activeColumns: TableColumn[] = [];
   public isGrouped: boolean = false;
   public showFooter: boolean = false;
 
-  public dataSource: TableDataSource = new TableDataSource();
+  public dataSource: TableDataSource;
 
   private _dataLength: number = 0;
   public get dataLength(): number { return this._dataLength; }
@@ -42,6 +39,7 @@ export class TableComponent {
   selectedItem: any;
 
   constructor() {
+    this.dataSource = new TableDataSource();
     this.search = new EventEmitter<null>();
     this.configChange = new EventEmitter<TableConfig>();
     this.rowSelect = new EventEmitter<any>();
@@ -138,8 +136,9 @@ export class TableComponent {
       this.config.page.take = e.take;
 
       if (this.config.page.recordCount > 0) {
-        this.doSearch();
+
       }
+      this.doSearch();
     }
   }
 
@@ -170,12 +169,12 @@ export class TableComponent {
       console.log(`Columns`, this.config.columns);
     }
 
-    var ac: string[] = [];
+    var ac: TableColumn[] = [];
     this.showFooter = false;
 
     this.config.columns.forEach(col => {
       if (col.visible) {
-        ac.push(col.name)
+        ac.push(col)
 
         if (col.calculate) {
           this.showFooter = true;

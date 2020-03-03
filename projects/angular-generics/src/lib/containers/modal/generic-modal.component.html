@@ -1,32 +1,3 @@
-<!-- <ng-container *ngIf="isOpen">
-  <div class="modal">
-    <div class="modal-panel">
-
-      <div class="modal-header">
-        <ng-container *ngTemplateOutlet="header ? header : defaultHeader"></ng-container>
-        <i class="pointer close fas fa-window-close" (click)="close()"></i>
-      </div>
-
-      <div class="modal-body">
-        <ng-content></ng-content>
-      </div>
-
-      <div class="modal-footer">
-        <ng-container *ngTemplateOutlet="footer ? footer : defaultButtons"></ng-container>
-      </div>
-
-    </div>
-  </div>
-</ng-container>
-
-<ng-template #defaultButtons>
-  <ag-button (click)="close()">OK</ag-button>
-</ng-template>
-
-<ng-template #defaultHeader>
-  <h2>{{title}}</h2>
-</ng-template> -->
-
 <ng-container *ngIf="isOpen">
   <ag-content class="modal-cover" [height]="'100%'"
               [place]="'center center'" [width]="'100%'">
@@ -53,6 +24,6 @@
   </ng-template>
 
   <ng-template #defaultFooter>
-    <ag-button (click)="close()">OK</ag-button>
+
   </ng-template>
 </ng-container>

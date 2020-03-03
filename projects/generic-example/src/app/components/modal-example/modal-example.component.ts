@@ -13,7 +13,7 @@ export class ModalExampleComponent implements OnInit {
   }
 
   buttonClick() {
-    console.log('clicked');
+    console.log('injected button clicked');
   }
 
 }

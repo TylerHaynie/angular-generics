@@ -1,5 +1,6 @@
-<ag-content [pad]="5" [gap]="5" [flow]="'column'">
-  <ag-button (click)="defaultModal.open()" (click)="buttonClick()">View Modal</ag-button>
+<ag-content [pad]="5" [gap]="5" [cols]="'auto 1fr'">
+  <ag-button (click)="defaultModal.open()">Default Modal</ag-button>
+  <ag-button (click)="footerModalEx.open()">Footer Modal</ag-button>
 </ag-content>
 
 <ag-modal #defaultModal [title]="'Default Modal'">
@@ -16,3 +17,20 @@
     <ag-text [label]="'Text Field Ten'"></ag-text>
   </ag-content>
 </ag-modal>
+
+<ag-modal #footerModalEx [footer]="modalButton" [title]="'Modal with Footer'">
+
+    <ag-content [cols]="2" [gap]="10" [pad]="5">
+      <ag-text [label]="'Text Field Eleven'"></ag-text>
+      <ag-text [label]="'Text Field Twelve'"></ag-text>
+      <ag-text [label]="'Text Field Thirteen'"></ag-text>
+      <ag-text [label]="'Text Field Fourteen'"></ag-text>
+      <ag-text [label]="'Text Field Fifteen'"></ag-text>
+      <ag-text [label]="'Text Field Sixteen'"></ag-text>
+    </ag-content>
+
+</ag-modal>
+
+<ng-template #modalButton>
+  <ag-button (click)="buttonClick()" (click)="footerModalEx.close()">OK</ag-button>
+</ng-template>

@@ -23,7 +23,7 @@ export class TextComponent extends GenericInputAccessor implements IGenericInput
   @Input() width: string | number;
   @Input() height: string | number;
 
-  @Input() type: string;
+  @Input() type: string = 'text';
   @Input() subtype: string;
 
   // component specific

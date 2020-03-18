@@ -1,10 +1,10 @@
-<ag-content [pad]="5" [gap]="5" [cols]="'auto 1fr'">
+<agc [pad]="5" [gap]="5" [cols]="'auto 1fr'">
   <ag-button (click)="defaultModal.open()">Default Modal</ag-button>
   <ag-button (click)="footerModalEx.open()">Footer Modal</ag-button>
-</ag-content>
+</agc>
 
 <ag-modal #defaultModal [title]="'Default Modal'">
-  <ag-content [cols]="2" [gap]="10" [pad]="5">
+  <agc [cols]="2" [gap]="10" [pad]="5" [height]="'100%'">
     <ag-text [label]="'Text Field One'"></ag-text>
     <ag-text [label]="'Text Field Two'"></ag-text>
     <ag-text [label]="'Text Field Three'"></ag-text>
@@ -15,19 +15,19 @@
     <ag-text [label]="'Text Field Eight'"></ag-text>
     <ag-text [label]="'Text Field Nine'"></ag-text>
     <ag-text [label]="'Text Field Ten'"></ag-text>
-  </ag-content>
+  </agc>
 </ag-modal>
 
 <ag-modal #footerModalEx [footer]="modalButton" [title]="'Modal with Footer'">
 
-    <ag-content [cols]="2" [gap]="10" [pad]="5">
-      <ag-text [label]="'Text Field Eleven'"></ag-text>
-      <ag-text [label]="'Text Field Twelve'"></ag-text>
-      <ag-text [label]="'Text Field Thirteen'"></ag-text>
-      <ag-text [label]="'Text Field Fourteen'"></ag-text>
-      <ag-text [label]="'Text Field Fifteen'"></ag-text>
-      <ag-text [label]="'Text Field Sixteen'"></ag-text>
-    </ag-content>
+  <agc [cols]="2" [gap]="10" [pad]="5" [height]="'100%'">
+    <ag-text [labelPos]="'left'" [required]="true" [label]="'Text Field Eleven'"></ag-text>
+    <ag-text [labelPos]="'left'" [label]="'Text Field Twelve'"></ag-text>
+    <ag-text [labelPos]="'left'" [label]="'Text Field Thirteen'"></ag-text>
+    <ag-text [labelPos]="'left'" [label]="'Text Field Fourteen'"></ag-text>
+    <ag-text [labelPos]="'left'" [label]="'Text Field Fifteen'"></ag-text>
+    <ag-text [labelPos]="'left'" [label]="'Text Field Sixteen'"></ag-text>
+  </agc>
 
 </ag-modal>
 

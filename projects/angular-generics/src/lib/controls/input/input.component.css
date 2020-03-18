@@ -1,0 +1,20 @@
+.label-left>.generic-element {
+  gap: 5px;
+  grid-template-columns: 4fr 5fr;
+}
+
+.label-top>.generic-element {
+  gap: 1px;
+  grid-template-rows: auto 1fr;
+}
+
+.row-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.row-label>.generic-element {
+  height: 100%;
+}

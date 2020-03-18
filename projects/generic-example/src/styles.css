@@ -13,13 +13,33 @@
   padding: 0;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   height: 100vh;
-  color: black;
+  overflow-x: hidden;
+}
+
+.site-wrapper, .main-content, .right-container {
+  height: 100%;
   overflow: hidden;
 }
 
-.alert.error {
-  background-color: rgb(233, 135, 135);
-  border: 1px solid rgb(168, 33, 33);
+.app-content {
+  overflow-x: hidden;
+  overflow-y: auto;
+  align-content: start;
+  color: var(--textColor);
+}
+
+ag-top-nav {
+  background-color: white;
+}
+
+.top-wrapper img {
+  height: 40px !important;
+  padding: 8px;
 }

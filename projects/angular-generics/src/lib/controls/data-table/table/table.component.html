@@ -1,5 +1,5 @@
-<ag-content [rows]="'1fr auto'">
-  <ag-content>
+<agc [rows]="'1fr auto'">
+  <agc>
     <table class="generic-table">
       <thead>
         <tr class="header-row">
@@ -31,9 +31,9 @@
         </tr>
       </tbody>
     </table>
-  </ag-content>
-  <ag-content *ngIf="showPager" class="pager-container">
+  </agc>
+  <agc *ngIf="showPager" class="pager-container">
     <ag-table-pager [(page)]="config.page"
                     (pageChange)="pageChange($event)"></ag-table-pager>
-  </ag-content>
-</ag-content>
+  </agc>
+</agc>

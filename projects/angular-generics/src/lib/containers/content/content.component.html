@@ -1,7 +1,7 @@
 <div class="generic-element"
      [ngStyle]="{'grid-template-columns': isNumber(cols) ? 'repeat(' + cols + ', 1fr)' : cols,
                  'grid-template-rows': isNumber(rows) ? 'repeat(' + rows + ', 1fr)' : rows,
-                 'place-items': place ? place : null,
+                 'place-items': anchor ? anchor : null,
                  'grid-auto-flow': flow ? flow : null,
                  'height': isNumber(height) ? height + 'px' : height,
                  'width': isNumber(width) ? width + 'px' : width,

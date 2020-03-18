@@ -1,35 +1,35 @@
-<ag-content class="group" [ngClass]="{'open': isOpen, 'closed': !isOpen}">
-  <ag-content class="group-title" [place]="'baseline'" [pad]="'10px 10px 3px 10px'" [cols]="'1fr auto'">
-    <ag-content>
+<agc class="group" [ngClass]="{'open': isOpen, 'closed': !isOpen}">
+  <agc class="group-title" [anchor]="'baseline'" [pad]="'10px 10px 3px 10px'" [cols]="'1fr auto'">
+    <agc>
       Filter
-    </ag-content>
+    </agc>
 
-    <ag-content>
+    <agc>
       <button (click)="isOpen = !isOpen">Toggle</button>
-    </ag-content>
-  </ag-content>
+    </agc>
+  </agc>
 
   <ng-container *ngIf="isOpen">
-    <ag-content class="group-content" [gap]="10" [pad]="10">
-      <ag-content class="filter-container" [cols]="4" [gap]="10" [pad]="'5px 0 0 0'">
+    <agc class="group-content" [gap]="10" [pad]="10">
+      <agc class="filter-container" [cols]="4" [gap]="10" [pad]="'5px 0 0 0'">
         <ng-container *ngFor="let column of config.columns">
           <ng-container *ngIf="column.filterable">
 
-            <ag-content class="generic-input label-top">
+            <agc class="generic-input label-top">
               <label>
                 {{column.headerValue()}}
               </label>
               <input name="column.name" [(ngModel)]="column.filter.value">
-            </ag-content>
+            </agc>
 
           </ng-container>
         </ng-container>
-      </ag-content>
+      </agc>
 
-      <ag-content [gap]="10" [cols]="'1fr auto'" [place]="'end'">
+      <agc [gap]="10" [cols]="'1fr auto'" [anchor]="'end'">
         <ag-button (click)="resetSearch()">Reset</ag-button>
         <ag-button (click)="searchClicked()">Search</ag-button>
-      </ag-content>
-    </ag-content>
+      </agc>
+    </agc>
   </ng-container>
-</ag-content>
+</agc>

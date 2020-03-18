@@ -5,8 +5,7 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
 @Component({
   selector: 'ag-text',
   templateUrl: './text.component.html',
-  styleUrls: ['./text.component.css',
-    '../../../../styles/base.css'],
+  styleUrls: ['../../../../styles/base.css'],
   providers: [ValueAccessProvider(TextComponent)],
   encapsulation: ViewEncapsulation.None
 })
@@ -16,12 +15,8 @@ export class TextComponent extends GenericInputAccessor implements IGenericInput
   @Input() required: boolean;
 
   @Input() label: string;
-  @Input() floatLabel: boolean = true;
-  @Input() placeLabel: string = 'end start';
+  @Input() labelPos: 'top' | 'right' | 'bottom' | 'left' = 'top';
   @Input() placeholder: string;
-
-  @Input() width: string | number;
-  @Input() height: string | number;
 
   @Input() type: string = 'text';
   @Input() subtype: string;

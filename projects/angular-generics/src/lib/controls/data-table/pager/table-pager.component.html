@@ -1,25 +1,25 @@
-<ag-content [cols]="'1fr auto auto'" [place]="'end'" [gap]="10">
-  <ag-content [cols]="2" [gap]="5" [place]="'end'">
-    <ag-content [place]="'end end'">
+<agc [cols]="'1fr auto auto'" [anchor]="'end'" [gap]="10">
+  <agc [cols]="2" [gap]="5" [anchor]="'end'">
+    <agc [anchor]="'end end'">
       Page Size
-    </ag-content>
+    </agc>
 
-    <ag-content>
+    <agc>
       <select name="sizeSelection" [(ngModel)]="page.take" (change)="sizeChanged($event.target.value)">
         <option *ngFor="let opt of sizeOptions" [value]="opt">{{opt}}</option>
       </select>
-    </ag-content>
+    </agc>
 
-  </ag-content>
+  </agc>
 
-  <ag-content>
+  <agc>
     {{ getPageInfo() }}
-  </ag-content>
+  </agc>
 
-  <ag-content [cols]="4" [gap]="2">
+  <agc [cols]="4" [gap]="2">
     <button (click)="changePage('first')">First</button>
     <button (click)="changePage('back')">Back</button>
     <button (click)="changePage('next')">Next</button>
     <button (click)="changePage('last')">Last</button>
-  </ag-content>
-</ag-content>
+  </agc>
+</agc>

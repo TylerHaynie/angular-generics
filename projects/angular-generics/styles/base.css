@@ -12,6 +12,37 @@
   --disabledBackground: rgb(221, 232, 239);
   --disabledBorder: rgb(99, 127, 151);
   --labelGap: 1px;
+
+
+  --sliderHeight: 30px;
+  --sliderWidth: 100%;
+  --sliderCoverWidth: 75px;
+  --sliderChangeSpeed: 0.35s;
+  --sliderRadius: 10px;
+  --sliderPadding: 7px;
+  --sliderBackgroundColor: #354558;
+  --sliderFontSize: 16px;
+  --sliderTrueText: 'Yes';
+  --sliderFalseText: 'No';
+  --sliderTrueColor: #26ca28;
+  --sliderFalseColor: rgb(231, 66, 44);
+  --sliderFalseTextOffset: 35px;
+
+
+  --rangeIconSize: 22px;
+  --rangeIconColor: #afafaf;
+
+
+  --buttonBorderRadius: 5px;
+  --buttonPadding: 5px 8px;
+  --buttonTextShadow: 0px 0px 4px rgb(34, 34, 34);
+  --buttonBackground: linear-gradient(to bottom, #437ab1 0%, #003366 100%);
+  --buttonBorder: 1px solid #465d6c;
+  --buttonDisabledBackground: rgb(95, 95, 95);
+  --buttonDisabledFontColor: rgb(34, 34, 34);
+
+
+  --modalBorder: 1px solid rgb(129, 129, 129);
 }
 
 .pointer {
@@ -38,29 +69,6 @@
 
 .pointer:hover {
   cursor: pointer;
-}
-
-.generic-input {
-  box-sizing: border-box;
-  display: grid;
-}
-
-.generic-input>label {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.generic-input.label-left {
-  gap: var(--labelGap);
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-}
-
-.generic-input.label-top {
-  gap: var(--labelGap);
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
 }
 
 .generic-input input {
@@ -93,12 +101,6 @@
 .generic-input input:disabled, .generic-input textarea:disabled {
   background-color: var(--disabledBackground);
   border-color: var(--disabledBorder);
-}
-
-.generic-input>.label-container {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 [type="date"]::-webkit-inner-spin-button {

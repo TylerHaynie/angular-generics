@@ -1,23 +1,23 @@
 <ng-container *ngIf="isOpen">
-  <ag-content class="modal-cover" [height]="'100%'"
-              [place]="'center center'" [width]="'100%'">
-    <ag-content class="modal-panel" [gap]="10" [rows]="'auto 1fr auto'">
+  <agc class="modal-cover" [height]="'100vh'"
+              [anchor]="'center center'" [width]="'100vw'">
+    <agc class="modal-panel" [gap]="10" [rows]="'auto 1fr auto'">
 
-      <ag-content [cols]="'1fr auto'" class="modal-header" [pad]="'10px 10px 2px 10px'">
+      <agc [cols]="'1fr auto'" class="modal-header" [pad]="'10px 10px 2px 10px'">
         <ng-container *ngTemplateOutlet="header ? header : defaultHeader"></ng-container>
         <i class="pointer close fas fa-window-close" (click)="close()"></i>
-      </ag-content>
+      </agc>
 
-      <ag-content [pad]="10" class="modal-body">
+      <agc [pad]="10" class="modal-body" [height]="'100%'">
         <ng-content></ng-content>
-      </ag-content>
+      </agc>
 
-      <ag-content class="modal-footer" [place]="'end'" [pad]="'5'">
+      <agc class="modal-footer" [anchor]="'end'" [pad]="'5'">
         <ng-container *ngTemplateOutlet="footer ? footer : defaultFooter"></ng-container>
-      </ag-content>
+      </agc>
 
-    </ag-content>
-  </ag-content>
+    </agc>
+  </agc>
 
   <ng-template #defaultHeader>
     <h2>{{title}}</h2>

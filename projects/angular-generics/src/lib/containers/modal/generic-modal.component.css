@@ -1,7 +1,3 @@
-:root {
-  --modalBorder: 1px solid rgb(129, 129, 129);
-}
-
 .modal-cover {
   position: absolute;
   z-index: 9999;
@@ -10,35 +6,41 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.65);
-  overflow: auto;
+  overflow: hidden;
+  padding-top: calc(100vh - (100vh * 0.93));
+  box-sizing: border-box;
 }
 
 .modal-panel {
-  max-height: 80%;
-  max-width: 80%;
-
+  box-sizing: border-box;
+  max-width: 85%;
+  max-height: 95%;
+  overflow: auto;
   grid-template-columns: 1fr;
   background-color: #fefefe;
   border: var(--modalBorder);
   border-radius: 5px;
   box-shadow: 0 0 8px 2px #333333;
+  place-self: start center;
 }
 
 .modal-header {
+  box-sizing: border-box;
   border-bottom: var(--modalBorder);
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .modal-body {
-  overflow: auto;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .modal-footer {
+  box-sizing: border-box;
   border-top: var(--modalBorder);
-}
-
-.modal-footer {
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .close {

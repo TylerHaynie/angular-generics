@@ -1,11 +1,13 @@
-<ag-content class="generic-input"
-            [ngClass]="{'label-left': !floatLabel, 'label-top': floatLabel}"
-            [ngStyle]="{'width': typeHelpers.isNumber(width) ? width + 'px' : width,
-                        'height': typeHelpers.isNumber(height) ? height + 'px' : height }">
-  <label [ngStyle]="{'place-self': placeLabel}">
-    <span *ngIf="required && !disabled && !floatLabel" [style.color]="'red'"> *</span>
+<agc class="generic-input"
+            [ngClass]="{'label-left': labelPos == 'left', 'label-top': labelPos == 'top' }">
+  <agc class="row-label" [anchor]="labelPos == 'left' ? 'end end' : 'end start'"
+  [cols]="labelPos == 'top' ? 'auto 1fr' : '1fr auto'" [gap]="2">
+    <span *ngIf="required && !disabled && labelPos == 'left'" [style.color]="'red'"> *</span>
     {{label}}
-    <span *ngIf="required && !disabled && floatLabel" [style.color]="'red'"> *</span>
-  </label>
-  <ng-content #genericControl></ng-content>
-</ag-content>
+    <span *ngIf="required && !disabled && labelPos == 'top'"
+          [style.color]="'red'"> *</span>
+  </agc>
+  <agc class="row-content">
+    <ng-content #genericControl></ng-content>
+  </agc>
+</agc>

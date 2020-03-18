@@ -1,9 +1,9 @@
-<ag-content class="site-wrapper" [cols]="'auto 1fr'" [height]="'100%'">
+<agc class="site-wrapper" [cols]="'auto 1fr'" [height]="'100%'">
   <ag-side-nav [menuItems]="menuItems" (select)="menuSelect($event)"></ag-side-nav>
-  <ag-content class="main-content" [rows]="'auto 1fr'" [height]="'100%'">
+  <agc class="right-container" [rows]="'auto 1fr'" [height]="'100%'">
     <ag-top-nav [logoUrl]="'assets/images/random-logo.png'"></ag-top-nav>
-    <ag-content class="page-content" [rows]="'auto 1fr'">
+    <agc class="app-content" [rows]="'auto 1fr'" [height]="'100%'">
       <router-outlet></router-outlet>
-    </ag-content>
-  </ag-content>
-</ag-content>
+    </agc>
+  </agc>
+</agc>

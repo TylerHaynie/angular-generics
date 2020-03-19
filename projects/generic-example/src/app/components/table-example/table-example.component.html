@@ -1,4 +1,4 @@
-<agc [height]="'100%'" [gap]="30" [pad]="5">
+<agc [gap]="30" [pad]="5">
 
   <agc>
     <ag-table-filter [(config)]="asyncConfig" (search)="doAsyncSearch()"></ag-table-filter>
@@ -18,7 +18,7 @@
   </agc>
 
 
-  <!-- <agc [gap]="10">
+  <agc [gap]="10">
     <ag-table-filter [(config)]="staticConfig" (search)="doStaticSearch()"></ag-table-filter>
 
     <ag-table class="table-wrapper" #staticTable
@@ -32,5 +32,5 @@
       Selected: {{staticRowOutput}}
     </agc>
 
-  </agc> -->
+  </agc>
 </agc>

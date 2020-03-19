@@ -51,21 +51,21 @@ export * from './lib/navigation/top-nav/top-nav.component';
 export * from './lib/navigation/navigation.module';
 
 // DataTable
-export * from './lib/controls/data-table/table/table-data-source';
-export * from './lib/controls/data-table/table/table.component';
-export * from './lib/controls/data-table/table/table.module';
+export * from './lib/data-table/table/table-data-source';
+export * from './lib/data-table/table/table.component';
+export * from './lib/data-table/table/table.module';
 
 // Table Filter
-export * from './lib/controls/data-table/filter/table-filter.component';
-export * from './lib/controls/data-table/filter/table-filter.module';
+export * from './lib/data-table/filter/table-filter.component';
+export * from './lib/data-table/filter/table-filter.module';
 
 // Table Pager
-export * from './lib/controls/data-table/pager/table-pager.component';
-export * from './lib/controls/data-table/pager/table-pager.module';
+export * from './lib/data-table/pager/table-pager.component';
+export * from './lib/data-table/pager/table-pager.module';
 
 // DataTable Models
-export * from './lib/controls/data-table/models/column-filter';
-export * from './lib/controls/data-table/models/table-config';
-export * from './lib/controls/data-table/models/table-column';
-export * from './lib/controls/data-table/models/table-page';
-export * from './lib/controls/data-table/models/table-sort';
+export * from './lib/data-table/models/column-filter';
+export * from './lib/data-table/models/table-config';
+export * from './lib/data-table/models/table-column';
+export * from './lib/data-table/models/table-page';
+export * from './lib/data-table/models/table-sort';

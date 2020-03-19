@@ -11,7 +11,7 @@ import { TablePage } from '../models/table-page';
   selector: "ag-table",
   templateUrl: "./table.component.html",
   styleUrls: ["./table-component.css",
-    '../../../../../styles/base.css'],
+  '../../../../styles/base.css'],
 })
 export class TableComponent {
   @Input() showPager: boolean = true;

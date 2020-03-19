@@ -15,6 +15,11 @@
         <ng-container *ngFor="let column of config.columns">
           <ng-container *ngIf="column.filterable">
 
+            <!-- <div [ngSwitch]="column.type">
+              <div *ngSwitchCase="'string'"></div>
+              <div *ngSwitchDefault></div>
+            </div> -->
+
             <agc class="generic-input label-top">
               <label>
                 {{column.headerValue()}}

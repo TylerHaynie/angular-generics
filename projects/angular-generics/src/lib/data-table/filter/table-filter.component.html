@@ -15,17 +15,28 @@
         <ng-container *ngFor="let column of config.columns">
           <ng-container *ngIf="column.filterable">
 
-            <!-- <div [ngSwitch]="column.type">
-              <div *ngSwitchCase="'string'"></div>
-              <div *ngSwitchDefault></div>
-            </div> -->
-
-            <agc class="generic-input label-top">
-              <label>
-                {{column.headerValue()}}
-              </label>
-              <input name="column.name" [(ngModel)]="column.filter.value">
-            </agc>
+            <ng-container [ngSwitch]="column.type">
+              <ng-container *ngSwitchCase="'string'">
+                <ag-text name="column.name" [label]="column.headerValue()"  [(ngModel)]="column.filter.value"></ag-text>
+              </ng-container>
+              <ng-container *ngSwitchCase="'bool'">
+                <ag-check [(ngModel)]="column.filter.value">{{column.headerValue()}}</ag-check>
+              </ng-container>
+              <ng-container *ngSwitchCase="'date'">
+                <ag-text name="column.name" [type]="'date'" [label]="column.headerValue()"
+                         [(ngModel)]="column.filter.value"></ag-text>
+              </ng-container>
+              <ng-container *ngSwitchCase="'number'">
+                <ag-text name="column.name" [type]="'number'" [label]="column.headerValue()"
+                         [(ngModel)]="column.filter.value"></ag-text>
+              </ng-container>
+              <ng-container *ngSwitchCase="'option'">
+                <ag-select [label]="column.headerValue()"></ag-select>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                <ag-text name="column.name" [label]="column.headerValue()" [(ngModel)]="column.filter.value"></ag-text>
+              </ng-container>
+            </ng-container>
 
           </ng-container>
         </ng-container>
@@ -36,5 +47,6 @@
         <ag-button (click)="searchClicked()">Search</ag-button>
       </agc>
     </agc>
+
   </ng-container>
 </agc>

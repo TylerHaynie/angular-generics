@@ -7,6 +7,8 @@ import { GenericSelectModule } from '../../controls/select/select.module';
 import { GenericButtonModule } from '../../controls/button/button.module';
 import { GenericRangeModule } from '../../controls/range/range.module';
 import { GenericContentModule } from '../../containers/content/content.module';
+import { GenericTextModule } from '../../controls/text/text.module';
+import { GenericCheckModule } from '../../controls/check/check.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,11 @@ import { GenericContentModule } from '../../containers/content/content.module';
     CommonModule,
     FormsModule,
     GenericInputModule,
+    GenericTextModule,
     GenericSelectModule,
     GenericButtonModule,
-    GenericRangeModule,
-    GenericContentModule
+    GenericContentModule,
+    GenericCheckModule
   ],
   exports: [
     TableFilterComponent

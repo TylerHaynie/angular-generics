@@ -1,19 +1,15 @@
 :root {
+  /* Input */
   --inputOutlineColor: rgb(171, 192, 216);
   --inputOutline: 1px solid var(--inputOutlineColor);
   --inputShadow: inset 0 0 3px 0px #f2fdff;
   --inputBackground: white;
   --inputPadding: 5px 5px 2px 5px;
   --inputLabelColor: rgb(7, 7, 7);
-  --minLabelWidth: 10px;
-  --maxLabelWidth: 2fr;
-  --minInputWidth: 10px;
-  --maxInputWidth: 4fr;
+  --inputLabelSize: 20px;
   --disabledBackground: rgb(221, 232, 239);
   --disabledBorder: rgb(99, 127, 151);
-  --labelGap: 1px;
-
-
+  /* Slider */
   --sliderHeight: 30px;
   --sliderWidth: 100%;
   --sliderCoverWidth: 75px;
@@ -27,36 +23,23 @@
   --sliderTrueColor: #26ca28;
   --sliderFalseColor: rgb(231, 66, 44);
   --sliderFalseTextOffset: 35px;
-
-
-  --rangeIconSize: 22px;
-  --rangeIconColor: #afafaf;
-
-
+  /* Button */
   --buttonBorderRadius: 5px;
   --buttonPadding: 5px 8px;
   --buttonTextShadow: 0px 0px 4px rgb(34, 34, 34);
   --buttonBackground: linear-gradient(to bottom, #437ab1 0%, #003366 100%);
   --buttonBorder: 1px solid #465d6c;
   --buttonDisabledBackground: rgb(95, 95, 95);
-  --buttonDisabledFontColor: rgb(34, 34, 34);
-
-
+  /* Modal */
   --modalBorder: 1px solid rgb(129, 129, 129);
 }
 
-.pointer {
+.pointer, .pointer:hover {
   cursor: pointer;
 }
 
-.generic-element {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: grid;
-}
-
 .no-selection {
+  user-select: none;
   -webkit-user-select: none;
   /* webkit (safari, chrome) browsers */
   -moz-user-select: none;
@@ -67,8 +50,11 @@
   /* IE10+ */
 }
 
-.pointer:hover {
-  cursor: pointer;
+.generic-element {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: grid;
 }
 
 .generic-input input {
@@ -103,6 +89,10 @@
   border-color: var(--disabledBorder);
 }
 
-[type="date"]::-webkit-inner-spin-button {
-  display: none;
+ag-check, ag-select, ag-text, ag-file {
+  place-self: end stretch;
+}
+
+ag-side-nav {
+  overflow: hidden;
 }

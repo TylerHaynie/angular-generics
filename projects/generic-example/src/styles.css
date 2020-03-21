@@ -1,17 +1,4 @@
 @import '../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
-:root {
-  --inputLabelColor: rgb(0, 0, 0);
-  --tableHeaderBorderColor: rgb(155, 155, 155);
-  --tableCellBorderColor: rgb(211, 211, 211);
-  --tableRowHoverBorderColor: rgb(119, 119, 119);
-  --tableRowHoverColor: rgb(236, 236, 236);
-  --inputColor: black;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
 
 * {
   margin: 0;
@@ -20,26 +7,13 @@
 
 body {
   height: 100vh;
-  overflow-x: hidden;
 }
 
-.site-wrapper, .main-content, .right-container {
-  height: 100%;
+body, .site-wrapper, .main-content, .right-container, .app-content {
   overflow: hidden;
 }
 
 .app-content {
-  overflow-x: hidden;
   overflow-y: auto;
   align-content: start;
-  color: var(--textColor);
-}
-
-ag-top-nav {
-  background-color: white;
-}
-
-.top-wrapper img {
-  height: 40px !important;
-  padding: 8px;
 }

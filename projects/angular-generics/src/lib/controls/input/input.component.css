@@ -8,6 +8,10 @@
   grid-template-rows: auto 1fr;
 }
 
+.row-content.generic-element{
+  place-items: end start;
+}
+
 .row-label {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -17,4 +21,8 @@
 
 .row-label>.generic-element {
   height: 100%;
+}
+
+.generic-input {
+  font-weight: bold;
 }

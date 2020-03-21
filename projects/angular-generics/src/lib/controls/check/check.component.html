@@ -1,8 +1,8 @@
-<ag-input [label]="type=='slide' ? label : ''" [labelPos]="labelPos" [required]="required" [disabled]="disabled">
+<ag-input [label]="label" [labelPos]="labelPos" [required]="required" [disabled]="disabled">
 
   <ng-container *ngIf="type==null || type==''">
-    <label class="check-container" [ngClass]="{'disabled': disabled}">
-      <span class="label-text">{{label}}</span>
+    <label class="check-container no-selection" [ngClass]="{'disabled': disabled}">
+      <span class="label-text"><ng-content></ng-content></span>
       <input [(ngModel)]="value" [disabled]="disabled" type="checkbox"
              [attr.required]="required ? '' : null">
       <span class="checkmark" [ngClass]="{'disabled': disabled, 'enabled':!disabled}"></span>

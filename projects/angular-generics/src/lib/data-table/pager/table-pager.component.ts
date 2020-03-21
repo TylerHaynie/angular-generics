@@ -24,21 +24,36 @@ export class TablePagerComponent {
   }
 
   changePage(step: 'first' | 'back' | 'next' | 'last') {
-    switch (step) {
-      case 'first':
-        this.page.page = 1;
-        break;
-      case 'last':
-        this.page.page = Math.trunc(this.page.recordCount / this.page.take);
-        break;
-      case 'next':
-        this.page.page += 1;
-        break;
-      case 'back':
-        this.page.page -= 1;
+    var totalPages = Math.trunc(this.page.recordCount / this.page.take);
+    if (totalPages > 1) {
+      switch (step) {
+        case 'first':
+          if (this.page.page != 1) {
+            this.page.page = 1;
+            this.pageChange.emit(this.page);
+          }
+          break;
+        case 'last':
+          if (this.page.page != totalPages) {
+            this.page.page = totalPages
+            this.pageChange.emit(this.page);
+          }
+          break;
+        case 'next':
+          if (!(this.page.page + 1 > totalPages)) {
+            this.page.page += 1;
+            this.pageChange.emit(this.page);
+          }
+          break;
+        case 'back':
+          if (!(this.page.page - 1 <= 0)) {
+            this.page.page -= 1;
+            this.pageChange.emit(this.page);
+          }
+          break;
+      }
     }
 
-    this.pageChange.emit(this.page);
   }
 
   getPageInfo(): string {

@@ -1,10 +1,10 @@
 <agc [rows]="'1fr auto'">
-  <agc>
+  <agc class="twrap">
     <table class="generic-table">
       <thead>
         <tr class="header-row">
-          <ng-container *ngFor="let column of activeColumns">
-            <th>
+          <ng-container *ngFor="let column of config.columns">
+            <th (click)="setSort(column)" *ngIf="column && column.visible">
               {{ column ? column.headerValue() : ''}}
             </th>
           </ng-container>
@@ -15,16 +15,16 @@
         <ng-container *ngFor="let row of dataSource.data | async">
           <tr class="table-row" [ngClass]="{'selected': row == selectedItem}"
               (click)="clickedRow(row)">
-            <ng-container *ngFor="let col of activeColumns">
-              <td>
-                {{row ? col.cellValue(row) : ''}}
+            <ng-container *ngFor="let column of config.columns">
+              <td *ngIf="column && column.visible">
+                {{row ? column.cellValue(row) : ''}}
               </td>
             </ng-container>
           </tr>
         </ng-container>
         <tr *ngIf="showFooter" class="footer-row">
-          <ng-container *ngFor="let column of activeColumns">
-            <td>
+          <ng-container *ngFor="let column of config.columns">
+            <td *ngIf="column && column.visible">
               {{ column.calculate ? calculateTotal(column)  : '' }}
             </td>
           </ng-container>

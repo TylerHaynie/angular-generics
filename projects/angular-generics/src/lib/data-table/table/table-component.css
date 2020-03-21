@@ -1,6 +1,11 @@
+.twrap {
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid rgb(168, 168, 168);
+}
+
 .generic-table {
   border-collapse: collapse;
-  border: 1px solid #464646;
 }
 
 .generic-table>thead>.header-row {
@@ -9,12 +14,13 @@
   color: rgb(66, 66, 66);
   font-size: 16px;
   font-weight: bold;
-  border: 1px solid #464646;
-  border-top: none;
+  border-bottom: 1px solid #464646;
 }
 
-.generic-table>thead>.header-row>th{
+.generic-table>thead>.header-row>th {
   padding: 8px 10px 4px 10px;
+  white-space: nowrap;
+  border-bottom: 1px solid #adadad;
 }
 
 .generic-table>tbody>.table-row {
@@ -23,16 +29,18 @@
 }
 
 .generic-table>tbody>.table-row:last-of-type {
-border-bottom: none;
+  border-bottom: none;
 }
 
-.generic-table>tbody>.table-row>td,
-.generic-table>tbody>.footer-row>td {
+.generic-table>tbody>.table-row>td, .generic-table>tbody>.footer-row>td {
   padding: 5px 10px 5px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .generic-table>tbody>.table-row:hover {
-  background:#e2f6fb;
+  background: #e2f6fb;
   cursor: pointer;
 }
 
@@ -41,7 +49,7 @@ border-bottom: none;
   cursor: pointer;
 }
 
-.generic-table>tbody>.table-row.selected td{
+.generic-table>tbody>.table-row.selected td {
   border-bottom: 1px solid rgb(95, 95, 95);
   border-top: 1px solid rgb(95, 95, 95);
 }
@@ -49,11 +57,13 @@ border-bottom: none;
 .generic-table>tbody>.footer-row {
   font-weight: bold;
   background: #ececec;
-  border: 1px solid #464646;
-  border-bottom: none;
 }
 
-.pager-container{
+.generic-table>tbody>.footer-row>td {
+  border-top: 1px solid #adadad;
+}
+
+.pager-container {
   background: white;
   color: rgb(121, 121, 121);
   font-size: 12px;

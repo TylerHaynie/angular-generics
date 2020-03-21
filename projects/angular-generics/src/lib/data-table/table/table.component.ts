@@ -4,14 +4,14 @@ import { TableDataSource } from './table-data-source';
 import { map, reduce } from 'rxjs/operators';
 import { TableColumn } from '../models/table-column';
 import { TableConfig } from '../models/table-config';
-import { SORT_DIRECTION } from '../models/table-sort';
+import { SORT_DIRECTION, TableSort } from '../models/table-sort';
 import { TablePage } from '../models/table-page';
 
 @Component({
   selector: "ag-table",
   templateUrl: "./table.component.html",
   styleUrls: ["./table-component.css",
-  '../../../../styles/base.css'],
+    '../../../../styles/base.css'],
 })
 export class TableComponent {
   @Input() showPager: boolean = true;
@@ -24,9 +24,8 @@ export class TableComponent {
 
   @Input() isDebug: boolean = false;
 
-  public activeColumns: TableColumn[] = [];
   public isGrouped: boolean = false;
-  public showFooter: boolean = false;
+  public showFooter: boolean = true;
 
   public dataSource: TableDataSource;
 
@@ -46,7 +45,6 @@ export class TableComponent {
   }
 
   doSearch() {
-    this.isGrouped = this.config.groupBy != null;
     this.configChange.emit(this.config);
     this.search.emit();
   }
@@ -64,6 +62,8 @@ export class TableComponent {
     // setTimeout() will stall the table update
     // while children components run through their first lifecycle hooks
     setTimeout(() => {
+      this.isGrouped = this.config.groupBy != null;
+
       this.data = data;
       this.updateColumns();
 
@@ -82,14 +82,16 @@ export class TableComponent {
             console.log("-- [Data Stored In Memory] --");
           }
 
+          this.applySort(this.data, this.config.sortBy);
+
           var skipAmount = (this.config.page.page * this.config.page.take) - this.config.page.take;
           if (this.isDebug) {
-            console.log("-- Skip Amount --", skipAmount);
+            console.log(`-- Skip Amount: ${skipAmount}`);
           }
 
           var taken = this.data.slice(skipAmount, skipAmount + this.config.page.take);
           if (this.isDebug) {
-            console.log("-- Taken --", taken);
+            console.log(`-- Taken ---`, taken);
           }
 
           this.dataSource.update(taken);
@@ -104,22 +106,39 @@ export class TableComponent {
     }, 1)
   }
 
-  doSort(sortEvent: { active: string; direction: SORT_DIRECTION }) {
-    if (this.isDebug) {
-      console.log("-- Sort Changed --", sortEvent);
-      console.log(`Direction: ${sortEvent.direction}`);
-      console.log(`Field: ${sortEvent.active}`);
-    }
+  setSort(dir: SORT_DIRECTION, col: TableColumn) {
+    // if (!this.config.sortBy) {
+    //   this.config.sortBy = new TableSort();
+    // }
 
-    if (sortEvent.direction && sortEvent.active) {
-      this.config.sortBy.direction = sortEvent.direction;
-      this.config.sortBy.columnName = sortEvent.active;
-    }
-    else {
-      this.config.sortBy = null;
+    console.log(`--- Sorting Column ---`, this.config.sortBy);
+
+    this.config.sortBy.direction = dir;
+    this.config.sortBy.columnName = col.name;
+
+    if (this.isDebug) {
+      console.log(`--- Sort Direction: ${this.config.sortBy.direction}`);
+      console.log(`--- Sort Field: ${this.config.sortBy.columnName}`);
     }
 
     this.doSearch();
+  }
+
+  applySort(data: any[], sort: TableSort): any[] {
+    if (this.config.sortBy && this.config.sortBy.columnName) {
+      console.log(`--- Applying Sort ---`, this.config.sortBy);
+
+      return data.sort((n1, n2) => {
+        if (n1[sort.columnName] > n2[sort.columnName]) {
+          return 1;
+        }
+        if (n1[sort.columnName] < n2[sort.columnName]) {
+          return -1;
+        }
+
+        return 0;
+      });
+    }
   }
 
   pageChange(e: TablePage) {
@@ -164,27 +183,13 @@ export class TableComponent {
   }
 
   private updateColumns(): void {
-    if (this.isDebug) {
-      console.log("-- Updating Columns --");
-      console.log(`Columns`, this.config.columns);
-    }
-
-    var ac: TableColumn[] = [];
     this.showFooter = false;
 
     this.config.columns.forEach(col => {
-      if (col.visible) {
-        ac.push(col)
-
-        if (col.calculate) {
-          this.showFooter = true;
-        }
+      if (col.visible && col.calculate) {
+        this.showFooter = true;
       }
     });
-
-    if (ac != this.activeColumns) {
-      this.activeColumns = ac;
-    }
   }
 
   private groupMemoryData(data: any[], colName: string) {

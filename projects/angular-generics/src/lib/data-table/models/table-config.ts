@@ -5,6 +5,6 @@ import { TableSort } from './table-sort';
 export class TableConfig {
   columns: TableColumn[] = [];
   page: TablePage = new TablePage();
-  sortBy: TableSort;
+  sortBy: TableSort = new TableSort();
   groupBy: TableColumn;
 }

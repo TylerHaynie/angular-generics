@@ -1,36 +1,26 @@
 <agc [gap]="30" [pad]="5">
-
-  <agc>
+  <agc [gap]="5">
     <ag-table-filter [(config)]="asyncConfig" (search)="doAsyncSearch()"></ag-table-filter>
-  </agc>
-  <agc [height]="'100%'">
-    <ag-table #asyncTable
-              [isDebug]="true"
-              [(config)]="asyncConfig"
-              (search)="updateAsyncData($event)"
-              (rowSelect)="asyncRowSelected($event)">
+
+    <ag-table #asyncTable [isDebug]="true" [(config)]="asyncConfig"
+              (search)="updateAsyncData($event)" (rowSelect)="asyncRowSelected($event)">
     </ag-table>
+
+    <agc *ngIf="asyncRowOutput" [cols]="'auto 1fr'">
+      <b>Selected</b> {{asyncRowOutput}}
+    </agc>
   </agc>
 
-
-  <agc *ngIf="asyncRowOutput">
-    <b>Selected</b> {{asyncRowOutput}}
-  </agc>
-
-
-  <agc [gap]="10">
+  <agc [gap]="5">
     <ag-table-filter [(config)]="staticConfig" (search)="doStaticSearch()"></ag-table-filter>
 
-    <ag-table class="table-wrapper" #staticTable
-              [isDebug]="true"
-              [(config)]="staticConfig"
-              (search)="updateStaticData($event)"
-              (rowSelect)="staticRowSelected($event)">
+    <ag-table #staticTable [isDebug]="true" [(config)]="staticConfig"
+              (search)="updateStaticData($event)" (rowSelect)="staticRowSelected($event)">
     </ag-table>
 
-    <agc>
-      Selected: {{staticRowOutput}}
+    <agc *ngIf="staticRowOutput" [cols]="'auto 1fr'">
+      <b>Selected</b> {{staticRowOutput}}
     </agc>
-
   </agc>
+
 </agc>

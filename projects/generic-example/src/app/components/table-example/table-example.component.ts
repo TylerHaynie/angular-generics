@@ -64,12 +64,14 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
       new TableColumn({
         name: "userId",
         headerValue: (element: any) => 'User',
-        cellValue: (element: any) => this.getValue(element.userId)
+        cellValue: (element: any) => this.getValue(element.userId),
+        type: "number"
       }),
       new TableColumn({
         name: "id",
         headerValue: (element: any) => 'ID',
-        cellValue: (element: any) => this.getValue(element.id)
+        cellValue: (element: any) => this.getValue(element.id),
+        type: "number"
       }),
       new TableColumn({
         name: "title",
@@ -79,7 +81,8 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
       new TableColumn({
         name: "completed",
         headerValue: (element: any) => 'Complete',
-        cellValue: (element: any) => this.getValue(element.completed)
+        cellValue: (element: any) => this.getValue(element.completed),
+        type: "bool"
       }),
     ];
   }

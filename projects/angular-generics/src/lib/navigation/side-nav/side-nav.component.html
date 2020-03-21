@@ -3,8 +3,8 @@
 
     <agc class="menu-header pointer" [height]="45" (click)="collapsed = !collapsed">
       <agc [cols]="'auto 1fr'" [gap]="8" [pad]="'0 0 0 18px'" [anchor]="'center start'" [height]="'100%'">
-        <i class="fas fa-bars"></i>
-        <span *ngIf="!collapsed">{{menuHeader}}</span>
+        <i class="fas fa-bars menu-icon"></i>
+        <span class="no-selection" *ngIf="!collapsed">{{menuHeader}}</span>
       </agc>
     </agc>
 
@@ -14,28 +14,28 @@
 
     <agc class="menu-items" [height]="'100%'">
       <agc *ngFor="let item of menuItems" class="menu-item open"
-                  (mouseenter)="hoveredMenu=item.name"
-                  (mouseleave)="hoveredMenu=null" (click)="menuItemClicked(item)" (click)="openedMenu = item.name"
-                  [ngClass]="(hoveredMenu == item.name || openedMenu == item.name) ? 'open' : 'closed'">
+           (mouseenter)="hoveredMenu=item.name"
+           (mouseleave)="hoveredMenu=null" (click)="menuItemClicked(item)" (click)="openedMenu = item.name"
+           [ngClass]="(hoveredMenu == item.name || openedMenu == item.name) ? 'open' : 'closed'">
 
         <agc class="main pointer" [cols]="'auto 1fr'" [gap]="5">
           <agc [width]="5" [ngClass]="{'indicator': selectedMenu == item.name || openedMenu == item.name}">
           </agc>
           <agc [cols]="'auto 1fr'" [gap]="10" [pad]="10" [anchor]="'center start'">
-            <i [ngClass]="item.icon ? 'fas fa-' + item.icon : null"></i>
-            <span *ngIf="!collapsed">{{item.display}}</span>
+            <i class="menu-item-icon" [ngClass]="item.icon ? 'fas fa-' + item.icon : null"></i>
+            <span class="no-selection" *ngIf="!collapsed">{{item.display}}</span>
           </agc>
         </agc>
 
         <agc class="sub-items">
           <ng-container *ngIf="(hoveredMenu == item.name || openedMenu == item.name) && !collapsed">
             <agc *ngFor="let subItem of item.subItems" class="sub-item pointer"
-                        [cols]="'1fr auto'" [gap]="10" [pad]="8"
-                        [ngClass]="{'indicator': selectedMenu == subItem.name}"
-                        (click)="menuItemClicked(subItem)" (click)="selectedMenu = subItem.name"
-                        (click)="openedMenu = item.name">
-              <span *ngIf="!collapsed" [ngStyle]="{'text-align': 'end'}">{{subItem.display}}</span>
-              <i [ngClass]="subItem.icon ? 'fas fa-' + subItem.icon : null"></i>
+                 [cols]="'1fr auto'" [gap]="10" [pad]="8"
+                 [ngClass]="{'indicator': selectedMenu == subItem.name}"
+                 (click)="menuItemClicked(subItem)" (click)="selectedMenu = subItem.name"
+                 (click)="openedMenu = item.name">
+              <span class="no-selection" *ngIf="!collapsed" [ngStyle]="{'text-align': 'end'}">{{subItem.display}}</span>
+              <i class="menu-item-icon" [ngClass]="subItem.icon ? 'fas fa-' + subItem.icon : null"></i>
             </agc>
           </ng-container>
         </agc>

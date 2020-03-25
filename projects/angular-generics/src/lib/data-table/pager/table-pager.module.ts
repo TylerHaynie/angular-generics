@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TablePagerComponent } from './table-pager.component';
 import { FormsModule } from '@angular/forms';
-import { InputComponent } from './input.component';
 import { GenericContentModule } from '../../containers/content/content.module';
 
 @NgModule({
   declarations: [
-    InputComponent
+    TablePagerComponent
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    GenericContentModule
+    GenericContentModule,
+    FormsModule
   ],
   exports: [
-    InputComponent
+    TablePagerComponent
   ]
 })
 
-export class GenericInputModule { }
+export class GenericPagerModule { }

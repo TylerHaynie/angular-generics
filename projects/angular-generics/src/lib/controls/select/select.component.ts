@@ -5,8 +5,7 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
 @Component({
   selector: 'ag-select',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.css',
-    '../../../../styles/base.css'],
+  styleUrls: ['../../../../styles/base.css'],
   providers: [ValueAccessProvider(SelectComponent)],
   encapsulation: ViewEncapsulation.None
 })
@@ -16,12 +15,8 @@ export class SelectComponent extends GenericInputAccessor implements IGenericInp
   @Input() required: boolean;
 
   @Input() label: string;
-  @Input() floatLabel: boolean;
-  @Input() placeLabel: string;
+  @Input() labelPos: 'top' | 'right' | 'bottom' | 'left' = 'top';
   @Input() placeholder: string;
-
-  @Input() width: string | number;
-  @Input() height: string | number;
 
   @Input() type: string;
 

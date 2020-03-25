@@ -1,58 +1,29 @@
-<!-- <ng-container *ngIf="isOpen">
-  <div class="modal">
-    <div class="modal-panel">
-
-      <div class="modal-header">
-        <ng-container *ngTemplateOutlet="header ? header : defaultHeader"></ng-container>
-        <i class="pointer close fas fa-window-close" (click)="close()"></i>
-      </div>
-
-      <div class="modal-body">
-        <ng-content></ng-content>
-      </div>
-
-      <div class="modal-footer">
-        <ng-container *ngTemplateOutlet="footer ? footer : defaultButtons"></ng-container>
-      </div>
-
-    </div>
-  </div>
-</ng-container>
-
-<ng-template #defaultButtons>
-  <ag-button (click)="close()">OK</ag-button>
-</ng-template>
-
-<ng-template #defaultHeader>
-  <h2>{{title}}</h2>
-</ng-template> -->
-
 <ng-container *ngIf="isOpen">
-  <ag-content class="modal-cover" [height]="'100%'"
-              [place]="'center center'" [width]="'100%'">
-    <ag-content class="modal-panel" [gap]="10" [rows]="'auto 1fr auto'">
+  <agc class="modal-cover" [height]="'100vh'"
+              [anchor]="'center center'" [width]="'100vw'">
+    <agc class="modal-panel" [gap]="10" [rows]="'auto 1fr auto'">
 
-      <ag-content [cols]="'1fr auto'" class="modal-header" [pad]="'10px 10px 2px 10px'">
+      <agc [cols]="'1fr auto'" class="modal-header" [pad]="'10px 10px 2px 10px'">
         <ng-container *ngTemplateOutlet="header ? header : defaultHeader"></ng-container>
         <i class="pointer close fas fa-window-close" (click)="close()"></i>
-      </ag-content>
+      </agc>
 
-      <ag-content [pad]="10" class="modal-body">
+      <agc [pad]="10" class="modal-body" [height]="'100%'">
         <ng-content></ng-content>
-      </ag-content>
+      </agc>
 
-      <ag-content class="modal-footer" [place]="'end'" [pad]="'5'">
+      <agc class="modal-footer" [anchor]="'end'" [pad]="'5'">
         <ng-container *ngTemplateOutlet="footer ? footer : defaultFooter"></ng-container>
-      </ag-content>
+      </agc>
 
-    </ag-content>
-  </ag-content>
+    </agc>
+  </agc>
 
   <ng-template #defaultHeader>
     <h2>{{title}}</h2>
   </ng-template>
 
   <ng-template #defaultFooter>
-    <ag-button (click)="close()">OK</ag-button>
+
   </ng-template>
 </ng-container>

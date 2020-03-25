@@ -2,10 +2,9 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { ValueTypeHelpers } from '../../controls/generic-control/value-type-helpers';
 
 @Component({
-  selector: 'ag-content',
+  selector: 'agc',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css',
-    '../../../../styles/base.css'],
+  styleUrls: ['../../../../styles/base.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class ContentComponent {
@@ -13,7 +12,7 @@ export class ContentComponent {
   @Input() width: string | number;
   @Input() gap: string | number;
   @Input() pad: string | number;
-  @Input() place: string;
+  @Input() anchor: string;
 
   @Input() flow: string;
   @Input() rows: number | string;

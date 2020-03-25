@@ -1,27 +1,24 @@
-<ag-input class="range" [label]="label" [floatLabel]="floatLabel" [placeLabel]="placeLabel"
-          [required]="required" [width]="width" [height]="height">
-  <ag-content [gap]="10" [cols]="'1fr 1fr'">
+<ag-input class="range" [label]="label" [labelPos]="labelPos" [required]="required">
+  <agc [gap]="10" [cols]="'1fr 1fr'">
 
-    <ag-content [cols]="'1fr auto'">
+    <agc [cols]="'1fr auto'">
       <ag-text [(ngModel)]="startValue" [type]="type"
                [required]="required" [disabled]="disabled" (change)="rangeChange()"></ag-text>
-      <ag-content class="icon-holder" [place]="'end'" [height]="'100%'">
-        <i class="fas"
-           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"
-          > </i>
-      </ag-content>
-    </ag-content>
+      <agc class="icon-holder" [anchor]="'end'" [height]="'100%'">
+        <!-- <i class="fas"
+           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i> -->
+      </agc>
+    </agc>
 
-    <ag-content [cols]="'1fr auto'">
+    <agc [cols]="'1fr auto'">
       <ag-text [(ngModel)]="endValue" [type]="type"
                [required]="required" [disabled]="disabled" (change)="rangeChange()"></ag-text>
-      <ag-content class="icon-holder" [place]="'end'" [height]="'100%'">
-        <i class="fas"
-           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"
-           > </i>
-      </ag-content>
-    </ag-content>
+      <agc class="icon-holder" [anchor]="'end'" [height]="'100%'">
+        <!-- <i class="fas"
+           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i> -->
+      </agc>
+    </agc>
 
-  </ag-content>
+  </agc>
 
 </ag-input>

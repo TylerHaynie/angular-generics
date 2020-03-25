@@ -16,12 +16,8 @@ export class RangeComponent extends GenericInputAccessor implements IGenericInpu
   @Input() required: boolean;
 
   @Input() label: string;
-  @Input() floatLabel: boolean;
-  @Input() placeLabel: string;
+  @Input() labelPos: 'top' | 'right' | 'bottom' | 'left' = 'top';
   @Input() placeholder: string;
-
-  @Input() width: string | number;
-  @Input() height: string | number;
 
   @Input() type: string = 'number';
 

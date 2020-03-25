@@ -1,0 +1,52 @@
+<agc class="group" [ngClass]="{'open': isOpen, 'closed': !isOpen}">
+  <agc class="group-title" [anchor]="'baseline'" [pad]="'10px 10px 3px 10px'" [cols]="'1fr auto'">
+    <agc>
+      Filter
+    </agc>
+
+    <agc>
+      <button (click)="isOpen = !isOpen">Toggle</button>
+    </agc>
+  </agc>
+
+  <ng-container *ngIf="isOpen">
+    <agc class="group-content" [gap]="10" [pad]="10">
+      <agc class="filter-container" [cols]="4" [gap]="10" [pad]="'5px 0 0 0'">
+        <ng-container *ngFor="let column of config.columns">
+          <ng-container *ngIf="column.filterable">
+
+            <ng-container [ngSwitch]="column.type">
+              <ng-container *ngSwitchCase="'string'">
+                <ag-text name="column.name" [label]="column.headerValue()"  [(ngModel)]="column.filter.value"></ag-text>
+              </ng-container>
+              <ng-container *ngSwitchCase="'bool'">
+                <ag-check [(ngModel)]="column.filter.value">{{column.headerValue()}}</ag-check>
+              </ng-container>
+              <ng-container *ngSwitchCase="'date'">
+                <ag-text name="column.name" [type]="'date'" [label]="column.headerValue()"
+                         [(ngModel)]="column.filter.value"></ag-text>
+              </ng-container>
+              <ng-container *ngSwitchCase="'number'">
+                <ag-text name="column.name" [type]="'number'" [label]="column.headerValue()"
+                         [(ngModel)]="column.filter.value"></ag-text>
+              </ng-container>
+              <ng-container *ngSwitchCase="'option'">
+                <ag-select [label]="column.headerValue()"></ag-select>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                <ag-text name="column.name" [label]="column.headerValue()" [(ngModel)]="column.filter.value"></ag-text>
+              </ng-container>
+            </ng-container>
+
+          </ng-container>
+        </ng-container>
+      </agc>
+
+      <agc [gap]="10" [cols]="'1fr auto'" [anchor]="'end'">
+        <ag-button (click)="resetSearch()">Reset</ag-button>
+        <ag-button (click)="searchClicked()">Search</ag-button>
+      </agc>
+    </agc>
+
+  </ng-container>
+</agc>

@@ -26,7 +26,7 @@ export class InputExampleComponent implements OnInit {
 
   checkValue1: boolean = true;
   checkValue2: boolean = false;
-  checkValue3: boolean = false;
+  checkValue3: boolean = true;
   dateValue: Date = new Date();
   numberValue: number = 0;
   textValue: string = '';

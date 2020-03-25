@@ -1,7 +1,0 @@
-.main-content, .page-content, .site-wrapper {
-  overflow: hidden;
-}
-
-.page-content {
-  overflow: auto;
-}

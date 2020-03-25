@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ElementRef } from '@angular/core';
 import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
 
 @Component({
@@ -13,13 +13,11 @@ export class InputComponent {
   @Input() required: boolean;
 
   @Input() label: string;
-  @Input() floatLabel: boolean;
-  @Input() placeLabel: string;
-
-  @Input() width: number | string;
-  @Input() height: number | string;
+  @Input() labelPos: 'top' | 'left' = 'top';
 
   typeHelpers: ValueTypeHelpers = new ValueTypeHelpers();
 
-  constructor() { }
+  constructor(private elementRef: ElementRef) {
+    this.elementRef.nativeElement.style.setProperty('--color', 'red');
+  }
 }

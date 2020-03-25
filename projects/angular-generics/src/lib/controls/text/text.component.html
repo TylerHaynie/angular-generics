@@ -1,5 +1,4 @@
-<ag-input [label]="label" [floatLabel]="floatLabel" [placeLabel]="placeLabel"
-          [disabled]="disabled" [required]="required" [width]="width" [height]="height">
+<ag-input [label]="label" [labelPos]="labelPos" [disabled]="disabled" [required]="required">
 
   <ng-container *ngIf="type=='text' || type == '' || type == null">
     <ng-container *ngTemplateOutlet="textBox"></ng-container>

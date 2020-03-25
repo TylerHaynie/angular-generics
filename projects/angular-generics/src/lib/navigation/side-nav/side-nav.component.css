@@ -3,6 +3,7 @@
   color: rgb(243, 243, 243);
   background-color: #464e59;
   z-index: 111;
+  overflow: auto;
 }
 
 .menu-header {
@@ -23,7 +24,6 @@
 }
 
 .menu-item i {
-  font-size: 22px;
   color: #afafaf;
 }
 
@@ -58,4 +58,8 @@
   transition-duration: 300ms;
   background-color: #badce9;
   box-shadow: inset 0 0 7px 0px #919191;
+}
+
+.menu-icon, .menu-item-icon {
+  width: 25px;
 }

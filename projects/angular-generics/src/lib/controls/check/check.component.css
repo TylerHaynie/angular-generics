@@ -1,23 +1,5 @@
-:root {
-  --sliderHeight: 30px;
-  --sliderWidth: 100%;
-  --sliderCoverWidth: 75px;
-  --sliderChangeSpeed: 0.35s;
-  --sliderRadius: 10px;
-  --sliderPadding: 7px;
-  --sliderBackgroundColor: #354558;
-  --sliderFontSize: 16px;
-  --sliderTrueText: 'Yes';
-  --sliderTrueColor: #26ca28;
-  --sliderFalseText: 'No';
-  --sliderFalseColor: rgb(231, 66, 44);
-  --sliderFalseTextOffset: 35px;
-}
-
 .generic-input input[type=checkbox] {
   box-shadow: none;
-  /* align-self: center;
-  justify-self: start; */
 }
 
 .checkbox-slider input[type=checkbox] {
@@ -97,12 +79,10 @@
   grid-template-columns: auto 1fr;
   position: relative;
   padding-left: 30px;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  overflow: unset !important;
+  font-size: var(--inputLabelSize);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .check-container.disabled {
@@ -124,10 +104,8 @@
 
 .checkmark {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
+  height: var(--inputLabelSize);
+  width: var(--inputLabelSize);
   background-color: #354558;
   border: var(--inputOutline);
   border-radius: 5px;
@@ -176,8 +154,8 @@
 }
 
 .check-container .checkmark:after {
-  left: 9px;
-  top: 5px;
+  left: 6px;
+  top: 2px;
   width: 5px;
   height: 10px;
   -webkit-transform: rotate(45deg);
@@ -186,5 +164,5 @@
 }
 
 .label-text {
-  padding-top: 4px;
+  color: var(--inputLabelColor);
 }

@@ -23,14 +23,14 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
 
   showFilter: boolean = false;
 
-  staticData: { id: number, name: string, rank: string }[] = [
-    { id: 1, name: 'Tom', rank: '12A' },
-    { id: 2, name: 'Steve', rank: '12A' },
-    { id: 3, name: 'Roger', rank: '12A' },
-    { id: 4, name: 'Tasha', rank: '12A' },
-    { id: 5, name: 'Mark', rank: '12A' },
-    { id: 6, name: 'Brenda', rank: '12A' },
-    { id: 7, name: 'Tonya', rank: '12A' },
+  staticData: { id: number, name: string, rank: string, paid: number }[] = [
+    { id: 1, name: 'Tom', rank: '12A', paid: 5412 },
+    { id: 2, name: 'Steve', rank: '12A', paid: 885 },
+    { id: 3, name: 'Roger', rank: '12A', paid: 2245 },
+    { id: 4, name: 'Tasha', rank: '12A', paid: 951 },
+    { id: 5, name: 'Mark', rank: '12A', paid: 3485 },
+    { id: 6, name: 'Brenda', rank: '12A', paid: 12045 },
+    { id: 7, name: 'Tonya', rank: '12A', paid: 1850 },
   ];
 
   constructor(private http: HttpClient) {
@@ -63,31 +63,26 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
     return [
       new TableColumn({
         name: "userId",
-        calculate: false,
-        visible: true,
         headerValue: (element: any) => 'User',
-        cellValue: (element: any) => this.getValue(element.userId)
+        cellValue: (element: any) => this.getValue(element.userId),
+        type: "number"
       }),
       new TableColumn({
         name: "id",
-        calculate: false,
-        visible: true,
         headerValue: (element: any) => 'ID',
-        cellValue: (element: any) => this.getValue(element.id)
+        cellValue: (element: any) => this.getValue(element.id),
+        type: "number"
       }),
       new TableColumn({
         name: "title",
-        calculate: false,
-        visible: true,
         headerValue: (element: any) => 'Title',
         cellValue: (element: any) => this.getValue(element.title)
       }),
       new TableColumn({
         name: "completed",
-        calculate: false,
-        visible: true,
         headerValue: (element: any) => 'Complete',
-        cellValue: (element: any) => this.getValue(element.completed)
+        cellValue: (element: any) => this.getValue(element.completed),
+        type: "bool"
       }),
     ];
   }
@@ -96,24 +91,27 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
     return [
       new TableColumn({
         name: "id",
-        calculate: true,
-        visible: true,
+        filterable: false,
         headerValue: (element: any) => 'ID',
         cellValue: (element: any) => this.getValue(element.id)
       }),
       new TableColumn({
         name: "name",
-        calculate: false,
-        visible: true,
         headerValue: (element: any) => 'Name',
         cellValue: (element: any) => this.getValue(element.name)
       }),
       new TableColumn({
         name: "rank",
-        calculate: false,
-        visible: true,
         headerValue: (element: any) => 'Rank',
         cellValue: (element: any) => this.getValue(element.rank)
+      }),
+      new TableColumn({
+        name: "paid",
+        calculate: true,
+        filterable: false,
+        type: 'number',
+        headerValue: (element: any) => '$ Paid',
+        cellValue: (element: any) => this.getValue(element.paid)
       }),
     ];
   }

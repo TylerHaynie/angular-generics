@@ -10,7 +10,7 @@
 
 | Selector    | Output     |
 |:-----------:|:----------:|
-| ag-content  | -          |
+| agc  | -          |
 
 | Input   | Type             | Default Value |
 |:--------|:-----------------|:-------------:|
@@ -18,7 +18,7 @@
 | width   | string \| number | 'inherit'     |
 | gap     | string \| number |               |
 | pad     | string \| number |               |
-| place   | string           | 'start'       |
+| anchor   | string           | 'start'       |
 | flow    | string           | 'row'         |
 | rows    | string \| number | 'auto'        |
 | cols    | string \| number | 'auto'        |
@@ -37,23 +37,23 @@ import { GenericContentModule } from 'angular-generics';
 
 ##### content-example.html
 ```html
-  <ag-content [height]="200" [width]="'100%'" [rows]="1" [cols]="4"
-              [gap]="5" [pad]="5" [place]="'start'" [flow]="row">
+  <agc [height]="200" [width]="'100%'" [rows]="1" [cols]="4"
+              [gap]="5" [pad]="5" [anchor]="'start'" [flow]="row">
 
               <!-- content -->
 
-  </ag-content>
+  </agc>
 ```
 
 ##### another-content-example.html
 ```html
-  <ag-content [height]="'1.8em'" [width]="25" [rows]="'1fr'"
+  <agc [height]="'1.8em'" [width]="25" [rows]="'1fr'"
               [cols]="'1fr 1fr'" [gap]="'5px 10px'" [flow]="col"
-              [pad]="'5px 5px 1px 5px'" [place]="'center center'">
+              [pad]="'5px 5px 1px 5px'" [anchor]="'center center'">
 
               <!-- content -->
 
-  </ag-content>
+  </agc>
 ```
 
 

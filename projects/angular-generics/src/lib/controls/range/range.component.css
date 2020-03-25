@@ -1,8 +1,3 @@
-:root {
-  --rangeIconSize: 22px;
-  --rangeIconColor: #afafaf;
-}
-
 .icon-holder>i {
   font-size: var(--rangeIconSize);
   color: var(--rangeIconColor);

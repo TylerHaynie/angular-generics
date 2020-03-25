@@ -1,30 +1,10 @@
-.top-wrapper {
-  border-bottom: 1px solid #dadada;
-  box-shadow: 1px -4px 6px 0px black;
+.top-wrapper>.generic-element {
+  border-bottom: 1px solid #d4d4d4;
+  box-shadow: 1px -4px 6px 0px #888888;
   z-index: 110;
 }
 
 .top-wrapper img {
-  height: 45px;
-}
-
-.top-wrapper .avatar {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.top-wrapper .notifications {
-  background-color: white;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 66%, rgba(255, 255, 255, 1) 100%);
-}
-
-.top-wrapper .notifications i{
-  color: #ff3100;
-  text-shadow: 0px 0px 2px black;
-}
-
-.top-wrapper .notifications .notify-count {
-  color: black;
-  font-weight: bold;
+  height: 40px;
+  padding: 8px;
 }

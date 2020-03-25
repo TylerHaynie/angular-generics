@@ -9,9 +9,7 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 })
 export class TopNavComponent implements OnInit {
   @Input() logoUrl: string;
-  @Input() avatarUrl: string;
-  @Input() notifyCount: number = 0;
-  @Input() route: string = "/";
+  @Input() route: string = "''";
 
   constructor() { }
 

@@ -1,0 +1,73 @@
+.twrap {
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid rgb(168, 168, 168);
+}
+
+.generic-table {
+  border-collapse: collapse;
+}
+
+.generic-table>thead>.header-row {
+  background: #eaeaea;
+  text-align: left;
+  color: rgb(66, 66, 66);
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #464646;
+}
+
+.generic-table>thead>.header-row>th {
+  padding: 8px 10px 4px 10px;
+  white-space: nowrap;
+  border-bottom: 1px solid #adadad;
+}
+
+.generic-table>tbody>.table-row {
+  height: 28px;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.generic-table>tbody>.table-row:last-of-type {
+  border-bottom: none;
+}
+
+.generic-table>tbody>.table-row>td, .generic-table>tbody>.footer-row>td {
+  padding: 5px 10px 5px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.generic-table>tbody>.table-row:hover {
+  background: #e2f6fb;
+  cursor: pointer;
+}
+
+.generic-table>tbody>.table-row.selected {
+  background: #e2f6fb;
+  cursor: pointer;
+}
+
+.generic-table>tbody>.table-row.selected td {
+  border-bottom: 1px solid rgb(95, 95, 95);
+  border-top: 1px solid rgb(95, 95, 95);
+}
+
+.generic-table>tbody>.footer-row {
+  font-weight: bold;
+  background: #ececec;
+}
+
+.generic-table>tbody>.footer-row>td {
+  border-top: 1px solid #adadad;
+}
+
+.pager-container {
+  background: white;
+  color: rgb(121, 121, 121);
+  font-size: 12px;
+  padding: 15px 5px 5px 5px;
+  border: 1px solid rgb(168, 168, 168);
+  border-top: none;
+}

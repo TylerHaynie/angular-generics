@@ -1,13 +1,3 @@
-:root {
-  --buttonBorderRadius: 5px;
-  --buttonPadding: 5px 8px;
-  --buttonTextShadow: 0px 0px 4px rgb(34, 34, 34);
-  --buttonBackground: linear-gradient(to bottom, #437ab1 0%, #003366 100%);
-  --buttonBorder: 1px solid #465d6c;
-  --buttonDisabledBackground: rgb(95, 95, 95);
-  --buttonDisabledFontColor: rgb(34, 34, 34);
-}
-
 .generic-button {
   box-sizing: border-box;
   text-align: center;

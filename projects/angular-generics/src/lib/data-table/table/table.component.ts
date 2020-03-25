@@ -107,21 +107,20 @@ export class TableComponent {
   }
 
   setSort(dir: SORT_DIRECTION, col: TableColumn) {
-    // if (!this.config.sortBy) {
-    //   this.config.sortBy = new TableSort();
-    // }
+    if (col != null) {
+      this.config.sortBy = new TableSort();
+      console.log(`--- Sorting Column ---`, this.config.sortBy);
 
-    console.log(`--- Sorting Column ---`, this.config.sortBy);
+      this.config.sortBy.direction = dir;
+      this.config.sortBy.columnName = col.name;
 
-    this.config.sortBy.direction = dir;
-    this.config.sortBy.columnName = col.name;
+      if (this.isDebug) {
+        console.log(`--- Sort Direction: ${this.config.sortBy.direction}`);
+        console.log(`--- Sort Field: ${this.config.sortBy.columnName}`);
+      }
 
-    if (this.isDebug) {
-      console.log(`--- Sort Direction: ${this.config.sortBy.direction}`);
-      console.log(`--- Sort Field: ${this.config.sortBy.columnName}`);
+      this.doSearch();
     }
-
-    this.doSearch();
   }
 
   applySort(data: any[], sort: TableSort): any[] {

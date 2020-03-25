@@ -4,7 +4,7 @@
       <thead>
         <tr class="header-row">
           <ng-container *ngFor="let column of config.columns">
-            <th (click)="setSort(column)" *ngIf="column && column.visible">
+            <th class="pointer" (click)="setSort(column)" *ngIf="column && column.visible">
               {{ column ? column.headerValue() : ''}}
             </th>
           </ng-container>
@@ -22,6 +22,7 @@
             </ng-container>
           </tr>
         </ng-container>
+
         <tr *ngIf="showFooter" class="footer-row">
           <ng-container *ngFor="let column of config.columns">
             <td *ngIf="column && column.visible">
@@ -30,6 +31,7 @@
           </ng-container>
         </tr>
       </tbody>
+
     </table>
   </agc>
   <agc *ngIf="showPager" class="pager-container">

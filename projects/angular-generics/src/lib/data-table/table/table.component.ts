@@ -106,12 +106,13 @@ export class TableComponent {
     }, 1)
   }
 
-  setSort(dir: SORT_DIRECTION, col: TableColumn) {
+  setSort(col: TableColumn) {
     if (col != null) {
-      this.config.sortBy = new TableSort();
+      // this.config.sortBy = new TableSort();
       console.log(`--- Sorting Column ---`, this.config.sortBy);
 
-      this.config.sortBy.direction = dir;
+      var dir = this.config.sortBy.direction;
+      this.config.sortBy.direction = dir == SORT_DIRECTION.ASC ? SORT_DIRECTION.DSC : SORT_DIRECTION.ASC;
       this.config.sortBy.columnName = col.name;
 
       if (this.isDebug) {

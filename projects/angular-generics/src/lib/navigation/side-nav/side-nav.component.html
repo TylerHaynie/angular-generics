@@ -13,7 +13,7 @@
     </agc>
 
     <agc class="menu-items" [height]="'100%'">
-      <agc *ngFor="let item of menuItems" class="menu-item open"
+      <agc *ngFor="let item of menuItems" class="menu-item"
            (mouseenter)="hoveredMenu=item.name"
            (mouseleave)="hoveredMenu=null" (click)="menuItemClicked(item)" (click)="openedMenu = item.name"
            [ngClass]="(hoveredMenu == item.name || openedMenu == item.name) ? 'open' : 'closed'">

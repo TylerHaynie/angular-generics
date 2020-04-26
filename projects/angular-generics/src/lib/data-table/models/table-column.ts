@@ -9,13 +9,15 @@ export class TableColumn {
   alignHeader: 'left' | 'center' | 'right' = 'left';
   alignColumn: 'left' | 'center' | 'right' = 'left';
 
-  headerValue: (element: any) => any;
-  cellValue: (element: any) => any;
-  footerValue: (element: any) => any;
+  getHeader: (element: any) => any;
+  getCell: (element: any) => any;
+  getFooter: (element: any) => any;
 
-  filterable: boolean = true;
+  canFilter: boolean = true;
+  canEdit: boolean = true;
+
   filter: ColumnFilter = new ColumnFilter();
-  type: 'string' | 'number' | 'date' | 'option' | 'bool' = 'string';
+  dataType: 'string' | 'number' | 'date' | 'option' | 'bool' = 'string';
 
   // used to carry any custom data that might be needed
   meta: any;

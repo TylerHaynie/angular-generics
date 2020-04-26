@@ -7,7 +7,7 @@ import { GenericAlertService } from './alert.service';
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css'],
   providers: [GenericAlertService],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class GenericAlertComponent {
   alerts: GenericAlert[] = [];

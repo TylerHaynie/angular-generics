@@ -1,6 +1,6 @@
 <ag-input [label]="label" [labelPos]="labelPos" [disabled]="disabled" [required]="required">
 
-  <input [(ngModel)]=" value" [disabled]="disabled" [attr.multiple]="multiple ? '' : null"
-          [attr.required]="required ? '' : null" type="file" [placeholder]="placeholder" />
+  <input [(ngModel)]="value" [disabled]="disabled" [attr.multiple]="multiple ? '' : null"
+          [attr.required]="required ? '' : null" [type]="'file'" [placeholder]="placeholder" />
 
 </ag-input>

@@ -6,7 +6,7 @@ import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css',
     '../../../../styles/base.css'],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class InputComponent {
   @Input() disabled: boolean;

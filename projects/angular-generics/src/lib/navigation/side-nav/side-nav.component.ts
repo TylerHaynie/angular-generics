@@ -7,7 +7,7 @@ import { MenuItem } from '../models/menu-item';
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.css',
     '../../../../styles/base.css'],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class SideNavComponent implements OnInit {
   @Input() width: string | number = 200;

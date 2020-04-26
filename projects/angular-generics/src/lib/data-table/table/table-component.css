@@ -1,3 +1,15 @@
+table .generic-input{
+  overflow: hidden;
+
+}
+
+table .generic-input input, table .generic-input textarea, table .generic-input select {
+  height: unset;
+  min-width: 30px;
+
+  overflow: hidden;
+}
+
 .twrap {
   overflow-y: auto;
   overflow-x: auto;

@@ -8,10 +8,10 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
   styleUrls: ['./check.component.css',
     '../../../../styles/base.css'],
   providers: [ValueAccessProvider(CheckComponent)],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class CheckComponent extends GenericInputAccessor implements IGenericInput, OnChanges {
-  @Input() type: string;
+  @Input() inputType: string;
   @Input() disabled: boolean;
   @Input() required: boolean;
   @Input() label: string;

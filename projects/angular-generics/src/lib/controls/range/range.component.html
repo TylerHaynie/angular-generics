@@ -2,20 +2,20 @@
   <agc [gap]="10" [cols]="'1fr 1fr'">
 
     <agc [cols]="'1fr auto'">
-      <ag-text [(ngModel)]="startValue" [type]="type"
+      <ag-text [(ngModel)]="startValue" [inputType]="inputType"
                [required]="required" [disabled]="disabled" (change)="rangeChange()"></ag-text>
       <agc class="icon-holder" [anchor]="'end'" [height]="'100%'">
         <!-- <i class="fas"
-           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i> -->
+           [ngClass]="{'fa-hashtag': inputType=='number', 'fa-calendar-alt': inputType=='date'}"> </i> -->
       </agc>
     </agc>
 
     <agc [cols]="'1fr auto'">
-      <ag-text [(ngModel)]="endValue" [type]="type"
+      <ag-text [(ngModel)]="endValue" [inputType]="inputType"
                [required]="required" [disabled]="disabled" (change)="rangeChange()"></ag-text>
       <agc class="icon-holder" [anchor]="'end'" [height]="'100%'">
         <!-- <i class="fas"
-           [ngClass]="{'fa-hashtag': type=='number', 'fa-calendar-alt': type=='date'}"> </i> -->
+           [ngClass]="{'fa-hashtag': inputType=='number', 'fa-calendar-alt': inputType=='date'}"> </i> -->
       </agc>
     </agc>
 

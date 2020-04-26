@@ -1,5 +1,5 @@
 export interface IGenericInput {
-  type: string;
+  inputType: string;
   disabled: boolean;
   required: boolean;
   label: string;

@@ -5,7 +5,7 @@ import { ValueTypeHelpers } from '../../controls/generic-control/value-type-help
   selector: 'agc',
   templateUrl: './content.component.html',
   styleUrls: ['../../../../styles/base.css'],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class ContentComponent {
   @Input() height: string | number;

@@ -7,7 +7,7 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
   templateUrl: './select.component.html',
   styleUrls: ['../../../../styles/base.css'],
   providers: [ValueAccessProvider(SelectComponent)],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class SelectComponent extends GenericInputAccessor implements IGenericInput {
   // implementation
@@ -18,7 +18,7 @@ export class SelectComponent extends GenericInputAccessor implements IGenericInp
   @Input() labelPos: 'top' | 'right' | 'bottom' | 'left' = 'top';
   @Input() placeholder: string;
 
-  @Input() type: string;
+  @Input() inputType: string;
 
   // component specific
   @Input() display: string;

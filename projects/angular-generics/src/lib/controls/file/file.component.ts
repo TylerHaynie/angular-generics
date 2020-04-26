@@ -7,11 +7,11 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
   templateUrl: './file.component.html',
   styleUrls: ['../../../../styles/base.css'],
   providers: [ValueAccessProvider(FileComponent)],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class FileComponent extends GenericInputAccessor implements IGenericInput {
   // implementation
-  @Input() type: string;
+  @Input() inputType: string;
   @Input() disabled: boolean;
   @Input() required: boolean;
   @Input() label: string;

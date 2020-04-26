@@ -2,10 +2,10 @@ import { forwardRef, Provider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValueTypeHelpers } from './value-type-helpers';
 
-export function ValueAccessProvider(type: any): Provider {
+export function ValueAccessProvider(elemType: any): Provider {
   return {
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => type),
+    useExisting: forwardRef(() => elemType),
     multi: true,
   };
 }

@@ -7,12 +7,12 @@
     </agc>
 
     <agc [rows]="'1fr auto'">
-      <ag-text [label]="'Number'" [type]="'number'" [(ngModel)]="numberValue" [required]="true"></ag-text>
+      <ag-text [label]="'Number'" [inputType]="'number'" [(ngModel)]="numberValue" [required]="true"></ag-text>
       <div>{{numberValue}}</div>
     </agc>
 
     <agc [rows]="'1fr auto'">
-      <ag-text [label]="'Date'" [type]="'date'" [(ngModel)]="dateValue"></ag-text>
+      <ag-text [label]="'Date'" [inputType]="'date'" [(ngModel)]="dateValue"></ag-text>
       <div>{{dateValue | date:'medium'}}</div>
     </agc>
 
@@ -31,8 +31,8 @@
   </agc>
 
   <agc [gap]="10">
-    <ag-range [label]="'Number Range'" [type]="'number'"></ag-range>
-    <ag-range [label]="'Date Range'" [type]="'date'"></ag-range>
+    <ag-range [label]="'Number Range'" [inputType]="'number'"></ag-range>
+    <ag-range [label]="'Date Range'" [inputType]="'date'"></ag-range>
   </agc>
 
   <agc [gap]="10" [cols]="2">

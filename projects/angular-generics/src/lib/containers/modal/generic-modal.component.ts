@@ -6,7 +6,7 @@ import { Component, Input, TemplateRef, Output, EventEmitter, ViewEncapsulation 
   styleUrls: [
     './generic-modal.component.css',
     '../../../../styles/base.css'],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class GenericModalComponent {
   @Input() footer: TemplateRef<any>;

@@ -9,7 +9,7 @@ import { ValueAccessProvider } from '../../controls/generic-control/generic-inpu
   styleUrls: ['./table-filter.component.scss',
   '../../../../styles/base.css'],
   providers: [ValueAccessProvider(TableFilterComponent)],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class TableFilterComponent {
   @Input() config: TableConfig;

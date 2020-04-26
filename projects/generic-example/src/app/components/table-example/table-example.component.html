@@ -9,6 +9,10 @@
     <agc *ngIf="asyncRowOutput" [cols]="'auto 1fr'">
       <b>Selected</b> {{asyncRowOutput}}
     </agc>
+
+    <agc *ngIf="getAsyncEdits()"  [cols]="'auto 1fr'">
+      <b>Edits</b> {{getAsyncEdits()}}
+    </agc>
   </agc>
 
   <agc [gap]="5">
@@ -20,6 +24,10 @@
 
     <agc *ngIf="staticRowOutput" [cols]="'auto 1fr'">
       <b>Selected</b> {{staticRowOutput}}
+    </agc>
+
+    <agc *ngIf="getStaticEdits()"  [cols]="'auto 1fr'">
+      <b>Edits</b> {{getStaticEdits()}}
     </agc>
   </agc>
 

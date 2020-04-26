@@ -7,7 +7,7 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
   templateUrl: './text.component.html',
   styleUrls: ['../../../../styles/base.css'],
   providers: [ValueAccessProvider(TextComponent)],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class TextComponent extends GenericInputAccessor implements IGenericInput {
   // implementation
@@ -18,7 +18,7 @@ export class TextComponent extends GenericInputAccessor implements IGenericInput
   @Input() labelPos: 'top' | 'right' | 'bottom' | 'left' = 'top';
   @Input() placeholder: string;
 
-  @Input() type: string = 'text';
+  @Input() inputType: string = 'text';
   @Input() subtype: string;
 
   // component specific

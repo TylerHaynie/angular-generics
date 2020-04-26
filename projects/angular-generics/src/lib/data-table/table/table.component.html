@@ -5,19 +5,51 @@
         <tr class="header-row">
           <ng-container *ngFor="let column of config.columns">
             <th class="pointer" (click)="setSort(column)" *ngIf="column && column.visible">
-              {{ column ? column.headerValue() : ''}}
+              {{ column ? column.getHeader() : ''}}
             </th>
           </ng-container>
         </tr>
       </thead>
 
       <tbody>
-        <ng-container *ngFor="let row of dataSource.data | async">
-          <tr class="table-row" [ngClass]="{'selected': row == selectedItem}"
-              (click)="clickedRow(row)">
+
+        <ng-container *ngFor="let row of dataSource.data | async; index as i">
+          <tr class="table-row" [ngClass]="{'selected': row == selectedRow}" (click)="clickedRow(row)">
             <ng-container *ngFor="let column of config.columns">
               <td *ngIf="column && column.visible">
-                {{row ? column.cellValue(row) : ''}}
+
+                <ng-container *ngIf="editing && column.canEdit && row == selectedRow;else displayCell">
+                  <ng-container [ngSwitch]="column.dataType">
+                    <ng-container *ngSwitchCase="'bool'">
+                      <!-- <ag-check name="column.name" [(ngModel)]="selectedRow[column.name]"></ag-check> -->
+                      <input name="column.name" type="checkbox" [(ngModel)]="selectedRow[column.name]"
+                             (change)="hasEdits = true" (focusout)="updateRow(row)">
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'date'">
+                      <ag-text name="column.name" [inputType]="'date'" [(ngModel)]="selectedRow[column.name]"
+                               (change)="hasEdits = true" (focusout)="updateRow(row)"> </ag-text>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'number'">
+                      <ag-text name="column.name" [inputType]="'number'" (change)="hasEdits = true" (focusout)="updateRow(row)"
+                               [(ngModel)]="selectedRow[column.name]">
+                      </ag-text>
+                    </ng-container>
+                    <!-- <ng-container *ngSwitchCase="'option'">
+                      <ag-select name="column.name" [(ngModel)]="selectedRow[column.name]"
+                      (change)="hasEdits = true" (focusout)="updateRow(row)"></ag-select>
+                    </ng-container> -->
+                    <ng-container *ngSwitchCase="'string'">
+                      <ag-text name="column.name" [(ngModel)]="selectedRow[column.name]"
+                      (change)="hasEdits = true" (focusout)="updateRow(row)"> </ag-text>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+
+                <ng-template #displayCell>
+                  {{row ? column.getCell(row) : ''}}
+                </ng-template>
+
+
               </td>
             </ng-container>
           </tr>

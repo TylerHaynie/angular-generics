@@ -13,28 +13,28 @@
     <agc class="group-content" [gap]="10" [pad]="10">
       <agc class="filter-container" [cols]="4" [gap]="10" [pad]="'5px 0 0 0'">
         <ng-container *ngFor="let column of config.columns">
-          <ng-container *ngIf="column.filterable">
+          <ng-container *ngIf="column.canFilter">
 
-            <ng-container [ngSwitch]="column.type">
+            <ng-container [ngSwitch]="column.dataType">
               <ng-container *ngSwitchCase="'string'">
-                <ag-text name="column.name" [label]="column.headerValue()"  [(ngModel)]="column.filter.value"></ag-text>
+                <ag-text name="column.name" [label]="column.getHeader()"  [(ngModel)]="column.filter.value"></ag-text>
               </ng-container>
               <ng-container *ngSwitchCase="'bool'">
-                <ag-check [(ngModel)]="column.filter.value">{{column.headerValue()}}</ag-check>
+                <ag-check name="column.name" [(ngModel)]="column.filter.value">{{column.getHeader()}}</ag-check>
               </ng-container>
               <ng-container *ngSwitchCase="'date'">
-                <ag-text name="column.name" [type]="'date'" [label]="column.headerValue()"
+                <ag-text name="column.name" [inputType]="'date'" [label]="column.getHeader()"
                          [(ngModel)]="column.filter.value"></ag-text>
               </ng-container>
               <ng-container *ngSwitchCase="'number'">
-                <ag-text name="column.name" [type]="'number'" [label]="column.headerValue()"
+                <ag-text name="column.name" [inputType]="'number'" [label]="column.getHeader()"
                          [(ngModel)]="column.filter.value"></ag-text>
               </ng-container>
               <ng-container *ngSwitchCase="'option'">
-                <ag-select [label]="column.headerValue()"></ag-select>
+                <ag-select [label]="column.getHeader()"></ag-select>
               </ng-container>
               <ng-container *ngSwitchDefault>
-                <ag-text name="column.name" [label]="column.headerValue()" [(ngModel)]="column.filter.value"></ag-text>
+                <ag-text name="column.name" [label]="column.getHeader()" [(ngModel)]="column.filter.value"></ag-text>
               </ng-container>
             </ng-container>
 

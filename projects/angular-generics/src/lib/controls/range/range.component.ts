@@ -8,7 +8,7 @@ import { IGenericInput } from '../generic-control/generic-input.interface';
   styleUrls: ['./range.component.css',
     '../../../../styles/base.css'],
   providers: [ValueAccessProvider(RangeComponent)],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class RangeComponent extends GenericInputAccessor implements IGenericInput {
   // implementation
@@ -19,7 +19,7 @@ export class RangeComponent extends GenericInputAccessor implements IGenericInpu
   @Input() labelPos: 'top' | 'right' | 'bottom' | 'left' = 'top';
   @Input() placeholder: string;
 
-  @Input() type: string = 'number';
+  @Input() inputType: string = 'number';
 
   // component specific
   startValue: any;

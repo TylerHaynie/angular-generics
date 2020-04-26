@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output } from "@angular/core";
+import { Component, Input, EventEmitter, Output, ViewEncapsulation, HostListener, ElementRef } from "@angular/core";
 import { DecimalPipe } from '@angular/common';
 import { TableDataSource } from './table-data-source';
 import { map, reduce } from 'rxjs/operators';
@@ -12,6 +12,7 @@ import { TablePage } from '../models/table-page';
   templateUrl: "./table.component.html",
   styleUrls: ["./table-component.css",
     '../../../../styles/base.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TableComponent {
   @Input() showPager: boolean = true;
@@ -22,6 +23,7 @@ export class TableComponent {
   @Output() search: EventEmitter<TableConfig>;
   @Output() rowSelect: EventEmitter<any>;
 
+  @Input() canEdit: boolean = false;
   @Input() isDebug: boolean = false;
 
   public isGrouped: boolean = false;
@@ -35,13 +37,36 @@ export class TableComponent {
   private data: any[];
   private decimalpipe = new DecimalPipe('en-us');
 
-  selectedItem: any;
+  selectedRow: any;
+  editing: boolean = false;
+  hasEdits: boolean = false;
 
-  constructor() {
+  private _updatedRows: any[] = [];
+  public get rowUpdates(): any[] {
+    return this._updatedRows;
+  }
+
+  constructor(private elemRef: ElementRef) {
     this.dataSource = new TableDataSource();
     this.search = new EventEmitter<null>();
     this.configChange = new EventEmitter<TableConfig>();
     this.rowSelect = new EventEmitter<any>();
+  }
+
+  @HostListener('document:click')
+  clickout() {
+    if(this.elemRef.nativeElement.contains(event.target)) {
+      // this.text = "clicked inside";
+    } else {
+      this.editing = false;
+    }
+  }
+
+  @HostListener('click')
+  clickInside() {
+    if(this.canEdit){
+      this.editing = true;
+    }
   }
 
   doSearch() {
@@ -49,16 +74,41 @@ export class TableComponent {
     this.search.emit();
   }
 
-  clickedRow(row: any) {
-    if (this.isDebug) {
-      console.log("-- selected row --", row);
-    }
+  updateRow(row: any){
+    if (this.hasEdits) {
+      var index = this._updatedRows.indexOf(this.selectedRow);
 
-    this.selectedItem = row;
-    this.rowSelect.emit(this.selectedItem);
+      if(this.isDebug){
+        console.log("Edited row exists at index: ", index);
+      }
+
+      if (index >= 0) {
+        this._updatedRows[index] = this.selectedRow;
+      }
+      else {
+        this._updatedRows.push(this.selectedRow);
+      }
+    }
   }
 
+  clickedRow(row: any) {
+    if (this.selectedRow == row && this.editing) { return; }
+
+    this.selectedRow = row;
+
+    if (this.isDebug) {
+      console.log("-- Selected Row --", this.selectedRow);
+      console.log("-- Updated Rows --", this._updatedRows);
+    }
+
+    this.rowSelect.emit(this.selectedRow);
+  }
+
+  // TODO: refactor this mess
   update(data: any[]) {
+    this._updatedRows = [];
+    this.hasEdits = false;
+
     // setTimeout() will stall the table update
     // while children components run through their first lifecycle hooks
     setTimeout(() => {
@@ -76,8 +126,6 @@ export class TableComponent {
         this.config.page.recordCount = this.data.length;
 
         if ((data != null && this.config.page.take > 0) && (this.data.length > this.config.page.take)) {
-          // if (this.data.length > this.config.page.take && data != null) {
-
           if (this.isDebug) {
             console.log("-- [Data Stored In Memory] --");
           }
@@ -108,7 +156,6 @@ export class TableComponent {
 
   setSort(col: TableColumn) {
     if (col != null) {
-      // this.config.sortBy = new TableSort();
       console.log(`--- Sorting Column ---`, this.config.sortBy);
 
       var dir = this.config.sortBy.direction;

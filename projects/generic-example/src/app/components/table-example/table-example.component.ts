@@ -3,6 +3,26 @@ import { TableComponent, TableColumn, TableConfig, ColumnFilter } from 'angular-
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/internal/operators/tap';
 
+class SData {
+  id: number;
+  name: string;
+  rank: string;
+  paid: number;
+
+  constructor() { }
+}
+
+class AData {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+
+  constructor() { }
+}
+
+
+
 @Component({
   selector: 'app-table-example',
   templateUrl: './table-example.component.html'
@@ -21,10 +41,13 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
   staticRowOutput: string;
   asyncRowOutput: string;
 
+  staticUpdateOutput: string;
+  asyncUpdateOutput: string;
+
   showFilter: boolean = false;
 
-  staticData: { id: number, name: string, rank: string, paid: number }[] = [
-    { id: 1, name: 'Tom', rank: '12A', paid: 5412 },
+  staticData: SData[] = [
+    { id: 1, name: 'Tom', rank: '12A', paid: 5412, },
     { id: 2, name: 'Steve', rank: '12A', paid: 885 },
     { id: 3, name: 'Roger', rank: '12A', paid: 2245 },
     { id: 4, name: 'Tasha', rank: '12A', paid: 951 },
@@ -50,7 +73,7 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
   updateAsyncData() {
     this.http.get(this.tableSource)
       .toPromise()
-      .then((d: any[]) => {
+      .then((d: AData[]) => {
         this.asyncTable.update(d);
       });
   }
@@ -62,56 +85,73 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
   setAsyncColumns(): TableColumn[] {
     return [
       new TableColumn({
-        name: "userId",
-        headerValue: (element: any) => 'User',
-        cellValue: (element: any) => this.getValue(element.userId),
-        type: "number"
+        name: "id",
+        canEdit: false,
+        getHeader: (element: AData) => 'ID',
+        getCell: (element: AData) => element.id,
+        dataType: "number"
       }),
       new TableColumn({
-        name: "id",
-        headerValue: (element: any) => 'ID',
-        cellValue: (element: any) => this.getValue(element.id),
-        type: "number"
+        name: "userId",
+        getHeader: (element: AData) => 'User',
+        getCell: (element: AData) => element.userId,
+        dataType: "number"
       }),
       new TableColumn({
         name: "title",
-        headerValue: (element: any) => 'Title',
-        cellValue: (element: any) => this.getValue(element.title)
+        getHeader: (element: AData) => 'Title',
+        getCell: (element: AData) => element.title
       }),
       new TableColumn({
         name: "completed",
-        headerValue: (element: any) => 'Complete',
-        cellValue: (element: any) => this.getValue(element.completed),
-        type: "bool"
+        getHeader: (element: AData) => 'Complete',
+        getCell: (element: AData) => element.completed,
+        dataType: "bool"
       }),
     ];
+  }
+
+  getAsyncEdits() {
+    if (this.asyncTable && this.asyncTable.rowUpdates.length > 0) {
+      return JSON.stringify(this.asyncTable.rowUpdates, null, 5);
+    }
+  }
+
+  getStaticEdits() {
+    if (this.staticTable && this.staticTable.rowUpdates.length > 0) {
+      return JSON.stringify(this.staticTable.rowUpdates, null, 5);
+    }
   }
 
   setStaticColumns(): TableColumn[] {
     return [
       new TableColumn({
         name: "id",
-        filterable: false,
-        headerValue: (element: any) => 'ID',
-        cellValue: (element: any) => this.getValue(element.id)
+        dataType: 'number',
+        canFilter: false,
+        canEdit: false,
+        getHeader: (element: any) => 'ID',
+        getCell: (element: any) => this.getValue(element.id)
       }),
       new TableColumn({
         name: "name",
-        headerValue: (element: any) => 'Name',
-        cellValue: (element: any) => this.getValue(element.name)
+        dataType: 'string',
+        getHeader: (element: any) => 'Name',
+        getCell: (element: any) => this.getValue(element.name)
       }),
       new TableColumn({
         name: "rank",
-        headerValue: (element: any) => 'Rank',
-        cellValue: (element: any) => this.getValue(element.rank)
+        dataType: 'string',
+        getHeader: (element: any) => 'Rank',
+        getCell: (element: any) => this.getValue(element.rank)
       }),
       new TableColumn({
         name: "paid",
         calculate: true,
-        filterable: false,
-        type: 'number',
-        headerValue: (element: any) => '$ Paid',
-        cellValue: (element: any) => this.getValue(element.paid)
+        canFilter: false,
+        dataType: 'number',
+        getHeader: (element: any) => '$ Paid',
+        getCell: (element: any) => this.getValue(element.paid)
       }),
     ];
   }
@@ -134,10 +174,10 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
     this.staticRowOutput = JSON.stringify(this.selectedStaticRow);
   }
 
-  private getValue(elemValue: any): string {
+  private getValue(elemValue: any): any {
     if (elemValue == null || elemValue == undefined) {
       return '';
     }
-    return `${elemValue}`;
+    return elemValue;
   }
 }

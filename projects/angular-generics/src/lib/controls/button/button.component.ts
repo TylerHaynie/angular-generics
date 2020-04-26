@@ -6,7 +6,7 @@ import { ValueTypeHelpers } from '../generic-control/value-type-helpers';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css',
   '../../../../styles/base.css'],
-  encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent {
   @Input() width: number | string = 'inherit';

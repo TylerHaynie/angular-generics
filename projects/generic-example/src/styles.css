@@ -9,7 +9,11 @@ body {
   height: 100vh;
 }
 
-body, .site-wrapper, .main-content, .right-container, .app-content {
+body,
+.site-wrapper,
+.main-content,
+.right-container,
+.app-content {
   overflow: hidden;
 }
 

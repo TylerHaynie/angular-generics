@@ -6,20 +6,16 @@ import { GenericAlertService, GenericAlert } from 'angular-generics';
   templateUrl: './alert-example.component.html',
   styleUrls: ['./alert-example.component.css']
 })
-export class AlertExampleComponent implements OnInit {
+export class AlertExampleComponent{
 
   constructor(private alertService: GenericAlertService) { }
 
-  ngOnInit() {
-  }
-
-  showAlert(timed: boolean = false) {
+  addAlert(timed: boolean = false) {
     let alert = new GenericAlert();
     alert.message = "You have an alert!";
-    alert.timeout = 2000;
+    if (timed)
+      alert.timeout = 2000;
 
     this.alertService.addAlert(alert);
   }
-
-
 }

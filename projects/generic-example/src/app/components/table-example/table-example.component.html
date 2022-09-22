@@ -1,9 +1,10 @@
 <agc [gap]="30" [pad]="5">
+  <!-- Async Table -->
   <agc [gap]="5">
     <ag-table-filter [(config)]="asyncConfig" (search)="doAsyncSearch()"></ag-table-filter>
 
-    <ag-table #asyncTable [isDebug]="true" [(config)]="asyncConfig"
-              (search)="updateAsyncData($event)" (rowSelect)="asyncRowSelected($event)">
+    <ag-table #asyncTable [isDebug]="false" [(config)]="asyncConfig"
+              (search)="updateAsyncData()" (rowSelect)="asyncRowSelected($event)">
     </ag-table>
 
     <agc *ngIf="asyncRowOutput" [cols]="'auto 1fr'">
@@ -15,11 +16,12 @@
     </agc>
   </agc>
 
+  <!-- Static Table -->
   <agc [gap]="5">
     <ag-table-filter [(config)]="staticConfig" (search)="doStaticSearch()"></ag-table-filter>
 
-    <ag-table #staticTable [isDebug]="true" [(config)]="staticConfig"
-              (search)="updateStaticData($event)" (rowSelect)="staticRowSelected($event)">
+    <ag-table #staticTable [isDebug]="false" [(config)]="staticConfig"
+              (search)="updateStaticData()" (rowSelect)="staticRowSelected($event)">
     </ag-table>
 
     <agc *ngIf="staticRowOutput" [cols]="'auto 1fr'">

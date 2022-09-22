@@ -6,19 +6,18 @@ import { GenericAlertService } from './alert.service';
   selector: 'ag-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css'],
-  providers: [GenericAlertService],
-    encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class GenericAlertComponent {
   alerts: GenericAlert[] = [];
 
-  constructor(alertService: GenericAlertService) {
+  constructor(private alertService: GenericAlertService) {
 
-    alertService.alertAdded$.subscribe({
+    this.alertService.alertAdded$.subscribe({
       next: (alert: GenericAlert) => this.alertAdded(alert),
     });
 
-    alertService.alertClosed$.subscribe({
+    this.alertService.alertClosed$.subscribe({
       next: (alert: GenericAlert) => this.alertClosed(alert),
     });
   }

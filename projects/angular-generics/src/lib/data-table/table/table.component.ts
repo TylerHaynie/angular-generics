@@ -55,7 +55,7 @@ export class TableComponent {
 
   @HostListener('document:click')
   clickout() {
-    if(this.elemRef.nativeElement.contains(event.target)) {
+    if (this.elemRef.nativeElement.contains(event.target)) {
       // this.text = "clicked inside";
     } else {
       this.editing = false;
@@ -64,7 +64,7 @@ export class TableComponent {
 
   @HostListener('click')
   clickInside() {
-    if(this.canEdit){
+    if (this.canEdit) {
       this.editing = true;
     }
   }
@@ -74,11 +74,11 @@ export class TableComponent {
     this.search.emit();
   }
 
-  updateRow(row: any){
+  updateRow(row: any) {
     if (this.hasEdits) {
       var index = this._updatedRows.indexOf(this.selectedRow);
 
-      if(this.isDebug){
+      if (this.isDebug) {
         console.log("Edited row exists at index: ", index);
       }
 
@@ -156,7 +156,9 @@ export class TableComponent {
 
   setSort(col: TableColumn) {
     if (col != null) {
-      console.log(`--- Sorting Column ---`, this.config.sortBy);
+      if (this.isDebug) {
+        console.log(`--- Sorting Column ---`, this.config.sortBy);
+      }
 
       var dir = this.config.sortBy.direction;
       this.config.sortBy.direction = dir == SORT_DIRECTION.ASC ? SORT_DIRECTION.DSC : SORT_DIRECTION.ASC;
@@ -173,7 +175,9 @@ export class TableComponent {
 
   applySort(data: any[], sort: TableSort): any[] {
     if (this.config.sortBy && this.config.sortBy.columnName) {
-      console.log(`--- Applying Sort ---`, this.config.sortBy);
+      if (this.isDebug) {
+        console.log(`--- Applying Sort ---`, this.config.sortBy);
+      }
 
       return data.sort((n1, n2) => {
         if (n1[sort.columnName] > n2[sort.columnName]) {
@@ -252,7 +256,9 @@ export class TableComponent {
       grouped[key].push(d);
     });
 
-    console.log('Grouped Data', grouped);
+    if (this.isDebug) {
+      console.log('Grouped Data', grouped);
+    }
 
     return grouped;
   }

@@ -1,15 +1,12 @@
 import { Component, ViewChild, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { TableComponent, TableColumn, TableConfig, ColumnFilter } from 'angular-generics';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/internal/operators/tap';
 
 class SData {
   id: number;
   name: string;
   rank: string;
   paid: number;
-
-  constructor() { }
 }
 
 class AData {
@@ -17,11 +14,7 @@ class AData {
   id: number;
   title: string;
   completed: boolean;
-
-  constructor() { }
 }
-
-
 
 @Component({
   selector: 'app-table-example',
@@ -157,21 +150,23 @@ export class TableExampleComponent implements OnInit, AfterViewInit {
   }
 
   doAsyncSearch() {
-    console.log(this.asyncConfig);
+    console.log('Table config updated with search params', this.asyncConfig);
+    //TODO: Server request with new config (contains search params)
   }
 
-  doStraticSearch() {
-    console.log(this.staticConfig);
+  doStaticSearch() {
+    console.log('Table config updated with search params', this.staticConfig);
+    //TODO: filter in-memory data with new config (contains search params)
   }
 
   asyncRowSelected(rowData: any) {
     this.selectedAsyncRow = rowData;
-    this.asyncRowOutput = JSON.stringify(rowData, null, 2);
+    this.asyncRowOutput = JSON.stringify(rowData, null, 2); // just for display purposes
   }
 
   staticRowSelected(rowData: any) {
     this.selectedStaticRow = rowData;
-    this.staticRowOutput = JSON.stringify(this.selectedStaticRow);
+    this.staticRowOutput = JSON.stringify(this.selectedStaticRow); // just for display purposes
   }
 
   private getValue(elemValue: any): any {

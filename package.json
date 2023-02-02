@@ -52,7 +52,7 @@
     "ng-packagr": "^9.0.0",
     "tsickle": "^0.38.0",
     "@angular-devkit/build-angular": "~0.900.4",
-    "@angular/cli": "~9.0.4",
+    "@angular/cli": "~9.1.0",
     "@angular/compiler-cli": "~9.0.4",
     "@angular/language-service": "~9.0.4",
     "@types/node": "^12.11.1",
